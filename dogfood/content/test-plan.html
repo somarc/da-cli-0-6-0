@@ -1,0 +1,29 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <h1>The test plan</h1>
+      <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
+    </div>
+    <div>
+      <h2>What "done" means for a check</h2>
+      <p>A check passes only when it asserts an <strong>observable state transition</strong> and proves it publicly — the DA source changed, the preview activated, the live URL renders the expected content, the route classifies as expected, the job reached a terminal state. Retrying a command until it exits zero is not evidence. Counting commands is not a score.</p>
+    </div>
+    <div>
+      <h2>The waves</h2>
+      <ul>
+        <li><strong>Wave 1 — Foundation &amp; core loop.</strong> Config, status, resolve, content CRUD, preview, publish, site health, freshness, local serving. The end-to-end author-then-prove loop. (In progress — this very page is part of it.)</li>
+        <li><strong>Wave 2 — Blocks, audits, design.</strong> Pages built from real blocks, with contract and semantics audits proving the block code resolves on the served branch.</li>
+        <li><strong>Wave 3 — Structured data &amp; routes.</strong> A DA sheet, nested pages, and deliberate route cases: content-owned, code-owned, hybrid, orphan, and probe-failed. Index configured through the Configuration Service.</li>
+        <li><strong>Wave 4 — Coordination, durability, migration.</strong> Pipelines, durable jobs that survive interruption, and a migration with a known expected result.</li>
+        <li><strong>Wave 5 — Failure &amp; recovery.</strong> Deliberately induced failures — source drift, missing assets, stale delivery, protected routes, cancelled jobs — each recognized, contained, and recovered.</li>
+        <li><strong>Wave 6 — Lifecycle &amp; conditional.</strong> Auth, skills, a second site created from scratch, and credentialed integrations where available.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>The gate</h2>
+      <p>When every required surface is green with stored evidence, the construction pipeline regenerates this site, and provenance verifies — then, and only then, da-cli 0.6.0 is cut.</p>
+    </div>
+  </main>
+  <footer></footer>
+</body>

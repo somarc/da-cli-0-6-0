@@ -3,8 +3,21 @@
   <main>
     <div>
       <h1>da-cli 0.6.0 — Dogfood Demonstration Site</h1>
-      <p>This site is constructed by <code>da</code> commands and pipelines. It is the certifying dogfood run for the da-cli 0.6.0 release — the release ships when this site is provably cut.</p>
-      <p>Each page and block here is produced by the CLI and recorded in the construction pipeline, so the site can be regenerated and its provenance verified rather than taken on faith.</p>
+      <p>This site is not a template, and it was not authored by hand. Every page you are reading was constructed by the <code>da</code> command-line tool and can be regenerated from a checked-in pipeline. It is the certifying dogfood run for the da-cli 0.6.0 release.</p>
+      <p><strong>The rule is simple: 0.6.0 ships only when this site is provably cut.</strong> Not when the tests pass in isolation — when the tool has demonstrably built and operated a real Edge Delivery site, end to end, and left the evidence behind.</p>
+    </div>
+    <div>
+      <h2>What da-cli is</h2>
+      <p>da-cli is an agent-first operator for Adobe Edge Delivery Services and DA-authored content. Its purpose is to let an agent resolve a target, author and preview content, prove the public result, and recover from failure — without falling back to curl, bespoke scripts, or reconstructed guesswork.</p>
+      <p>That only works if the agent can trust the tool. This site is how that trust is demonstrated rather than asserted.</p>
+    </div>
+    <div>
+      <h2>Read the story</h2>
+      <ul>
+        <li><a href="/why">Why build the proof this way</a> — the trust arc behind the dogfood.</li>
+        <li><a href="/test-plan">The test plan</a> — how the full CLI surface is exercised.</li>
+        <li><a href="/findings">Findings</a> — what dogfooding surfaced, and how each became a fix.</li>
+      </ul>
     </div>
   </main>
   <footer></footer>

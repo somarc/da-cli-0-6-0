@@ -1,6 +1,7 @@
 {
   "site": "somarc/da-cli-0-6-0",
   "constructedBy": "dogfood/construct.yaml",
+  "regeneratedWith": "da --org somarc --repo da-cli-0-6-0 --commit pipeline run dogfood/construct.yaml",
   "gates": "da-cli 0.6.0 release",
   "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
   "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
@@ -8,22 +9,43 @@
     {
       "path": "/index.html",
       "source": "dogfood/content/index.html",
-      "builtBy": "da content put /index.html dogfood/content/index.html && da preview page /index",
+      "builtBy": "construct.yaml: put-index → preview-index",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html",
       "status": "cut"
     },
     {
       "path": "/nav.html",
       "source": "dogfood/content/nav.html",
-      "builtBy": "da content put /nav.html dogfood/content/nav.html && da preview page /nav",
+      "builtBy": "construct.yaml: put-nav → preview-nav",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/nav.plain.html",
       "status": "cut"
     },
     {
       "path": "/footer.html",
       "source": "dogfood/content/footer.html",
-      "builtBy": "da content put /footer.html dogfood/content/footer.html && da preview page /footer",
+      "builtBy": "construct.yaml: put-footer → preview-footer",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/footer.plain.html",
+      "status": "cut"
+    },
+    {
+      "path": "/why.html",
+      "source": "dogfood/content/why.html",
+      "builtBy": "construct.yaml: put-why → preview-why",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/why.plain.html",
+      "status": "cut"
+    },
+    {
+      "path": "/test-plan.html",
+      "source": "dogfood/content/test-plan.html",
+      "builtBy": "construct.yaml: put-test-plan → preview-test-plan",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan.plain.html",
+      "status": "cut"
+    },
+    {
+      "path": "/findings.html",
+      "source": "dogfood/content/findings.html",
+      "builtBy": "construct.yaml: put-findings → preview-findings",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/findings.plain.html",
       "status": "cut"
     }
   ]

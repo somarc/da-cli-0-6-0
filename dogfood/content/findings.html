@@ -1,0 +1,20 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <h1>Findings</h1>
+      <p>Dogfooding earns its keep by surfacing real problems that unit tests cannot. The discipline here is a flywheel: a problem found while operating a real site becomes a primitive fix with a regression test, so the tool gets safer every time it is used in the field. The more the CLI is dogfooded, the smarter and more trustworthy it becomes.</p>
+    </div>
+    <div>
+      <h2>Finding #1 — <code>site info</code> ignored the target override</h2>
+      <p>On the very first orientation command against this site, <code>da site info</code> reported pipeline health for the wrong repository. The command resolved its target from a stray config file left in the working directory and silently ignored the explicit <code>--org</code> and <code>--repo</code> flags — the one thing an operator relies on to say "no, I mean <em>this</em> site."</p>
+      <p>Every other command honored the override; this one had drifted onto its own resolution path. Left unnoticed, it is exactly the class of bug that teaches an agent not to trust the interface.</p>
+      <p><strong>Resolution:</strong> route <code>site info</code> through the shared config resolver so the override is sovereign everywhere, and add a regression test that locks it: root flags are honored, and explicit arguments win. The fix shipped with the release this site certifies.</p>
+    </div>
+    <div>
+      <h2>How findings are recorded</h2>
+      <p>Each finding is logged with a stable reference, the surface it appeared on, the resolution, and the test that prevents its return. The living list travels with the construction sources so it is never separated from the site it describes.</p>
+    </div>
+  </main>
+  <footer></footer>
+</body>

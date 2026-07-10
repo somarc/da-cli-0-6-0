@@ -1,0 +1,25 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <h1>Why build the proof this way</h1>
+      <p>An agent-first CLI is only useful if an agent returns to it for the next decision instead of reaching for raw APIs. That happens when the tool is trustworthy — and trust is not a claim you make in a README. It is something you demonstrate, repeatedly, against reality.</p>
+      <p>So the guiding principle for da-cli is blunt: <strong>every operation should leave the agent better oriented than before it ran.</strong> Know what you touched, what it proved, what is safe next, and what needs a human. This site is built to prove the tool lives up to that.</p>
+    </div>
+    <div>
+      <h2>The trust arc</h2>
+      <p>Three commitments build on each other, each closing a gap where an agent would otherwise have to take something on faith.</p>
+      <ul>
+        <li><strong>Trust the contract.</strong> Every operation — success or failure — returns the same machine-readable shape, so an agent parses one envelope and always knows what comes next. A failure is structured data with a recovery action, not prose on stderr.</li>
+        <li><strong>Trust correctness.</strong> A command that "succeeds" must have caused an observable state transition — DA source changed, preview activated, the public URL renders the expected bytes. A zero exit code is never enough.</li>
+        <li><strong>Trust provenance.</strong> This site was provably constructed by the recorded <code>da</code> commands, verifiable down to a live URL, and regenerable from a checked-in pipeline. You do not have to believe a release note; you can replay it.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Why a whole site, not a single page</h2>
+      <p>One rendered page cannot exercise content trees, structured sheets, route ownership, durable jobs, migration, code sync, index configuration, and — most importantly — failure recovery. The dogfood site is a small but complete Edge Delivery site precisely so that every meaningful surface of the CLI has somewhere real to act.</p>
+      <p>It is also deliberately plain. Design and styling are not what da-cli is for; structure, correctness, and provenance are. The prose carries the story; the tool carries the proof.</p>
+    </div>
+  </main>
+  <footer></footer>
+</body>
