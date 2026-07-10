@@ -1,0 +1,30 @@
+{
+  "site": "somarc/da-cli-0-6-0",
+  "constructedBy": "dogfood/construct.yaml",
+  "gates": "da-cli 0.6.0 release",
+  "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
+  "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
+  "artifacts": [
+    {
+      "path": "/index.html",
+      "source": "dogfood/content/index.html",
+      "builtBy": "da content put /index.html dogfood/content/index.html && da preview page /index",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html",
+      "status": "cut"
+    },
+    {
+      "path": "/nav.html",
+      "source": "dogfood/content/nav.html",
+      "builtBy": "da content put /nav.html dogfood/content/nav.html && da preview page /nav",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/nav.plain.html",
+      "status": "cut"
+    },
+    {
+      "path": "/footer.html",
+      "source": "dogfood/content/footer.html",
+      "builtBy": "da content put /footer.html dogfood/content/footer.html && da preview page /footer",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/footer.plain.html",
+      "status": "cut"
+    }
+  ]
+}

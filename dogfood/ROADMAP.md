@@ -1,0 +1,64 @@
+# da-cli-0-6-0 Dogfood Roadmap
+
+This site is the certifying dogfood run for the **da-cli 0.6.0** release. Per
+ADR 0002 (dogfood rubric) and ADR 0003 (versioned demonstration sites), **0.6.0
+ships only when this site is provably cut**: every `required-core` +
+`required-destructive` CLI surface exercised with passing, provable evidence,
+each artifact built by a `da` command captured in `dogfood/construct.yaml`, and
+each finding turned into a primitive fix + locking test (the flywheel).
+
+## Coverage spine (ADR 0002 D3 — no unclassified surface)
+
+| Family | Class | Wave |
+|--------|-------|------|
+| `config`, `status`, `resolve`, `route` | required-core | 1 |
+| `content` (get/put/put-tree/tree/list/clone/diff/commit/push/merge/versions/sheets) | required-core | 1–3 |
+| `preview`, `publish`, `deploy` | required-core / required-destructive | 1, 4 |
+| `site` (info/model/freshness/doctor/reconcile), `up` | required-core | 1 |
+| `block`, `audit`, `design` | required-core | 2 |
+| `index` | required-core (+ Config-Service gap = finding) | 3 |
+| `pipeline`, `job`, `migrate` | required-core / required-destructive | 4 |
+| `code` (sync/status/verify/purge/sidekick) | required-core | 2, 5 |
+| `auth`, `skills` | lifecycle | 6 |
+| `commerce`, `stardust` | external-conditional | 6 |
+| `site create` | required-destructive (2nd disposable site) | 6 |
+
+## Waves
+
+**Wave 1 — Foundation & core loop**
+- Content: index control panel (✅ cut), CLI-authored `nav`/`footer` replacing scaffold defaults; `dogfood/construct.yaml` + provenance for index/nav/footer.
+- Surfaces: `config`, `status`, `resolve`, `content put/get/list/tree`, `preview page`, `publish page`, `site info`, `site freshness`, `up`.
+- Proof: preview + live URLs, `.plain.html` verified, freshness gate green.
+
+**Wave 2 — Blocks, audits, design, media**
+- Content: pages exercising core blocks (hero, cards, columns…), media, section-shape variety.
+- Surfaces: `block list/inspect`, `audit semantics/blocks/full/contracts --verify-code`, `design detect/rules/audit/token-check`, `content put-tree`, `code sync/verify`.
+- Proof: audits pass; contracts verify code assets on the served branch.
+
+**Wave 3 — Structured data & route ownership**
+- Content: a DA sheet (`index.json`), nested pages, deliberate route cases (contentbus, codebus, hybrid, orphan, probe-failed). Configure index via Configuration Service (ADR 0002 D6); record `da index` repo-local limitation as a finding.
+- Surfaces: `content sheets`, `index show/validate/query`, `route classify/audit/clean`.
+- Proof: query-index behavior on preview/live; full route-ownership table.
+
+**Wave 4 — Coordination, durability, migration**
+- Content: migration source + expected result; enough pages for tree/batch/durable-job behavior.
+- Surfaces: `pipeline scaffold/run/status/abort`, `job init/run/watch/cancel/tasks`, `migrate import/batch/status/validate`, `preview tree`, `publish tree`, `deploy`.
+- Proof: pipelines green; durable job resumes after interruption; migration validated.
+
+**Wave 5 — Failure & recovery injection** (ADR 0002 D5)
+- Trigger and recover from: unresolved target, missing/expired auth, mutation without `--commit`, source drift after clone (conflict guard), invalid section shape, missing block assets, stale preview/live, orphan + protected-hybrid routes, index absent/unpopulated, interrupted/cancelled job, pipeline step failure/approval/abort, partial batch-migration failure.
+- Proof: each failure recognized + contained + recovered — not retried-until-green.
+
+**Wave 6 — Lifecycle & conditional**
+- Surfaces: `auth` flows, `skills bootstrap/install` (dogfoods the ADR-0001 embedded bootstrap), `site create` (2nd disposable site), `code sidekick`, `commerce`, `stardust` (external-conditional).
+
+## Cross-cutting
+- Construction pipeline (`dogfood/construct.yaml`) captures every write → site is regenerable (ADR 0003).
+- Provenance (`dogfood/provenance.json`): artifact → command → verified live URL.
+- Flywheel: findings → primitive fix + locking test, each a 0.6.0 code change.
+
+## Findings log
+- **#1 (fixed, PR #37):** `da site info` ignored root `--org/--repo`; routed through `resolveConfig` + locking test.
+
+## Release gate for 0.6.0
+Waves 1–5 green with stored evidence; Wave 6 classified (run or precondition-recorded); construction pipeline regenerates the site; provenance verifies. Then cut 0.6.0.
