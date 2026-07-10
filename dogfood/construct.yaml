@@ -1,6 +1,6 @@
 name: da-cli-0-6-0-construct
 # Regenerates the da-cli-0-6-0 dogfood site from checked-in sources under
-# dogfood/content/. Each artifact is built by da (content put) and activated
+# dogfood/fixtures/. Each artifact is built by da (content put) and activated
 # (preview page), so the site is reproducible and provable rather than authored
 # by hand (ADR 0003, strong form).
 #
@@ -10,43 +10,49 @@ name: da-cli-0-6-0-construct
 # Root --commit is the single approval boundary; never bury --commit in a step.
 steps:
   - id: put-index
-    command: content put /index.html dogfood/content/index.html --format json
+    command: content put /index.html dogfood/fixtures/index.html --format json
   - id: preview-index
     command: preview page /index --format json
     depends_on: [put-index]
   - id: put-nav
-    command: content put /nav.html dogfood/content/nav.html --format json
+    command: content put /nav.html dogfood/fixtures/nav.html --format json
     depends_on: [preview-index]
   - id: preview-nav
     command: preview page /nav --format json
     depends_on: [put-nav]
   - id: put-footer
-    command: content put /footer.html dogfood/content/footer.html --format json
+    command: content put /footer.html dogfood/fixtures/footer.html --format json
     depends_on: [preview-nav]
   - id: preview-footer
     command: preview page /footer --format json
     depends_on: [put-footer]
   - id: put-why
-    command: content put /why.html dogfood/content/why.html --format json
+    command: content put /why.html dogfood/fixtures/why.html --format json
     depends_on: [preview-footer]
   - id: preview-why
     command: preview page /why --format json
     depends_on: [put-why]
   - id: put-test-plan
-    command: content put /test-plan.html dogfood/content/test-plan.html --format json
+    command: content put /test-plan.html dogfood/fixtures/test-plan.html --format json
     depends_on: [preview-why]
   - id: preview-test-plan
     command: preview page /test-plan --format json
     depends_on: [put-test-plan]
   - id: put-blocks
-    command: content put /blocks.html dogfood/content/blocks.html --format json
+    command: content put /blocks.html dogfood/fixtures/blocks.html --format json
     depends_on: [preview-test-plan]
   - id: preview-blocks
     command: preview page /blocks --format json
     depends_on: [put-blocks]
-  - id: put-findings
-    command: content put /findings.html dogfood/content/findings.html --format json
+  - id: put-coverage
+    command: content put /coverage.html dogfood/fixtures/coverage.html --format json
     depends_on: [preview-blocks]
+  - id: preview-coverage
+    command: preview page /coverage --format json
+    depends_on: [put-coverage]
+  - id: put-findings
+    command: content put /findings.html dogfood/fixtures/findings.html --format json
+    depends_on: [preview-coverage]
   - id: preview-findings
     command: preview page /findings --format json
     depends_on: [put-findings]

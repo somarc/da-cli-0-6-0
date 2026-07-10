@@ -7,6 +7,26 @@ ships only when this site is provably cut**: every `required-core` +
 each artifact built by a `da` command captured in `dogfood/construct.yaml`, and
 each finding turned into a primitive fix + locking test (the flywheel).
 
+## Fixture model — git is upstream of DA
+
+The source documents under `dogfood/fixtures/` are **construction inputs, not
+authored content.** Think test seed data, not a content bus. The direction of
+truth is **git → DA**: `construct.yaml` uploads each fixture to DA
+(`da content put`), activates it (`da preview page`), and verifies the public
+result. DA holds the delivered copy; the fixtures hold the canonical source; the
+public URL is the proof.
+
+This is deliberately the *opposite* of the normal EDS rule (content lives only
+in the content bus, never in git — which is why `.da/workspace/` is gitignored).
+For this site the product *is* provable construction, so the inputs must be
+version-controlled or there is nothing to regenerate from and no provenance.
+Hence `fixtures/`, not `content/`.
+
+**Drift discipline:** because git is upstream, edit the fixture in git and re-run
+the pipeline — never author directly in DA. A direct DA edit makes the fixtures
+stale and a regeneration would overwrite it. (The content-conflict guard catches
+exactly this if it happens.)
+
 ## Coverage spine (ADR 0002 D3 — no unclassified surface)
 
 | Family | Class | Wave |

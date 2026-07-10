@@ -8,42 +8,42 @@
   "artifacts": [
     {
       "path": "/index.html",
-      "source": "dogfood/content/index.html",
+      "source": "dogfood/fixtures/index.html",
       "builtBy": "construct.yaml: put-index → preview-index",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html",
       "status": "cut"
     },
     {
       "path": "/nav.html",
-      "source": "dogfood/content/nav.html",
+      "source": "dogfood/fixtures/nav.html",
       "builtBy": "construct.yaml: put-nav → preview-nav",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/nav.plain.html",
       "status": "cut"
     },
     {
       "path": "/footer.html",
-      "source": "dogfood/content/footer.html",
+      "source": "dogfood/fixtures/footer.html",
       "builtBy": "construct.yaml: put-footer → preview-footer",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/footer.plain.html",
       "status": "cut"
     },
     {
       "path": "/why.html",
-      "source": "dogfood/content/why.html",
+      "source": "dogfood/fixtures/why.html",
       "builtBy": "construct.yaml: put-why → preview-why",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/why.plain.html",
       "status": "cut"
     },
     {
       "path": "/test-plan.html",
-      "source": "dogfood/content/test-plan.html",
+      "source": "dogfood/fixtures/test-plan.html",
       "builtBy": "construct.yaml: put-test-plan → preview-test-plan",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan.plain.html",
       "status": "cut"
     },
     {
       "path": "/blocks.html",
-      "source": "dogfood/content/blocks.html",
+      "source": "dogfood/fixtures/blocks.html",
       "builtBy": "construct.yaml: put-blocks → preview-blocks",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/blocks.plain.html",
       "blocks": ["columns", "cards"],
@@ -51,8 +51,15 @@
       "status": "cut"
     },
     {
+      "path": "/coverage.html",
+      "source": "dogfood/fixtures/coverage.html",
+      "builtBy": "construct.yaml: put-coverage → preview-coverage",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/coverage.plain.html",
+      "status": "cut"
+    },
+    {
       "path": "/findings.html",
-      "source": "dogfood/content/findings.html",
+      "source": "dogfood/fixtures/findings.html",
       "builtBy": "construct.yaml: put-findings → preview-findings",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/findings.plain.html",
       "status": "cut"
