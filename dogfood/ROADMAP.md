@@ -59,6 +59,7 @@ each finding turned into a primitive fix + locking test (the flywheel).
 
 ## Findings log
 - **#1 (fixed, PR #37):** `da site info` ignored root `--org/--repo`; routed through `resolveConfig` + locking test.
+- **#2 (open, Wave 2):** `da design detect` exits 1 with empty stdout on a site with no design system — no envelope, so an agent can't distinguish error from "none detected". Fix: return a structured no-design-system result (ADR 0001 envelope principle).
 
 ## Release gate for 0.6.0
 Waves 1–5 green with stored evidence; Wave 6 classified (run or precondition-recorded); construction pipeline regenerates the site; provenance verifies. Then cut 0.6.0.

@@ -38,9 +38,15 @@ steps:
   - id: preview-test-plan
     command: preview page /test-plan --format json
     depends_on: [put-test-plan]
+  - id: put-blocks
+    command: content put /blocks.html dogfood/content/blocks.html --format json
+    depends_on: [preview-test-plan]
+  - id: preview-blocks
+    command: preview page /blocks --format json
+    depends_on: [put-blocks]
   - id: put-findings
     command: content put /findings.html dogfood/content/findings.html --format json
-    depends_on: [preview-test-plan]
+    depends_on: [preview-blocks]
   - id: preview-findings
     command: preview page /findings --format json
     depends_on: [put-findings]

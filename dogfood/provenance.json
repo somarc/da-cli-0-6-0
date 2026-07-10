@@ -42,6 +42,15 @@
       "status": "cut"
     },
     {
+      "path": "/blocks.html",
+      "source": "dogfood/content/blocks.html",
+      "builtBy": "construct.yaml: put-blocks → preview-blocks",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/blocks.plain.html",
+      "blocks": ["columns", "cards"],
+      "codeVerified": "audit contracts --verify-code: cards js/css 200, columns js/css 200",
+      "status": "cut"
+    },
+    {
       "path": "/findings.html",
       "source": "dogfood/content/findings.html",
       "builtBy": "construct.yaml: put-findings → preview-findings",
