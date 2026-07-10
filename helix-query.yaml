@@ -1,0 +1,29 @@
+version: 1
+indices:
+  default:
+    include:
+      - '/**'
+    exclude:
+      - '/nav'
+      - '/footer'
+      - '/drafts/**'
+    target: /query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, 'content')
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, 'content')
+      wave:
+        select: head > meta[name="wave"]
+        value: attribute(el, 'content')
+      surface:
+        select: head > meta[name="surface"]
+        value: attribute(el, 'content')
+      status:
+        select: head > meta[name="status"]
+        value: attribute(el, 'content')
+      lastModified:
+        select: none
+        value: parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY HH:mm:ss GMT')
