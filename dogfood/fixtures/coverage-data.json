@@ -1,0 +1,19 @@
+{
+  "total": 11,
+  "offset": 0,
+  "limit": 11,
+  "data": [
+    { "family": "config, status, resolve, route", "class": "required-core", "wave": "1" },
+    { "family": "content (get/put/put-tree/tree/list/clone/diff/commit/push/merge/versions/sheets)", "class": "required-core", "wave": "1-3" },
+    { "family": "preview, publish, deploy", "class": "required-core / required-destructive", "wave": "1, 4" },
+    { "family": "site (info/model/freshness/doctor/reconcile), up", "class": "required-core", "wave": "1" },
+    { "family": "block, audit, design", "class": "required-core", "wave": "2" },
+    { "family": "index", "class": "required-core (+ Config-Service gap)", "wave": "3" },
+    { "family": "route (classify/canonical/audit/clean)", "class": "required-core", "wave": "3" },
+    { "family": "pipeline, job, migrate", "class": "required-core / required-destructive", "wave": "4" },
+    { "family": "code (sync/status/verify/purge/sidekick)", "class": "required-core", "wave": "2, 5" },
+    { "family": "auth, skills", "class": "lifecycle", "wave": "6" },
+    { "family": "commerce, stardust, site create", "class": "external-conditional / required-destructive", "wave": "6" }
+  ],
+  ":type": "sheet"
+}

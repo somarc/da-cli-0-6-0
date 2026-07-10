@@ -17,8 +17,52 @@
       <p><strong>Resolution (planned):</strong> return a structured result for the no-design-system case — a clean envelope that says so — rather than an empty error. This is the principle the whole release is built on: every operation should leave the agent better oriented, including when the answer is "nothing found."</p>
     </div>
     <div>
+      <h2>Finding #3 — the query index cannot be built through <code>da</code></h2>
+      <p>Wave 3 makes the coverage page index-driven: each page declares its wave, surface, and status as metadata, and the query index aggregates them. Building that index surfaced two coupled gaps. First, the mechanism: Edge Delivery populates the query index from <em>published</em> content only — previewing a page never adds it to the index, and re-authoring a published page does not update its index record until the page is published again. The index is a projection of the live site, not the preview.</p>
+      <p>Second, the tool: the <code>da index</code> family reads the index (<code>show</code>, <code>validate</code>, <code>query</code>) but cannot cause it to change. There is no primitive to reindex, and nothing tells an agent that its freshly-previewed metadata will not appear until publish. So an agent that authors index-driven content with da-cli hits a wall — the tool can describe the index but cannot make it reflect reality — and falls back to raw <code>curl</code> against <code>admin.hlx.page/index/&hellip;</code>, exactly the fallback the tool exists to eliminate.</p>
+      <p><strong>Resolution (planned):</strong> teach <code>da publish</code> to report the index consequence of a publish, add a <code>da index build</code> reindex primitive over the admin endpoint, and have <code>da index show/validate/query</code> state plainly that the index reflects published state. Then the construction pipeline can publish-and-index its own coverage data, and the index-driven ToC becomes provably regenerable like every other artifact.</p>
+    </div>
+    <div>
+      <h2>Finding #4 — <code>index query --env preview</code> silently queries live</h2>
+      <p>While exercising the index surface, <code>da index query default --env preview</code> returned live results, not preview. The command has migrated its target selector to <code>--target preview|live</code> and kept <code>--env</code> as a deprecated alias — but <code>--env</code> collides with the global <code>--env dev|stage|prod</code> flag, which captures the value first. So <code>--env preview</code> never reaches the index command; it falls through to the default, <code>live</code>. The command prints a <code>live</code> URL and correct-looking results, so nothing signals that the requested environment was ignored.</p>
+      <p>This is the same shape as finding #1: a flag an operator relies on is silently disregarded, and the output looks plausible. An agent asking "what does preview show?" is quietly answered with live. The correct flag, <code>--target preview</code>, works exactly as expected.</p>
+      <p><strong>Resolution (planned):</strong> remove the un-satisfiable <code>--env</code> alias from the index commands (or make it a hard error that points at <code>--target</code>), so the tool can never answer the wrong environment while looking correct.</p>
+    </div>
+    <div>
+      <h2>Finding #5 — <code>route classify</code> calls live code assets "orphan"</h2>
+      <p>Classifying a real, served code asset — <code>da route classify /scripts/aem.js</code>, which returns 200 on the code bus — reported <code>orphan</code>. The classifier infers ownership only from a content route's <code>sourceLocation</code> (is it <code>content.da.live</code> or a code repo?). It never consults the code-bus status the admin API already returns in the same response — where this asset shows <code>code.status: 200</code>. With no content-route source location, a live code file falls through every branch to "orphan."</p>
+      <p>"Orphan" is the verdict that invites cleanup, so a route tool that labels live code assets orphaned is quietly steering toward the wrong action. The fix is small and the signal is already in hand: read <code>code.status</code> from the status response and classify a path with code presence and no DA source as <code>codebus</code>. Until then, <code>codebus</code> is only ever returned for hybrid pages rendered from code templates, not for the code bus itself.</p>
+      <p><strong>Resolution (planned):</strong> fold the admin <code>code</code> status into the classifier so <code>codebus</code> and <code>hybrid</code> reflect actual code-bus presence, with a locking test over a known code asset.</p>
+    </div>
+    <div>
+      <h2>Finding #6 — a deleted source still classifies as "contentbus"</h2>
+      <p>Wave 3 built a deliberate orphan: publish a page, then delete its DA source, leaving a live artifact with no owner. That is the exact case <code>route classify</code> exists to flag. It missed it — the verdict was <code>contentbus</code>, even though the same output carried <code>daSource: false</code>. The classifier trusts the <code>sourceLocation</code> that the preview/live status still reports (it points at <code>content.da.live</code> from the last activation) over its own probe that just proved the source is gone.</p>
+      <p>An agent told "contentbus" believes the source exists and is safe to edit, when in fact there is nothing to edit and a stale live artifact to remove. The fix is the same shape as finding #5: when <code>daSource</code> is false but a live artifact persists, that is an orphan, not content — the corroborating signal is already in the response and should win over the stale location.</p>
+    </div>
+    <div>
+      <h2>Finding #7 — <code>route clean</code> does not remove the orphan</h2>
+      <p>Running <code>da route clean</code> on that orphan deleted the (already-gone) DA source and attempted a best-effort preview flush that is a documented no-op in production. It never unpublished the route. Live and preview both stayed 200: the artifact the command exists to remove survived cleaning. A separate <code>publish unpublish</code> was also required — and returned 403 with the operator's current token, so the orphan could not be removed at all.</p>
+      <p>Two gaps compound here. First, <code>route clean</code> should unpublish the live route and delete the preview artifact through the admin API, not rely on a flush that does nothing in prod — otherwise "clean" leaves the mess in place. Second, an unpublish that is refused by permissions should surface as a structured, recoverable result (this token cannot unpublish; here is who can), not a bare 403. This orphan remains live as its own evidence until it can be properly removed.</p>
+    </div>
+    <div>
       <h2>How findings are recorded</h2>
       <p>Each finding is logged with a stable reference, the surface it appeared on, the resolution, and the test that prevents its return. The living list travels with the construction sources so it is never separated from the site it describes.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>wave</div>
+          <div>0</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>flywheel</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>living</div>
+        </div>
+      </div>
     </div>
   </main>
   <footer></footer>

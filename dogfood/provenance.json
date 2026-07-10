@@ -63,6 +63,24 @@
       "builtBy": "construct.yaml: put-findings → preview-findings",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/findings.plain.html",
       "status": "cut"
+    },
+    {
+      "path": "/data/coverage.json",
+      "source": "dogfood/fixtures/coverage-data.json",
+      "builtBy": "construct.yaml: put-coverage-data → preview-coverage-data",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/data/coverage.json",
+      "kind": "da-sheet",
+      "discoveredBy": "da content sheets → /data/coverage.json (11 rows: family, class, wave)",
+      "status": "cut"
+    },
+    {
+      "path": "/query-index.json",
+      "source": "helix-query.yaml + page metadata (wave/surface/status)",
+      "builtBy": "publish pages → POST admin.hlx.page/index/somarc/da-cli-0-6-0/main/* (NOT buildable via da yet — finding #3)",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.live/query-index.json",
+      "kind": "query-index",
+      "readBy": "da index show / validate / query",
+      "status": "cut-out-of-band"
     }
   ]
 }

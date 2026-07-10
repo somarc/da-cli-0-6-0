@@ -56,3 +56,16 @@ steps:
   - id: preview-findings
     command: preview page /findings --format json
     depends_on: [put-findings]
+  # Wave 3 — authored structured-data sheet (contentbus), discovered by `da content sheets`.
+  - id: put-coverage-data
+    command: content put /data/coverage.json dogfood/fixtures/coverage-data.json --format json
+    depends_on: [preview-findings]
+  - id: preview-coverage-data
+    command: preview page /data/coverage.json --format json
+    depends_on: [put-coverage-data]
+  # Wave 3 — the query index (wave/surface/status columns) is NOT built by this
+  # pipeline: EDS indexes published content only, and no `da` command triggers a
+  # reindex yet (finding #3). Until `da index build` exists, materializing the
+  # index is an out-of-band step: publish the pages, then
+  #   POST https://admin.hlx.page/index/somarc/da-cli-0-6-0/main/*
+  # This gap is the point — it is what the flywheel turns into a 0.6.0 primitive.
