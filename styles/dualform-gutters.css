@@ -9,13 +9,16 @@
   --df-soft: 0.55;
 
   position: fixed;
-  top: calc(var(--nav-height, 72px) + 8px);
+  top: calc(var(--nav-height, 72px) + 4px);
+  bottom: 10px;
   z-index: 0;
   pointer-events: none;
-  width: max(96px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 12px));
-  max-width: var(--rr-col-max, 176px);
-  height: var(--rr-col-visible-h, clamp(480px, 52vh, 720px));
-  opacity: 0.42;
+  width: max(104px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 10px));
+  max-width: var(--rr-col-max, 200px);
+
+  /* Fill viewport vertical space; art scales with contain (no rubber-band stretch) */
+  height: auto;
+  opacity: 0.44;
 }
 
 .df-gutter-left {
@@ -35,29 +38,29 @@
 .df-gutter-right .df-gutter-inner {
   transform: scaleX(-1);
 
-  /* Soft dissolve into paper at fragment bottom + inner edge */
+  /* Soft dissolve into paper at base + inner edge — keep almost full shaft solid */
   /* stylelint-disable property-no-vendor-prefix */
   -webkit-mask-image:
-    linear-gradient(to left, #000 0%, #000 72%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 62%, transparent 96%);
+    linear-gradient(to left, #000 0%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
   -webkit-mask-composite: source-in;
   /* stylelint-enable property-no-vendor-prefix */
   mask-image:
-    linear-gradient(to left, #000 0%, #000 72%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 62%, transparent 96%);
+    linear-gradient(to left, #000 0%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
   mask-composite: intersect;
 }
 
 .df-gutter-left .df-gutter-inner {
   /* stylelint-disable property-no-vendor-prefix */
   -webkit-mask-image:
-    linear-gradient(to right, #000 0%, #000 72%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 62%, transparent 96%);
+    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
   -webkit-mask-composite: source-in;
   /* stylelint-enable property-no-vendor-prefix */
   mask-image:
-    linear-gradient(to right, #000 0%, #000 72%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 62%, transparent 96%);
+    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
   mask-composite: intersect;
 }
 
@@ -65,7 +68,9 @@
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center center;
+
+  /* Full column (capital→base) scales into the tall gutter box */
   background-size: contain;
 }
 
@@ -120,8 +125,8 @@
 
 @media (width >= 1400px) {
   .df-gutter {
-    max-width: 200px;
-    opacity: 0.46;
+    max-width: 220px;
+    opacity: 0.48;
   }
 }
 
