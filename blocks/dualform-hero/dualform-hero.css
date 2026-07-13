@@ -31,11 +31,34 @@
   padding: 48px 24px 56px;
 }
 
+/* Subsequent demos on a multi-specimen page — less top chrome */
+main .section + .section .dualform-hero .df-inner {
+  padding-top: 24px;
+}
+
 @media (width >= 900px) {
   .dualform-hero .df-inner {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
     gap: 48px 56px;
     padding: 64px 32px 72px;
+  }
+
+  main .section + .section .dualform-hero .df-inner {
+    padding-top: 32px;
+  }
+
+  /* Alternate art/copy for rhythm on multi-demo pages */
+  main .section:nth-of-type(even) .dualform-hero .df-inner {
+    grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  }
+
+  main .section:nth-of-type(even) .dualform-hero .df-copy {
+    order: 2;
+  }
+
+  main .section:nth-of-type(even) .dualform-hero .df-stage {
+    margin: 0 auto 0 0;
+    order: 1;
   }
 }
 
