@@ -25,27 +25,34 @@ header nav {
   color: var(--rr-ink, var(--text-color));
 }
 
-/* Mobile open menu: solid paper panel — no see-through pillars/content */
-header .nav-wrapper:has(nav[aria-expanded='true']) {
-  background-color: var(--rr-paper, #f5eedf);
-  backdrop-filter: none;
-  border-bottom-color: transparent;
-  inset: 0;
-  height: 100dvh;
-  overflow: auto;
-}
+/*
+ * Mobile open menu ONLY.
+ * Desktop keeps aria-expanded="true" for the always-visible section list
+ * (boilerplate contract) — never apply full-viewport panel there or the
+ * solid paper sheet covers the entire page.
+ */
+@media (width < 900px) {
+  header .nav-wrapper:has(nav[aria-expanded='true']) {
+    background-color: var(--rr-paper, #f5eedf);
+    backdrop-filter: none;
+    border-bottom-color: transparent;
+    inset: 0;
+    height: 100dvh;
+    overflow: auto;
+  }
 
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' auto / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
-  height: auto;
-  align-content: start;
-  background-color: var(--rr-paper, #f5eedf);
-  color: var(--rr-ink, #22315f);
+  header nav[aria-expanded='true'] {
+    grid-template:
+      'hamburger brand' var(--nav-height)
+      'sections sections' 1fr
+      'tools tools' auto / auto 1fr;
+    overflow-y: auto;
+    min-height: 100dvh;
+    height: auto;
+    align-content: start;
+    background-color: var(--rr-paper, #f5eedf);
+    color: var(--rr-ink, #22315f);
+  }
 }
 
 @media (width >= 900px) {
@@ -64,6 +71,7 @@ header nav[aria-expanded='true'] {
 
   header nav[aria-expanded='true'] {
     min-height: 0;
+    height: var(--nav-height);
     overflow: visible;
     background: transparent;
   }
