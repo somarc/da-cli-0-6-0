@@ -22,9 +22,11 @@ header::before {
     --rr-entablature,
     url('/media/renderaissance/ionic-entablature-beam.jpg')
   );
-  background-repeat: no-repeat;
+
+  /* Height fills nav; width keeps natural proportion — no rubber-band stretch */
+  background-repeat: repeat-x;
   background-position: center center;
-  background-size: 100% 100%;
+  background-size: auto 100%;
   opacity: 0.88;
 }
 
@@ -101,8 +103,10 @@ header nav[aria-expanded='true'] {
 @media (width >= 1100px) {
   header::before {
     opacity: 0.94;
-    background-size: 100% 115%;
-    background-position: center 38%;
+
+    /* Slight vertical crop only — never stretch on X */
+    background-size: auto 110%;
+    background-position: center 40%;
   }
 
   header .nav-wrapper {
