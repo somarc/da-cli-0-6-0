@@ -53,10 +53,12 @@
   --rr-entablature: url('/media/renderaissance/ionic-entablature-beam.jpg');
   --rr-stylobate: url('/media/renderaissance/ionic-stylobate-footer.jpg');
 
-  /* Three-part pillars: capital (page top) + growing shaft + base (page bottom) */
-  --rr-col-capital-h: clamp(140px, 16vw, 210px);
-  --rr-col-base-h: clamp(120px, 14vw, 190px);
-  --rr-col-max: 320px;
+  /* Three-part pillars: capital (page top) + growing shaft + base (page bottom).
+     Scaled down together (~0.55x) from the original so the gutters read as a
+     quiet frame, not architecture competing with the page's hero art. */
+  --rr-col-capital-h: clamp(78px, 9vw, 116px);
+  --rr-col-base-h: clamp(66px, 8vw, 105px);
+  --rr-col-max: 176px;
 }
 
 @media (width >= 1100px) {

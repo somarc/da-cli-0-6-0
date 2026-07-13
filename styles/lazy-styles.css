@@ -36,11 +36,14 @@ body::after {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: max(160px, calc((100vw - var(--rr-frame-max, 1200px)) / 2));
-  max-width: var(--rr-col-max, 320px);
+  width: max(88px, calc((100vw - var(--rr-frame-max, 1200px)) / 2));
+  max-width: var(--rr-col-max, 176px);
   z-index: 0;
   pointer-events: none;
-  opacity: 0.58;
+
+  /* Quiet watermark, not a competing painting — the hero collage is the
+     one piece of art each page is supposed to be about. */
+  opacity: 0.34;
   background-repeat: no-repeat, no-repeat, no-repeat;
 
   /*
@@ -87,12 +90,12 @@ body::after {
 @media (width >= 1400px) {
   body::before,
   body::after {
-    max-width: 360px;
-    opacity: 0.62;
+    max-width: 200px;
+    opacity: 0.38;
   }
 
   :root {
-    --rr-col-max: 360px;
+    --rr-col-max: 200px;
   }
 }
 
