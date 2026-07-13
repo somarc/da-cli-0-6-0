@@ -1,20 +1,34 @@
 footer {
-  background-color: var(--light-color);
+  background-color: transparent;
+  border-top: 1px solid var(--rr-line, #d8ccb4);
+  font-family: var(--label-font-family, var(--body-font-family));
   font-size: var(--body-font-size-xs);
+  letter-spacing: 0.04em;
+  color: var(--rr-ink-soft, var(--dark-color));
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--rr-frame-max, 1200px);
+  padding: 36px 24px 40px;
 }
 
 footer .footer p {
   margin: 0;
+  max-width: 62ch;
+  line-height: 1.6;
+}
+
+footer .footer a {
+  color: var(--rr-terra, var(--link-color));
+}
+
+footer .footer code {
+  font-size: 0.95em;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 40px 32px 48px;
   }
 }

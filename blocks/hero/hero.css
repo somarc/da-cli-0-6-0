@@ -1,3 +1,7 @@
+/* Painterly hero — works with or without background art.
+   Without image: paper field + display type.
+   With image: dark overlay for contrast on photograph/paint. */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,20 +9,47 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 56px 24px 64px;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(135deg, #ebe3d0 0%, var(--rr-paper, #f5eedf) 45%, #e8d5c0 100%);
+  border-bottom: 1px solid var(--rr-line, #d8ccb4);
+  overflow: hidden;
 }
 
 .hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 16ch;
+  margin: 0 auto;
+  width: 100%;
+  color: var(--rr-ink, var(--text-color));
+  font-weight: 500;
+}
+
+.hero h1::after {
+  content: '';
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 0.55em;
+  background: var(--rr-chart, #c8e62f);
+  box-shadow: 14px 0 0 -1px var(--rr-chart, #c8e62f);
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--background-color);
+  color: var(--rr-ink-soft, var(--dark-color));
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -30,8 +61,30 @@
   height: 100%;
 }
 
+/* When a photo/paint layer is present, switch type to paper-on-ink */
+.hero:has(img) {
+  background: #1a2748;
+}
+
+.hero:has(img)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgb(26 39 72 / 78%) 0%, rgb(26 39 72 / 35%) 55%, rgb(26 39 72 / 15%) 100%),
+    linear-gradient(0deg, rgb(26 39 72 / 55%), transparent 50%);
+  pointer-events: none;
+}
+
+.hero:has(img) h1,
+.hero:has(img) p {
+  color: #f5eedf;
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 72px 32px 80px;
+    min-height: 420px;
   }
 }

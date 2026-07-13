@@ -1,1 +1,53 @@
-/* add global styles that can be loaded post LCP here */
+/* Post-LCP Renderaissance flourishes */
+
+/* Soft ink-splash ornaments (pure CSS, decorative) */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.55;
+}
+
+body::before {
+  top: 18%;
+  left: -90px;
+  width: 220px;
+  height: 420px;
+  background: radial-gradient(ellipse at center, rgb(43 74 140 / 55%) 0%, transparent 70%);
+  transform: rotate(-8deg);
+}
+
+body::after {
+  top: 120px;
+  right: -70px;
+  width: 200px;
+  height: 320px;
+  background: radial-gradient(ellipse at center, rgb(240 189 151 / 70%) 0%, transparent 72%);
+  transform: rotate(12deg);
+}
+
+@media (width < 900px) {
+  body::before,
+  body::after {
+    opacity: 0.28;
+    width: 140px;
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
+/* Status emphasis inside lists */
+main .default-content-wrapper li strong {
+  color: var(--rr-ink);
+  font-weight: 500;
+}
