@@ -36,9 +36,8 @@
     </div>
     <div>
       <h2>Finding #4 — <code>index query --env preview</code> silently queries live</h2>
-      <p>While exercising the index surface, <code>da index query default --env preview</code> returned live results, not preview. The command has migrated its target selector to <code>--target preview|live</code> and kept <code>--env</code> as a deprecated alias — but <code>--env</code> collides with the global <code>--env dev|stage|prod</code> flag, which captures the value first. So <code>--env preview</code> never reaches the index command; it falls through to the default, <code>live</code>. The command prints a <code>live</code> URL and correct-looking results, so nothing signals that the requested environment was ignored.</p>
-      <p>This is the same shape as finding #1: a flag an operator relies on is silently disregarded, and the output looks plausible. An agent asking "what does preview show?" is quietly answered with live. The correct flag, <code>--target preview</code>, works exactly as expected.</p>
-      <p><strong>Resolution (planned):</strong> remove the un-satisfiable <code>--env</code> alias from the index commands (or make it a hard error that points at <code>--target</code>), so the tool can never answer the wrong environment while looking correct.</p>
+      <p>While exercising the index surface, <code>da index query default --env preview</code> returned live results, not preview. The command had kept a local <code>--env</code> alias for <code>--target</code>, but root <code>--env</code> already means DA Admin API environment (<code>prod|stage|dev</code>). The value was swallowed before the index command could see it, defaulting to <code>live</code> with a plausible URL — same trust class as finding #1.</p>
+      <p><strong>Resolution:</strong> drop the index-local <code>--env</code> alias entirely. Index validate/query resolve the host only via <code>--target preview|live</code>. If root <code>--env</code> is mistakenly set to <code>preview</code> or <code>live</code>, the CLI hard-errors with recovery text pointing at <code>--target</code>. Locked by unit tests on <code>resolveIndexQueryHost</code>.</p>
     </div>
     <div>
       <h2>Finding #5 — <code>route classify</code> calls live code assets "orphan"</h2>
