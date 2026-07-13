@@ -25,10 +25,17 @@ footer::before {
     --rr-stylobate,
     url('/media/renderaissance/ionic-stylobate-footer.jpg')
   );
-  background-repeat: repeat-x;
+
+  /* This is a single labeled archival study plate (base + plinth, with a
+     printed caption baked into the paper margin) — not a tileable texture.
+     repeat-x broke its feathered edges into a seamed strip and repeated the
+     caption text. Show it once, centered, sized to fit inside the footer
+     band, and let its own dissolve edges do the work — same fix as the
+     header entablature (see header.css). */
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 100%;
-  opacity: 0.86;
+  background-size: auto 78%;
+  opacity: 0.82;
 }
 
 footer .footer {
@@ -70,9 +77,7 @@ footer .footer code {
   }
 
   footer::before {
-    opacity: 0.9;
-    background-size: auto 115%;
-    background-position: center 45%;
+    opacity: 0.88;
   }
 }
 
