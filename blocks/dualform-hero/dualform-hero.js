@@ -1,7 +1,7 @@
 /**
  * Dualform hero — paired silhouette cutouts + CSS mask superimposition.
- * Mask is driven by pointer position on the page (reference dual-image craft).
- * Static mid wipe when motion is reduced or pointer is coarse.
+ * Morphing soft hole under the pointer reveals expression (B) through
+ * substrate (A) — reference dual-image craft / Norris-like reveal language.
  */
 
 function classifyCopy(copy) {
@@ -62,22 +62,38 @@ function isCoarsePointer() {
   return window.matchMedia('(pointer: coarse)').matches;
 }
 
-function setPointerVars(stage, x, y) {
-  // 0–1 across the viewport
-  const nx = Math.min(1, Math.max(0, x));
-  const ny = Math.min(1, Math.max(0, y));
-  stage.style.setProperty('--df-mx', nx.toFixed(4));
-  stage.style.setProperty('--df-my', ny.toFixed(4));
-  // Combined wipe 0–1 for simple 1D gradients
-  stage.style.setProperty('--df-reveal', (0.2 + nx * 0.6).toFixed(4));
+function clamp(n, lo, hi) {
+  return Math.min(hi, Math.max(lo, n));
 }
 
 /**
- * Page-level pointer drives the dual-state mask (like reference demos).
- * Defaults to a mid wipe until the first move.
+ * Morphing hole params under the cursor (stage-local %).
+ * rx/ry and softness evolve with motion so the hole is not a fixed circle.
  */
-function setupPointerMask(stage) {
-  setPointerVars(stage, 0.5, 0.45);
+function setHole(stage, {
+  mx, my, rx, ry, soft, angle,
+}) {
+  stage.style.setProperty('--df-mx', `${(mx * 100).toFixed(2)}%`);
+  stage.style.setProperty('--df-my', `${(my * 100).toFixed(2)}%`);
+  stage.style.setProperty('--df-rx', `${rx.toFixed(2)}%`);
+  stage.style.setProperty('--df-ry', `${ry.toFixed(2)}%`);
+  stage.style.setProperty('--df-soft', soft.toFixed(3));
+  stage.style.setProperty('--df-angle', `${angle.toFixed(1)}deg`);
+}
+
+function defaultHole(stage) {
+  setHole(stage, {
+    mx: 0.52,
+    my: 0.48,
+    rx: 48,
+    ry: 40,
+    soft: 0.55,
+    angle: -12,
+  });
+}
+
+function setupMorphingHole(stage) {
+  defaultHole(stage);
 
   if (prefersReducedMotion() || isCoarsePointer()) {
     stage.classList.add('df-static-mask');
@@ -87,30 +103,114 @@ function setupPointerMask(stage) {
   stage.classList.add('df-pointer-mask');
 
   let raf = 0;
-  let latest = null;
+  let prevX = null;
+  let prevY = null;
+  let prevT = 0;
+  let smx = 0.52;
+  let smy = 0.48;
+  let srx = 48;
+  let sry = 40;
+  let ssoft = 0.55;
+  let sangle = -12;
+  let pending = null;
 
   const apply = () => {
     raf = 0;
-    if (!latest) return;
-    const { clientX, clientY } = latest;
-    setPointerVars(
-      stage,
-      clientX / window.innerWidth,
-      clientY / window.innerHeight,
-    );
+    if (!pending) return;
+
+    const { clientX, clientY, timeStamp } = pending;
+    const rect = stage.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return;
+
+    // Hole center = pointer relative to the stage (under the cursor on the form)
+    const rawX = (clientX - rect.left) / rect.width;
+    const rawY = (clientY - rect.top) / rect.height;
+    // Allow slight overshoot so the hole can edge-bleed
+    const tx = clamp(rawX, -0.05, 1.05);
+    const ty = clamp(rawY, -0.05, 1.05);
+
+    // Velocity in stage units / ms → morph axes (not a rigid circle)
+    let vx = 0;
+    let vy = 0;
+    if (prevX !== null && timeStamp > prevT) {
+      const dt = Math.max(8, timeStamp - prevT);
+      vx = ((clientX - prevX) / rect.width) / dt;
+      vy = ((clientY - prevY) / rect.height) / dt;
+    }
+    prevX = clientX;
+    prevY = clientY;
+    prevT = timeStamp;
+
+    const speed = Math.hypot(vx, vy) * 1000; // ~ stage-widths per second
+    const speedClamped = clamp(speed, 0, 2.5);
+
+    // Base blob + stretch along motion direction + size bloom with speed
+    const bloom = 1 + speedClamped * 0.35;
+    const stretch = clamp(speedClamped * 0.55, 0, 0.85);
+    const ang = Math.atan2(vy, vx) * (180 / Math.PI);
+
+    // Prefer horizontal vs vertical stretch from velocity components
+    const ax = Math.abs(vx);
+    const ay = Math.abs(vy);
+    const denom = ax + ay + 0.0001;
+    const hx = ax / denom;
+    const hy = ay / denom;
+
+    const targetRx = clamp((42 + hx * stretch * 38) * bloom, 28, 78);
+    const targetRy = clamp((36 + hy * stretch * 38) * bloom, 24, 72);
+    // Faster motion → softer feather (more morph-like, less hard circle)
+    const targetSoft = clamp(0.42 + speedClamped * 0.18, 0.38, 0.78);
+    const targetAngle = Number.isFinite(ang) ? ang * 0.35 : sangle;
+
+    // Light smoothing so the hole feels alive, not jittery
+    const k = 0.22;
+    smx += (tx - smx) * k;
+    smy += (ty - smy) * k;
+    srx += (targetRx - srx) * 0.18;
+    sry += (targetRy - sry) * 0.18;
+    ssoft += (targetSoft - ssoft) * 0.15;
+    // Angle unwrap-ish blend
+    sangle += (targetAngle - sangle) * 0.12;
+
+    setHole(stage, {
+      mx: smx,
+      my: smy,
+      rx: srx,
+      ry: sry,
+      soft: ssoft,
+      angle: sangle,
+    });
   };
 
   const onMove = (e) => {
-    latest = e;
+    pending = e;
     if (!raf) raf = window.requestAnimationFrame(apply);
   };
 
   window.addEventListener('pointermove', onMove, { passive: true });
 
-  // Touch / pen leave: ease back toward center
-  window.addEventListener('pointerleave', () => {
-    setPointerVars(stage, 0.5, 0.45);
-  }, { passive: true });
+  // When pointer leaves the window, ease hole back to a resting morph
+  document.documentElement.addEventListener('mouseleave', () => {
+    pending = null;
+    const rest = () => {
+      smx += (0.52 - smx) * 0.12;
+      smy += (0.48 - smy) * 0.12;
+      srx += (48 - srx) * 0.1;
+      sry += (40 - sry) * 0.1;
+      ssoft += (0.55 - ssoft) * 0.1;
+      sangle += (-12 - sangle) * 0.1;
+      setHole(stage, {
+        mx: smx, my: smy, rx: srx, ry: sry, soft: ssoft, angle: sangle,
+      });
+      if (Math.abs(smx - 0.52) > 0.01) {
+        raf = window.requestAnimationFrame(rest);
+      } else {
+        raf = 0;
+        defaultHole(stage);
+      }
+    };
+    if (!raf) raf = window.requestAnimationFrame(rest);
+  });
 }
 
 export default function decorate(block) {
@@ -155,9 +255,9 @@ export default function decorate(block) {
   block.replaceChildren(inner);
 
   if (!block.classList.contains('static')) {
-    setupPointerMask(stage);
+    setupMorphingHole(stage);
   } else {
     stage.classList.add('df-static-mask');
-    setPointerVars(stage, 0.5, 0.45);
+    defaultHole(stage);
   }
 }

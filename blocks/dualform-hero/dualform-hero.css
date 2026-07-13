@@ -1,4 +1,4 @@
-/* Dualform hero — paired silhouette cutouts + CSS mask */
+/* Dualform hero — paired silhouette cutouts + morphing pointer hole */
 
 .dualform-hero {
   --df-void: #0a0a0a;
@@ -8,10 +8,13 @@
   --df-chart: var(--rr-chart, #c8e62f);
   --df-paper: var(--rr-paper, #f5eedf);
 
-  /* Pointer-normalized 0–1 (set by JS); mid defaults before first move */
-  --df-mx: 0.5;
-  --df-my: 0.45;
-  --df-reveal: 0.5;
+  /* Morphing hole (set by JS); percentages of the stage box */
+  --df-mx: 52%;
+  --df-my: 48%;
+  --df-rx: 48%;
+  --df-ry: 40%;
+  --df-soft: 0.55;
+  --df-angle: -12deg;
 
   margin: 0;
   padding: 0;
@@ -114,75 +117,71 @@
 }
 
 /*
- * Layer B masked by pointer-driven soft edge.
- * Transparent → substrate (A) shows through; opaque → expression (B).
+ * Expression (B) only paints inside a morphing soft hole under the cursor.
+ * Rest of the stage shows substrate (A). Soft feather = organic, not a hard disc.
  *
- * Page pointer sets --df-mx / --df-my (0–1). Soft diagonal wipe follows mouse
- * like reference dual-image CSS mask demos.
+ * --df-rx / --df-ry stretch with pointer velocity (JS) so the hole morphs.
+ * --df-soft is the outer feather fraction of the ellipse (0.4–0.8).
  */
 .dualform-hero .df-b {
   z-index: 2;
 
   /* stylelint-disable property-no-vendor-prefix -- Safari needs -webkit-mask */
-  -webkit-mask-image: linear-gradient(
-    calc(90deg + var(--df-my, 0.45) * 40deg),
-    transparent 0%,
-    transparent max(4%, calc(var(--df-mx, 0.5) * 100% - 14%)),
-    #000 calc(var(--df-mx, 0.5) * 100% + 14%),
-    #000 100%
+  -webkit-mask-image: radial-gradient(
+    ellipse var(--df-rx, 48%) var(--df-ry, 40%)
+      at var(--df-mx, 52%) var(--df-my, 48%),
+    #000 0%,
+    #000 calc((1 - var(--df-soft, 0.55)) * 55%),
+    transparent calc(55% + var(--df-soft, 0.55) * 45%)
   );
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   /* stylelint-enable property-no-vendor-prefix */
 
-  mask-image: linear-gradient(
-    calc(90deg + var(--df-my, 0.45) * 40deg),
-    transparent 0%,
-    transparent max(4%, calc(var(--df-mx, 0.5) * 100% - 14%)),
-    #000 calc(var(--df-mx, 0.5) * 100% + 14%),
-    #000 100%
+  mask-image: radial-gradient(
+    ellipse var(--df-rx, 48%) var(--df-ry, 40%)
+      at var(--df-mx, 52%) var(--df-my, 48%),
+    #000 0%,
+    #000 calc((1 - var(--df-soft, 0.55)) * 55%),
+    transparent calc(55% + var(--df-soft, 0.55) * 45%)
   );
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
 }
 
-/* Static / reduced-motion / coarse pointer: fixed mid wipe, both states read */
+/* Static / reduced-motion / coarse: resting morphing blob (still dual-state) */
 .dualform-hero .df-stage.df-static-mask .df-b {
   /* stylelint-disable property-no-vendor-prefix */
-  -webkit-mask-image: linear-gradient(
-    155deg,
-    transparent 0%,
-    transparent 32%,
-    #000 52%,
-    #000 100%
+  -webkit-mask-image: radial-gradient(
+    ellipse 52% 44% at 54% 48%,
+    #000 0%,
+    #000 38%,
+    transparent 72%
   );
   /* stylelint-enable property-no-vendor-prefix */
-  mask-image: linear-gradient(
-    155deg,
-    transparent 0%,
-    transparent 32%,
-    #000 52%,
-    #000 100%
+  mask-image: radial-gradient(
+    ellipse 52% 44% at 54% 48%,
+    #000 0%,
+    #000 38%,
+    transparent 72%
   );
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dualform-hero .df-b {
     /* stylelint-disable property-no-vendor-prefix */
-    -webkit-mask-image: linear-gradient(
-      155deg,
-      transparent 0%,
-      transparent 32%,
-      #000 52%,
-      #000 100%
+    -webkit-mask-image: radial-gradient(
+      ellipse 52% 44% at 54% 48%,
+      #000 0%,
+      #000 38%,
+      transparent 72%
     );
     /* stylelint-enable property-no-vendor-prefix */
-    mask-image: linear-gradient(
-      155deg,
-      transparent 0%,
-      transparent 32%,
-      #000 52%,
-      #000 100%
+    mask-image: radial-gradient(
+      ellipse 52% 44% at 54% 48%,
+      #000 0%,
+      #000 38%,
+      transparent 72%
     );
   }
 }
