@@ -17,11 +17,11 @@
   min-height: calc(100vh - var(--nav-height, 72px));
 
   /*
-   * Above main (z-index 1). Gutters were z-index 0 under a full-width main
-   * stacking context, so pillars only “appeared” after the hero scrolled away.
-   * pointer-events: none keeps links/text usable underneath the soft fade.
+   * Behind main content (z-index 0). Side-only paint; soft masks fade into
+   * paper. pointer-events: none so they never intercept clicks.
+   * Do not raise above main — that created full-page compositor layers.
    */
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
 
   /* Park on the viewport edge; width reaches into the page with soft fade */

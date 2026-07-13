@@ -1,8 +1,13 @@
 /* Post-LCP Renderaissance flourishes */
 
 /*
- * Ionic gutters: Dualform A/B columns (see dualform-gutters.css + JS).
- * body stacking context only — column paint is injected PE.
+ * Keep stacking simple:
+ *   body paper
+ *   dualform gutters (z-index 0, fixed) — side chrome only
+ *   main / footer (no z-index) — normal flow
+ *   header nav-wrapper (z-index 20, fixed) — chrome only
+ *
+ * Do not put full-page sheets or high z-index layers over main.
  */
 html {
   min-height: 100%;
@@ -12,22 +17,6 @@ body {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
-}
-
-/*
- * Content stacks above body paper. Gutters use z-index 2 (see dualform-gutters.css)
- * so edge pillars are not trapped under main’s full-width stacking context.
- * Header nav stays above gutters (header.css z-index 20).
- */
-main,
-footer {
-  position: relative;
-  z-index: 1;
-}
-
-header {
-  position: relative;
-  z-index: 20;
 }
 
 /* Status emphasis inside lists */

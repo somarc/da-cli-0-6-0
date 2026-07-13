@@ -138,13 +138,4 @@ export default function initDualformGutters() {
   const left = buildGutter('left');
   const right = buildGutter('right');
   armPointer([left, right]);
-
-  // Force layout so fixed gutters paint at top-of-page (not only after scroll)
-  requestAnimationFrame(() => {
-    [left, right].forEach((g) => {
-      g.style.transform = 'translateZ(0)';
-      // eslint-disable-next-line no-unused-expressions
-      g.offsetHeight;
-    });
-  });
 }
