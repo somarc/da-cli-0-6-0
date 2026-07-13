@@ -44,9 +44,20 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 
 ### Site chrome (Parthenon frame)
 
-- `media/renderaissance/ionic-column-left.jpg` / `ionic-column-right.jpg` — fixed gutters via `body::before` / `::after` in `styles/lazy-styles.css` (≥1100px)
-- `media/renderaissance/ionic-entablature-beam.jpg` — header beam via `blocks/header/header.css` (paper scrim over beam for type)
-- Capitals meet the entablature; open middle holds editorial content. Not authorable chrome.
+Three-part pillars (document-relative, grow with page height) in `styles/lazy-styles.css` (≥1100px):
+
+| Member | Asset | Anchor |
+|--------|-------|--------|
+| Capital | `ionic-capital-{left,right}.jpg` | Top of page |
+| Shaft | `ionic-column-{left,right}.jpg` | Grows with document between capital and base |
+| Base | `ionic-base-{left,right}.jpg` | Bottom of page |
+
+Horizontal members:
+
+- `ionic-entablature-beam.jpg` — header lintel (`blocks/header/header.css`; Claude may refine)
+- `ionic-stylobate-footer.jpg` — footer foundation (`blocks/footer/footer.css`)
+
+Not authorable chrome. Open middle holds editorial content.
 
 ### Multi-agent
 
