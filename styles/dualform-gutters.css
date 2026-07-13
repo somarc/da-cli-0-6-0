@@ -11,13 +11,16 @@
   position: fixed;
   top: var(--nav-height, 72px);
   bottom: 0;
+
+  /* Explicit height — top+bottom+height:auto can stay 0 until a scroll reflow */
+  height: calc(100dvh - var(--nav-height, 72px));
+  min-height: calc(100vh - var(--nav-height, 72px));
   z-index: 0;
   pointer-events: none;
 
   /* Park on the viewport edge; width reaches into the page with soft fade */
   width: min(32vw, var(--rr-col-max, 300px));
   max-width: var(--rr-col-max, 300px);
-  height: auto;
   overflow: hidden;
   opacity: 0.5;
 }
