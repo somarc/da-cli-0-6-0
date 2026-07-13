@@ -4,7 +4,7 @@ header .nav-wrapper {
   background-color: rgb(var(--rr-paper-rgb, 245, 238, 223), 0.92);
   backdrop-filter: blur(6px);
   width: 100%;
-  z-index: 2;
+  z-index: 20;
   position: fixed;
   border-bottom: 1px solid var(--rr-line, #d8ccb4);
 }
@@ -22,16 +22,30 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--label-font-family, var(--body-font-family));
+  color: var(--rr-ink, var(--text-color));
+}
+
+/* Mobile open menu: solid paper panel — no see-through pillars/content */
+header .nav-wrapper:has(nav[aria-expanded='true']) {
+  background-color: var(--rr-paper, #f5eedf);
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  inset: 0;
+  height: 100dvh;
+  overflow: auto;
 }
 
 header nav[aria-expanded='true'] {
   grid-template:
     'hamburger brand' var(--nav-height)
     'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    'tools tools' auto / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
-  background: var(--background-color);
+  height: auto;
+  align-content: start;
+  background-color: var(--rr-paper, #f5eedf);
+  color: var(--rr-ink, #22315f);
 }
 
 @media (width >= 900px) {
@@ -189,6 +203,38 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  width: 100%;
+  padding: 1.25rem 0 2rem;
+  background-color: var(--rr-paper, #f5eedf);
+}
+
+/* Mobile menu links: larger hit targets, solid ink on paper */
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li {
+    border-bottom: 1px solid var(--rr-line-soft, #e4dac6);
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--rr-ink, #22315f);
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > a:hover,
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > a:focus-visible {
+    color: var(--rr-terra, #c05433);
+  }
+
+  header nav[aria-expanded='true'] .nav-brand {
+    color: var(--rr-ink, #22315f);
+  }
+
+  header nav[aria-expanded='true'] .nav-hamburger button {
+    color: var(--rr-ink, #22315f);
+  }
 }
 
 header nav .nav-sections ul {
