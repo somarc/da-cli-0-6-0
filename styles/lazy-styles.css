@@ -14,11 +14,20 @@ body {
   min-height: 100dvh;
 }
 
-header,
+/*
+ * Content stacks above body paper. Gutters use z-index 2 (see dualform-gutters.css)
+ * so edge pillars are not trapped under main’s full-width stacking context.
+ * Header nav stays above gutters (header.css z-index 20).
+ */
 main,
 footer {
   position: relative;
   z-index: 1;
+}
+
+header {
+  position: relative;
+  z-index: 20;
 }
 
 /* Status emphasis inside lists */

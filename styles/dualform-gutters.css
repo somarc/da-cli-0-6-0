@@ -15,7 +15,13 @@
   /* Explicit height — top+bottom+height:auto can stay 0 until a scroll reflow */
   height: calc(100dvh - var(--nav-height, 72px));
   min-height: calc(100vh - var(--nav-height, 72px));
-  z-index: 0;
+
+  /*
+   * Above main (z-index 1). Gutters were z-index 0 under a full-width main
+   * stacking context, so pillars only “appeared” after the hero scrolled away.
+   * pointer-events: none keeps links/text usable underneath the soft fade.
+   */
+  z-index: 2;
   pointer-events: none;
 
   /* Park on the viewport edge; width reaches into the page with soft fade */
