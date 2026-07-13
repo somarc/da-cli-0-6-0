@@ -48,23 +48,14 @@
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
-  --nav-height: 84px;
+  --nav-height: 72px;
   --rr-frame-max: 1200px;
-  --rr-entablature: url('/media/renderaissance/ionic-entablature-beam.jpg');
-  --rr-stylobate: url('/media/renderaissance/ionic-stylobate-footer.jpg');
 
-  /* Three-part pillars: capital (page top) + growing shaft + base (page bottom) */
-  --rr-col-capital-h: clamp(140px, 16vw, 210px);
-  --rr-col-base-h: clamp(120px, 14vw, 190px);
-  --rr-col-max: 320px;
-}
-
-@media (width >= 1100px) {
-  :root {
-    /* Room for Ionic frieze / beam as header chrome — tall enough that the
-       dentil + egg-and-dart course reads at near-native resolution */
-    --nav-height: 116px;
-  }
+  /* Floating capital + shaft fragment near the header — no base, no footer
+     anchor (see lazy-styles.css). Natural-aspect layers (no height stretch). */
+  --rr-col-max: 176px;
+  --rr-col-shaft-offset: 64px;
+  --rr-col-visible-h: clamp(480px, 52vh, 720px);
 }
 
 /* Metric fallbacks while webfonts load */
