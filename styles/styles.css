@@ -48,15 +48,16 @@
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
-  --nav-height: 72px;
+  --nav-height: 84px;
   --rr-frame-max: 1200px;
   --rr-entablature: url('/media/renderaissance/ionic-entablature-beam.jpg');
 }
 
 @media (width >= 1100px) {
   :root {
-    /* Room for Ionic frieze / beam as header chrome */
-    --nav-height: 92px;
+    /* Room for Ionic frieze / beam as header chrome — tall enough that the
+       dentil + egg-and-dart course reads at near-native resolution */
+    --nav-height: 116px;
   }
 }
 

@@ -23,23 +23,29 @@ header::before {
     url('/media/renderaissance/ionic-entablature-beam.jpg')
   );
 
-  /* Height fills nav; width keeps natural proportion — no rubber-band stretch */
-  background-repeat: repeat-x;
-  background-position: center center;
-  background-size: auto 100%;
-  opacity: 0.88;
+  /* One painted lintel, never tiled. The source plate has feathered
+     watercolor edges meant to dissolve into the paper at the ends of a
+     single placement — repeat-x broke that seam into a blurry mechanical
+     stripe. `cover` keeps the dentil + egg-and-dart course undistorted and
+     lets the real edges do the dissolving. */
+  background-repeat: no-repeat;
+  background-position: center 32%;
+  background-size: cover;
+  opacity: 0.94;
 }
 
 header .nav-wrapper {
-  /* Light paper scrim only — beam lives on header::before underneath */
-  background-color: rgb(var(--rr-paper-rgb, 245, 238, 223), 0.38);
+  /* Light paper scrim only — beam lives on header::before underneath.
+     No backdrop-filter: blur here — it was smearing the carved detail of
+     the entablature showing through; the gradient alone keeps nav text
+     legible. */
+  background-color: rgb(var(--rr-paper-rgb, 245, 238, 223), 0.42);
   background-image: linear-gradient(
     180deg,
-    rgb(var(--rr-paper-rgb, 245, 238, 223) / 42%) 0%,
-    rgb(var(--rr-paper-rgb, 245, 238, 223) / 28%) 50%,
-    rgb(var(--rr-paper-rgb, 245, 238, 223) / 48%) 100%
+    rgb(var(--rr-paper-rgb, 245, 238, 223) / 52%) 0%,
+    rgb(var(--rr-paper-rgb, 245, 238, 223) / 34%) 50%,
+    rgb(var(--rr-paper-rgb, 245, 238, 223) / 56%) 100%
   );
-  backdrop-filter: blur(3px);
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -102,11 +108,13 @@ header nav[aria-expanded='true'] {
 /* Full Parthenon reading: denser lintel when pillars also show */
 @media (width >= 1100px) {
   header::before {
-    opacity: 0.94;
+    opacity: 0.96;
 
-    /* Slight vertical crop only — never stretch on X */
-    background-size: auto 110%;
-    background-position: center 40%;
+    /* Same single-plate cover treatment as the base rule — do not
+       reintroduce a height-locked auto-width size here, it shrinks the
+       lintel into a narrow centered island instead of spanning the header. */
+    background-size: cover;
+    background-position: center 32%;
   }
 
   header .nav-wrapper {
