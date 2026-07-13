@@ -131,7 +131,7 @@
   height: 100%;
   object-fit: contain;
   object-position: right bottom;
-  filter: drop-shadow(0 14px 22px rgb(34 49 95 / 12%));
+  filter: drop-shadow(0 6px 10px rgb(34 49 95 / 6%));
 }
 
 /* 3) Object sits ON the same stage — bottom-left, overlapping wash + figure feet */
@@ -148,7 +148,7 @@
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 10px 16px rgb(34 49 95 / 10%));
+  filter: drop-shadow(0 4px 8px rgb(34 49 95 / 5%));
 }
 
 .painterly-hero .ph-layer img {
