@@ -1,0 +1,195 @@
+/* Painterly collage hero — Renderaissance depth: collage */
+
+.painterly-hero-container .painterly-hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.painterly-hero {
+  position: relative;
+  min-height: min(780px, calc(100svh - var(--nav-height, 72px)));
+  overflow: hidden;
+}
+
+.painterly-hero .ph-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: var(--rr-frame-max, 1200px);
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+  min-height: inherit;
+  align-items: start;
+}
+
+.painterly-hero .ph-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 34rem;
+}
+
+.painterly-hero .ph-eyebrow {
+  margin: 0 0 1.1em;
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rr-coral, #cf5a38);
+}
+
+.painterly-hero h1 {
+  margin: 0 0 0.45em;
+  max-width: 14ch;
+  font-family: var(--heading-font-family, serif);
+  font-size: clamp(42px, 6.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.06;
+  color: var(--rr-ink, #22315f);
+  letter-spacing: -0.01em;
+}
+
+/* Chart rule — owned by block, not global first-section h1 */
+.painterly-hero h1::after {
+  content: '';
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 0.55em;
+  background: var(--rr-chart, #c8e62f);
+  box-shadow: 14px 0 0 -1px var(--rr-chart, #c8e62f);
+  border-radius: 1px;
+}
+
+.painterly-hero .ph-lede {
+  margin: 0.85em 0 0;
+  max-width: 34ch;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: var(--rr-ink-soft, #3a4a80);
+}
+
+.painterly-hero .ph-lede + .ph-lede {
+  margin-top: 0.75em;
+}
+
+.painterly-hero .ph-art {
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  pointer-events: none;
+}
+
+.painterly-hero .ph-layer {
+  position: absolute;
+  will-change: transform;
+}
+
+.painterly-hero .layer-bg {
+  inset: -8% -6% -4% -10%;
+  mix-blend-mode: multiply;
+
+  --rr-depth: 8px;
+}
+
+.painterly-hero .layer-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.painterly-hero .layer-focal {
+  top: 0;
+  right: -4%;
+  width: min(92%, 420px);
+
+  --rr-depth: 18px;
+}
+
+.painterly-hero .layer-object {
+  bottom: 2%;
+  left: 4%;
+  width: min(58%, 260px);
+
+  --rr-depth: 10px;
+}
+
+.painterly-hero .ph-layer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+/* Entrance */
+@media (prefers-reduced-motion: no-preference) {
+  .painterly-hero .layer-bg img,
+  .painterly-hero .layer-focal img,
+  .painterly-hero .layer-object img {
+    animation: ph-hero-in 950ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .painterly-hero .layer-bg img { animation-delay: 0ms; }
+  .painterly-hero .layer-focal img { animation-delay: 90ms; }
+  .painterly-hero .layer-object img { animation-delay: 160ms; }
+}
+
+@keyframes ph-hero-in {
+  from {
+    opacity: 0;
+    translate: 48px 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .painterly-hero .ph-layer {
+    transform: none !important;
+  }
+}
+
+/* Desktop: copy left, art bleeds right */
+@media (width >= 900px) {
+  .painterly-hero .ph-inner {
+    grid-template-columns: minmax(280px, 42%) 1fr;
+    gap: 24px;
+    padding: 64px 32px 56px;
+    align-items: center;
+  }
+
+  .painterly-hero .ph-art {
+    position: absolute;
+    inset: 0 0 0 42%;
+    min-height: 0;
+  }
+
+  .painterly-hero .layer-focal {
+    top: 6%;
+    right: max(-2%, calc((100vw - var(--rr-frame-max, 1200px)) / -4));
+    width: min(78%, 560px);
+  }
+
+  .painterly-hero .layer-object {
+    bottom: 8%;
+    left: 6%;
+    width: min(46%, 320px);
+  }
+
+  .painterly-hero .layer-bg {
+    inset: 0 -8% 0 -4%;
+  }
+}
+
+@media (width >= 1200px) {
+  .painterly-hero .layer-focal {
+    width: min(72%, 620px);
+    right: -6%;
+  }
+}

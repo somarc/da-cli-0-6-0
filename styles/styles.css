@@ -174,14 +174,14 @@ blockquote {
   margin-bottom: 0.35em;
 }
 
-/* Chart rule under page titles */
-main .section:first-of-type h1 {
+/* Chart rule under page titles (default content only — blocks own their rules) */
+main .section:first-of-type .default-content-wrapper h1 {
   max-width: 18ch;
   margin-top: 0;
   margin-bottom: 0.55em;
 }
 
-main .section:first-of-type h1::after {
+main .section:first-of-type .default-content-wrapper h1::after {
   content: '';
   display: block;
   width: 58px;
@@ -193,13 +193,13 @@ main .section:first-of-type h1::after {
 }
 
 /* Soften first-section ledes */
-main .section:first-of-type p {
+main .section:first-of-type .default-content-wrapper > p {
   max-width: 62ch;
   color: var(--rr-ink-soft);
   font-size: 1.05em;
 }
 
-main .section:first-of-type p strong {
+main .section:first-of-type .default-content-wrapper > p strong {
   color: var(--rr-ink);
   font-weight: 500;
 }
@@ -436,6 +436,17 @@ main > .section:first-of-type {
   margin-top: 0;
   padding-top: 56px;
   padding-bottom: 40px;
+}
+
+/* Painterly hero section: full-bleed, no wrapper measure */
+main .section:has(.painterly-hero) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+main .section:has(.painterly-hero) > div {
+  max-width: none;
+  padding: 0;
 }
 
 /* Hairline between sections instead of grey slabs */
