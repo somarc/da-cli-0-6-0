@@ -2,7 +2,8 @@
 
 /*
  * Parthenon gutters — Ionic pillars left/right.
- * Replaces the earlier pure-CSS ink/peach blobs.
+ * Fixed full-viewport shafts: stay present for the whole scroll
+ * ("stretch to infinity" as the page moves under them).
  * Assets: media/renderaissance/ionic-column-{left,right}.jpg
  */
 body {
@@ -20,53 +21,61 @@ body::before,
 body::after {
   content: '';
   position: fixed;
-  top: calc(var(--nav-height, 72px) - 12px);
-  bottom: 4vh;
-  width: min(13vw, 168px);
+
+  /* Full viewport — not nav-relative, not short mid-page stamps */
+  inset: 0 auto 0 0;
+  height: 100vh;
+  height: 100dvh;
+
+  /* Fill leftover side margin */
+  width: max(160px, calc((100vw - var(--rr-frame-max, 1200px)) / 2));
+  max-width: 320px;
   z-index: 0;
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;
-  opacity: 0.46;
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+
+  /* Stretch plate to the full shaft box (width + infinite scroll presence) */
+  background-size: 100% 100%;
+  opacity: 0.58;
+
+  /* Soft dissolve into paper at edges only — shaft stays solid mid-height */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 3%,
+    #000 97%,
+    transparent 100%
+  );
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
 }
 
 body::before {
-  left: max(0px, calc(50% - var(--rr-frame-max, 1200px) / 2 - 150px));
+  left: 0;
+  right: auto;
   background-image: url('/media/renderaissance/ionic-column-left.jpg');
   mask-image:
-    linear-gradient(to right, #000 0%, #000 50%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    linear-gradient(to right, #000 0%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 3%, #000 97%, transparent 100%);
   mask-composite: intersect;
 }
 
 body::after {
-  right: max(0px, calc(50% - var(--rr-frame-max, 1200px) / 2 - 150px));
+  right: 0;
   left: auto;
   background-image: url('/media/renderaissance/ionic-column-right.jpg');
   mask-image:
-    linear-gradient(to left, #000 0%, #000 50%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    linear-gradient(to left, #000 0%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 3%, #000 97%, transparent 100%);
   mask-composite: intersect;
 }
 
-/* Wide gutters: park pillars in the true side margins */
 @media (width >= 1400px) {
   body::before,
   body::after {
-    width: min(11vw, 200px);
-    opacity: 0.5;
-  }
-
-  body::before {
-    left: max(8px, calc(50% - var(--rr-frame-max, 1200px) / 2 - 200px));
-  }
-
-  body::after {
-    right: max(8px, calc(50% - var(--rr-frame-max, 1200px) / 2 - 200px));
+    max-width: 360px;
+    opacity: 0.62;
   }
 }
 
