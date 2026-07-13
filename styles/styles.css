@@ -52,10 +52,10 @@
   --rr-frame-max: 1200px;
 
   /* Floating capital + shaft fragment near the header — no base, no footer
-     anchor (see lazy-styles.css). Scaled down (~0.55x) from the original so
-     the gutters read as a quiet frame, not competing architecture. */
-  --rr-col-capital-h: clamp(78px, 9vw, 116px);
+     anchor (see lazy-styles.css). Natural-aspect layers (no height stretch). */
   --rr-col-max: 176px;
+  --rr-col-shaft-offset: 64px;
+  --rr-col-visible-h: clamp(480px, 52vh, 720px);
 }
 
 /* Metric fallbacks while webfonts load */
