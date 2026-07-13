@@ -51,11 +51,10 @@
   --nav-height: 72px;
   --rr-frame-max: 1200px;
 
-  /* Three-part pillars: capital (page top) + growing shaft + base (page bottom).
-     Scaled down together (~0.55x) from the original so the gutters read as a
-     quiet frame, not architecture competing with the page's hero art. */
+  /* Floating capital + shaft fragment near the header — no base, no footer
+     anchor (see lazy-styles.css). Scaled down (~0.55x) from the original so
+     the gutters read as a quiet frame, not competing architecture. */
   --rr-col-capital-h: clamp(78px, 9vw, 116px);
-  --rr-col-base-h: clamp(66px, 8vw, 105px);
   --rr-col-max: 176px;
 }
 

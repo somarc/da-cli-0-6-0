@@ -1,17 +1,17 @@
 /* Post-LCP Renderaissance flourishes */
 
 /*
- * Parthenon gutters — three-part Ionic pillars left/right.
+ * Parthenon gutters — floating Ionic capital + shaft fragment, left/right.
  *
- * Architecture (document-relative, not viewport-fixed):
- *   1. Capital  — anchored to the TOP of the page
- *   2. Shaft    — grows with document height as the page scrolls/lengthens
- *   3. Base     — anchored to the BOTTOM of the page (meets footer stylobate)
+ * Anchored to the TOP of the page only and fixed-height (not document
+ * height) — no base, no footer anchor. The shaft fades to transparent
+ * before it gets anywhere near the footer, so it reads as a floating
+ * flourish near the header/hero, not a structural column holding the
+ * page up.
  *
  * Assets:
  *   ionic-capital-{left,right}.jpg
  *   ionic-column-{left,right}.jpg   (shaft source — fluted body)
- *   ionic-base-{left,right}.jpg
  */
 html {
   min-height: 100%;
@@ -35,7 +35,7 @@ body::after {
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
+  height: var(--rr-col-visible-h, clamp(520px, 55vh, 780px));
   width: max(88px, calc((100vw - var(--rr-frame-max, 1200px)) / 2));
   max-width: var(--rr-col-max, 176px);
   z-index: 0;
@@ -44,27 +44,23 @@ body::after {
   /* Quiet watermark, not a competing painting — the hero collage is the
      one piece of art each page is supposed to be about. */
   opacity: 0.34;
-  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat;
 
   /*
    * Paint order (first = topmost):
    *   capital @ page top
-   *   base    @ page bottom
-   *   shaft   fills the growing middle band
+   *   shaft    fills the rest of the visible fragment, then dissolves
    */
   background-size:
-    100% var(--rr-col-capital-h, 180px),
-    100% var(--rr-col-base-h, 160px),
-    100% calc(100% - var(--rr-col-capital-h, 180px) - var(--rr-col-base-h, 160px));
+    100% var(--rr-col-capital-h, 116px),
+    100% calc(100% - var(--rr-col-capital-h, 116px));
   background-position:
     center top,
-    center bottom,
-    center var(--rr-col-capital-h, 180px);
+    center var(--rr-col-capital-h, 116px);
 
-  /* Soft edge into the content column only */
-  mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
+  /* Fade out toward the bottom of the fragment (floating, not anchored)
+     AND dissolve the inner edge into the content column. */
+  mask-composite: intersect;
 }
 
 body::before {
@@ -72,9 +68,10 @@ body::before {
   right: auto;
   background-image:
     url('/media/renderaissance/ionic-capital-left.jpg'),
-    url('/media/renderaissance/ionic-base-left.jpg'),
     url('/media/renderaissance/ionic-column-left.jpg');
-  mask-image: linear-gradient(to right, #000 0%, #000 80%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, #000 0%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 55%, transparent 94%);
 }
 
 body::after {
@@ -82,9 +79,10 @@ body::after {
   left: auto;
   background-image:
     url('/media/renderaissance/ionic-capital-right.jpg'),
-    url('/media/renderaissance/ionic-base-right.jpg'),
     url('/media/renderaissance/ionic-column-right.jpg');
-  mask-image: linear-gradient(to left, #000 0%, #000 80%, transparent 100%);
+  mask-image:
+    linear-gradient(to left, #000 0%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 55%, transparent 94%);
 }
 
 @media (width >= 1400px) {
