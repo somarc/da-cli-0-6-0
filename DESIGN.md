@@ -42,6 +42,12 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 - `media/renderaissance/hero-object.webp` — catalog book under glass with content-tree roots
 - Block: `painterly-hero` with optional mouse parallax (`prefers-reduced-motion` safe)
 
+### Site chrome (Parthenon frame)
+
+- `media/renderaissance/ionic-column-left.jpg` / `ionic-column-right.jpg` — fixed gutters via `body::before` / `::after` in `styles/lazy-styles.css` (≥1100px)
+- `media/renderaissance/ionic-entablature-beam.jpg` — header beam via `blocks/header/header.css` (paper scrim over beam for type)
+- Capitals meet the entablature; open middle holds editorial content. Not authorable chrome.
+
 ### Multi-agent
 
 Skill `eds-renderaissance` is model-agnostic (prompts + EDS contracts). This site’s

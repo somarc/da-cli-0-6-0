@@ -50,6 +50,14 @@
   --heading-font-size-xs: 18px;
   --nav-height: 72px;
   --rr-frame-max: 1200px;
+  --rr-entablature: url('/media/renderaissance/ionic-entablature-beam.jpg');
+}
+
+@media (width >= 1100px) {
+  :root {
+    /* Room for Ionic frieze / beam as header chrome */
+    --nav-height: 92px;
+  }
 }
 
 /* Metric fallbacks while webfonts load */
