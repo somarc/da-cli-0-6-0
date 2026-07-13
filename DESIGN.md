@@ -53,3 +53,11 @@ any agent with image generation can regenerate layers from the same briefs.
 - Glassmorphism, neon cyber, baroque gold
 - WebGL / ink shaders on this pass (collage depth only — no `lit`)
 - Rewriting dogfood narrative content for “marketing voice”
+
+### Media delivery note
+
+Homepage collage assets live in git (`media/renderaissance/`) and on the DA
+content bus. Fixtures currently reference **absolute same-site URLs** so Helix
+media rewrite can register them (relative `/media/...` was rewriting to
+`about:error` in preview). After rewrite, delivery uses `media_<hash>.webp`.
+
