@@ -42,6 +42,14 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 - `media/renderaissance/hero-object.webp` — catalog book under glass with content-tree roots
 - Block: `painterly-hero` with optional mouse parallax (`prefers-reduced-motion` safe)
 
+### Dualform lab (`/dualform`)
+
+Sibling aesthetic lab for **eds-dualform**: paired silhouette cutouts + CSS mask.
+
+- Block: `blocks/dualform-hero/`
+- Assets: `media/dualform/form-a.webp` (substrate), `form-b.webp` (expression)
+- Skill: `~/.grok/skills/eds-dualform` (mirrored to agents/claude)
+
 ### Site chrome (Parthenon frame)
 
 Three-part pillars (document-relative, grow with page height) in `styles/lazy-styles.css` (≥1100px):

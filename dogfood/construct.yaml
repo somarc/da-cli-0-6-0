@@ -56,10 +56,16 @@ steps:
   - id: preview-findings
     command: preview page /findings --format json
     depends_on: [put-findings]
+  - id: put-dualform
+    command: content put /dualform.html dogfood/fixtures/dualform.html --format json
+    depends_on: [preview-findings]
+  - id: preview-dualform
+    command: preview page /dualform --format json
+    depends_on: [put-dualform]
   # Wave 3 — authored structured-data sheet (contentbus), discovered by `da content sheets`.
   - id: put-coverage-data
     command: content put /data/coverage.json dogfood/fixtures/coverage-data.json --format json
-    depends_on: [preview-findings]
+    depends_on: [preview-dualform]
   - id: preview-coverage-data
     command: preview page /data/coverage.json --format json
     depends_on: [put-coverage-data]
