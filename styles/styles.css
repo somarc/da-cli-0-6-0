@@ -52,7 +52,7 @@
   --rr-frame-max: 1200px;
 
   /* Dualform Ionic gutters — full viewport-height fragments (see dualform-gutters.css) */
-  --rr-col-max: 200px;
+  --rr-col-max: 240px;
 }
 
 /* Metric fallbacks while webfonts load */

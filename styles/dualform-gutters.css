@@ -9,16 +9,15 @@
   --df-soft: 0.55;
 
   position: fixed;
-  top: calc(var(--nav-height, 72px) + 4px);
-  bottom: 10px;
+  top: calc(var(--nav-height, 72px) + 2px);
+  bottom: 8px;
   z-index: 0;
   pointer-events: none;
-  width: max(104px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 10px));
-  max-width: var(--rr-col-max, 200px);
-
-  /* Fill viewport vertical space; art scales with contain (no rubber-band stretch) */
+  width: max(120px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 4px));
+  max-width: var(--rr-col-max, 240px);
   height: auto;
-  opacity: 0.44;
+  overflow: hidden;
+  opacity: 0.46;
 }
 
 .df-gutter-left {
@@ -68,10 +67,15 @@
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center top;
 
-  /* Full column (capital→base) scales into the tall gutter box */
-  background-size: contain;
+  /*
+   * Fill the tall gutter by HEIGHT, not width.
+   * `contain` was width-limited (~180px → short pillars floating in empty space).
+   * auto 100% scales capital→base to the full viewport fragment; slight side
+   * crop is OK — soft inner mask already dissolves into paper.
+   */
+  background-size: auto 100%;
 }
 
 .df-gutter-a {
@@ -125,8 +129,8 @@
 
 @media (width >= 1400px) {
   .df-gutter {
-    max-width: 220px;
-    opacity: 0.48;
+    max-width: 280px;
+    opacity: 0.5;
   }
 }
 
