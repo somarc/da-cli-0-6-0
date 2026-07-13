@@ -90,6 +90,11 @@
   background: var(--df-void);
   border-radius: 8px;
   overflow: hidden;
+
+  /* pan-y keeps page scroll; pointer handlers drive the hole */
+  touch-action: pan-y;
+  cursor: crosshair;
+  user-select: none;
 }
 
 @media (width >= 900px) {
