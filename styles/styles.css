@@ -51,10 +51,8 @@
   --nav-height: 72px;
   --rr-frame-max: 1200px;
 
-  /* Floating capital + shaft fragment near the header — no base, no footer
-     anchor (see lazy-styles.css). Natural-aspect layers (no height stretch). */
+  /* Dualform Ionic gutters (see dualform-gutters.css + scripts/dualform-gutters.js) */
   --rr-col-max: 176px;
-  --rr-col-shaft-offset: 64px;
   --rr-col-visible-h: clamp(480px, 52vh, 720px);
 }
 

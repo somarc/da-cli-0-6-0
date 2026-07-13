@@ -1,15 +1,8 @@
 /* Post-LCP Renderaissance flourishes */
 
 /*
- * Parthenon gutters — floating Ionic capital + shaft fragment, left/right.
- *
- * Baseline (tune/parthenon-scale-back): fixed-height fragment near the header,
- * not a document-tall stretched plate. Capitals and shaft keep natural aspect
- * (no height rubber-band). Soft mask dissolves into paper before the footer.
- *
- * Assets:
- *   ionic-capital-{left,right}.jpg
- *   ionic-column-{left,right}.jpg   (upper shaft / body — not stretched to box)
+ * Ionic gutters: Dualform A/B columns (see dualform-gutters.css + JS).
+ * body stacking context only — column paint is injected PE.
  */
 html {
   min-height: 100%;
@@ -26,77 +19,6 @@ main,
 footer {
   position: relative;
   z-index: 1;
-}
-
-body::before,
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-
-  /* Paint box only — art inside keeps natural proportions */
-  height: var(--rr-col-visible-h, clamp(480px, 52vh, 720px));
-  width: max(96px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 12px));
-  max-width: var(--rr-col-max, 176px);
-  z-index: 0;
-  pointer-events: none;
-
-  /* Quiet watermark — hero collage stays the page art */
-  opacity: 0.38;
-  background-repeat: no-repeat, no-repeat;
-
-  /*
-   * Both layers: width fills gutter, HEIGHT auto (fidelity).
-   * Shaft tucks under capital with slight overlap so the joint isn’t a gap.
-   */
-  background-size: 100% auto, 100% auto;
-  background-position:
-    center top,
-    center var(--rr-col-shaft-offset, 64px);
-  mask-composite: intersect;
-}
-
-body::before {
-  left: max(0px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - var(--rr-col-max, 176px) - 8px));
-  right: auto;
-  background-image:
-    url('/media/renderaissance/ionic-capital-left.jpg'),
-    url('/media/renderaissance/ionic-column-left.jpg');
-  mask-image:
-    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 58%, transparent 96%);
-}
-
-body::after {
-  right: max(0px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - var(--rr-col-max, 176px) - 8px));
-  left: auto;
-  background-image:
-    url('/media/renderaissance/ionic-capital-right.jpg'),
-    url('/media/renderaissance/ionic-column-right.jpg');
-  mask-image:
-    linear-gradient(to left, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 58%, transparent 96%);
-}
-
-@media (width >= 1400px) {
-  body::before,
-  body::after {
-    max-width: 200px;
-    opacity: 0.42;
-  }
-
-  :root {
-    --rr-col-max: 200px;
-    --rr-col-shaft-offset: 72px;
-  }
-}
-
-/* Collapse temple gutters when there is no margin room */
-@media (width < 1100px) {
-  body::before,
-  body::after {
-    display: none;
-  }
 }
 
 /* Status emphasis inside lists */

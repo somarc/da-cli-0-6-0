@@ -196,7 +196,13 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  loadCSS(`${window.hlx.codeBasePath}/styles/dualform-gutters.css`);
   loadFonts();
+
+  // Dualform Ionic gutters (A/B + morphing hole) — PE, non-blocking
+  import('./dualform-gutters.js')
+    .then((m) => m.default())
+    .catch(() => { /* optional chrome */ });
 }
 
 /**

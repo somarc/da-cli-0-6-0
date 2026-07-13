@@ -49,23 +49,21 @@ Sibling aesthetic lab for **eds-dualform**: paired silhouette cutouts + CSS mask
 - Block: `blocks/dualform-hero/`
 - Assets: `media/dualform/form-a.webp` (substrate), `form-b.webp` (expression)
 - Skill: `~/.grok/skills/eds-dualform` (mirrored to agents/claude)
+- PE: morphing soft hole under the cursor reveals expression through substrate
 
-### Site chrome (Parthenon frame)
+### Site chrome (Dualform Ionic gutters)
 
-Three-part pillars (document-relative, grow with page height) in `styles/lazy-styles.css` (≥1100px):
+Quiet dual-state columns in the side margins (≥1100px), not document-stretched plates:
 
-| Member | Asset | Anchor |
-|--------|-------|--------|
-| Capital | `ionic-capital-{left,right}.jpg` | Top of page |
-| Shaft | `ionic-column-{left,right}.jpg` | Grows with document between capital and base |
-| Base | `ionic-base-{left,right}.jpg` | Bottom of page |
+| Layer | Asset | Role |
+|-------|-------|------|
+| A (substrate) | `media/dualform/column-a.webp` | Bare Ionic cutout |
+| B (expression) | `media/dualform/column-b.webp` | Living dual-state of the same silhouette |
 
-Horizontal members:
-
-- `ionic-entablature-beam.jpg` — header lintel (`blocks/header/header.css`; Claude may refine)
-- `ionic-stylobate-footer.jpg` — footer foundation (`blocks/footer/footer.css`)
-
-Not authorable chrome. Open middle holds editorial content.
+- Injected by `scripts/dualform-gutters.js` + `styles/dualform-gutters.css`
+- Same morphing-hole PE as dualform-hero (stage-local; velocity stretches the hole)
+- Fixed-height fragments near the header; soft dissolve into paper
+- Right gutter is a horizontal flip of the left pair
 
 ### Multi-agent
 
