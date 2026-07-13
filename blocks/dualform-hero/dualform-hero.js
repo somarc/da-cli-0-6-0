@@ -1,6 +1,7 @@
 /**
  * Dualform hero — paired silhouette cutouts + CSS mask superimposition.
- * Static soft wipe always shows both states; optional light intersection PE.
+ * Mask is driven by pointer position on the page (reference dual-image craft).
+ * Static mid wipe when motion is reduced or pointer is coarse.
  */
 
 function classifyCopy(copy) {
@@ -57,24 +58,59 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function isCoarsePointer() {
+  return window.matchMedia('(pointer: coarse)').matches;
+}
+
+function setPointerVars(stage, x, y) {
+  // 0–1 across the viewport
+  const nx = Math.min(1, Math.max(0, x));
+  const ny = Math.min(1, Math.max(0, y));
+  stage.style.setProperty('--df-mx', nx.toFixed(4));
+  stage.style.setProperty('--df-my', ny.toFixed(4));
+  // Combined wipe 0–1 for simple 1D gradients
+  stage.style.setProperty('--df-reveal', (0.2 + nx * 0.6).toFixed(4));
+}
+
 /**
- * Map intersection → --df-reveal in [0.32, 0.68].
- * Never 0 or 1 — both substrate and expression must always read.
+ * Page-level pointer drives the dual-state mask (like reference demos).
+ * Defaults to a mid wipe until the first move.
  */
-function setupReveal(stage) {
-  stage.style.setProperty('--df-reveal', '0.48');
-  if (prefersReducedMotion()) return;
-  if (!('IntersectionObserver' in window)) return;
+function setupPointerMask(stage) {
+  setPointerVars(stage, 0.5, 0.45);
 
-  const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
-  const io = new IntersectionObserver(([entry]) => {
-    if (!entry) return;
-    // 0.32 at low visibility → 0.68 when fully in view (still dual)
-    const t = 0.32 + (entry.intersectionRatio * 0.36);
-    stage.style.setProperty('--df-reveal', t.toFixed(3));
-  }, { threshold: thresholds });
+  if (prefersReducedMotion() || isCoarsePointer()) {
+    stage.classList.add('df-static-mask');
+    return;
+  }
 
-  io.observe(stage);
+  stage.classList.add('df-pointer-mask');
+
+  let raf = 0;
+  let latest = null;
+
+  const apply = () => {
+    raf = 0;
+    if (!latest) return;
+    const { clientX, clientY } = latest;
+    setPointerVars(
+      stage,
+      clientX / window.innerWidth,
+      clientY / window.innerHeight,
+    );
+  };
+
+  const onMove = (e) => {
+    latest = e;
+    if (!raf) raf = window.requestAnimationFrame(apply);
+  };
+
+  window.addEventListener('pointermove', onMove, { passive: true });
+
+  // Touch / pen leave: ease back toward center
+  window.addEventListener('pointerleave', () => {
+    setPointerVars(stage, 0.5, 0.45);
+  }, { passive: true });
 }
 
 export default function decorate(block) {
@@ -93,7 +129,6 @@ export default function decorate(block) {
 
   const stage = document.createElement('div');
   stage.className = 'df-stage';
-  stage.style.setProperty('--df-reveal', '0.48');
   stage.setAttribute('role', 'img');
   stage.setAttribute(
     'aria-label',
@@ -119,8 +154,10 @@ export default function decorate(block) {
   inner.append(copy, stage);
   block.replaceChildren(inner);
 
-  // Always arm light PE unless author opts into .static only
   if (!block.classList.contains('static')) {
-    setupReveal(stage);
+    setupPointerMask(stage);
+  } else {
+    stage.classList.add('df-static-mask');
+    setPointerVars(stage, 0.5, 0.45);
   }
 }

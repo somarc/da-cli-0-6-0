@@ -8,8 +8,10 @@
   --df-chart: var(--rr-chart, #c8e62f);
   --df-paper: var(--rr-paper, #f5eedf);
 
-  /* 0 = mostly A (substrate), 1 = mostly B (expression). Never full wipe. */
-  --df-reveal: 0.48;
+  /* Pointer-normalized 0–1 (set by JS); mid defaults before first move */
+  --df-mx: 0.5;
+  --df-my: 0.45;
+  --df-reveal: 0.5;
 
   margin: 0;
   padding: 0;
@@ -112,38 +114,76 @@
 }
 
 /*
- * Soft dual-state wipe on B.
- * Transparent = show A under; black = show B.
- * Band stays mid-frame so both states always read (never full B cover).
+ * Layer B masked by pointer-driven soft edge.
+ * Transparent → substrate (A) shows through; opaque → expression (B).
+ *
+ * Page pointer sets --df-mx / --df-my (0–1). Soft diagonal wipe follows mouse
+ * like reference dual-image CSS mask demos.
  */
 .dualform-hero .df-b {
   z-index: 2;
 
-  /* stylelint-disable property-no-vendor-prefix -- Safari still needs -webkit-mask */
+  /* stylelint-disable property-no-vendor-prefix -- Safari needs -webkit-mask */
   -webkit-mask-image: linear-gradient(
-    155deg,
+    calc(90deg + var(--df-my, 0.45) * 40deg),
     transparent 0%,
-    transparent calc(38% - var(--df-reveal, 0.48) * 18%),
-    #000 calc(52% - var(--df-reveal, 0.48) * 10%),
+    transparent max(4%, calc(var(--df-mx, 0.5) * 100% - 14%)),
+    #000 calc(var(--df-mx, 0.5) * 100% + 14%),
     #000 100%
   );
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   /* stylelint-enable property-no-vendor-prefix */
+
   mask-image: linear-gradient(
-    155deg,
+    calc(90deg + var(--df-my, 0.45) * 40deg),
     transparent 0%,
-    transparent calc(38% - var(--df-reveal, 0.48) * 18%),
-    #000 calc(52% - var(--df-reveal, 0.48) * 10%),
+    transparent max(4%, calc(var(--df-mx, 0.5) * 100% - 14%)),
+    #000 calc(var(--df-mx, 0.5) * 100% + 14%),
     #000 100%
   );
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
 }
 
+/* Static / reduced-motion / coarse pointer: fixed mid wipe, both states read */
+.dualform-hero .df-stage.df-static-mask .df-b {
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-mask-image: linear-gradient(
+    155deg,
+    transparent 0%,
+    transparent 32%,
+    #000 52%,
+    #000 100%
+  );
+  /* stylelint-enable property-no-vendor-prefix */
+  mask-image: linear-gradient(
+    155deg,
+    transparent 0%,
+    transparent 32%,
+    #000 52%,
+    #000 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .dualform-hero {
-    --df-reveal: 0.48;
+  .dualform-hero .df-b {
+    /* stylelint-disable property-no-vendor-prefix */
+    -webkit-mask-image: linear-gradient(
+      155deg,
+      transparent 0%,
+      transparent 32%,
+      #000 52%,
+      #000 100%
+    );
+    /* stylelint-enable property-no-vendor-prefix */
+    mask-image: linear-gradient(
+      155deg,
+      transparent 0%,
+      transparent 32%,
+      #000 52%,
+      #000 100%
+    );
   }
 }
 
