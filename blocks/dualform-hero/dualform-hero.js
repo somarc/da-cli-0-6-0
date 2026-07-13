@@ -1,6 +1,6 @@
 /**
  * Dualform hero — paired silhouette cutouts + CSS mask superimposition.
- * Static soft mask first; optional reveal via IntersectionObserver.
+ * Static soft wipe always shows both states; optional light intersection PE.
  */
 
 function classifyCopy(copy) {
@@ -57,19 +57,21 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function setupReveal(stage, layerB) {
-  if (!layerB || prefersReducedMotion()) return;
-
-  stage.classList.add('df-reveal');
-  layerB.style.setProperty('--df-reveal', '0.35');
-
+/**
+ * Map intersection → --df-reveal in [0.32, 0.68].
+ * Never 0 or 1 — both substrate and expression must always read.
+ */
+function setupReveal(stage) {
+  stage.style.setProperty('--df-reveal', '0.48');
+  if (prefersReducedMotion()) return;
   if (!('IntersectionObserver' in window)) return;
 
   const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
   const io = new IntersectionObserver(([entry]) => {
     if (!entry) return;
-    const t = Math.min(1, Math.max(0.2, entry.intersectionRatio));
-    layerB.style.setProperty('--df-reveal', t.toFixed(3));
+    // 0.32 at low visibility → 0.68 when fully in view (still dual)
+    const t = 0.32 + (entry.intersectionRatio * 0.36);
+    stage.style.setProperty('--df-reveal', t.toFixed(3));
   }, { threshold: thresholds });
 
   io.observe(stage);
@@ -91,6 +93,7 @@ export default function decorate(block) {
 
   const stage = document.createElement('div');
   stage.className = 'df-stage';
+  stage.style.setProperty('--df-reveal', '0.48');
   stage.setAttribute('role', 'img');
   stage.setAttribute(
     'aria-label',
@@ -99,7 +102,6 @@ export default function decorate(block) {
       || 'Dual-state form composite',
   );
 
-  let layerB = null;
   pictures.slice(0, 2).forEach((pic, i) => {
     const layer = document.createElement('div');
     layer.className = `df-layer ${i === 0 ? 'df-a' : 'df-b'}`;
@@ -112,13 +114,13 @@ export default function decorate(block) {
     }
     layer.append(pic);
     stage.append(layer);
-    if (i === 1) layerB = layer;
   });
 
   inner.append(copy, stage);
   block.replaceChildren(inner);
 
-  if (block.classList.contains('reveal') || !block.classList.contains('static')) {
-    setupReveal(stage, layerB);
+  // Always arm light PE unless author opts into .static only
+  if (!block.classList.contains('static')) {
+    setupReveal(stage);
   }
 }
