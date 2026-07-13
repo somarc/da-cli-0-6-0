@@ -1,13 +1,26 @@
 /* Post-LCP Renderaissance flourishes */
 
 /*
- * Parthenon gutters — Ionic pillars left/right.
- * Fixed full-viewport shafts: stay present for the whole scroll
- * ("stretch to infinity" as the page moves under them).
- * Assets: media/renderaissance/ionic-column-{left,right}.jpg
+ * Parthenon gutters — three-part Ionic pillars left/right.
+ *
+ * Architecture (document-relative, not viewport-fixed):
+ *   1. Capital  — anchored to the TOP of the page
+ *   2. Shaft    — grows with document height as the page scrolls/lengthens
+ *   3. Base     — anchored to the BOTTOM of the page (meets footer stylobate)
+ *
+ * Assets:
+ *   ionic-capital-{left,right}.jpg
+ *   ionic-column-{left,right}.jpg   (shaft source — fluted body)
+ *   ionic-base-{left,right}.jpg
  */
+html {
+  min-height: 100%;
+}
+
 body {
   position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 header,
@@ -20,33 +33,33 @@ footer {
 body::before,
 body::after {
   content: '';
-  position: fixed;
-
-  /* Full viewport — not nav-relative, not short mid-page stamps */
-  inset: 0 auto 0 0;
-  height: 100vh;
-  height: 100dvh;
-
-  /* Fill leftover side margin */
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: max(160px, calc((100vw - var(--rr-frame-max, 1200px)) / 2));
-  max-width: 320px;
+  max-width: var(--rr-col-max, 320px);
   z-index: 0;
   pointer-events: none;
-  background-repeat: no-repeat;
-  background-position: center top;
-
-  /* Stretch plate to the full shaft box (width + infinite scroll presence) */
-  background-size: 100% 100%;
   opacity: 0.58;
+  background-repeat: no-repeat, no-repeat, no-repeat;
 
-  /* Soft dissolve into paper at edges only — shaft stays solid mid-height */
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 3%,
-    #000 97%,
-    transparent 100%
-  );
+  /*
+   * Paint order (first = topmost):
+   *   capital @ page top
+   *   base    @ page bottom
+   *   shaft   fills the growing middle band
+   */
+  background-size:
+    100% var(--rr-col-capital-h, 180px),
+    100% var(--rr-col-base-h, 160px),
+    100% calc(100% - var(--rr-col-capital-h, 180px) - var(--rr-col-base-h, 160px));
+  background-position:
+    center top,
+    center bottom,
+    center var(--rr-col-capital-h, 180px);
+
+  /* Soft edge into the content column only */
+  mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
 }
@@ -54,21 +67,21 @@ body::after {
 body::before {
   left: 0;
   right: auto;
-  background-image: url('/media/renderaissance/ionic-column-left.jpg');
-  mask-image:
-    linear-gradient(to right, #000 0%, #000 80%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 3%, #000 97%, transparent 100%);
-  mask-composite: intersect;
+  background-image:
+    url('/media/renderaissance/ionic-capital-left.jpg'),
+    url('/media/renderaissance/ionic-base-left.jpg'),
+    url('/media/renderaissance/ionic-column-left.jpg');
+  mask-image: linear-gradient(to right, #000 0%, #000 80%, transparent 100%);
 }
 
 body::after {
   right: 0;
   left: auto;
-  background-image: url('/media/renderaissance/ionic-column-right.jpg');
-  mask-image:
-    linear-gradient(to left, #000 0%, #000 80%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 3%, #000 97%, transparent 100%);
-  mask-composite: intersect;
+  background-image:
+    url('/media/renderaissance/ionic-capital-right.jpg'),
+    url('/media/renderaissance/ionic-base-right.jpg'),
+    url('/media/renderaissance/ionic-column-right.jpg');
+  mask-image: linear-gradient(to left, #000 0%, #000 80%, transparent 100%);
 }
 
 @media (width >= 1400px) {
@@ -76,6 +89,10 @@ body::after {
   body::after {
     max-width: 360px;
     opacity: 0.62;
+  }
+
+  :root {
+    --rr-col-max: 360px;
   }
 }
 
