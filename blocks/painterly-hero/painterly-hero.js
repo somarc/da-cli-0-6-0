@@ -89,13 +89,20 @@ function buildStructure(block) {
   const depths = ['8px', '18px', '10px'];
   const classes = ['layer-bg', 'layer-focal', 'layer-object'];
 
-  pictures.slice(0, 3).forEach((pic, i) => {
-    if (i === 0) {
-      const img = pic.querySelector('img');
-      if (img) img.alt = '';
-    }
-    art.append(wrapLayer(pic, classes[i] || `layer-${i}`, depths[i] || '8px'));
-  });
+  const limited = pictures.slice(0, 3);
+  if (limited.length === 1) {
+    block.classList.add('ph-single');
+    // Single plate sits as focal (skip empty bg)
+    art.append(wrapLayer(limited[0], 'layer-focal', '14px'));
+  } else {
+    limited.forEach((pic, i) => {
+      if (i === 0) {
+        const img = pic.querySelector('img');
+        if (img) img.alt = '';
+      }
+      art.append(wrapLayer(pic, classes[i] || `layer-${i}`, depths[i] || '8px'));
+    });
+  }
 
   inner.append(copy, art);
   block.replaceChildren(inner);

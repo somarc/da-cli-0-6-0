@@ -1,4 +1,5 @@
 /* Painterly collage hero — Renderaissance depth: collage */
+/* stylelint-disable property-no-vendor-prefix -- Safari mask-image */
 
 .painterly-hero-container .painterly-hero-wrapper {
   max-width: unset;
@@ -91,6 +92,10 @@
   inset: -8% -6% -4% -10%;
   mix-blend-mode: multiply;
 
+  /* dissolve rectangular wash into page paper */
+  -webkit-mask-image: radial-gradient(ellipse 78% 80% at 60% 45%, #000 28%, transparent 78%);
+  mask-image: radial-gradient(ellipse 78% 80% at 60% 45%, #000 28%, transparent 78%);
+
   --rr-depth: 8px;
 }
 
@@ -106,6 +111,11 @@
   right: -4%;
   width: min(92%, 420px);
 
+  /* soft plate edge — dissolve hard rectangle into paper */
+  -webkit-mask-image: radial-gradient(ellipse 74% 80% at 55% 48%, #000 38%, transparent 74%);
+  mask-image: radial-gradient(ellipse 74% 80% at 55% 48%, #000 38%, transparent 74%);
+  filter: drop-shadow(0 18px 28px rgb(34 49 95 / 10%));
+
   --rr-depth: 18px;
 }
 
@@ -113,6 +123,9 @@
   bottom: 2%;
   left: 4%;
   width: min(58%, 260px);
+  -webkit-mask-image: radial-gradient(ellipse 80% 78% at 50% 50%, #000 48%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 78% at 50% 50%, #000 48%, transparent 80%);
+  filter: drop-shadow(0 12px 20px rgb(34 49 95 / 8%));
 
   --rr-depth: 10px;
 }
@@ -122,6 +135,23 @@
   width: 100%;
   height: auto;
   max-width: none;
+  background: transparent;
+}
+
+/* Single-art “why” variant: one large blended plate */
+.painterly-hero.ph-single .ph-art {
+  min-height: 280px;
+}
+
+.painterly-hero.ph-single .layer-focal {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  max-width: 560px;
+  margin-left: auto;
+  -webkit-mask-image: radial-gradient(ellipse 88% 86% at 50% 50%, #000 50%, transparent 82%);
+  mask-image: radial-gradient(ellipse 88% 86% at 50% 50%, #000 50%, transparent 82%);
 }
 
 /* Entrance */
@@ -185,11 +215,33 @@
   .painterly-hero .layer-bg {
     inset: 0 -8% 0 -4%;
   }
+
+  /* Single plate: keep in grid column, not free-float absolute art */
+  .painterly-hero.ph-single .ph-art {
+    position: relative;
+    inset: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+
+  .painterly-hero.ph-single .layer-focal {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 520px);
+  }
 }
 
 @media (width >= 1200px) {
   .painterly-hero .layer-focal {
     width: min(72%, 620px);
     right: -6%;
+  }
+
+  .painterly-hero.ph-single .layer-focal {
+    width: min(100%, 560px);
+    right: auto;
   }
 }
