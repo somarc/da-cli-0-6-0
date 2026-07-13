@@ -1,7 +1,8 @@
 /* Dualform hero — paired silhouette cutouts + morphing pointer hole */
 
 .dualform-hero {
-  --df-void: #0a0a0a;
+  /* Warm paper field — not pure black void (assets carry their own depth) */
+  --df-void: var(--rr-paper, #f5eedf);
   --df-ink: var(--rr-ink, #22315f);
   --df-ink-soft: var(--rr-ink-soft, #3a4a80);
   --df-terra: var(--rr-terra, #c05433);
@@ -79,15 +80,21 @@
   color: var(--df-ink-soft);
 }
 
-/* Stage — void field, no photo frame */
+/* Stage — soft paper field (cutouts key over it; no hard black box) */
 .dualform-hero .df-stage {
   position: relative;
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
   aspect-ratio: 3 / 4;
-  background: var(--df-void);
-  border-radius: 4px;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 50% 48%,
+      rgb(34 49 95 / 6%) 0%,
+      transparent 70%
+    ),
+    var(--df-void);
+  border-radius: 8px;
   overflow: hidden;
 }
 
