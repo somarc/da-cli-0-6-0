@@ -1,31 +1,33 @@
-/* Dualform Ionic gutters — A/B silhouette + morphing pointer hole */
+/* Dualform Ionic gutters — edge-bleed A/B + morphing pointer hole */
 
 .df-gutter {
   /* Morphing hole (set by JS) */
-  --df-mx: 52%;
+  --df-mx: 42%;
   --df-my: 42%;
-  --df-rx: 58%;
-  --df-ry: 48%;
-  --df-soft: 0.55;
+  --df-rx: 62%;
+  --df-ry: 52%;
+  --df-soft: 0.62;
 
   position: fixed;
-  top: calc(var(--nav-height, 72px) + 2px);
-  bottom: 8px;
+  top: var(--nav-height, 72px);
+  bottom: 0;
   z-index: 0;
   pointer-events: none;
-  width: max(120px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - 4px));
-  max-width: var(--rr-col-max, 240px);
+
+  /* Park on the viewport edge; width reaches into the page with soft fade */
+  width: min(32vw, var(--rr-col-max, 300px));
+  max-width: var(--rr-col-max, 300px);
   height: auto;
   overflow: hidden;
-  opacity: 0.46;
+  opacity: 0.5;
 }
 
 .df-gutter-left {
-  left: max(0px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - var(--rr-col-max, 176px) - 8px));
+  left: 0;
 }
 
 .df-gutter-right {
-  right: max(0px, calc((100vw - var(--rr-frame-max, 1200px)) / 2 - var(--rr-col-max, 176px) - 8px));
+  right: 0;
 }
 
 .df-gutter-inner {
@@ -34,32 +36,88 @@
   height: 100%;
 }
 
-.df-gutter-right .df-gutter-inner {
-  transform: scaleX(-1);
-
-  /* Soft dissolve into paper at base + inner edge — keep almost full shaft solid */
-  /* stylelint-disable property-no-vendor-prefix */
-  -webkit-mask-image:
-    linear-gradient(to left, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  /* stylelint-enable property-no-vendor-prefix */
-  mask-image:
-    linear-gradient(to left, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-  mask-composite: intersect;
-}
-
+/*
+ * Full-bleed soft masks: long feather into paper on the content side,
+ * soft wash at outer edge / top / bottom so nothing hard-cuts the field.
+ */
 .df-gutter-left .df-gutter-inner {
   /* stylelint-disable property-no-vendor-prefix */
   -webkit-mask-image:
-    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 28%,
+      rgb(0 0 0 / 55%) 48%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 5%,
+      #000 88%,
+      transparent 100%
+    );
   -webkit-mask-composite: source-in;
   /* stylelint-enable property-no-vendor-prefix */
   mask-image:
-    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 28%,
+      rgb(0 0 0 / 55%) 48%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 5%,
+      #000 88%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+}
+
+.df-gutter-right .df-gutter-inner {
+  transform: scaleX(-1);
+
+  /* Same soft field as left (mirrored with the art flip) */
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 28%,
+      rgb(0 0 0 / 55%) 48%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 5%,
+      #000 88%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  /* stylelint-enable property-no-vendor-prefix */
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 28%,
+      rgb(0 0 0 / 55%) 48%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 5%,
+      #000 88%,
+      transparent 100%
+    );
   mask-composite: intersect;
 }
 
@@ -70,12 +128,19 @@
   background-position: center top;
 
   /*
-   * Fill the tall gutter by HEIGHT, not width.
-   * `contain` was width-limited (~180px → short pillars floating in empty space).
-   * auto 100% scales capital→base to the full viewport fragment; slight side
-   * crop is OK — soft inner mask already dissolves into paper.
+   * Fill the tall gutter by HEIGHT.
+   * Left: bias art toward the outer edge; right is flipped so same bias.
    */
   background-size: auto 100%;
+}
+
+.df-gutter-left .df-gutter-layer {
+  background-position: 15% top;
+}
+
+.df-gutter-right .df-gutter-layer {
+  /* After scaleX(-1), 15% still reads toward the outer (right) edge */
+  background-position: 15% top;
 }
 
 .df-gutter-a {
@@ -89,22 +154,22 @@
 
   /* stylelint-disable property-no-vendor-prefix -- Safari needs -webkit-mask */
   -webkit-mask-image: radial-gradient(
-    ellipse var(--df-rx, 58%) var(--df-ry, 48%)
-      at var(--df-mx, 52%) var(--df-my, 42%),
+    ellipse var(--df-rx, 62%) var(--df-ry, 52%)
+      at var(--df-mx, 42%) var(--df-my, 42%),
     #000 0%,
-    #000 calc((1 - var(--df-soft, 0.55)) * 55%),
-    transparent calc(55% + var(--df-soft, 0.55) * 45%)
+    #000 calc((1 - var(--df-soft, 0.62)) * 50%),
+    transparent calc(50% + var(--df-soft, 0.62) * 50%)
   );
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   /* stylelint-enable property-no-vendor-prefix */
 
   mask-image: radial-gradient(
-    ellipse var(--df-rx, 58%) var(--df-ry, 48%)
-      at var(--df-mx, 52%) var(--df-my, 42%),
+    ellipse var(--df-rx, 62%) var(--df-ry, 52%)
+      at var(--df-mx, 42%) var(--df-my, 42%),
     #000 0%,
-    #000 calc((1 - var(--df-soft, 0.55)) * 55%),
-    transparent calc(55% + var(--df-soft, 0.55) * 45%)
+    #000 calc((1 - var(--df-soft, 0.62)) * 50%),
+    transparent calc(50% + var(--df-soft, 0.62) * 50%)
   );
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
@@ -113,24 +178,25 @@
 .df-gutter.is-static .df-gutter-b {
   /* stylelint-disable property-no-vendor-prefix */
   -webkit-mask-image: radial-gradient(
-    ellipse 54% 46% at 50% 40%,
+    ellipse 58% 48% at 40% 40%,
     #000 0%,
-    #000 36%,
-    transparent 70%
+    #000 32%,
+    transparent 74%
   );
   /* stylelint-enable property-no-vendor-prefix */
   mask-image: radial-gradient(
-    ellipse 54% 46% at 50% 40%,
+    ellipse 58% 48% at 40% 40%,
     #000 0%,
-    #000 36%,
-    transparent 70%
+    #000 32%,
+    transparent 74%
   );
 }
 
 @media (width >= 1400px) {
   .df-gutter {
-    max-width: 280px;
-    opacity: 0.5;
+    max-width: 340px;
+    width: min(28vw, 340px);
+    opacity: 0.52;
   }
 }
 
@@ -144,17 +210,17 @@
   .df-gutter .df-gutter-b {
     /* stylelint-disable property-no-vendor-prefix */
     -webkit-mask-image: radial-gradient(
-      ellipse 54% 46% at 50% 40%,
+      ellipse 58% 48% at 40% 40%,
       #000 0%,
-      #000 36%,
-      transparent 70%
+      #000 32%,
+      transparent 74%
     );
     /* stylelint-enable property-no-vendor-prefix */
     mask-image: radial-gradient(
-      ellipse 54% 46% at 50% 40%,
+      ellipse 58% 48% at 40% 40%,
       #000 0%,
-      #000 36%,
-      transparent 70%
+      #000 32%,
+      transparent 74%
     );
   }
 }
