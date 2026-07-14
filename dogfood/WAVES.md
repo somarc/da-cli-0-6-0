@@ -4,7 +4,9 @@ Companion to `ROADMAP.md`. This file is the **execution board**: what is
 proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
-**Rule:** git fixtures → `construct.yaml` → DA put/preview → public proof.
+**Rule:** git fixtures → `construct.yaml` → DA put/preview → public proof.  
+**Content IA:** `dogfood/CONTENT-IA.md` — narrative / proof / learning / lab.  
+**Learnings hub:** https://main--da-cli-0-6-0--somarc.aem.live/learnings
 
 ---
 

@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f003 · index · fixed</p>
+      <h1>Query index could not be built through <code>da</code></h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 3 makes coverage index-driven: each page declares wave, surface, and status as metadata. The index is a projection of the <em>live</em> site — preview never updates it. The tool could only read the index; agents fell back to raw <code>curl</code> against <code>admin.hlx.page/index/…</code>.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>If the certifying surface requires leaving the CLI, the dogfood has failed its own rule: prove the surface with <code>da</code>.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><code>da index build</code> POSTs the Helix admin index endpoint (<code>*</code> or a path), requires root <code>--commit</code>, and returns structured next steps. Index show/validate/query emit a published-state caveat; <code>publish page</code> reminds agents to reindex after live promote.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>CLI primitive + published-state caveats on read paths. Public proof: this site’s <a href="/query-index.json">query-index.json</a> after build.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>3</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>index</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f003</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f003 — index build through da</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Query index required out-of-band admin POST until da index build existed.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

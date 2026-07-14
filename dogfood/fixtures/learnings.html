@@ -1,0 +1,125 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <div class="painterly-hero">
+        <div>
+          <div>
+            <p>FLYWHEEL · FIELD · FIX</p>
+            <h1>Learnings</h1>
+            <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
+            <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
+          </div>
+          <div>
+            <p>
+              <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/findings-flywheel.webp" alt="Painterly broken porcelain plate stitched with gold, beside a spiral root flywheel and sealing wax — findings repaired into fixes">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>The flywheel</h2>
+      <p>Dogfooding earns its keep by surfacing real problems that unit tests cannot. Discipline:</p>
+      <ol>
+        <li><strong>Operate</strong> a real surface with <code>da</code> against this site.</li>
+        <li><strong>Record</strong> the symptom, command, and wrong orientation on a learning page.</li>
+        <li><strong>Fix</strong> the primitive in the CLI (not a one-off script).</li>
+        <li><strong>Lock</strong> with a regression test (and public proof where relevant).</li>
+      </ol>
+      <p>See also: <a href="/test-plan">test plan</a>, <a href="/coverage">coverage catalog</a>, git board <code>dogfood/CONTENT-IA.md</code>.</p>
+    </div>
+    <div>
+      <h2>Index</h2>
+      <div class="table">
+        <div>
+          <div><p>Id</p></div>
+          <div><p>Status</p></div>
+          <div><p>Surface</p></div>
+          <div><p>Title</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f001-site-info-target">f001</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>site</p></div>
+          <div><p><code>site info</code> ignored target override</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f002-design-detect-envelope">f002</a></p></div>
+          <div><p>open</p></div>
+          <div><p>design</p></div>
+          <div><p><code>design detect</code> empty error on design-less site</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f003-index-build">f003</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>index</p></div>
+          <div><p>Query index could not be built through <code>da</code></p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f004-index-env-preview">f004</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>index</p></div>
+          <div><p><code>index query --env preview</code> silently queried live</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f005-route-codebus">f005</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>route</p></div>
+          <div><p><code>route classify</code> labeled code assets orphan</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f006-stale-contentbus">f006</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>route</p></div>
+          <div><p>Deleted source still classified contentbus</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f007-route-clean-orphan">f007</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>route</p></div>
+          <div><p><code>route clean</code> did not remove orphans</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>How to add the next learning</h2>
+      <ol>
+        <li>Allocate the next id (<code>f008</code>, …) — never reuse.</li>
+        <li>Add <code>dogfood/fixtures/learnings/fNNN-slug.html</code> with metadata <code>kind=learning</code>.</li>
+        <li>Link it from this hub table.</li>
+        <li>Wire put/preview in <code>construct.yaml</code>.</li>
+        <li>Mirror a one-line entry in <code>dogfood/ROADMAP.md</code> findings log.</li>
+      </ol>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>narrative</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>0</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>flywheel</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>living</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>Learnings — dogfood flywheel history</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Index of field findings that turned into CLI fixes and regression locks during the da-cli 0.6.0 dogfood run.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

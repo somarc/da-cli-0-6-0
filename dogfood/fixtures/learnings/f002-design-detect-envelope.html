@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f002 · design · open</p>
+      <h1><code>design detect</code> gave no answer on a design-less site</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Running <code>da design detect</code> against a site with no design system exited with an error and printed nothing to standard output.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>There is a real difference between “the command failed” and “there is no design system here,” and an agent cannot tell them apart from an empty error. Wave 2 design surfaces need structured orientation either way.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Planned:</strong> return a structured result for the no-design-system case — a clean envelope that says so — rather than an empty error. This is the principle the whole release is built on: every operation should leave the agent better oriented, including when the answer is “nothing found.”</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Pending: unit test for structured no-design-system envelope (ADR 0001). Until fixed, agents should treat empty stderr+exit 1 as ambiguous and fall back to <code>design audit</code> / <code>design rules</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>2</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>design</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>open</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f002</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f002 — design detect empty error envelope</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>design detect exits 1 with empty stdout when no design system is present.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

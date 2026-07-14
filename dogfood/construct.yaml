@@ -56,9 +56,57 @@ steps:
   - id: preview-findings
     command: preview page /findings --format json
     depends_on: [put-findings]
+  - id: put-learnings
+    command: content put /learnings.html dogfood/fixtures/learnings.html --format json
+    depends_on: [preview-findings]
+  - id: preview-learnings
+    command: preview page /learnings --format json
+    depends_on: [put-learnings]
+  - id: put-f001
+    command: content put /learnings/f001-site-info-target.html dogfood/fixtures/learnings/f001-site-info-target.html --format json
+    depends_on: [preview-learnings]
+  - id: preview-f001
+    command: preview page /learnings/f001-site-info-target --format json
+    depends_on: [put-f001]
+  - id: put-f002
+    command: content put /learnings/f002-design-detect-envelope.html dogfood/fixtures/learnings/f002-design-detect-envelope.html --format json
+    depends_on: [preview-f001]
+  - id: preview-f002
+    command: preview page /learnings/f002-design-detect-envelope --format json
+    depends_on: [put-f002]
+  - id: put-f003
+    command: content put /learnings/f003-index-build.html dogfood/fixtures/learnings/f003-index-build.html --format json
+    depends_on: [preview-f002]
+  - id: preview-f003
+    command: preview page /learnings/f003-index-build --format json
+    depends_on: [put-f003]
+  - id: put-f004
+    command: content put /learnings/f004-index-env-preview.html dogfood/fixtures/learnings/f004-index-env-preview.html --format json
+    depends_on: [preview-f003]
+  - id: preview-f004
+    command: preview page /learnings/f004-index-env-preview --format json
+    depends_on: [put-f004]
+  - id: put-f005
+    command: content put /learnings/f005-route-codebus.html dogfood/fixtures/learnings/f005-route-codebus.html --format json
+    depends_on: [preview-f004]
+  - id: preview-f005
+    command: preview page /learnings/f005-route-codebus --format json
+    depends_on: [put-f005]
+  - id: put-f006
+    command: content put /learnings/f006-stale-contentbus.html dogfood/fixtures/learnings/f006-stale-contentbus.html --format json
+    depends_on: [preview-f005]
+  - id: preview-f006
+    command: preview page /learnings/f006-stale-contentbus --format json
+    depends_on: [put-f006]
+  - id: put-f007
+    command: content put /learnings/f007-route-clean-orphan.html dogfood/fixtures/learnings/f007-route-clean-orphan.html --format json
+    depends_on: [preview-f006]
+  - id: preview-f007
+    command: preview page /learnings/f007-route-clean-orphan --format json
+    depends_on: [put-f007]
   - id: put-dualform
     command: content put /dualform.html dogfood/fixtures/dualform.html --format json
-    depends_on: [preview-findings]
+    depends_on: [preview-f007]
   - id: preview-dualform
     command: preview page /dualform --format json
     depends_on: [put-dualform]

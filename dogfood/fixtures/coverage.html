@@ -30,8 +30,9 @@
     <div>
       <h2>Wave 2 — Blocks and audits</h2>
       <ul>
-        <li><a href="/blocks">Blocks and the proof surface</a> — built from the columns and cards blocks; proves block code resolves on codebus.</li>
-        <li>Surfaces exercised: audit contracts --verify-code, audit full, block inspect, design detect.</li>
+        <li><a href="/kitchen-sink">Kitchen sink</a> — full modern-site module spectrum (hero, cards, columns, quote, accordion, tabs, carousel, table, embed). Primary Wave 2 proof page.</li>
+        <li><a href="/blocks">Blocks narrative</a> — authoring vs proving; points at the kitchen sink.</li>
+        <li>Surfaces: audit contracts --verify-code, audit full, block inspect, design audit/detect, code bus asset resolve.</li>
       </ul>
     </div>
     <div>
@@ -41,13 +42,14 @@
         <li>DA sheet — an authored <a href="/data/coverage.json">coverage data sheet</a> classifies every command family by wave and required/optional class, discovered with <code>da content sheets</code>.</li>
         <li>Route ownership — <code>da route audit</code> maps the whole site; <code>da route classify</code> was exercised across content-owned, code, and orphaned routes, including a deliberately orphaned page to drive <code>route clean</code>.</li>
         <li>Surfaces exercised: content sheets, index show/validate/query, route classify/canonical/audit/clean.</li>
-        <li>Findings surfaced: <a href="/findings">#3 (index build), #4 (index --env), #5–#7 (route classify/clean)</a> — the flywheel turning.</li>
+        <li>Learnings surfaced: <a href="/learnings/f003-index-build">f003</a>, <a href="/learnings/f004-index-env-preview">f004</a>, <a href="/learnings/f005-route-codebus">f005</a>–<a href="/learnings/f007-route-clean-orphan">f007</a> — the flywheel turning.</li>
       </ul>
     </div>
     <div>
-      <h2>Findings</h2>
+      <h2>Learnings (history)</h2>
       <ul>
-        <li><a href="/findings">Findings</a> — what dogfooding surfaced and how each is resolved.</li>
+        <li><a href="/learnings">Learnings hub</a> — flywheel + index of f001–f007 (and growing).</li>
+        <li>Each finding is its own route under <code>/learnings/fNNN-…</code> so the history scales without bloating the spine. See <code>dogfood/CONTENT-IA.md</code>.</li>
       </ul>
     </div>
     <div>

@@ -2,63 +2,20 @@
   <header></header>
   <main>
     <div>
-      <div class="painterly-hero">
-        <div>
-          <div>
-            <p>FLYWHEEL · FIELD · FIX</p>
-            <h1>Findings</h1>
-            <p>Dogfooding earns its keep by surfacing real problems that unit tests cannot. The discipline here is a flywheel: a problem found while operating a real site becomes a primitive fix with a regression test, so the tool gets safer every time it is used in the field. The more the CLI is dogfooded, the smarter and more trustworthy it becomes.</p>
-          </div>
-          <div>
-            <p>
-              <img src="https://main--da-cli-0-6-0--somarc.aem.page/media/renderaissance/findings-flywheel.webp" alt="Painterly broken porcelain plate stitched with gold, beside a spiral root flywheel and sealing wax — findings repaired into fixes">
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h2>Finding #1 — <code>site info</code> ignored the target override</h2>
-      <p>On the very first orientation command against this site, <code>da site info</code> reported pipeline health for the wrong repository. The command resolved its target from a stray config file left in the working directory and silently ignored the explicit <code>--org</code> and <code>--repo</code> flags — the one thing an operator relies on to say "no, I mean <em>this</em> site."</p>
-      <p>Every other command honored the override; this one had drifted onto its own resolution path. Left unnoticed, it is exactly the class of bug that teaches an agent not to trust the interface.</p>
-      <p><strong>Resolution:</strong> route <code>site info</code> through the shared config resolver so the override is sovereign everywhere, and add a regression test that locks it: root flags are honored, and explicit arguments win. The fix shipped with the release this site certifies.</p>
-    </div>
-    <div>
-      <h2>Finding #2 — <code>design detect</code> gave no answer on a design-less site</h2>
-      <p>Running <code>da design detect</code> against a site with no design system exited with an error and printed nothing to standard output. But there is a real difference between "the command failed" and "there is no design system here," and an agent cannot tell them apart from an empty error.</p>
-      <p><strong>Resolution (planned):</strong> return a structured result for the no-design-system case — a clean envelope that says so — rather than an empty error. This is the principle the whole release is built on: every operation should leave the agent better oriented, including when the answer is "nothing found."</p>
-    </div>
-    <div>
-      <h2>Finding #3 — the query index cannot be built through <code>da</code></h2>
-      <p>Wave 3 makes the coverage page index-driven: each page declares its wave, surface, and status as metadata, and the query index aggregates them. The index is a projection of the <em>live</em> site — preview never updates it. The tool could only read the index; agents fell back to raw <code>curl</code> against <code>admin.hlx.page/index/…</code>.</p>
-      <p><strong>Resolution:</strong> <code>da index build</code> POSTs the Helix admin index endpoint (<code>*</code> or a path), requires root <code>--commit</code>, and returns structured next steps. Index show/validate/query emit a published-state caveat; <code>publish page</code> reminds agents to reindex after live promote.</p>
-    </div>
-    <div>
-      <h2>Finding #4 — <code>index query --env preview</code> silently queries live</h2>
-      <p>While exercising the index surface, <code>da index query default --env preview</code> returned live results, not preview. The command had kept a local <code>--env</code> alias for <code>--target</code>, but root <code>--env</code> already means DA Admin API environment (<code>prod|stage|dev</code>). The value was swallowed before the index command could see it, defaulting to <code>live</code> with a plausible URL — same trust class as finding #1.</p>
-      <p><strong>Resolution:</strong> drop the index-local <code>--env</code> alias entirely. Index validate/query resolve the host only via <code>--target preview|live</code>. If root <code>--env</code> is mistakenly set to <code>preview</code> or <code>live</code>, the CLI hard-errors with recovery text pointing at <code>--target</code>. Locked by unit tests on <code>resolveIndexQueryHost</code>.</p>
-    </div>
-    <div>
-      <h2>Finding #5 — <code>route classify</code> calls live code assets "orphan"</h2>
-      <p>Classifying a real, served code asset — <code>da route classify /scripts/aem.js</code>, which returns 200 on the code bus — reported <code>orphan</code>. The classifier inferred ownership only from content <code>sourceLocation</code> and ignored helix status <code>code.status: 200</code> already in the same status payload.</p>
-      <p><strong>Resolution:</strong> fold <code>code.status</code> (and <code>code.sourceLocation</code>) into ownership. No DA source + code-bus presence ⇒ <code>codebus</code>. Result also surfaces <code>code</code> status for agents. Locked by unit tests and live smoke on <code>/scripts/aem.js</code>.</p>
-    </div>
-    <div>
-      <h2>Finding #6 — a deleted source still classifies as "contentbus"</h2>
-      <p>Wave 3 built a deliberate orphan: publish a page, then delete its DA source, leaving a live artifact with no owner. Classify missed it — verdict <code>contentbus</code> from a stale <code>content.da.live</code> <code>sourceLocation</code>, even with <code>daSource: false</code>.</p>
-      <p><strong>Resolution:</strong> the DA source probe is ground truth. <code>daSource: false</code> never yields <code>contentbus</code>, even when preview/live still advertise a DA location. Those cases classify as <code>orphan</code> with <code>staleDaLocation: true</code>. Locked by unit tests and live <code>/tests/orphan-demo</code>.</p>
-    </div>
-    <div>
-      <h2>Finding #7 — <code>route clean</code> does not remove the orphan</h2>
-      <p>Running <code>da route clean</code> on an orphan used to skip when no DA source remained, and only attempted a DA editor preview flush — never helix unpreview or unpublish. Live and preview stayed 200.</p>
-      <p><strong>Resolution:</strong> clean always runs helix unpreview (DELETE preview) and unpublish (DELETE live), even with no DA source. Source delete runs only when <code>daSource</code> is true. HTTP 401/403 returns a structured <code>permission-refused</code> envelope with recovery steps. Unit tests lock step order and permission paths.</p>
-    </div>
-    <div>
-      <h2>How findings are recorded</h2>
-      <p>Each finding is logged with a stable reference, the surface it appeared on, the resolution, and the test that prevents its return. The living list travels with the construction sources so it is never separated from the site it describes.</p>
+      <h1>Findings moved to Learnings</h1>
+      <p>The flywheel history now lives under a structured <strong>learnings</strong> tree so each finding can grow without crowding the spine.</p>
+      <ul>
+        <li><a href="/learnings">Learnings hub</a> — flywheel + full index</li>
+        <li><a href="/learnings/f001-site-info-target">f001</a> … <a href="/learnings/f007-route-clean-orphan">f007</a> — one route per finding</li>
+      </ul>
+      <p>Content architecture: git <code>dogfood/CONTENT-IA.md</code>. This path stays published so old links keep working.</p>
     </div>
     <div>
       <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>narrative</div>
+        </div>
         <div>
           <div>wave</div>
           <div>0</div>
@@ -68,12 +25,16 @@
           <div>flywheel</div>
         </div>
         <div>
-          <div>aesthetic</div>
-          <div>renderaissance-collage</div>
-        </div>
-        <div>
           <div>status</div>
           <div>living</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>Findings → Learnings redirect</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Legacy findings URL; history now lives at /learnings with per-finding routes.</div>
         </div>
       </div>
     </div>

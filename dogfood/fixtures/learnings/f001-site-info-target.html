@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f001 · site · fixed</p>
+      <h1><code>site info</code> ignored the target override</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>On the very first orientation command against this site, <code>da site info</code> reported pipeline health for the wrong repository. The command resolved its target from a stray config file left in the working directory and silently ignored the explicit <code>--org</code> and <code>--repo</code> flags — the one thing an operator relies on to say “no, I mean <em>this</em> site.”</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Every other command honored the override; this one had drifted onto its own resolution path. Left unnoticed, it is exactly the class of bug that teaches an agent not to trust the interface.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p>Route <code>site info</code> through the shared config resolver so the override is sovereign everywhere. The fix shipped with the release this site certifies (PR #37).</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Regression test: root flags are honored, and explicit arguments win. Operator note: still prefer passing the repo positionally or pinning <code>.da.json</code> when tools inherit mixed config.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>1</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>site</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f001</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f001 — site info ignored target override</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>site info resolved the wrong repository and ignored --org/--repo flags.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f006 · route · fixed</p>
+      <h1>Deleted source still classified as contentbus</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 3 built a deliberate orphan: publish a page, then delete its DA source, leaving a live artifact with no owner. Classify missed it — verdict <code>contentbus</code> from a stale <code>content.da.live</code> <code>sourceLocation</code>, even with <code>daSource: false</code>.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Orphan detection is the backbone of route clean and hybrid-site safety. False contentbus ownership hides debris.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p>The DA source probe is ground truth. <code>daSource: false</code> never yields <code>contentbus</code>, even when preview/live still advertise a DA location. Those cases classify as <code>orphan</code> with <code>staleDaLocation: true</code>.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Unit tests and live <a href="/tests/orphan-demo">/tests/orphan-demo</a>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>3</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>route</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f006</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f006 — stale contentbus after source delete</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>After DA source delete, classify still returned contentbus from stale sourceLocation.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

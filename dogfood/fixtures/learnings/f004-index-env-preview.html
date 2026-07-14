@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f004 · index · fixed</p>
+      <h1><code>index query --env preview</code> silently queried live</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>While exercising the index surface, <code>da index query default --env preview</code> returned live results, not preview. The command had kept a local <code>--env</code> alias for <code>--target</code>, but root <code>--env</code> already means DA Admin API environment (<code>prod|stage|dev</code>). The value was swallowed before the index command could see it, defaulting to <code>live</code> with a plausible URL.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Same trust class as f001: silent wrong target with a successful-looking response trains agents to stop verifying.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p>Drop the index-local <code>--env</code> alias entirely. Index validate/query resolve the host only via <code>--target preview|live</code>. If root <code>--env</code> is mistakenly set to <code>preview</code> or <code>live</code>, the CLI hard-errors with recovery text pointing at <code>--target</code>.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Unit tests on <code>resolveIndexQueryHost</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>3</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>index</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f004</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f004 — index env preview vs live</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>index query --env preview silently returned live host results.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

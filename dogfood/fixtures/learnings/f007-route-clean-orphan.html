@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f007 · route · fixed</p>
+      <h1><code>route clean</code> did not remove the orphan</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Running <code>da route clean</code> on an orphan used to skip when no DA source remained, and only attempted a DA editor preview flush — never helix unpreview or unpublish. Live and preview stayed 200.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Detecting orphans without the ability to clean them leaves the certifying site (and real customer sites) permanently dirty.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p>Clean always runs helix unpreview (DELETE preview) and unpublish (DELETE live), even with no DA source. Source delete runs only when <code>daSource</code> is true. HTTP 401/403 returns a structured <code>permission-refused</code> envelope with recovery steps.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Unit tests lock step order and permission paths.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>3</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>route</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f007</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f007 — route clean orphan delivery</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>route clean skipped orphans and never unpreviewed/unpublished delivery.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

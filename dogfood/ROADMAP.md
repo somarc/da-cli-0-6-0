@@ -80,14 +80,18 @@ exactly this if it happens.)
 - Provenance (`dogfood/provenance.json`): artifact → command → verified live URL.
 - Flywheel: findings → primitive fix + locking test, each a 0.6.0 code change.
 
-## Findings log
-- **#1 (fixed, PR #37):** `da site info` ignored root `--org/--repo`; routed through `resolveConfig` + locking test.
-- **#2 (open, Wave 2):** `da design detect` exits 1 with empty stdout on a site with no design system — no envelope, so an agent can't distinguish error from "none detected". Fix: return a structured no-design-system result (ADR 0001 envelope principle).
-- **#3 (fixed):** query index could not be built through `da` (manual admin POST only). Fix: `da index build` → `POST admin.hlx.page/index/{org}/{repo}/{ref}/{path|*}`; index show/validate/query emit published-state caveats; `publish page` reminds to reindex after live promote.
-- **#4 (fixed):** `da index query --env preview` silently queried **live**. Root `--env` is DA Admin (prod|stage|dev) and swallowed EDS host selection. Fix: remove index-local `--env` alias; `resolveIndexQueryHost` hard-errors if root `--env` is `preview|live` with recovery to `--target`; locking tests in `index.test.js`.
-- **#5 (fixed):** `da route classify` labeled live code assets (e.g. `/scripts/aem.js`, `code.status: 200`) as **orphan**. Fix: read helix status `code.status` / `code.sourceLocation`; code-bus presence without DA source ⇒ `codebus`. Locked by unit tests + live smoke.
-- **#6 (fixed):** after source delete, classify still returned **contentbus** from stale `content.da.live` sourceLocation. Fix: `daSource:false` wins over stale DA location ⇒ `orphan` (`staleDaLocation` diagnostic). Locked by unit tests + live `/tests/orphan-demo`.
-- **#7 (fixed):** `route clean` previously no-op'd orphans (no source) and only flushes preview, never unpublishing. Fix: always unpreview (helix DELETE preview) + unpublish (helix DELETE live); structured `permission-refused` on 401/403 with recovery; orphans without DA source still clean delivery.
+## Findings log (public history under `/learnings/`)
+
+See **CONTENT-IA.md** for page kinds and how the history grows. Public hub:
+https://main--da-cli-0-6-0--somarc.aem.live/learnings
+
+- **f001** (fixed, PR #37): [`/learnings/f001-site-info-target`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f001-site-info-target) — `site info` ignored root `--org/--repo`.
+- **f002** (open, Wave 2): [`/learnings/f002-design-detect-envelope`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f002-design-detect-envelope) — `design detect` empty error vs no design system.
+- **f003** (fixed): [`/learnings/f003-index-build`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f003-index-build) — `da index build`.
+- **f004** (fixed): [`/learnings/f004-index-env-preview`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f004-index-env-preview) — index `--env preview` silently live.
+- **f005** (fixed): [`/learnings/f005-route-codebus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f005-route-codebus) — code assets classified orphan.
+- **f006** (fixed): [`/learnings/f006-stale-contentbus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f006-stale-contentbus) — stale contentbus after source delete.
+- **f007** (fixed): [`/learnings/f007-route-clean-orphan`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f007-route-clean-orphan) — route clean did not unpublish orphans.
 
 ## Release gate for 0.6.0
 Waves 1–5 green with stored evidence; Wave 6 classified (run or precondition-recorded); construction pipeline regenerates the site; provenance verifies. Then cut 0.6.0.
