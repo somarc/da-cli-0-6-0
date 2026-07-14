@@ -40,7 +40,14 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 - `media/renderaissance/hero-bg.webp` — paper wash + route/schematic stains
 - `media/renderaissance/hero-figure.webp` — profile with provenance roots / botanical plates from the mind
 - `media/renderaissance/hero-object.webp` — catalog book under glass with content-tree roots
+- `media/renderaissance/mascot-cupid.webp` — classical marble Cupid (Eros) mark for header nav brand
 - Block: `painterly-hero` with optional mouse parallax (`prefers-reduced-motion` safe)
+
+### Site mascot
+
+**Cupid** — quiet neoclassical marble putto as the cert-site logo mark. Academic plate
+mood (cream paper, cobalt shadow, soft terracotta blush), not baroque gold kitsch.
+Authored in nav brand (`dogfood/fixtures/nav.html`) with absolute content.da.live media URL.
 
 ### Dualform lab (`/dualform`)
 

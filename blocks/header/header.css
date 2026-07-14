@@ -152,12 +152,12 @@ header nav p {
   line-height: 1;
 }
 
-/* brand — classical wordmark (before nav link rules for specificity order) */
+/* brand — Cupid mascot mark + classical wordmark */
 header .nav-brand {
   grid-area: brand;
   flex-basis: auto;
   font-family: var(--heading-font-family);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.05;
@@ -165,12 +165,35 @@ header .nav-brand {
 }
 
 header .nav-brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   color: inherit;
 }
 
+header .nav-brand span {
+  white-space: nowrap;
+}
+
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--rr-radius-card, 6px);
+  border: 1px solid var(--rr-line-soft, #e4dac6);
+  flex-shrink: 0;
+  background: var(--rr-paper, #f5eedf);
+}
+
+@media (width >= 900px) {
+  header .nav-brand {
+    font-size: 22px;
+  }
+
+  header nav .nav-brand img {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 header nav a:any-link {
