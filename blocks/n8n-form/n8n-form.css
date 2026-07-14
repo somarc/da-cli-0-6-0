@@ -1,0 +1,40 @@
+/* n8n-form stub — worker-backed surface */
+.n8n-form-stub-note {
+  font-size: var(--body-font-size-s, 0.95rem);
+  color: var(--rr-ink-soft, #3a4a80);
+  margin: 0 0 1rem;
+}
+
+.n8n-form-stub-note code {
+  font-size: 0.9em;
+}
+
+.n8n-form .field-wrapper {
+  margin-bottom: 0.85rem;
+}
+
+.n8n-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: var(--rr-ink, #22315f);
+}
+
+.n8n-form input {
+  width: 100%;
+  max-width: 28rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--rr-line, #d8ccb4);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.n8n-form .button-wrapper {
+  margin-top: 1rem;
+}
+
+.n8n-form-status {
+  margin-top: 0.75rem;
+  font-size: var(--body-font-size-s, 0.95rem);
+  color: var(--rr-terra, #c05433);
+}

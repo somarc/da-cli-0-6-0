@@ -36,28 +36,35 @@ library — not every vertical calculator — and **validate** those blocks with
 | Data table | `table` | `table` | Required | kitchen-sink |
 | Embed / third-party media | `embed` | `embed` | Required | kitchen-sink |
 | FAQ / accordion | `faq` | `accordion` *(equiv)* | Required | kitchen-sink |
-| Form / lead capture | `form` | `form` | Required | kitchen-sink + sheet |
-| Site search | `search` | `search` | Required | kitchen-sink |
-| Modal / dialog | `modal` | `modal` | Required | `/modals/sample` link + code bus |
+| Form / lead capture | `form` | `form` | Required | kitchen-sink + sheet; **submit → worker stub** |
+| Site search | `search` | `search` | Required | kitchen-sink (index; no worker) |
+| Modal / dialog | `modal` | `modal` | Required | `/modals/sample` + code bus |
 | Teaser / promo unit | `teaser` | `teaser` | Required | kitchen-sink |
 | Carousel / media strip | — | `carousel` | Required | kitchen-sink (da-cli ahead) |
 | Quote / testimonial | — | `quote` | Required | kitchen-sink (da-cli ahead) |
-| Related articles | `related-articles` | `related-articles` or cards+index | Bridge | deferred Wave 3 |
-| Social share | `social-share` | `social-share` | Bridge | deferred |
-| Product / catalog grid | `product-grid` | cards / future | Bridge | deferred |
-| Dynamic section loader | `dynamic` | fragment / custom | Bridge | deferred |
-| Auth toggle | `auth-toggle` | — | Vertical | out of scope 0.6.0 core |
-| Quiz | `quiz` | — | Vertical | out of scope |
-| Journey map | `journey-map` | — | Vertical | out of scope |
-| Calculators (×3) | `*-calculator` | — | Vertical | out of scope |
-| n8n form | `n8n-form` | form + worker | Vertical | out of scope |
-| Painterly hero | — | `painterly-hero` | Dogfood-extra | lab + home |
-| Dualform hero | — | `dualform-hero` | Dogfood-extra | lab |
-| Widget autoblock | — | `widget` | Dogfood-extra | optional |
+| n8n / webhook form | `n8n-form` | `n8n-form` **stub** | Bridge | kitchen-sink; worker optional |
+| Auth toggle | `auth-toggle` | `auth-toggle` **stub** | Bridge | kitchen-sink; **auth-session worker** |
+| Related articles | `related-articles` | cards+index later | Bridge | deferred Wave 3 |
+| Social share | `social-share` | — | Bridge | deferred |
+| Product / catalog grid | `product-grid` | cards later | Bridge | deferred |
+| Dynamic section loader | `dynamic` | fragment later | Bridge | deferred |
+| Quiz / journey / calculators | vertical demos | — | Vertical | out of scope core cut |
+| Painterly / dualform / widget | — | PE labs | Dogfood-extra | lab pages |
+
+### Worker-backed surfaces (stub + document wrangler)
+
+| scdemos worker | Dogfood stub | Blocks |
+|----------------|--------------|--------|
+| `contact_us` | `workers/form-submit` | `form` submit URL |
+| `auth` | `workers/auth-session` | `auth-toggle` |
+| `feed` / `cdn` / `cloneit_token` | document only | tools / gated PE |
+
+Full wrangler notes: **`workers/README.md`**.  
+Wave 2 cut = **blocks + contracts**. Deployed Cloudflare routes are **not** required.
 
 **Required count (conceptual):** 16 types (incl. chrome)  
 **scdemos total blocks:** 25 (includes verticals)  
-**Parity goal:** all Required rows, not 1:1 every scdemos folder name.
+**Parity goal:** all Required rows + honest stubs for worker-backed bridge types.
 
 ---
 

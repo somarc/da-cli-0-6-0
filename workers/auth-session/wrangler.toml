@@ -1,0 +1,17 @@
+# Stub auth-session worker — local dogfood only
+name = "da-cli-0-6-0-auth-session"
+main = "index.js"
+compatibility_date = "2026-02-16"
+
+# Uncomment for deploy:
+# account_id = "YOUR_ACCOUNT_ID"
+# routes = [
+#   { pattern = "example.com/auth/*", zone_name = "example.com" },
+# ]
+
+[dev]
+port = 8788
+local_protocol = "http"
+
+[observability.logs]
+enabled = true

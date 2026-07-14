@@ -1,0 +1,23 @@
+/* auth-toggle stub */
+.auth-toggle-stub {
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--rr-line, #d8ccb4);
+  border-radius: 6px;
+  background: rgb(var(--rr-paper-rgb, 245, 238, 223), 0.6);
+}
+
+.auth-toggle-status {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+  color: var(--rr-ink, #22315f);
+}
+
+.auth-toggle-hint {
+  margin: 0;
+  font-size: var(--body-font-size-s, 0.9rem);
+  color: var(--rr-ink-soft, #3a4a80);
+}
+
+.auth-toggle-hint code {
+  font-size: 0.88em;
+}

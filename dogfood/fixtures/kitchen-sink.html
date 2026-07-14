@@ -253,11 +253,38 @@
 
     <div>
       <h2>Form</h2>
-      <p>Lead-capture style form from a DA sheet definition. Submit may no-op without a worker; decoration + sheet load is the Wave 2 proof.</p>
+      <p>Lead-capture form from a DA sheet. Optional second link = submit endpoint. Local stub: <code>npm run worker:form-submit</code> → see <code>workers/README.md</code>.</p>
       <div class="form">
         <div>
           <div>
             <p><a href="/data/contact-form.json">Form definition</a></p>
+            <p><a href="http://127.0.0.1:8787/">Form submit (local wrangler stub)</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>n8n-form (webhook / worker stub)</h2>
+      <p>scdemos posts to n8n or a worker. Dogfood block is a <strong>stub</strong> — UI + documented dependency, no real webhook required for Wave 2.</p>
+      <div class="n8n-form">
+        <div>
+          <div><p><a href="http://127.0.0.1:8787/">http://127.0.0.1:8787/</a></p></div>
+        </div>
+        <div>
+          <div><p>Name</p></div>
+          <div><p>Email</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Auth toggle (worker stub)</h2>
+      <p>scdemos uses Cloudflare Access + <code>workers/auth</code>. Dogfood stub calls local auth-session worker when running.</p>
+      <div class="auth-toggle">
+        <div>
+          <div>
+            <p><a href="http://127.0.0.1:8788/auth/session">http://127.0.0.1:8788/auth/session</a></p>
           </div>
         </div>
       </div>

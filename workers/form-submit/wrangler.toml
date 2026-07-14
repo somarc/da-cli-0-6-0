@@ -1,0 +1,18 @@
+# Stub form-submit worker — local dogfood only
+# Deploy: set account_id + routes for your zone; never commit secrets.
+name = "da-cli-0-6-0-form-submit"
+main = "index.js"
+compatibility_date = "2026-02-16"
+
+# Uncomment and fill for deploy:
+# account_id = "YOUR_ACCOUNT_ID"
+# routes = [
+#   { pattern = "example.com/api/form-submit/*", zone_name = "example.com" },
+# ]
+
+[dev]
+port = 8787
+local_protocol = "http"
+
+[observability.logs]
+enabled = true
