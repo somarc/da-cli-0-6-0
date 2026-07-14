@@ -87,23 +87,25 @@ future coverage blocks) can aggregate:
 4. **Coverage** → prefer index-driven list; until then hand-curate
    `coverage.html` from the same metadata fields.
 
-Primary **nav stays small** (spine only). Coverage and learnings absorb growth.
+Primary **nav stays short at the top level**; detail lives in **submenus**.
 
 ---
 
-## Primary nav (spine)
+## Primary nav (spine + submenus)
 
-Keep intentional and short:
+Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropdowns
+(desktop) / nested stacks (mobile).
 
-1. Home  
-2. Why  
-3. Test plan  
-4. Coverage  
-5. Learnings  
-6. Kitchen sink *(Wave 2 proof — temporary prominence until cut)*  
-7. Labs *(optional single entry to dualform)*  
+| Top level | Children |
+|-----------|----------|
+| **Home** | — |
+| **Story** | Why · Test plan · Coverage catalog |
+| **Prove** | Kitchen sink · Blocks narrative · Coverage by wave · Command sheet · Query index |
+| **Learnings** | Hub · f001–f007 · legacy findings URL |
+| **Labs** | Dualform · Renderaissance home hero · Modal sample |
 
-Everything else lives under Coverage or Learnings.
+Growth rule: add new proof/learning routes as **submenu items**, not new top-level
+links, unless they define a new IA pillar.
 
 ---
 
