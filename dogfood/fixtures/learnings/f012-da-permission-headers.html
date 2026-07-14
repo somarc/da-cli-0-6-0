@@ -16,7 +16,7 @@
     </div>
     <div>
       <h2>Resolution</h2>
-      <p><strong>Fixed in da-cli</strong> (branch <code>fix/f012-da-permission-headers</code>, not yet merged):</p>
+      <p><strong>Fixed in da-cli</strong> (merged to main by fast-forward — small, tested, low-risk change, no PR needed):</p>
       <ul>
         <li><code>DaApiError</code> now captures resolved permission hints from response headers via <code>extractPermissionHints()</code>, exposed as <code>err.permissionHints</code></li>
         <li><code>client.list()</code> attaches the same hints to its returned data as a non-enumerable <code>daPermissionHints</code> property (existing consumers unaffected)</li>
