@@ -41,6 +41,7 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 - `media/renderaissance/hero-figure.webp` — profile with provenance roots / botanical plates from the mind
 - `media/renderaissance/hero-object.webp` — catalog book under glass with content-tree roots
 - `media/renderaissance/mascot-cupid.webp` — classical marble Cupid (Eros) mark for header nav brand
+- `media/renderaissance/cli-surface-ledger.webp` — unique ledger/survey desk plate for `/cli-surface` (not recycled wave chart)
 - Block: `painterly-hero` with optional mouse parallax (`prefers-reduced-motion` safe)
 
 ### Site mascot
