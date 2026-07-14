@@ -1,18 +1,16 @@
-Fetched https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink
-Audit: /kitchen-sink
 {
   "ok": true,
   "path": "/kitchen-sink",
   "summary": {
     "errors": 0,
     "warnings": 0,
-    "total": 17
+    "total": 19
   },
   "findings": [
     {
       "severity": "pass",
       "check": "headings",
-      "detail": "26 heading(s), hierarchy ok"
+      "detail": "28 heading(s), hierarchy ok"
     },
     {
       "severity": "pass",
@@ -22,7 +20,7 @@ Audit: /kitchen-sink
     {
       "severity": "pass",
       "check": "links",
-      "detail": "9 link(s): 8 internal, 1 external"
+      "detail": "12 link(s): 8 internal, 4 external"
     },
     {
       "severity": "pass",
@@ -92,8 +90,17 @@ Audit: /kitchen-sink
     {
       "severity": "pass",
       "check": "blocks",
+      "detail": "Block \"n8n-form\": 2 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"auth-toggle\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
       "detail": "Block \"columns\": 1 row(s), 2 col(s)"
     }
   ]
 }
-0 error(s), 0 warning(s)

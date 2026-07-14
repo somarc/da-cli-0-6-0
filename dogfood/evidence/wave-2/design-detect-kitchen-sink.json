@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "status": "clean",
+  "source": "/kitchen-sink",
+  "message": "No anti-patterns detected at this severity threshold. Page is design-clean for impeccable rules (not a statement about brand tokens).",
+  "summary": {
+    "error": 0,
+    "warning": 0,
+    "info": 0,
+    "total": 0,
+    "rules": []
+  },
+  "findings": [],
+  "next": [
+    "da design token-check <source> --format json",
+    "da design audit <source> --format json"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "ok": false,
+  "status": "no-design-tokens",
+  "source": "/kitchen-sink",
+  "message": "No complete design-token contract on this page (stardust :root custom properties missing). This is a structured “nothing here” result, not a crash.",
+  "required": [
+    "--color-brand-primary",
+    "--color-brand-secondary",
+    "--type-scale-base",
+    "--space-unit"
+  ],
+  "present": [],
+  "missing": [
+    {
+      "token": "--color-brand-primary",
+      "status": "missing"
+    },
+    {
+      "token": "--color-brand-secondary",
+      "status": "missing"
+    },
+    {
+      "token": "--type-scale-base",
+      "status": "missing"
+    },
+    {
+      "token": "--space-unit",
+      "status": "missing"
+    }
+  ],
+  "next": [
+    "Author :root tokens in styles/styles.css (or head) then re-run token-check",
+    "da design detect <source> --format json"
+  ]
+}

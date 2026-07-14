@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-14 02:31 UTC)
+## Wave status (2026-07-14 02:51 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -19,7 +19,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | Wave | Claimed in index metadata | Operational truth |
 |------|---------------------------|-------------------|
 | **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
-| **2** Blocks/audits/design | kitchen-sink `in-progress` | **In progress** — kitchen-sink + contracts include autoblocks (f011); design envelopes (f002); formal Wave 2 cut still pending board hygiene |
+| **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
 | **3** Index/routes | coverage `in-progress` | Index + sheet + orphan demo exist; reindex after new routes; full matrix incomplete |
 | **4–6** | not started | deferred |
 
@@ -48,20 +48,21 @@ A surface is cut when we have: (1) CLI run, (2) observable outcome, (3) evidence
 **Mitigation shipped:** `da site pin-target` pins org/repo so `site info` without
 positional args no longer drifts to another project.
 
-### Wave 2 — pass criteria
+### Wave 2 — pass criteria — **CUT 2026-07-14 02:51 UTC**
 
 **Spectrum:** field-scale EDS block types → `dogfood/BLOCK-COVERAGE.md`.  
-Wave 2 is not cut until every **Required** conceptual type is present and contracts-ok.
+**Ledger:** `/cli-surface` + `tools/wave-2-cli-surface.html` + `data/wave-2-cli-surface.json`.  
+**Evidence:** `dogfood/evidence/wave-2/` (README cut stamp).
 
 | Surface | Status | Notes |
 |---------|--------|-------|
-| Required spectrum (BLOCK-COVERAGE) | ⬜ | form, search, modal, teaser added; faq≡accordion |
-| `audit full` on kitchen-sink | ⬜ | zero errors preferred |
-| `audit contracts --prefix / --verify-code` | ⬜ | all Required blocks js/css 200, missing=[] |
-| `block list` / `block inspect` | ⚠️ | built-in contracts sparse; code-bus verify still primary |
-| `design audit` / `detect` / `token-check` | ✅ | f002 envelopes (`clean` / `no-design-tokens`) |
-| `code status` / `verify` | ⬜ | after new blocks land |
-| Finding #2 `design detect` envelope | **fixed** | structured clean / no-tokens result |
+| Required spectrum (BLOCK-COVERAGE) | ✅ | Present on kitchen-sink + chrome; modal autoblock; workers stubbed |
+| `audit full` on kitchen-sink | ✅ | `ok: true`, errors 0, warnings 0 |
+| `audit contracts --prefix / --verify-code` | ✅ | 23 pages, 19 blocks, missing=[], autoblocks modal/fragment/widget |
+| `block list` / `block inspect` | ⚠️ partial | Built-in contracts sparse; **code-bus verify primary** (documented) |
+| `design audit` / `detect` / `token-check` | ✅ | detect clean; audit exit 0; token-check `no-design-tokens` intentional |
+| CLI surface ledger | ✅ | `/cli-surface` + interactive tools map |
+| f002 / f011 (Wave 2 frictions) | ✅ fixed | envelopes + autoblock inventory |
 
 ---
 
@@ -166,8 +167,9 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 4. ~~f002 High~~ — **fixed** (design envelopes)  
 5. ~~f010 High~~ — **fixed** (media URL policy)  
 6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**  
-7. **Finish Wave 2 formal cut** — use `/cli-surface` + tools map as command addendum; re-run audits; stamp test-plan  
-8. Wave 3 matrix → Waves 4–6; then 0.6.0 version/branch when site proves
+7. ~~Finish Wave 2 formal cut~~ — **done 2026-07-14 02:51 UTC**  
+8. **Wave 3** — full route matrix + index reindex discipline  
+9. Waves 4–6 (pipelines meaty); then 0.6.0 version/branch when site proves
 
 ---
 

@@ -1,11 +1,20 @@
-Scanning 19 pages for block contracts…
 {
   "prefix": "/",
-  "scannedPages": 19,
+  "scannedPages": 23,
   "blocks": [
     {
       "block": "accordion",
       "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "auth-toggle",
+      "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -14,6 +23,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "cards",
       "pages": 2,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -22,6 +32,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "carousel",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -30,6 +41,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "columns",
       "pages": 2,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -38,6 +50,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "dualform-hero",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -46,6 +59,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "embed",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -54,6 +68,16 @@ Scanning 19 pages for block contracts…
     {
       "block": "form",
       "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "fragment",
+      "pages": 0,
+      "source": "autoblock",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -62,6 +86,25 @@ Scanning 19 pages for block contracts…
     {
       "block": "hero",
       "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "modal",
+      "pages": 2,
+      "source": "page+autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "n8n-form",
+      "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -69,7 +112,8 @@ Scanning 19 pages for block contracts…
     },
     {
       "block": "painterly-hero",
-      "pages": 6,
+      "pages": 7,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -78,6 +122,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "quote",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -86,6 +131,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "search",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -93,7 +139,8 @@ Scanning 19 pages for block contracts…
     },
     {
       "block": "table",
-      "pages": 2,
+      "pages": 4,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -102,6 +149,7 @@ Scanning 19 pages for block contracts…
     {
       "block": "tabs",
       "pages": 1,
+      "source": "page",
       "js": 200,
       "css": 200,
       "status": "ok",
@@ -110,11 +158,26 @@ Scanning 19 pages for block contracts…
     {
       "block": "teaser",
       "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "widget",
+      "pages": 0,
+      "source": "autoblock",
       "js": 200,
       "css": 200,
       "status": "ok",
       "localChanges": 0
     }
+  ],
+  "autoblocks": [
+    "fragment",
+    "modal",
+    "widget"
   ],
   "missing": [],
   "errors": [],
