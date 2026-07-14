@@ -1,0 +1,107 @@
+Scanning 10 pages for block contracts…
+{
+  "prefix": "/",
+  "scannedPages": 10,
+  "blocks": [
+    {
+      "block": "accordion",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "cards",
+      "pages": 2,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "carousel",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "columns",
+      "pages": 2,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "dualform-hero",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "embed",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "hero",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "painterly-hero",
+      "pages": 6,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "quote",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "table",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "tabs",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    }
+  ],
+  "missing": [],
+  "errors": [],
+  "localGit": {
+    "available": true,
+    "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "branch": "main",
+    "upstream": "origin/main",
+    "ahead": 0,
+    "unpushedBlockChanges": [],
+    "trackedAuthoredContent": [],
+    "detail": "No local unpushed changes found for authored block implementations."
+  }
+}

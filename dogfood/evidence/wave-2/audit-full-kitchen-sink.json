@@ -1,0 +1,84 @@
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink
+Audit: /kitchen-sink
+{
+  "ok": true,
+  "path": "/kitchen-sink",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 14
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "21 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Kitchen sink — Wave 2 module spectrum\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "6 link(s): 5 internal, 1 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"cards\": 4 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"columns\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"hero\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"quote\": 2 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"accordion\": 3 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"tabs\": 3 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"carousel\": 3 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 5 row(s), 3 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"embed\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"columns\": 1 row(s), 2 col(s)"
+    }
+  ]
+}
+0 error(s), 0 warning(s)
