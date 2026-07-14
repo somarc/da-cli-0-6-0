@@ -18,17 +18,21 @@
   overflow: hidden;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2,
+.hero h3 {
   position: relative;
   z-index: 1;
-  max-width: 16ch;
+  max-width: 22ch;
   margin: 0 auto;
   width: 100%;
   color: var(--rr-ink, var(--text-color));
   font-weight: 500;
 }
 
-.hero h1::after {
+.hero h1::after,
+.hero h2::after,
+.hero h3::after {
   content: '';
   display: block;
   width: 58px;
@@ -41,10 +45,31 @@
 .hero p {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 52ch;
+  margin: 0.75rem auto 0;
   color: var(--rr-ink-soft, var(--dark-color));
+}
+
+.hero .hero-text {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero .button-container {
+  margin-top: 1.25rem;
+}
+
+.hero a.button:any-link,
+.hero a.button:any-link:hover {
+  background-color: var(--rr-ink, #22315f);
+  border-color: var(--rr-ink, #22315f);
+  color: var(--rr-paper, #f5eedf);
+}
+
+.hero.no-image {
+  /* keep paper gradient; no dark photo overlay */
+  background: linear-gradient(135deg, #ebe3d0 0%, var(--rr-paper, #f5eedf) 45%, #e8d5c0 100%);
 }
 
 .hero picture {
@@ -78,8 +103,17 @@
 }
 
 .hero:has(img) h1,
+.hero:has(img) h2,
+.hero:has(img) h3,
 .hero:has(img) p {
   color: #f5eedf;
+}
+
+.hero:has(img) a.button:any-link,
+.hero:has(img) a.button:any-link:hover {
+  background-color: var(--rr-chart, #c8e62f);
+  border-color: var(--rr-chart, #c8e62f);
+  color: var(--rr-ink, #22315f);
 }
 
 @media (width >= 900px) {
