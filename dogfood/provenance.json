@@ -58,13 +58,6 @@
       "status": "cut"
     },
     {
-      "path": "/findings.html",
-      "source": "dogfood/fixtures/findings.html",
-      "builtBy": "construct.yaml: put-findings → preview-findings",
-      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/findings.plain.html",
-      "status": "cut"
-    },
-    {
       "path": "/data/coverage.json",
       "source": "dogfood/fixtures/coverage-data.json",
       "builtBy": "construct.yaml: put-coverage-data → preview-coverage-data",

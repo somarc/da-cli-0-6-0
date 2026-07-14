@@ -47,9 +47,10 @@ the spine.
 
 # Operator surfaces (not prose)
 /query-index.json         Published index (wave/surface/status)
-dogfood/evidence/**       CLI JSON evidence packs (git, not always DA pages)
-dogfood/WAVES.md          Execution board (git)
-dogfood/ROADMAP.md        Coverage spine (git)
+dogfood/evidence/**              CLI JSON evidence packs (git, not always DA pages)
+dogfood/WAVES.md                 Execution board (git)
+dogfood/ROADMAP.md               Coverage spine (git)
+dogfood/FRICTION-GATE-0.6.0.md   Hang-hat 0.6.0 agentic friction gate (git)
 ```
 
 **Stability rule:** learning routes use **`fNNN-short-slug`**. Numbers never
@@ -101,7 +102,7 @@ Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropd
 | **Home** | — |
 | **Story** | Why · Test plan · Coverage catalog |
 | **Prove** | Kitchen sink · Blocks narrative · Coverage by wave · Command sheet · Query index |
-| **Learnings** | Hub · f001–f007 · legacy findings URL |
+| **Learnings** | Hub · f001–f011+ (no legacy `/findings` route) |
 | **Labs** | Dualform · Renderaissance home hero · Modal sample |
 
 Growth rule: add new proof/learning routes as **submenu items**, not new top-level

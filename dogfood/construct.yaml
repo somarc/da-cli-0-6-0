@@ -50,15 +50,9 @@ steps:
   - id: preview-coverage
     command: preview page /coverage --format json
     depends_on: [put-coverage]
-  - id: put-findings
-    command: content put /findings.html dogfood/fixtures/findings.html --format json
-    depends_on: [preview-coverage]
-  - id: preview-findings
-    command: preview page /findings --format json
-    depends_on: [put-findings]
   - id: put-learnings
     command: content put /learnings.html dogfood/fixtures/learnings.html --format json
-    depends_on: [preview-findings]
+    depends_on: [preview-coverage]
   - id: preview-learnings
     command: preview page /learnings --format json
     depends_on: [put-learnings]

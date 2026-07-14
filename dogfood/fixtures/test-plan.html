@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-14 01:35 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-14 03:00 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -27,7 +27,7 @@
 
     <div>
       <h2>Status at a glance</h2>
-      <p>As of <strong>2026-07-14 01:35 UTC</strong>:</p>
+      <p>As of <strong>2026-07-14 03:00 UTC</strong>:</p>
       <div class="table">
         <div>
           <div><p>Wave</p></div>
@@ -87,7 +87,7 @@
         <li><a href="/coverage">Coverage</a> — catalog by wave</li>
         <li><a href="/kitchen-sink">Kitchen sink</a> — Wave 2 block spectrum proof</li>
         <li><a href="/blocks">Blocks narrative</a> — authoring vs proving</li>
-        <li><a href="/learnings">Learnings</a> — flywheel history (f001–f007+)</li>
+        <li><a href="/learnings">Learnings</a> — flywheel history (f001–f011+); hang-hat gate in git <code>dogfood/FRICTION-GATE-0.6.0.md</code></li>
         <li><a href="/dualform">Labs · Dualform</a> — PE lab (not a wave cut by itself)</li>
         <li><a href="/data/coverage.json">Command family sheet</a> · <a href="/query-index.json">Query index</a></li>
       </ul>
@@ -100,6 +100,14 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 03:00</p></div>
+          <div><p><strong>f008 fixed</strong> in da-cli: <code>content merge /folder</code> refreshes subtree documents (tracked ∪ remote list), never bare-folder <code>sourceGet</code>. Path semantics match clone. Locks in <code>content-workspace.test.js</code>. Critical friction gate closed; remaining open: f002, f009–f011.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 02:15</p></div>
+          <div><p><strong>Friction gate formalized</strong> as the hang-hat for 0.6.0: <code>dogfood/FRICTION-GATE-0.6.0.md</code>. Open Critical/High learnings (f002, f008–f011) block the cut even if waves are green. Clone/merge path semantics compared to helix-cli (<code>content/</code> + real git + 3-way merge) vs da-cli (<code>.da/workspace/</code> + hash state + single-URL merge) — f008 called as implementation defect, not operator error.</p></div>
         </div>
         <div>
           <div><p>2026-07-14 01:35</p></div>
@@ -127,7 +135,7 @@
         </div>
         <div>
           <div><p>2026-07-14 00:50</p></div>
-          <div><p>Content IA: narrative / proof / learning / lab. Learnings hub + f001–f007 individual routes; <code>/findings</code> retained as alias.</p></div>
+          <div><p>Content IA: narrative / proof / learning / lab. Learnings hub + f001–f007 individual routes (legacy <code>/findings</code> later removed).</p></div>
         </div>
         <div>
           <div><p>2026-07-13 ~21:00</p></div>
@@ -158,8 +166,13 @@
 
     <div>
       <h2>The gate</h2>
-      <p>When every required surface is green with stored evidence, the construction pipeline regenerates this site, and provenance verifies — then, and only then, da-cli 0.6.0 is cut.</p>
-      <p>As of <strong>2026-07-14 01:35 UTC</strong> the gate is <strong>not open</strong>: Wave 1 <strong>cut</strong>; Wave 2 in progress on kitchen-sink; Waves 4–6 not started.</p>
+      <p>Two columns — both required for a hat-worthy 0.6.0:</p>
+      <ol>
+        <li><strong>Waves:</strong> every required surface green with stored evidence; construction pipeline regenerates this site; provenance verifies.</li>
+        <li><strong>Frictions:</strong> every Critical/High agentic friction closed or explicitly reclassified — see git <code>dogfood/FRICTION-GATE-0.6.0.md</code> and the open rows on <a href="/learnings">/learnings</a> (f002, f008–f011).</li>
+      </ol>
+      <p>Waves without friction fixes are not enough. Friction fixes without wave evidence are not enough. <strong>Especially f008:</strong> clone and merge must agree on path shape (helix-cli’s content checkout is the design reference, not a pedestal).</p>
+      <p>As of <strong>2026-07-14 03:00 UTC</strong> the gate is <strong>not open</strong>: Wave 1 <strong>cut</strong>; Wave 2 in progress; Critical f008 <strong>fixed</strong>; High frictions f002, f009–f011 still open.</p>
     </div>
 
     <div>
