@@ -6,13 +6,13 @@ Audit: /kitchen-sink
   "summary": {
     "errors": 0,
     "warnings": 0,
-    "total": 14
+    "total": 17
   },
   "findings": [
     {
       "severity": "pass",
       "check": "headings",
-      "detail": "21 heading(s), hierarchy ok"
+      "detail": "26 heading(s), hierarchy ok"
     },
     {
       "severity": "pass",
@@ -22,7 +22,7 @@ Audit: /kitchen-sink
     {
       "severity": "pass",
       "check": "links",
-      "detail": "6 link(s): 5 internal, 1 external"
+      "detail": "9 link(s): 8 internal, 1 external"
     },
     {
       "severity": "pass",
@@ -73,6 +73,21 @@ Audit: /kitchen-sink
       "severity": "pass",
       "check": "blocks",
       "detail": "Block \"embed\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"teaser\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"search\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"form\": 1 row(s), 1 col(s)"
     },
     {
       "severity": "pass",

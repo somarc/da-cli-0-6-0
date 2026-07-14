@@ -1,7 +1,7 @@
-Scanning 10 pages for block contracts…
+Scanning 19 pages for block contracts…
 {
   "prefix": "/",
-  "scannedPages": 10,
+  "scannedPages": 19,
   "blocks": [
     {
       "block": "accordion",
@@ -52,6 +52,14 @@ Scanning 10 pages for block contracts…
       "localChanges": 0
     },
     {
+      "block": "form",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
       "block": "hero",
       "pages": 1,
       "js": 200,
@@ -76,7 +84,7 @@ Scanning 10 pages for block contracts…
       "localChanges": 0
     },
     {
-      "block": "table",
+      "block": "search",
       "pages": 1,
       "js": 200,
       "css": 200,
@@ -84,7 +92,23 @@ Scanning 10 pages for block contracts…
       "localChanges": 0
     },
     {
+      "block": "table",
+      "pages": 2,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
       "block": "tabs",
+      "pages": 1,
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "teaser",
       "pages": 1,
       "js": 200,
       "css": 200,
