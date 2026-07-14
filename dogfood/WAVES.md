@@ -10,13 +10,16 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-14)
+## Wave status (2026-07-14 01:27 UTC)
+
+Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
+(always update that page’s progress log when this table moves)
 
 | Wave | Claimed in index metadata | Operational truth |
 |------|---------------------------|-------------------|
-| **1** Foundation | mostly `cut` on narrative pages | **Near cut** — core loop works; evidence pack incomplete; a few content-family verbs not yet locked |
-| **2** Blocks/audits/design | `/blocks` marked `cut` | **Premature** — only `columns` + `cards` on that page; not a full-spectrum kitchen sink |
-| **3** Index/routes | coverage `in-progress` | Index exists; route demos partial |
+| **1** Foundation | narrative pages often `cut` | **Near cut** — core loop works; evidence pack started; pin-target, put-tree, clone/diff, `da up`, construct dry-run still open |
+| **2** Blocks/audits/design | kitchen-sink `in-progress` | **In progress** — field-scale kitchen-sink + contracts green for present blocks; f002 design detect open; not cut |
+| **3** Index/routes | coverage `in-progress` | Index + sheet + orphan demo exist; reindex after new routes; full matrix incomplete |
 | **4–6** | not started | deferred |
 
 ### Wave 1 — pass criteria (ADR 0002)

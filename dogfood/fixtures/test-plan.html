@@ -8,51 +8,181 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
+            <p><strong>Last updated:</strong> 2026-07-14 01:27 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
-              <img src="https://main--da-cli-0-6-0--somarc.aem.page/media/renderaissance/test-plan-waves.webp" alt="Painterly chart of concentric cobalt waves with survey flags and a terracotta release gate — the test plan waves">
+              <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/test-plan-waves.webp" alt="Painterly chart of concentric cobalt waves with survey flags and a terracotta release gate — the test plan waves">
             </p>
           </div>
         </div>
       </div>
     </div>
+
     <div>
       <h2>What "done" means for a check</h2>
       <p>A check passes only when it asserts an <strong>observable state transition</strong> and proves it publicly — the DA source changed, the preview activated, the live URL renders the expected content, the route classifies as expected, the job reached a terminal state. Retrying a command until it exits zero is not evidence. Counting commands is not a score.</p>
+      <p>Progress on this page must stay <strong>honest</strong>: when work lands, append the progress log with a UTC timestamp. Do not mark a wave <code>cut</code> without evidence under <code>dogfood/evidence/</code> (or an equivalent public proof).</p>
     </div>
+
+    <div>
+      <h2>Status at a glance</h2>
+      <p>As of <strong>2026-07-14 01:27 UTC</strong>:</p>
+      <div class="table">
+        <div>
+          <div><p>Wave</p></div>
+          <div><p>Status</p></div>
+          <div><p>Notes</p></div>
+        </div>
+        <div>
+          <div><p>1 — Foundation &amp; core loop</p></div>
+          <div><p>near cut</p></div>
+          <div><p>Core put/preview/publish/freshness/doctor green; evidence pack started; pin-target, put-tree, clone/diff, <code>da up</code>, construct dry-run still open</p></div>
+        </div>
+        <div>
+          <div><p>2 — Blocks, audits, design</p></div>
+          <div><p>in progress</p></div>
+          <div><p><a href="/kitchen-sink">Kitchen sink</a> carries field-scale spectrum; contracts verify kitchen-sink blocks; design detect envelope (f002) still open</p></div>
+        </div>
+        <div>
+          <div><p>3 — Structured data &amp; routes</p></div>
+          <div><p>in progress</p></div>
+          <div><p>Coverage sheet + query index + orphan demo exist; reindex after new routes; full route matrix incomplete</p></div>
+        </div>
+        <div>
+          <div><p>4 — Coordination, durability, migration</p></div>
+          <div><p>not started</p></div>
+          <div><p>Pipeline/job/migrate surfaces</p></div>
+        </div>
+        <div>
+          <div><p>5 — Failure &amp; recovery</p></div>
+          <div><p>not started</p></div>
+          <div><p>Induced failures with recovery proof</p></div>
+        </div>
+        <div>
+          <div><p>6 — Lifecycle &amp; conditional</p></div>
+          <div><p>not started</p></div>
+          <div><p>Auth, skills, second site, integrations</p></div>
+        </div>
+      </div>
+    </div>
+
     <div>
       <h2>The waves</h2>
       <ul>
-        <li><strong>Wave 1 — Foundation &amp; core loop.</strong> Config, status, resolve, content CRUD, preview, publish, site health, freshness, local serving. The end-to-end author-then-prove loop. (In progress — this very page is part of it.)</li>
-        <li><strong>Wave 2 — Blocks, audits, design.</strong> Pages built from real blocks, with contract and semantics audits proving the block code resolves on the served branch.</li>
-        <li><strong>Wave 3 — Structured data &amp; routes.</strong> A DA sheet, nested pages, and deliberate route cases: content-owned, code-owned, hybrid, orphan, and probe-failed. Index configured through the Configuration Service.</li>
-        <li><strong>Wave 4 — Coordination, durability, migration.</strong> Pipelines, durable jobs that survive interruption, and a migration with a known expected result.</li>
-        <li><strong>Wave 5 — Failure &amp; recovery.</strong> Deliberately induced failures — source drift, missing assets, stale delivery, protected routes, cancelled jobs — each recognized, contained, and recovered.</li>
-        <li><strong>Wave 6 — Lifecycle &amp; conditional.</strong> Auth, skills, a second site created from scratch, and credentialed integrations where available.</li>
+        <li><strong>Wave 1 — Foundation &amp; core loop.</strong> Config, status, resolve, content CRUD, preview, publish, site health, freshness, local serving. Author-then-prove loop. Board: git <code>dogfood/WAVES.md</code> · evidence: <code>dogfood/evidence/wave-1/</code>.</li>
+        <li><strong>Wave 2 — Blocks, audits, design.</strong> Field-scale block spectrum on <a href="/kitchen-sink">/kitchen-sink</a> (see <code>dogfood/BLOCK-COVERAGE.md</code>). Contracts + full audit + design surfaces. Worker-backed blocks use local wrangler stubs (<code>workers/README.md</code>), not production edge secrets.</li>
+        <li><strong>Wave 3 — Structured data &amp; routes.</strong> DA sheets, nested pages, route ownership cases (content, code, hybrid, orphan). Index via Configuration Service / <code>da index build</code>.</li>
+        <li><strong>Wave 4 — Coordination, durability, migration.</strong> Pipelines, durable jobs that survive interruption, migration with known expected result.</li>
+        <li><strong>Wave 5 — Failure &amp; recovery.</strong> Induced failures — source drift, missing assets, stale delivery, protected routes, cancelled jobs — each recognized, contained, and recovered.</li>
+        <li><strong>Wave 6 — Lifecycle &amp; conditional.</strong> Auth, skills, a second site from scratch, credentialed integrations where available.</li>
       </ul>
     </div>
+
+    <div>
+      <h2>Proof surfaces (living site)</h2>
+      <ul>
+        <li><a href="/">Home</a> — release rule and thesis</li>
+        <li><a href="/why">Why</a> — trust arc</li>
+        <li><a href="/coverage">Coverage</a> — catalog by wave</li>
+        <li><a href="/kitchen-sink">Kitchen sink</a> — Wave 2 block spectrum proof</li>
+        <li><a href="/blocks">Blocks narrative</a> — authoring vs proving</li>
+        <li><a href="/learnings">Learnings</a> — flywheel history (f001–f007+)</li>
+        <li><a href="/dualform">Labs · Dualform</a> — PE lab (not a wave cut by itself)</li>
+        <li><a href="/data/coverage.json">Command family sheet</a> · <a href="/query-index.json">Query index</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Progress log</h2>
+      <p>Append-only. Newest first. Format: <code>YYYY-MM-DD HH:MM UTC — what changed</code>. Update the hero <strong>Last updated</strong> line to match the newest entry.</p>
+      <div class="table">
+        <div>
+          <div><p>When (UTC)</p></div>
+          <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 01:27</p></div>
+          <div><p>Test plan rewritten with status table, progress log, and honest wave states; last-updated discipline documented on this page.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 01:20</p></div>
+          <div><p>Nav restructured with Story / Prove / Learnings / Labs submenus so proof and history stay reachable without a flat link dump.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 01:15</p></div>
+          <div><p>Worker stubs documented and shipped (<code>form-submit</code>, <code>auth-session</code>); <code>n8n-form</code> and <code>auth-toggle</code> stubs on kitchen-sink; wrangler notes under <code>workers/README.md</code>.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 01:00</p></div>
+          <div><p>Field-scale block spectrum on kitchen-sink: form, search, modal, teaser, accordion, carousel, quote, tabs, table, embed; <code>BLOCK-COVERAGE.md</code> as cut gate; contracts audit green for kitchen-sink blocks.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-14 00:50</p></div>
+          <div><p>Content IA: narrative / proof / learning / lab. Learnings hub + f001–f007 individual routes; <code>/findings</code> retained as alias.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-13 ~21:00</p></div>
+          <div><p>Wave board + kitchen-sink MVP; ported collection blocks (accordion, tabs, carousel, table, embed, quote); evidence folders under <code>dogfood/evidence/</code>.</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-13 ~20:00</p></div>
+          <div><p>Renderaissance home hero: soft plate + lit PE; dualform lab already on site from earlier PE work.</p></div>
+        </div>
+        <div>
+          <div><p>Earlier 2026-07</p></div>
+          <div><p>Site scaffold, construct pipeline, waves 1–3 narrative pages, learnings f001–f007 from field dogfood (site info, design detect, index, route classify/clean).</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>How to keep this page honest</h2>
+      <ol>
+        <li>Edit <code>dogfood/fixtures/test-plan.html</code> (git is upstream of DA).</li>
+        <li>Set hero <strong>Last updated</strong> to current <code>YYYY-MM-DD HH:MM UTC</code>.</li>
+        <li>Prepend a row to the progress log table with the same timestamp.</li>
+        <li>Adjust the status-at-a-glance table if a wave state actually changed.</li>
+        <li><code>da content put /test-plan.html … --commit</code> then preview (and publish when ready).</li>
+        <li>Optional: mirror detail in <code>dogfood/WAVES.md</code> and drop JSON under <code>dogfood/evidence/wave-N/</code>.</li>
+      </ol>
+    </div>
+
     <div>
       <h2>The gate</h2>
       <p>When every required surface is green with stored evidence, the construction pipeline regenerates this site, and provenance verifies — then, and only then, da-cli 0.6.0 is cut.</p>
+      <p>As of <strong>2026-07-14 01:27 UTC</strong> the gate is <strong>not open</strong>: Wave 1 near cut, Wave 2 in progress on kitchen-sink, Waves 4–6 not started.</p>
     </div>
+
     <div>
       <div class="metadata">
         <div>
-          <div>wave</div>
-          <div>1</div>
-        </div>
-        <div>
-          <div>surface</div>
+          <div>kind</div>
           <div>narrative</div>
         </div>
         <div>
-          <div>aesthetic</div>
-          <div>renderaissance-collage</div>
+          <div>wave</div>
+          <div>0</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>narrative, plan</div>
         </div>
         <div>
           <div>status</div>
-          <div>cut</div>
+          <div>living</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>The test plan</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>da-cli 0.6.0 dogfood waves, gate, and dated progress log — living certification plan.</div>
+        </div>
+        <div>
+          <div>last-updated</div>
+          <div>2026-07-14T01:27:00Z</div>
         </div>
       </div>
     </div>
