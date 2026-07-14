@@ -1,0 +1,16 @@
+file:///opt/homebrew/lib/node_modules/@somarc/da-cli/src/lib/da-client.js:49
+      throw new DaApiError(res.status, url, text);
+            ^
+
+DaApiError: DA API 404 at https://admin.da.live/source/somarc/da-cli-0-6-0/data
+    at DaClient._fetch (file:///opt/homebrew/lib/node_modules/@somarc/da-cli/src/lib/da-client.js:49:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async mergeWorkspace (file:///opt/homebrew/lib/node_modules/@somarc/da-cli/src/lib/content-workspace.js:146:17)
+    at async Command.<anonymous> (file:///opt/homebrew/lib/node_modules/@somarc/da-cli/src/commands/content.js:147:22)
+    at async Command.parseAsync (file:///opt/homebrew/lib/node_modules/@somarc/da-cli/node_modules/commander/lib/command.js:1113:5) {
+  status: 404,
+  url: 'https://admin.da.live/source/somarc/da-cli-0-6-0/data',
+  body: ''
+}
+
+Node.js v25.8.2

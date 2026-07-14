@@ -1,0 +1,143 @@
+[
+  {
+    "path": "/blocks.html"
+  },
+  {
+    "path": "/coverage.html"
+  },
+  {
+    "path": "/dualform.html"
+  },
+  {
+    "path": "/findings.html"
+  },
+  {
+    "path": "/footer.html"
+  },
+  {
+    "path": "/index.html"
+  },
+  {
+    "path": "/kitchen-sink.html"
+  },
+  {
+    "path": "/learnings.html"
+  },
+  {
+    "path": "/nav.html"
+  },
+  {
+    "path": "/test-plan.html"
+  },
+  {
+    "path": "/why.html"
+  },
+  {
+    "path": "/data/contact-form.json"
+  },
+  {
+    "path": "/data/coverage.json"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html"
+  },
+  {
+    "path": "/learnings/f003-index-build.html"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html"
+  },
+  {
+    "path": "/modals/sample.html"
+  },
+  {
+    "path": "/media/dualform/column-a.webp"
+  },
+  {
+    "path": "/media/dualform/column-b.webp"
+  },
+  {
+    "path": "/media/dualform/compass-a.webp"
+  },
+  {
+    "path": "/media/dualform/compass-b.webp"
+  },
+  {
+    "path": "/media/dualform/form-a.webp"
+  },
+  {
+    "path": "/media/dualform/form-b.webp"
+  },
+  {
+    "path": "/media/dualform/lock-a.webp"
+  },
+  {
+    "path": "/media/dualform/lock-b.webp"
+  },
+  {
+    "path": "/media/dualform/mic-a.webp"
+  },
+  {
+    "path": "/media/dualform/mic-b.webp"
+  },
+  {
+    "path": "/media/dualform/orrery-a.webp"
+  },
+  {
+    "path": "/media/dualform/orrery-b.webp"
+  },
+  {
+    "path": "/media/dualform/vessel-a.webp"
+  },
+  {
+    "path": "/media/dualform/vessel-b.webp"
+  },
+  {
+    "path": "/media/renderaissance/coverage-catalog.webp"
+  },
+  {
+    "path": "/media/renderaissance/findings-flywheel.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-bg.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-figure.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-object.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-height.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-normal.webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-roughness.webp"
+  },
+  {
+    "path": "/media/renderaissance/sprig.svg"
+  },
+  {
+    "path": "/media/renderaissance/test-plan-waves.webp"
+  },
+  {
+    "path": "/media/renderaissance/why-operator.webp"
+  }
+]

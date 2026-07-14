@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "operation": "resolve",
+  "target": "/index.html",
+  "resolved": {
+    "sourceUrl": null,
+    "owner": "somarc",
+    "site": "da-cli-0-6-0",
+    "repo": "da-cli-0-6-0",
+    "branch": "main",
+    "path": "/",
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/",
+    "confidence": "medium",
+    "confidenceReason": "inferred from flag/flag DA config and relative path"
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --format json preview status /index.html --branch main",
+    "da --org somarc --repo da-cli-0-6-0 --format json content get /index.html"
+  ]
+}

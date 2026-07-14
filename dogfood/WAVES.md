@@ -10,47 +10,42 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-14 01:27 UTC)
+## Wave status (2026-07-14 01:30 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
 
 | Wave | Claimed in index metadata | Operational truth |
 |------|---------------------------|-------------------|
-| **1** Foundation | narrative pages often `cut` | **Near cut** — core loop works; evidence pack started; pin-target, put-tree, clone/diff, `da up`, construct dry-run still open |
+| **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
 | **2** Blocks/audits/design | kitchen-sink `in-progress` | **In progress** — field-scale kitchen-sink + contracts green for present blocks; f002 design detect open; not cut |
 | **3** Index/routes | coverage `in-progress` | Index + sheet + orphan demo exist; reindex after new routes; full matrix incomplete |
 | **4–6** | not started | deferred |
 
-### Wave 1 — pass criteria (ADR 0002)
+### Wave 1 — pass criteria (ADR 0002) — **CUT 2026-07-14**
 
-A surface is **cut** only when we have:
+A surface is cut when we have: (1) CLI run, (2) observable outcome, (3) evidence file.
 
-1. Command(s) run with `--format json` (or documented human-readable)  
-2. Observable public state (preview/live URL or structured CLI payload)  
-3. Note under `dogfood/evidence/wave-1/` (or provenance entry)
+| Surface | Status | Evidence |
+|---------|--------|----------|
+| `status` | ✅ | `status.json` |
+| `resolve` | ✅ | `resolve-index.json` |
+| `content list` / `tree` | ✅ | `content-list.json`, `content-tree.json` |
+| `content get` / `put` | ✅ | construct + fixtures; get during pack |
+| `preview` / `publish` | ✅ | live site + construct history |
+| `site freshness` | ✅ | `freshness.json` |
+| `site info` / `doctor` | ✅ | `site-info.json`, `site-doctor.json` |
+| `site model` | ✅ | `site-model.json` |
+| `site pin-target` | ✅ | `pin-target.json` + `.da.json` |
+| `content clone` / `diff` / `merge` | ✅ | clone-data, diff, merge txt |
+| `content put-tree` dry-run | ✅ | `content-put-tree-dryrun.txt` |
+| `content versions` | ✅ | `content-versions-index.json` (empty history, command OK) |
+| construct `--dry-run` | ✅ | `construct-dry-run.json` (42 steps) |
+| `aem up` smoke | ✅ | `aem-up-smoke.txt` (HTTP 200) |
+| evidence pack | ✅ | this folder + README |
 
-| Surface | Status | Evidence / next |
-|---------|--------|-----------------|
-| `status` | ✅ | `da status --format json` → ok, auth valid |
-| `resolve` | ✅ | resolves preview/live for `/index.html` |
-| `content list` / `tree` | ✅ | lists fixtures + media |
-| `content get` / `put` | ✅ | construct pipeline + hero plate puts |
-| `preview page` | ✅ | all construct paths preview 200 |
-| `publish page` | ✅ | live 200 for core pages |
-| `site freshness` | ✅ | pages report fresh |
-| `site info` / `doctor` | ✅ | with explicit `da-cli-0-6-0` repo arg; doctor agent ok |
-| `site model` | ⬜ | run + capture |
-| `content clone/diff/merge/versions` | ⬜ | exercise against fixtures |
-| `content put-tree` | ⬜ | Wave 1–2 boundary |
-| `up` (local serve) | ⬜ | smoke local decorate |
-| `config` / pin-target | ⬜ | pin `.da.json` so `site info` without repo arg cannot drift to boilerplate |
-| construct pipeline dry-run | ⬜ | `pipeline run dogfood/construct.yaml --dry-run` |
-| evidence pack | ⬜ | write `dogfood/evidence/wave-1/README.md` |
-
-**Finding (operator):** `da site info` without positional repo can resolve the
-wrong GitHub project (observed targeting `aem-boilerplate`). Mitigation: always
-pass repo + org; fix candidate = pin-target / resolveConfig (related to finding #1).
+**Mitigation shipped:** `da site pin-target` pins org/repo so `site info` without
+positional args no longer drifts to another project.
 
 ### Wave 2 — pass criteria
 

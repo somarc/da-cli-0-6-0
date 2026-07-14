@@ -1,0 +1,21 @@
+Checking pipeline health for somarc/da-cli-0-6-0 (branch: main)…
+[
+  {
+    "check": "fstab.yaml on main",
+    "status": "ok",
+    "detail": "https://content.da.live/somarc/da-cli-0-6-0/"
+  },
+  {
+    "check": "Helix content pipeline",
+    "status": "ok",
+    "detail": "200 (source: markup:https://content.da.live/somarc/da-cli-0-6-0/)"
+  },
+  {
+    "check": "Content non-empty",
+    "status": "ok",
+    "detail": "<div> <div class=\"painterly-hero\"> <div> <div> <p>PROOF · CO"
+  }
+]
+
+Preview: https://main--da-cli-0-6-0--somarc.aem.page
+Live:    https://main--da-cli-0-6-0--somarc.aem.live

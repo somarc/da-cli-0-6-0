@@ -1,0 +1,28 @@
+[
+  {
+    "path": "/data/contact-form.json",
+    "file": ".da/workspace/data/contact-form.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/data/coverage.json",
+    "file": ".da/workspace/data/coverage.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  }
+]
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: content put-tree .da/workspace
+  Source: .da/workspace
+  Paths: 2
+    /data/contact-form.json
+    /data/coverage.json
+  Note: Content-first bulk upload: local files are mapped to DA source paths before preview.
+  Note: Seed fixture warning: .da/workspace/*.html can drift from authored DA content. Treat these files as temporary seed inputs, not the production source of truth.
+  Note: Before overwriting existing DA documents, run `da content diff <path>` or use the managed content clone/status/push workflow to preserve authored changes.
+[dry-run] Upload 2 local content file(s) to DA
+  Pass --commit to execute.

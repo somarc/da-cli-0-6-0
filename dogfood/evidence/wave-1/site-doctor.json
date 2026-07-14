@@ -1,3 +1,4 @@
+Running site doctor for somarc/da-cli-0-6-0 (main)…
 {
   "checks": [
     {
@@ -38,7 +39,7 @@
     {
       "check": "agent block assets",
       "status": "ok",
-      "detail": "4 block(s); missing=0; errors=0"
+      "detail": "16 block(s); missing=0; errors=0"
     },
     {
       "check": "agent local git",
@@ -48,7 +49,7 @@
     {
       "check": "agent section shape",
       "status": "ok",
-      "detail": "9 page(s) sampled; no top-level block classes"
+      "detail": "19 page(s) sampled; no top-level block classes"
     }
   ],
   "recommendations": [],
@@ -78,7 +79,7 @@
     },
     "content": {
       "prefix": "/",
-      "sampledPages": 9,
+      "sampledPages": 19,
       "pagesWithBlocks": [
         {
           "path": "/blocks",
@@ -100,21 +101,43 @@
           ]
         },
         {
-          "path": "/findings",
-          "blocks": [
-            "painterly-hero"
-          ]
-        },
-        {
           "path": "/index",
           "blocks": [
             "painterly-hero"
           ]
         },
         {
+          "path": "/kitchen-sink",
+          "blocks": [
+            "accordion",
+            "auth-toggle",
+            "cards",
+            "carousel",
+            "columns",
+            "embed",
+            "form",
+            "hero",
+            "n8n-form",
+            "painterly-hero",
+            "quote",
+            "search",
+            "table",
+            "tabs",
+            "teaser"
+          ]
+        },
+        {
+          "path": "/learnings",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ]
+        },
+        {
           "path": "/test-plan",
           "blocks": [
-            "painterly-hero"
+            "painterly-hero",
+            "table"
           ]
         },
         {
@@ -127,14 +150,47 @@
     },
     "blockAssets": {
       "blocks": [
+        "accordion",
+        "auth-toggle",
         "cards",
+        "carousel",
         "columns",
         "dualform-hero",
-        "painterly-hero"
+        "embed",
+        "form",
+        "hero",
+        "n8n-form",
+        "painterly-hero",
+        "quote",
+        "search",
+        "table",
+        "tabs",
+        "teaser"
       ],
       "checked": [
         {
+          "block": "accordion",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "auth-toggle",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
           "block": "cards",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "carousel",
           "js": 200,
           "css": 200,
           "ok": true,
@@ -155,7 +211,70 @@
           "detail": ""
         },
         {
+          "block": "embed",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "n8n-form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
           "block": "painterly-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "quote",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "search",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "table",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "tabs",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "teaser",
           "js": 200,
           "css": 200,
           "ok": true,
@@ -177,7 +296,7 @@
     },
     "sectionShape": {
       "ok": true,
-      "sampled": 9,
+      "sampled": 19,
       "violations": []
     }
   }

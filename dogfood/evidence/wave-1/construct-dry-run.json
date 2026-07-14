@@ -1,0 +1,687 @@
+{
+  "ok": true,
+  "operation": "pipeline.plan",
+  "target": "dogfood/construct.yaml",
+  "data": {
+    "name": "da-cli-0-6-0-construct",
+    "context": {},
+    "steps": [
+      {
+        "id": "put-index",
+        "command": "content put /index.html dogfood/fixtures/index.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-index",
+        "command": "preview page /index --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-nav",
+        "command": "content put /nav.html dogfood/fixtures/nav.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-nav",
+        "command": "preview page /nav --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-nav"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-footer",
+        "command": "content put /footer.html dogfood/fixtures/footer.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-nav"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-footer",
+        "command": "preview page /footer --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-footer"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-why",
+        "command": "content put /why.html dogfood/fixtures/why.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-footer"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-why",
+        "command": "preview page /why --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-why"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-test-plan",
+        "command": "content put /test-plan.html dogfood/fixtures/test-plan.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-why"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-test-plan",
+        "command": "preview page /test-plan --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-test-plan"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-blocks",
+        "command": "content put /blocks.html dogfood/fixtures/blocks.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-test-plan"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-blocks",
+        "command": "preview page /blocks --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-blocks"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-coverage",
+        "command": "content put /coverage.html dogfood/fixtures/coverage.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-blocks"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-coverage",
+        "command": "preview page /coverage --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-coverage"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-findings",
+        "command": "content put /findings.html dogfood/fixtures/findings.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-coverage"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-findings",
+        "command": "preview page /findings --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-findings"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-learnings",
+        "command": "content put /learnings.html dogfood/fixtures/learnings.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-findings"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-learnings",
+        "command": "preview page /learnings --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-learnings"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f001",
+        "command": "content put /learnings/f001-site-info-target.html dogfood/fixtures/learnings/f001-site-info-target.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-learnings"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f001",
+        "command": "preview page /learnings/f001-site-info-target --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f001"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f002",
+        "command": "content put /learnings/f002-design-detect-envelope.html dogfood/fixtures/learnings/f002-design-detect-envelope.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f001"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f002",
+        "command": "preview page /learnings/f002-design-detect-envelope --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f002"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f003",
+        "command": "content put /learnings/f003-index-build.html dogfood/fixtures/learnings/f003-index-build.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f002"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f003",
+        "command": "preview page /learnings/f003-index-build --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f003"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f004",
+        "command": "content put /learnings/f004-index-env-preview.html dogfood/fixtures/learnings/f004-index-env-preview.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f003"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f004",
+        "command": "preview page /learnings/f004-index-env-preview --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f004"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f005",
+        "command": "content put /learnings/f005-route-codebus.html dogfood/fixtures/learnings/f005-route-codebus.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f004"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f005",
+        "command": "preview page /learnings/f005-route-codebus --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f005"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f006",
+        "command": "content put /learnings/f006-stale-contentbus.html dogfood/fixtures/learnings/f006-stale-contentbus.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f005"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f006",
+        "command": "preview page /learnings/f006-stale-contentbus --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f006"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-f007",
+        "command": "content put /learnings/f007-route-clean-orphan.html dogfood/fixtures/learnings/f007-route-clean-orphan.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f006"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-f007",
+        "command": "preview page /learnings/f007-route-clean-orphan --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-f007"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-dualform",
+        "command": "content put /dualform.html dogfood/fixtures/dualform.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-f007"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-dualform",
+        "command": "preview page /dualform --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-dualform"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-contact-form",
+        "command": "content put /data/contact-form.json dogfood/fixtures/data/contact-form.json --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-dualform"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-contact-form",
+        "command": "preview page /data/contact-form.json --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-contact-form"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-modal-sample",
+        "command": "content put /modals/sample.html dogfood/fixtures/modals/sample.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-contact-form"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-modal-sample",
+        "command": "preview page /modals/sample --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-modal-sample"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-kitchen-sink",
+        "command": "content put /kitchen-sink.html dogfood/fixtures/kitchen-sink.html --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-modal-sample"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-kitchen-sink",
+        "command": "preview page /kitchen-sink --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-kitchen-sink"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "put-coverage-data",
+        "command": "content put /data/coverage.json dogfood/fixtures/coverage-data.json --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-kitchen-sink"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-coverage-data",
+        "command": "preview page /data/coverage.json --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "put-coverage-data"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      }
+    ],
+    "batches": [
+      [
+        "put-index"
+      ],
+      [
+        "preview-index"
+      ],
+      [
+        "put-nav"
+      ],
+      [
+        "preview-nav"
+      ],
+      [
+        "put-footer"
+      ],
+      [
+        "preview-footer"
+      ],
+      [
+        "put-why"
+      ],
+      [
+        "preview-why"
+      ],
+      [
+        "put-test-plan"
+      ],
+      [
+        "preview-test-plan"
+      ],
+      [
+        "put-blocks"
+      ],
+      [
+        "preview-blocks"
+      ],
+      [
+        "put-coverage"
+      ],
+      [
+        "preview-coverage"
+      ],
+      [
+        "put-findings"
+      ],
+      [
+        "preview-findings"
+      ],
+      [
+        "put-learnings"
+      ],
+      [
+        "preview-learnings"
+      ],
+      [
+        "put-f001"
+      ],
+      [
+        "preview-f001"
+      ],
+      [
+        "put-f002"
+      ],
+      [
+        "preview-f002"
+      ],
+      [
+        "put-f003"
+      ],
+      [
+        "preview-f003"
+      ],
+      [
+        "put-f004"
+      ],
+      [
+        "preview-f004"
+      ],
+      [
+        "put-f005"
+      ],
+      [
+        "preview-f005"
+      ],
+      [
+        "put-f006"
+      ],
+      [
+        "preview-f006"
+      ],
+      [
+        "put-f007"
+      ],
+      [
+        "preview-f007"
+      ],
+      [
+        "put-dualform"
+      ],
+      [
+        "preview-dualform"
+      ],
+      [
+        "put-contact-form"
+      ],
+      [
+        "preview-contact-form"
+      ],
+      [
+        "put-modal-sample"
+      ],
+      [
+        "preview-modal-sample"
+      ],
+      [
+        "put-kitchen-sink"
+      ],
+      [
+        "preview-kitchen-sink"
+      ],
+      [
+        "put-coverage-data"
+      ],
+      [
+        "preview-coverage-data"
+      ]
+    ]
+  },
+  "warnings": [],
+  "next": [
+    "da --format json pipeline run dogfood/construct.yaml"
+  ]
+}

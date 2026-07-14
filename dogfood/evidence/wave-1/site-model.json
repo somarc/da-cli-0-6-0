@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "da-cli.site-model.v1",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "da": "https://content.da.live/somarc/da-cli-0-6-0/",
+    "codebus": "https://github.com/somarc/da-cli-0-6-0"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
+    "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "default"
+    }
+  },
+  "recommendations": [
+    {
+      "severity": "info",
+      "code": "pin-project-target",
+      "detail": "Pin org/repo in project .da.json before repeated writes or durable jobs.",
+      "next": "da --org somarc --repo da-cli-0-6-0 site pin-target --branch main"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/index.html",
+      "ownership": "contentbus",
+      "sourcePath": "/index.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/",
+      "error": ""
+    },
+    {
+      "path": "/nav.html",
+      "ownership": "contentbus",
+      "sourcePath": "/nav.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/nav",
+      "error": ""
+    },
+    {
+      "path": "/footer.html",
+      "ownership": "contentbus",
+      "sourcePath": "/footer.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/footer",
+      "error": ""
+    }
+  ]
+}
