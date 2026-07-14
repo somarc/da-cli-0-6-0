@@ -36,10 +36,10 @@ library — not every vertical calculator — and **validate** those blocks with
 | Data table | `table` | `table` | Required | kitchen-sink |
 | Embed / third-party media | `embed` | `embed` | Required | kitchen-sink |
 | FAQ / accordion | `faq` | `accordion` *(equiv)* | Required | kitchen-sink |
-| Form / lead capture | `form` | `form` | Required | **adding** |
-| Site search | `search` | `search` | Required | **adding** |
-| Modal / dialog | `modal` | `modal` | Required | **adding** |
-| Teaser / promo unit | `teaser` | `teaser` | Required | **adding** |
+| Form / lead capture | `form` | `form` | Required | kitchen-sink + sheet |
+| Site search | `search` | `search` | Required | kitchen-sink |
+| Modal / dialog | `modal` | `modal` | Required | `/modals/sample` link + code bus |
+| Teaser / promo unit | `teaser` | `teaser` | Required | kitchen-sink |
 | Carousel / media strip | — | `carousel` | Required | kitchen-sink (da-cli ahead) |
 | Quote / testimonial | — | `quote` | Required | kitchen-sink (da-cli ahead) |
 | Related articles | `related-articles` | `related-articles` or cards+index | Bridge | deferred Wave 3 |
