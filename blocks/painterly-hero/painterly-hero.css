@@ -143,6 +143,12 @@
   --rr-depth: 16px;
 }
 
+.painterly-hero .ph-layer img {
+  display: block;
+  max-width: none;
+  background: transparent;
+}
+
 .painterly-hero .layer-focal img,
 .painterly-hero .layer-focal .ph-lit-canvas {
   width: 100%;
@@ -150,10 +156,6 @@
   object-fit: contain;
   object-position: right bottom;
   filter: none;
-}
-
-.painterly-hero .layer-focal.is-webgl img {
-  visibility: hidden;
 }
 
 /* 3) Object sits ON the same stage — bottom-left */
@@ -173,10 +175,8 @@
   filter: none;
 }
 
-.painterly-hero .ph-layer img {
-  display: block;
-  max-width: none;
-  background: transparent;
+.painterly-hero .layer-focal.is-webgl img {
+  visibility: hidden;
 }
 
 /* Single soft plate (preferred homepage path) */
