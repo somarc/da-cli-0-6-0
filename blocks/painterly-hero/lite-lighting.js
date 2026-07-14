@@ -81,6 +81,47 @@ void main() {
   frag = vec4(col, 1.0);
 }`;
 
+/**
+ * Helix serves responsive `?width=750` for LCP imgs. Sampling those into
+ * WebGL looks pixelated when the canvas is larger — prefer width=2000.
+ */
+function bestMediaUrl(src) {
+  if (!src) return src;
+  try {
+    const u = new URL(src, window.location.href);
+    if (u.searchParams.has('width') || /media_\w+\./.test(u.pathname)) {
+      u.searchParams.set('width', '2000');
+      if (!u.searchParams.has('format')) u.searchParams.set('format', 'webply');
+      u.searchParams.set('optimize', 'medium');
+    }
+    return u.href;
+  } catch {
+    return src;
+  }
+}
+
+/** Prefer largest picture source, else bump the img URL. */
+function bestSrcFromImg(imgEl) {
+  if (!imgEl) return '';
+  const pic = imgEl.closest('picture');
+  let best = imgEl.currentSrc || imgEl.src || '';
+  let bestW = 0;
+  if (pic) {
+    pic.querySelectorAll('source[srcset]').forEach((source) => {
+      source.srcset.split(',').forEach((part) => {
+        const url = part.trim().split(/\s+/)[0];
+        const m = part.match(/width=(\d+)/) || part.match(/\s(\d+)w/);
+        const w = m ? parseInt(m[1], 10) : 0;
+        if (url && w >= bestW) {
+          bestW = w;
+          best = url;
+        }
+      });
+    });
+  }
+  return bestMediaUrl(best);
+}
+
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const el = new Image();
@@ -166,13 +207,19 @@ async function enhance(imgEl, maps) {
   gl.uniform3f(U.uAmbientColor, 0.92, 0.90, 0.86);
   gl.uniform1f(U.uAmbientAmt, 0.62);
   gl.uniform1f(U.uDiffuseAmt, 0.48);
-  gl.uniform1f(U.uSpecStr, 0.28);
-  gl.uniform1f(U.uNormalStr, 1.2);
-  gl.uniform1f(U.uLightZ, 0.55);
-  gl.uniform1f(U.uParallax, reduce ? 0.0 : 0.0034);
+  gl.uniform1f(U.uSpecStr, 0.22);
+  gl.uniform1f(U.uNormalStr, 1.05);
+  gl.uniform1f(U.uLightZ, 0.58);
+  gl.uniform1f(U.uParallax, reduce ? 0.0 : 0.0026);
   gl.uniform1f(U.uMotion, reduce ? 0.0 : 1.0);
   gl.uniform1f(U.uHasMouse, 0.0);
   gl.uniform2f(U.uMouse, 0.44, 0.66);
+
+  const anisoExt = gl.getExtension('EXT_texture_filter_anisotropic')
+    || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+  const maxAniso = anisoExt
+    ? Math.min(8, gl.getParameter(anisoExt.MAX_TEXTURE_MAX_ANISOTROPY_EXT))
+    : 0;
 
   const makeTex = (unit) => {
     const t = gl.createTexture();
@@ -182,6 +229,9 @@ async function enhance(imgEl, maps) {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    if (anisoExt && maxAniso > 1) {
+      gl.texParameterf(gl.TEXTURE_2D, anisoExt.TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
+    }
     return t;
   };
 
@@ -196,22 +246,20 @@ async function enhance(imgEl, maps) {
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
     gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, format, gl.UNSIGNED_BYTE, image);
     gl.generateMipmap(gl.TEXTURE_2D);
+    if (anisoExt && maxAniso > 1) {
+      gl.texParameterf(gl.TEXTURE_2D, anisoExt.TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
+    }
   };
 
-  let diffuseImg = imgEl;
-  // Prefer full-res natural if already decoded
+  // Always reload at width=2000 — never sample the 750px LCP img into GL
   try {
-    const [normal, rough, height] = await Promise.all([
-      loadImage(maps.normal),
-      loadImage(maps.rough),
-      loadImage(maps.height),
+    const diffuseUrl = bestSrcFromImg(imgEl);
+    const [diffuseImg, normal, rough, height] = await Promise.all([
+      loadImage(diffuseUrl),
+      loadImage(bestMediaUrl(maps.normal)),
+      loadImage(bestMediaUrl(maps.rough)),
+      loadImage(bestMediaUrl(maps.height)),
     ]);
-    // Reload diffuse from current src for full decode
-    if (imgEl.complete && imgEl.naturalWidth > 0) {
-      diffuseImg = imgEl;
-    } else {
-      diffuseImg = await loadImage(imgEl.currentSrc || imgEl.src);
-    }
     upload(texDiffuse, 0, diffuseImg, gl.RGBA, gl.RGBA);
     upload(texNormal, 1, normal, gl.RGB, gl.RGB);
     upload(texRough, 2, rough, gl.RGB, gl.RGB);
@@ -237,9 +285,16 @@ async function enhance(imgEl, maps) {
     const w0 = canvas.offsetWidth || mount.clientWidth;
     const h0 = canvas.offsetHeight || mount.clientHeight;
     if (w0 < 2 || h0 < 2) return;
+    // Match device pixels; cap buffer so mid-tier GPUs stay calm
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const w = Math.max(1, Math.round(w0 * dpr));
-    const h = Math.max(1, Math.round(h0 * dpr));
+    const maxEdge = 2048;
+    let w = Math.max(1, Math.round(w0 * dpr));
+    let h = Math.max(1, Math.round(h0 * dpr));
+    if (w > maxEdge || h > maxEdge) {
+      const s = maxEdge / Math.max(w, h);
+      w = Math.max(1, Math.round(w * s));
+      h = Math.max(1, Math.round(h * s));
+    }
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
