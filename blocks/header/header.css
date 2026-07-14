@@ -386,6 +386,22 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
+  /* Nested dropdown links are more specific; disable order noise for this block */
+  /* stylelint-disable no-descending-specificity -- top-level link chrome before nested panel links */
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a {
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a:hover {
+    border-bottom-color: var(--rr-line, #d8ccb4);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a[aria-current='page'] {
+    border-bottom-color: var(--rr-chart, #c8e62f);
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
@@ -440,19 +456,7 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: none;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > a {
-    padding-bottom: 6px;
-    border-bottom: 2px solid transparent;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > a:hover {
-    border-bottom-color: var(--rr-line, #d8ccb4);
-  }
-
-  /* Active route — chart rule (best-effort via aria-current if present) */
-  header nav .nav-sections .default-content-wrapper > ul > li > a[aria-current='page'] {
-    border-bottom-color: var(--rr-chart, #c8e62f);
-  }
+  /* stylelint-enable no-descending-specificity */
 }
 
 /* tools */
