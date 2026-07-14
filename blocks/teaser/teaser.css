@@ -1,0 +1,20 @@
+/* Teaser — light Renderaissance-friendly promo unit */
+.teaser {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.teaser img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+@media (width >= 900px) {
+  .teaser {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+  }
+}

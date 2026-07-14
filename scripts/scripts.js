@@ -77,6 +77,25 @@ function buildWidgetAutoBlocks(main) {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
+/**
+ * Links to `/modals/…` open as dialogs (Block Collection modal pattern).
+ * @param {Element} main
+ */
+function decorateModalLinks(main) {
+  main.querySelectorAll('a[href*="/modals/"]').forEach((a) => {
+    a.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+        await openModal(a.href);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error('Modal open failed', err);
+      }
+    });
+  });
+}
+
 function buildAutoBlocks(main) {
   try {
     // auto load `*/fragments/*` references
@@ -97,6 +116,7 @@ function buildAutoBlocks(main) {
       });
     }
     buildWidgetAutoBlocks(main);
+    decorateModalLinks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

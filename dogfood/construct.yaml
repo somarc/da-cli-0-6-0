@@ -110,10 +110,23 @@ steps:
   - id: preview-dualform
     command: preview page /dualform --format json
     depends_on: [put-dualform]
+  # Wave 2 — form sheet + modal fragment for kitchen-sink spectrum
+  - id: put-contact-form
+    command: content put /data/contact-form.json dogfood/fixtures/data/contact-form.json --format json
+    depends_on: [preview-dualform]
+  - id: preview-contact-form
+    command: preview page /data/contact-form.json --format json
+    depends_on: [put-contact-form]
+  - id: put-modal-sample
+    command: content put /modals/sample.html dogfood/fixtures/modals/sample.html --format json
+    depends_on: [preview-contact-form]
+  - id: preview-modal-sample
+    command: preview page /modals/sample --format json
+    depends_on: [put-modal-sample]
   # Wave 2 — kitchen-sink module spectrum (block/audit/design proof surface)
   - id: put-kitchen-sink
     command: content put /kitchen-sink.html dogfood/fixtures/kitchen-sink.html --format json
-    depends_on: [preview-dualform]
+    depends_on: [preview-modal-sample]
   - id: preview-kitchen-sink
     command: preview page /kitchen-sink --format json
     depends_on: [put-kitchen-sink]

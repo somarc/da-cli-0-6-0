@@ -1,0 +1,37 @@
+{
+  "total": 5,
+  "offset": 0,
+  "limit": 5,
+  "data": [
+    {
+      "type": "text",
+      "name": "name",
+      "label": "Name",
+      "required": "true",
+      "placeholder": "Your name"
+    },
+    {
+      "type": "email",
+      "name": "email",
+      "label": "Email",
+      "required": "true",
+      "placeholder": "you@example.com"
+    },
+    {
+      "type": "textarea",
+      "name": "message",
+      "label": "Message",
+      "required": "false",
+      "placeholder": "What should the dogfood prove next?"
+    },
+    {
+      "type": "submit",
+      "label": "Send"
+    },
+    {
+      "type": "reset",
+      "label": "Reset"
+    }
+  ],
+  ":type": "sheet"
+}

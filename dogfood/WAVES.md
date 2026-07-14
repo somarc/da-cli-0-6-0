@@ -51,12 +51,16 @@ pass repo + org; fix candidate = pin-target / resolveConfig (related to finding 
 
 ### Wave 2 — pass criteria
 
+**Oracle:** `scdemos/demo` block library scale → `dogfood/BLOCK-COVERAGE.md`.  
+Wave 2 is not cut until every **Required** conceptual type is present and contracts-ok.
+
 | Surface | Status | Notes |
 |---------|--------|-------|
+| Required spectrum (BLOCK-COVERAGE) | ⬜ | form, search, modal, teaser added; faq≡accordion |
 | `audit full` on kitchen-sink | ⬜ | zero errors preferred |
-| `audit contracts --prefix / --verify-code` | ✅ partial | cards, columns, dualform-hero, painterly-hero ok; must grow with kitchen-sink blocks |
-| `block list` / `block inspect` | ⚠️ | built-in contracts sparse (no `columns`); inspect only known names |
-| `design audit` / `detect` / `token-check` | ⚠️ | homepage audit empty findings; token-check + design detect need kitchen-sink |
+| `audit contracts --prefix / --verify-code` | ⬜ | all Required blocks js/css 200, missing=[] |
+| `block list` / `block inspect` | ⚠️ | built-in contracts sparse; code-bus verify still primary |
+| `design audit` / `detect` / `token-check` | ⚠️ | f002 open for detect envelope |
 | `code status` / `verify` | ⬜ | after new blocks land |
 | Finding #2 `design detect` envelope | open | structured no-design-system result |
 

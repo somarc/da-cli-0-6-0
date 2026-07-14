@@ -51,12 +51,14 @@ exactly this if it happens.)
 - Proof: preview + live URLs, `.plain.html` verified, freshness gate green.
 
 **Wave 2 — Blocks, audits, design, media**
-- Content: **kitchen-sink page** (`/kitchen-sink`) exercising a full modern-site
-  module spectrum (see `dogfood/WAVES.md` + design-industry-language
-  `site-modules.md`), not only `columns`/`cards`. Plus media and section-shape variety.
+- **Oracle:** `scdemos/demo` conceptual block scale → `dogfood/BLOCK-COVERAGE.md`
+  (Required tier = Wave 2 cut; Vertical calculators out of core scope).
+- Content: **kitchen-sink page** (`/kitchen-sink`) exercising Required spectrum
+  (hero, cards, columns, tabs, table, embed, accordion/faq, form, search, modal,
+  teaser, carousel, quote, …). See also design-industry-language `site-modules.md`.
 - Surfaces: `block list/inspect`, `audit semantics/blocks/full/contracts --verify-code`, `design detect/rules/audit/token-check`, `content put-tree`, `code sync/verify`.
-- Proof: audits pass on kitchen-sink; contracts verify **all** kitchen-sink block assets on the served branch.
-- Status board: `dogfood/WAVES.md` (Wave 2 is not “cut” until kitchen-sink gates pass).
+- Proof: audits pass on kitchen-sink; contracts verify **all Required** block assets.
+- Status board: `dogfood/WAVES.md` (Wave 2 is not “cut” until BLOCK-COVERAGE Required rows are green).
 
 **Wave 3 — Structured data & route ownership**
 - Content: a DA sheet (`index.json`), nested pages, deliberate route cases (contentbus, codebus, hybrid, orphan, probe-failed). Configure index via Configuration Service (ADR 0002 D6); record `da index` repo-local limitation as a finding.
