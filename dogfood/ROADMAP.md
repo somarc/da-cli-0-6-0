@@ -98,6 +98,7 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f009** (fixed, High friction gate): [`/learnings/f009-content-put-outside-worktree`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f009-content-put-outside-worktree) — refuse out-of-tree by default; flag is ownership opt-in with clear agent recovery.
 - **f010** (fixed, High friction gate): [`/learnings/f010-media-absolute-url-rewrite`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite) — put warns/rewrites/strict-fails host-less `/media` imgs.
 - **f011** (fixed, Medium-high friction gate): [`/learnings/f011-audit-contracts-autoblock`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock) — contracts inventory + verify-code for autoblocks (modal/widget/fragment).
+- **f012** (open, High friction gate): [`/learnings/f012-da-permission-headers`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f012-da-permission-headers) — DA `x-da-actions`/`x-da-child-actions` response headers discarded on every fetch; `403` falls into the generic error path with no distinct handling from `401` or a transient error.
 
 ## Release gate for 0.6.0
 
@@ -108,13 +109,15 @@ command count.**
    precondition-recorded); construction pipeline regenerates the site;
    provenance verifies.
 2. **Frictions:** every Critical/High finding fixed + locked. As of
-   **2026-07-14 02:31 UTC** the friction column is **clear** (f001–f011).
-   Checklist + honest residual notes: **`dogfood/FRICTION-GATE-0.6.0.md`**.
+   **2026-07-14 (f012 logged)** the friction column is **reopened** — f012 is
+   High and unfixed. Checklist + honest residual notes:
+   **`dogfood/FRICTION-GATE-0.6.0.md`**.
 
 **Until the site proves itself:** package stays **0.5.x**, run **local**
 `da` from `da/da-cli`, and **do not** open a git branch named for 0.6.0.
 Product fixes land on 0.5.x; the **0.6.0 label is earned by dogfood proof**,
 then version bump + release branch follow.
 
-**Honest cut state:** friction hat earned for this cycle; **wave hat not** —
-do not cut 0.6.0 until waves + construct/provenance clear.
+**Honest cut state:** friction column reopened by f012; **wave hat not**
+either — do not cut 0.6.0 until f012 is fixed+locked and waves +
+construct/provenance clear.

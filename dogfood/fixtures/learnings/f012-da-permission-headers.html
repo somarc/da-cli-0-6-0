@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f012 · auth, content · open</p>
+      <h1>DA permission-hint headers discarded; 403 has no distinct handling</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>DA's admin API returns <code>x-da-actions</code> / <code>x-da-child-actions</code> response headers hinting at the resolved permission set for a path (and for a folder listing's children). <code>src/lib/da-client.js</code> discards response headers on every fetch path, including on <code>200</code> success &mdash; only <code>status</code>, <code>url</code>, and the raw text body are ever captured (see <code>DaApiError</code>). Separately, <code>src/lib/api-error.js</code>'s <code>handleApiError</code> special-cases <code>401</code> ("run <code>da auth login</code>") and <code>404</code> ("Not found"), but <code>403</code> falls into the generic <code>else</code> branch and prints the raw <code>DA API 403 at &lt;url&gt;: &lt;body&gt;</code> message &mdash; identical treatment to a network blip or any other unexpected status.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>An agent calling <code>da resolve</code> or <code>da content list</code> today has no way to learn "you have read-only access here" until it attempts a write and fails. And when a write does fail with <code>403</code>, the agent gets no signal distinguishing "you're authenticated but not permitted" (recoverable by requesting access) from "you're not authenticated" (recoverable by <code>da auth login</code>) or from a transient error. This directly undermines the ADR 0001 orientation principle &mdash; "every operation should leave the agent better oriented than before it ran" &mdash; and the agent-v1 envelope's structured error-code taxonomy, which has no code for permission-denied today.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Not yet fixed.</strong> Candidate approach: capture <code>x-da-actions</code> / <code>x-da-child-actions</code> on every response in <code>da-client.js</code>, surface resolved actions in <code>resolve</code> / <code>content list</code> / <code>content get</code> envelope <code>data</code>, and give <code>handleApiError</code> (plus the agent-v1 envelope error path) a distinct <code>permission-denied</code> code for <code>403</code> with a <code>next[]</code> hint (distinct from <code>401</code>'s <code>auth login</code> hint).</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Not yet written &mdash; pending fix. Will need a unit test asserting <code>403</code> produces a distinct error code/message from <code>401</code>/generic errors, and a resolve/list fixture asserting permission hints surface in envelope <code>data</code> when present.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>auth, content</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>open</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f012</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f012 — DA permission-hint headers discarded</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Response headers (x-da-actions/x-da-child-actions) never captured; 403 has no distinct handling from generic errors.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column clear** (as of 2026-07-14 02:31 UTC) — wave column still open  
+**Status:** **friction column reopened** (f012, High, logged 2026-07-14) — wave column still open  
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`  
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -38,14 +38,17 @@ If (1) and (2) pass but (3) fails, **do not cut 0.6.0**. That is the hat.
 
 ---
 
-## Honest assessment — 2026-07-14 02:31 UTC
+## Honest assessment — 2026-07-14 (f012 logged)
 
-### Friction column: **CLEAR**
+### Friction column: **REOPENED**
 
-All hang-hat frictions logged this dogfood cycle (**f002, f008–f011**) plus the
-earlier flywheel (**f001, f003–f007**) are **fixed in the local 0.5.x tree** with
-unit tests and public learning pages. Nothing Critical/High remains open on this
-list.
+All frictions logged through the previous cycle (**f001–f011**) are **fixed in
+the local 0.5.x tree** with unit tests and public learning pages. **f012**, found
+during due-diligence on a competing CLI's docs, is **new, High, and unfixed** —
+DA's `x-da-actions`/`x-da-child-actions` permission hints are discarded on
+every response, and `403` gets no distinct handling from `401` or a generic
+error. The friction column cannot be marked clear again until f012 is fixed
+and locked.
 
 | Id | Severity | Status | What we actually shipped |
 |----|----------|--------|---------------------------|
@@ -56,6 +59,7 @@ list.
 | f009 | High | **fixed** | out-of-tree put refuse + ownership flag messaging |
 | f010 | High | **fixed** | media URL warn / `--rewrite-media-urls` / `--strict-media-urls` |
 | f011 | Medium-high | **fixed** | contracts inventory + verify for autoblocks (modal/widget/fragment) |
+| f012 | High | **open** | (not yet fixed) — permission-hint headers discarded; 403 handling gap |
 
 ### What “fixed” means (and what it does not)
 
@@ -78,10 +82,10 @@ list.
 
 ### Bottom line
 
-- **Friction hat:** we can hang the agentic-operability story for this cycle — the
-  logged Critical/High landmines are closed in product code with locks.  
+- **Friction hat:** **reopened** — f012 is a new High finding, unfixed. Cannot
+  claim the agentic-operability story clear again until it's fixed + locked.  
 - **Release hat:** **do not cut 0.6.0** yet. Wave proof + construct regen +
-  provenance + 0.5.x→0.6.0 branch/version discipline remain.  
+  provenance + 0.5.x→0.6.0 branch/version discipline remain, plus f012 now.  
 - **Residual risks (not open fNNN, but real):** Helix unpublish 403 on orphans
   (`/findings` ghost CDN); skill docs may lag local CLI; media still needs
   absolute or rewrite discipline at authoring time.
@@ -90,7 +94,9 @@ list.
 
 ## Open frictions
 
-**None** on the hang-hat list as of 2026-07-14 02:31 UTC.
+| Id | Severity | Surface | Summary |
+|----|----------|---------|---------|
+| **f012** | High | auth, content | `x-da-actions`/`x-da-child-actions` response headers discarded on every fetch (`da-client.js`); `403` has no distinct handling from `401`/generic errors in `handleApiError`. |
 
 New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
@@ -122,6 +128,7 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 - [x] f009 fixed + lock  
 - [x] f010 fixed + lock  
 - [x] f011 fixed + lock  
+- [ ] f012 fixed + lock  
 - [x] Clone/merge notes in COMMANDS/AGENTS  
 - [x] Public learnings show fixed for f002, f008–f011  
 
@@ -134,4 +141,4 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
 When **both** columns are checked: **cut 0.6.0**.
 
-Last updated: **2026-07-14 02:31 UTC** — friction column cleared; f011 closed; honest wave residual recorded.
+Last updated: **2026-07-14** — friction column reopened; f012 logged (open, High) during due-diligence on a competing CLI's docs; fix pending on branch `fix/f012-da-permission-headers`.
