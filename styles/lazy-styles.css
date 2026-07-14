@@ -24,3 +24,38 @@ main .default-content-wrapper li strong {
   color: var(--rr-ink);
   font-weight: 500;
 }
+
+/* Ported Block Collection modules — light Renderaissance token wash */
+.accordion details,
+.tabs-list,
+.table table,
+.quote blockquote {
+  border-color: var(--rr-line, #d8ccb4);
+  color: var(--rr-ink, #22315f);
+}
+
+.accordion summary,
+.tabs-tab {
+  font-family: var(--heading-font-family, serif);
+  color: var(--rr-ink, #22315f);
+}
+
+.tabs-tab[aria-selected='true'] {
+  border-bottom-color: var(--rr-coral, #cf5a38);
+  color: var(--rr-terra, #c05433);
+}
+
+.table table th {
+  background: rgb(var(--rr-paper-rgb, 245, 238, 223), 0.9);
+  color: var(--rr-ink, #22315f);
+  border-color: var(--rr-line, #d8ccb4);
+}
+
+.table table td {
+  border-color: var(--rr-line-soft, #e4dac6);
+}
+
+.quote blockquote {
+  border-left: 3px solid var(--rr-chart, #c8e62f);
+  color: var(--rr-ink-soft, #3a4a80);
+}

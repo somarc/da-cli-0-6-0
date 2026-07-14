@@ -62,10 +62,17 @@ steps:
   - id: preview-dualform
     command: preview page /dualform --format json
     depends_on: [put-dualform]
+  # Wave 2 — kitchen-sink module spectrum (block/audit/design proof surface)
+  - id: put-kitchen-sink
+    command: content put /kitchen-sink.html dogfood/fixtures/kitchen-sink.html --format json
+    depends_on: [preview-dualform]
+  - id: preview-kitchen-sink
+    command: preview page /kitchen-sink --format json
+    depends_on: [put-kitchen-sink]
   # Wave 3 — authored structured-data sheet (contentbus), discovered by `da content sheets`.
   - id: put-coverage-data
     command: content put /data/coverage.json dogfood/fixtures/coverage-data.json --format json
-    depends_on: [preview-dualform]
+    depends_on: [preview-kitchen-sink]
   - id: preview-coverage-data
     command: preview page /data/coverage.json --format json
     depends_on: [put-coverage-data]

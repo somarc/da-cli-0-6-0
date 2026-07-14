@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "operation": "status",
+  "data": {
+    "cwd": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "config": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "env": "prod",
+      "branch": "main",
+      "sources": {
+        "org": "flag",
+        "repo": "flag",
+        "env": "default",
+        "branch": "default"
+      },
+      "projectConfigPath": null,
+      "globalConfigPath": "/Users/mhess/.da/config.json"
+    },
+    "auth": {
+      "valid": true,
+      "reason": null,
+      "expiresAt": 1783994365888,
+      "remainingMs": 3112816
+    },
+    "git": {
+      "available": true,
+      "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+      "branch": "main",
+      "upstream": "origin/main",
+      "dirty": true
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --format json content list /"
+  ]
+}

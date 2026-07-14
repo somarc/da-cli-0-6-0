@@ -1,0 +1,184 @@
+{
+  "checks": [
+    {
+      "check": "Sidekick registration",
+      "status": "ok",
+      "detail": "main--da-cli-0-6-0--somarc.aem.page / main--da-cli-0-6-0--somarc.aem.live"
+    },
+    {
+      "check": "contentSourceType",
+      "status": "ok",
+      "detail": "markup"
+    },
+    {
+      "check": "code-bus styles.css",
+      "status": "ok",
+      "detail": "200 https://raw.githubusercontent.com/somarc/da-cli-0-6-0/main/styles/styles.css"
+    },
+    {
+      "check": "DA shared docs",
+      "status": "ok",
+      "detail": "found: /footer.html, /index.html, /nav.html"
+    },
+    {
+      "check": "route /index",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/"
+    },
+    {
+      "check": "route /nav",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/nav"
+    },
+    {
+      "check": "route /footer",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/footer"
+    },
+    {
+      "check": "agent block assets",
+      "status": "ok",
+      "detail": "4 block(s); missing=0; errors=0"
+    },
+    {
+      "check": "agent local git",
+      "status": "ok",
+      "detail": "branch=main; upstream=origin/main; ahead=0; unpushedBlockChanges=0; trackedAuthoredContent=0"
+    },
+    {
+      "check": "agent section shape",
+      "status": "ok",
+      "detail": "9 page(s) sampled; no top-level block classes"
+    }
+  ],
+  "recommendations": [],
+  "agent": {
+    "ok": true,
+    "operation": "agent.diagnostics",
+    "warnings": [],
+    "next": [
+      "da site doctor --agent --deep --format json",
+      "da audit contracts --prefix / --verify-code --format json",
+      "da preview explain /index --format json",
+      "da pipeline scaffold agent-validate"
+    ],
+    "notes": [
+      "Inspect local git state separately when codebus drift is reported.",
+      "Use git status --short --branch to inspect local changes when needed.",
+      "Use git log --oneline @{u}..HEAD -- blocks to inspect unpushed block commits when needed.",
+      "Use git ls-files -- content to inspect tracked authored content when needed.",
+      "Write scaffold output to .da/agent-validate.yaml only after reviewing it."
+    ],
+    "briefing": "agent",
+    "project": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "branch": "main",
+      "preview": "https://main--da-cli-0-6-0--somarc.aem.page"
+    },
+    "content": {
+      "prefix": "/",
+      "sampledPages": 9,
+      "pagesWithBlocks": [
+        {
+          "path": "/blocks",
+          "blocks": [
+            "cards",
+            "columns"
+          ]
+        },
+        {
+          "path": "/coverage",
+          "blocks": [
+            "painterly-hero"
+          ]
+        },
+        {
+          "path": "/dualform",
+          "blocks": [
+            "dualform-hero"
+          ]
+        },
+        {
+          "path": "/findings",
+          "blocks": [
+            "painterly-hero"
+          ]
+        },
+        {
+          "path": "/index",
+          "blocks": [
+            "painterly-hero"
+          ]
+        },
+        {
+          "path": "/test-plan",
+          "blocks": [
+            "painterly-hero"
+          ]
+        },
+        {
+          "path": "/why",
+          "blocks": [
+            "painterly-hero"
+          ]
+        }
+      ]
+    },
+    "blockAssets": {
+      "blocks": [
+        "cards",
+        "columns",
+        "dualform-hero",
+        "painterly-hero"
+      ],
+      "checked": [
+        {
+          "block": "cards",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "columns",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "dualform-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "painterly-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "missing": [],
+      "errors": []
+    },
+    "localGit": {
+      "available": true,
+      "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+      "branch": "main",
+      "upstream": "origin/main",
+      "ahead": 0,
+      "unpushedBlockChanges": [],
+      "trackedAuthoredContent": [],
+      "detail": "No local unpushed changes found for authored block implementations."
+    },
+    "sectionShape": {
+      "ok": true,
+      "sampled": 9,
+      "violations": []
+    }
+  }
+}
