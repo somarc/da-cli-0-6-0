@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/data/contact-form.json",
+    "rows": 5,
+    "columns": "type, name, label, required, placeholder",
+    "fields": ""
+  },
+  {
+    "path": "/data/coverage.json",
+    "rows": 11,
+    "columns": "family, class, wave",
+    "fields": ""
+  },
+  {
+    "path": "/data/wave-2-cli-surface.json",
+    "rows": 16,
+    "columns": "journey, command, target, evidence, status",
+    "fields": ""
+  }
+]

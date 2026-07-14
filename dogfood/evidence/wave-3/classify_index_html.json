@@ -1,0 +1,11 @@
+{
+  "path": "/index.html",
+  "ownership": "contentbus",
+  "daSource": true,
+  "sourcePath": "/index.html",
+  "preview": 200,
+  "live": 200,
+  "code": 404,
+  "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/",
+  "staleDaLocation": false
+}

@@ -3,24 +3,29 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f002 · design · open</p>
+      <p>f002 · design · fixed</p>
       <h1><code>design detect</code> gave no answer on a design-less site</h1>
     </div>
     <div>
       <h2>Symptom</h2>
-      <p>Running <code>da design detect</code> against a site with no design system exited with an error and printed nothing to standard output.</p>
+      <p>Running <code>da design detect</code> against a page with no anti-patterns left <strong>empty stdout</strong> (only a stderr info line). Agents could not tell “clean scan” from “command failed.” Related: <code>token-check</code> for a site without Stardust brand tokens exited 1 without a clear <em>status</em> name for “no design system here.”</p>
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>There is a real difference between “the command failed” and “there is no design system here,” and an agent cannot tell them apart from an empty error. Wave 2 design surfaces need structured orientation either way.</p>
+      <p>There is a real difference between “the command failed” and “nothing to report.” Wave 2 design surfaces need structured orientation either way — the whole release principle: every operation leaves the agent better oriented, including when the answer is “clean” or “no tokens.”</p>
     </div>
     <div>
       <h2>Resolution</h2>
-      <p><strong>Planned:</strong> return a structured result for the no-design-system case — a clean envelope that says so — rather than an empty error. This is the principle the whole release is built on: every operation should leave the agent better oriented, including when the answer is “nothing found.”</p>
+      <p><strong>Fixed in da-cli</strong> (<code>src/lib/design-detect.js</code> + <code>design</code> command):</p>
+      <ul>
+        <li><code>design detect</code> always emits an envelope: <code>ok</code>, <code>status: clean | findings</code>, <code>summary</code>, <code>findings</code>, <code>next[]</code></li>
+        <li>Clean scans are exit 0 with non-empty JSON — not silence</li>
+        <li><code>design token-check</code> emits <code>status: tokens-present | no-design-tokens</code> with missing/present lists and recovery hints</li>
+      </ul>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending: unit test for structured no-design-system envelope (ADR 0001). Until fixed, agents should treat empty stderr+exit 1 as ambiguous and fall back to <code>design audit</code> / <code>design rules</code>.</p>
+      <p>Unit tests in <code>design-detect.test.js</code>. Smoke: <code>da --format json design detect /</code> → <code>status: clean</code>; <code>token-check /</code> → <code>status: no-design-tokens</code> on sites without Stardust tokens. <strong>0.6.0 friction gate:</strong> High — closed.</p>
     </div>
     <div>
       <div class="metadata">
@@ -38,7 +43,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -50,7 +55,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>design detect exits 1 with empty stdout when no design system is present.</div>
+          <div>design detect and token-check always return structured status envelopes (clean / no-design-tokens).</div>
         </div>
       </div>
     </div>

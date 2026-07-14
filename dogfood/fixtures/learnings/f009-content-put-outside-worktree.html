@@ -3,33 +3,33 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f009 · content · open</p>
+      <p>f009 · content · fixed</p>
       <h1><code>content put</code> refuses files outside the worktree</h1>
     </div>
     <div>
       <h2>Symptom</h2>
       <p>Agent workflows often materialize HTML or binaries under <code>/tmp/…</code> then run:</p>
       <p><code>da content put /index.html /tmp/index.html --commit</code></p>
-      <p>da-cli refuses with a hard error: local file is outside the current working tree; pass <code>--allow-outside-worktree</code> if intentional.</p>
+      <p>da-cli refuses: the local file is outside the current workspace.</p>
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>Good safety for humans; high friction for agents. The recovery flag exists but is easy to miss when the error is unexpected. Agents that always stage under the repo avoid it; agents that use OS temp dirs loop on failure.</p>
+      <p>Default refuse is correct safety — agents must not upload arbitrary machine paths. The product debt was orientation: the agent needs a clear “you are outside the workspace; if you mean this, pass the flag and own the harm.”</p>
     </div>
     <div>
-      <h2>Workaround (today)</h2>
-      <ol>
-        <li>Write under the repo (e.g. <code>dogfood/fixtures/…</code> or <code>content-staging/…</code>), then put, or</li>
-        <li>Pass <code>--allow-outside-worktree</code> when the temp path is intentional.</li>
-      </ol>
-    </div>
-    <div>
-      <h2>Resolution (planned)</h2>
-      <p>Keep the default refuse (safe). Improve the error envelope: name the flag, suggest a repo-relative staging path, and surface <code>next[]</code> commands. Optional: project config <code>allowOutsideWorktree: true</code> for known agent sandboxes. Lock with tests for refuse + allow paths.</p>
+      <h2>Resolution</h2>
+      <p><strong>Policy unchanged:</strong> refuse out-of-tree by default. <strong>Contract improved:</strong></p>
+      <ul>
+        <li>Message names the workspace boundary and the intentional flag <code>--allow-outside-worktree</code></li>
+        <li>Ownership language: passing the flag means you accept risk (secrets, wrong files, out-of-repo artifacts)</li>
+        <li>Prefer staging under the project (fixtures / <code>content-staging/</code>) then put without the flag</li>
+        <li>Error code <code>CONTENT_OUTSIDE_WORKTREE</code> plus <code>next[]</code> / recovery hints for agents</li>
+      </ul>
+      <p>Not done (and not required for this fix): auto-allow <code>/tmp</code>, silent auto-stage, or removing the guard.</p>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending product/docs fix. Observed during dual-site content puts from <code>/tmp</code> in dogfood sessions.</p>
+      <p>Unit tests in <code>content.test.js</code> assert message shape, ownership tone, error code, and allow path. <strong>0.6.0 friction gate:</strong> High — closed on orientation (policy was already right).</p>
     </div>
     <div>
       <div class="metadata">
@@ -47,7 +47,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -59,7 +59,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>content put blocks /tmp (and other out-of-tree) paths unless --allow-outside-worktree.</div>
+          <div>Refuse out-of-tree puts by default; flag is intentional ownership of risk with clear agent recovery.</div>
         </div>
       </div>
     </div>

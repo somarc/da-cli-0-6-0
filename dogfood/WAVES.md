@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-14 02:51 UTC)
+## Wave status (2026-07-14 03:06 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -20,8 +20,34 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 |------|---------------------------|-------------------|
 | **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
 | **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
-| **3** Index/routes | coverage `in-progress` | Index + sheet + orphan demo exist; reindex after new routes; full matrix incomplete |
-| **4–6** | not started | deferred |
+| **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
+| **4–6** | not started | deferred (pipelines = Wave 4) |
+
+### Wave 3 — what it is (plain language)
+
+**Not blocks.** Prove the **map** of the site:
+
+1. **Sheets** — `da content sheets` finds strict DA sheet JSON (`:type: sheet` + `data[]`) — coverage, forms, CLI surface sheet.  
+2. **Query index** — published pages → `/query-index.json` via `helix-query.yaml`; `index show / validate / query / build`.  
+3. **Route ownership** — for each path: contentbus / codebus / hybrid / orphan; `route classify / audit / clean`.
+
+**Why:** agents must know whether to edit DA, edit git, or run `route clean` — guessing breaks sites.
+
+**Sheets awareness (open expansion):** Wave 3 cut proves *discovery* of canonical DA sheets, not the full sheet possibility space. As agent/operator awareness grows, expand `content sheets` toward multi-sheet workbooks (`:names`), sheet↔block wiring, richer schema summaries, and other tabular JSON when needed. Do not treat the current inventory as “all site sheets modeled.”
+
+### Wave 3 — pass criteria — **CUT 2026-07-14 03:05 UTC**
+
+| Surface | Status | Notes |
+|---------|--------|-------|
+| `content sheets` | ✅ | 3 strict DA sheets; expand multi-sheet/wiring later |
+| `index show` | ✅ | fields include wave/surface/status |
+| `index validate` | ✅ | captured |
+| `index query` | ✅ | 24 rows live after matrix publish |
+| `index build` | ✅ | job after publish; route-matrix appeared in index |
+| `route audit` | ✅ | 54 paths classified |
+| Ownership matrix (intentional cases) | ✅ | contentbus, codebus, hybrid, orphan; tools probe gap documented |
+| Public proof page `/route-matrix` | ✅ | live 200 + indexed |
+| Formal Wave 3 cut stamp | ✅ | this board + evidence README |
 
 ### Wave 1 — pass criteria (ADR 0002) — **CUT 2026-07-14**
 
@@ -168,8 +194,8 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 5. ~~f010 High~~ — **fixed** (media URL policy)  
 6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**  
 7. ~~Finish Wave 2 formal cut~~ — **done 2026-07-14 02:51 UTC**  
-8. **Wave 3** — full route matrix + index reindex discipline  
-9. Waves 4–6 (pipelines meaty); then 0.6.0 version/branch when site proves
+8. ~~Wave 3~~ — **cut 2026-07-14 03:05 UTC** (route matrix + index + ownership)  
+9. **Wave 4** pipelines / jobs / migrate (meaty); then 5–6; then 0.6.0 version/branch when site proves
 
 ---
 

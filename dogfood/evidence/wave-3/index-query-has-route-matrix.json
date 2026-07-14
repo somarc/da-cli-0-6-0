@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "source": "https://main--da-cli-0-6-0--somarc.aem.live/query-index.json",
+  "total": 24,
+  "route_matrix": {
+    "path": "/route-matrix",
+    "title": "Route matrix \u2014 Wave 3 structured data & ownership",
+    "description": "Wave 3 proof: sheets, query index, and route ownership matrix for da-cli dogfood.",
+    "wave": "3",
+    "surface": "index, route, content sheets",
+    "status": "in-progress",
+    "lastModified": 1783998138
+  },
+  "paths": [
+    "/",
+    "/why",
+    "/test-plan",
+    "/blocks",
+    "/coverage",
+    "/findings",
+    "/tests/orphan-demo",
+    "/dualform",
+    "/kitchen-sink",
+    "/learnings",
+    "/learnings/f001-site-info-target",
+    "/learnings/f002-design-detect-envelope",
+    "/learnings/f003-index-build",
+    "/learnings/f004-index-env-preview",
+    "/learnings/f005-route-codebus",
+    "/learnings/f006-stale-contentbus",
+    "/learnings/f007-route-clean-orphan",
+    "/modals/sample",
+    "/learnings/f008-content-merge-path",
+    "/learnings/f009-content-put-outside-worktree",
+    "/learnings/f010-media-absolute-url-rewrite",
+    "/learnings/f011-audit-contracts-autoblock",
+    "/cli-surface",
+    "/route-matrix"
+  ]
+}

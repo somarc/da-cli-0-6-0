@@ -1,0 +1,11 @@
+{
+  "path": "/route-matrix.html",
+  "ownership": "contentbus",
+  "daSource": true,
+  "sourcePath": "/route-matrix.html",
+  "preview": 200,
+  "live": 200,
+  "code": 404,
+  "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/route-matrix",
+  "staleDaLocation": false
+}

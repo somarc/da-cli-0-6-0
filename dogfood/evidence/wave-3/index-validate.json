@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "source": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/helix-query.yaml",
+  "target": "live",
+  "base": "https://main--da-cli-0-6-0--somarc.aem.live",
+  "indices": [
+    {
+      "index": "default",
+      "target": "/query-index.json",
+      "status": "ok",
+      "missing": "",
+      "note": "live columns: path, title, description, wave, surface, status, lastModified"
+    }
+  ],
+  "warnings": [],
+  "caveats": [
+    "The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up."
+  ]
+}

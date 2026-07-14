@@ -3,32 +3,30 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f011 · audit · open</p>
+      <p>f011 · audit · fixed</p>
       <h1><code>audit contracts</code> misses autoblock-only surfaces</h1>
     </div>
     <div>
       <h2>Symptom</h2>
-      <p><code>da audit contracts --prefix / --verify-code</code> lists block classes found in page markup. The <strong>modal</strong> pattern is mostly link-driven (<code>/modals/…</code> → JS <code>openModal</code>), so <code>modal</code> often never appears as a decorated block class on the page. Contracts can be green while <code>/blocks/modal/modal.js</code> is unlisted — agents may think modal is out of scope.</p>
+      <p><code>da audit contracts --prefix / --verify-code</code> listed only block classes found in page markup. Link-driven patterns (<code>/modals/…</code> → <code>openModal</code>, <code>/widgets/</code>, <code>/fragments/</code>) never appeared as decorated block classes, so <code>modal</code> (and peers) could be green on disk while unlisted in the contracts inventory.</p>
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>Wave 2 gates use contracts as the code-bus checklist. Autoblocks (modal, fragment rewrite, widgets) are first-class PE and need the same verify-code signal.</p>
+      <p>Wave 2 gates use contracts as the code-bus checklist. Autoblocks are first-class PE — agents must see the same verify-code signal as authored table blocks.</p>
     </div>
     <div>
-      <h2>Workaround (today)</h2>
-      <ol>
-        <li>Curl or <code>da code status</code> the JS/CSS paths for autoblock assets.</li>
-        <li>Keep a kitchen-sink link that exercises the autoblock.</li>
-        <li>Document autoblocks in <code>BLOCK-COVERAGE.md</code> as Required even when contracts omit them.</li>
-      </ol>
-    </div>
-    <div>
-      <h2>Resolution (planned)</h2>
-      <p>Extend contracts (or a sibling report) to include known autoblock modules from code bus + static analysis of <code>scripts.js</code> imports / <code>/modals/</code> links / <code>/widgets/</code> links. Structured list: page blocks vs autoblocks vs missing assets.</p>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong></p>
+      <ul>
+        <li>Inventory scans plain HTML for <code>/modals/</code>, <code>/widgets/</code>, <code>/fragments/</code> link patterns → <code>modal</code>, <code>widget</code>, <code>fragment</code></li>
+        <li>Also reads <code>scripts/scripts.js</code> for autoblock wiring</li>
+        <li>Each block row includes <code>source</code>: <code>page</code> | <code>autoblock</code> | <code>page+autoblock</code></li>
+        <li>Report top-level <code>autoblocks: []</code> list; verify-code probes JS/CSS for those modules too</li>
+      </ul>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending product. Observed on kitchen-sink after modal port: modal.js/css 200 on live; contracts inventory omitted modal.</p>
+      <p>Unit tests in <code>agent-diagnostics.test.js</code> / <code>audit.test.js</code>. Live evidence: <code>dogfood/evidence/wave-2/audit-contracts.json</code> includes modal, fragment, widget. <strong>0.6.0 friction gate:</strong> closed.</p>
     </div>
     <div>
       <div class="metadata">
@@ -46,7 +44,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -58,7 +56,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>audit contracts only inventories decorated block classes; modal-style autoblocks can be absent from the report.</div>
+          <div>audit contracts inventories link-driven autoblocks (modal/widget/fragment) and verifies code assets.</div>
         </div>
       </div>
     </div>

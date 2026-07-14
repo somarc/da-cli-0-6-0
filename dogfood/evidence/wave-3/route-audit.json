@@ -1,0 +1,434 @@
+[
+  {
+    "path": "/blocks.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/cli-surface.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/coverage.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/dualform.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/footer.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/index.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/nav.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/test-plan.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/why.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/data/contact-form.json",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/data/coverage.json",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/data/wave-2-cli-surface.json",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/modals/sample.html",
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  {
+    "path": "/media/dualform/column-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/column-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/compass-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/compass-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/form-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/form-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/lock-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/lock-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/mic-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/mic-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/orrery-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/orrery-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/vessel-a.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/dualform/vessel-b.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/cli-surface-ledger.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/coverage-catalog.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/findings-flywheel.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-bg.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-figure.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-object.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-plate.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-height.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-normal.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-roughness.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/mascot-cupid.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/sprig.svg",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 404,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/test-plan-waves.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  },
+  {
+    "path": "/media/renderaissance/why-operator.webp",
+    "ownership": "hybrid",
+    "daSource": true,
+    "preview": 200,
+    "live": 404,
+    "code": 200
+  }
+]

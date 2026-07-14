@@ -3,7 +3,7 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f008 · content · open</p>
+      <p>f008 · content · fixed</p>
       <h1><code>content merge</code> 404s on a DA folder path</h1>
     </div>
     <div>
@@ -14,23 +14,27 @@
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>Agents chain clone → merge → diff → put-tree. A folder path that works for clone should not 404 on merge, or the CLI should reject the path with a structured recovery (“merge the workspace root, not a DA folder URL”). Empty 404 bodies leave the agent guessing.</p>
+      <p>Agents chain clone → merge → diff → put-tree. A folder path that works for clone should not 404 on merge, or the CLI should reject the path with a structured recovery. Empty 404 bodies leave the agent guessing.</p>
     </div>
     <div>
-      <h2>Workaround (today)</h2>
-      <ol>
-        <li><code>da content clone --path /data --force</code> (or <code>--all</code>)</li>
-        <li><code>da content merge</code> with <strong>no path</strong> (or path that the workspace merge API accepts)</li>
-        <li><code>da content diff</code> then put/push as needed</li>
-      </ol>
+      <h2>Root cause</h2>
+      <p><code>mergeWorkspace</code> treated any path as a single <code>sourceGet</code> target. Clone treats path as a directory root for listing. DA folders are not source documents → empty-body 404. Verb surface looked git/helix-like; path semantics did not match clone (or helix-cli’s file-scoped merge).</p>
     </div>
     <div>
-      <h2>Resolution (planned)</h2>
-      <p>Either (a) make <code>merge &lt;folder&gt;</code> resolve to workspace-relative merge of that subtree, or (b) hard-error with an ADR-0001 envelope: wrong path shape, next commands, and no silent 404. Lock with a unit/integration test.</p>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli</strong> (<code>src/lib/content-workspace.js</code>): path semantics match clone.</p>
+      <ul>
+        <li>No path → refresh entire tracked workspace</li>
+        <li>Document path → that file only</li>
+        <li>Folder / subtree prefix → every document under that prefix (tracked ∪ remote list via <code>listContentPaths</code>)</li>
+        <li>Never <code>sourceGet</code> a bare folder URL</li>
+        <li>Empty / unknown scope → oriented error (not raw 404)</li>
+      </ul>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending product fix. Wave 1 evidence: <code>dogfood/evidence/wave-1/content-merge-data.txt</code> (404) vs <code>content-merge.txt</code> (success).</p>
+      <p>Unit tests in <code>da-cli/src/lib/content-workspace.test.js</code> (f008 cases: subtree merge, no bare folder sourceGet, document path, new remote under subtree, oriented empty error). Dogfood evidence: re-run <code>da content clone --path /data</code> then <code>da content merge /data</code> must succeed.</p>
+      <p><strong>0.6.0 friction gate:</strong> Critical — closed.</p>
     </div>
     <div>
       <div class="metadata">
@@ -48,7 +52,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -60,7 +64,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>content merge /data 404s; workspace merge without path succeeds.</div>
+          <div>content merge folder paths refresh subtree documents (clone-compatible); no bare folder sourceGet.</div>
         </div>
       </div>
     </div>

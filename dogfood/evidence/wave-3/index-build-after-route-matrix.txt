@@ -1,0 +1,48 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: index build *
+  Paths: 1
+    /*
+  Note: The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up.
+  Note: POSTs admin.hlx.page/index/{org}/{repo}/{ref}/{path} to rebuild the query index.
+  Note: Only published (live) content is indexed; preview-only pages will not appear.
+{
+  "ok": true,
+  "action": "built",
+  "path": "*",
+  "org": "somarc",
+  "repo": "da-cli-0-6-0",
+  "branch": "main",
+  "result": {
+    "messageId": "3db918e9-eff3-4a95-9f06-0bd8a77d19da",
+    "job": {
+      "topic": "index",
+      "user": "mhess@adobe.com",
+      "name": "job-2026-07-14-03-02-36-f049a9de",
+      "state": "created",
+      "createTime": "2026-07-14T03:02:36.608Z",
+      "data": {
+        "paths": [
+          {
+            "prefix": "/"
+          }
+        ],
+        "indexNames": []
+      }
+    },
+    "links": {
+      "list": "https://admin.hlx.page/job/somarc/da-cli-0-6-0/main/index",
+      "self": "https://admin.hlx.page/job/somarc/da-cli-0-6-0/main/index/job-2026-07-14-03-02-36-f049a9de"
+    }
+  },
+  "caveats": [
+    "The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up."
+  ],
+  "next": [
+    "da index query default --target live --format json",
+    "da index validate --target live --format json"
+  ]
+}
+Index rebuild triggered for * on somarc/da-cli-0-6-0@main

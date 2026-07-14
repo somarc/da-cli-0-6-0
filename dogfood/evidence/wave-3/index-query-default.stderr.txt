@@ -1,0 +1,2 @@
+GET https://main--da-cli-0-6-0--somarc.aem.live/query-index.json?limit=50&offset=0
+23 result(s) (total: 23, offset: 0)

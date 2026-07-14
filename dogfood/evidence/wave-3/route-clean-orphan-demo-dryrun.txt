@@ -1,0 +1,25 @@
+Classifying /tests/orphan-demo…
+Ownership: orphan
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: route clean /tests/orphan-demo
+  Paths: 1
+    /tests/orphan-demo.html
+  Note: Route clean deletes DA source when present, then helix-unpreviews and unpublishes live.
+  Note: No DA source — will only unpreview + unpublish delivery artifacts (finding #7).
+[dry-run] Clean route /tests/orphan-demo (source + preview + live)
+  Pass --commit to execute.
+{
+  "ok": true,
+  "path": "/tests/orphan-demo",
+  "action": "dry-run",
+  "ownership": "orphan",
+  "sourcePath": "/tests/orphan-demo.html",
+  "planned": {
+    "deleteSource": false,
+    "unpreview": true,
+    "unpublish": true
+  }
+}

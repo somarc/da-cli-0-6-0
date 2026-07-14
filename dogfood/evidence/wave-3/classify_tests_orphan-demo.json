@@ -1,0 +1,11 @@
+{
+  "path": "/tests/orphan-demo",
+  "ownership": "orphan",
+  "daSource": false,
+  "sourcePath": "/tests/orphan-demo.html",
+  "preview": 200,
+  "live": 200,
+  "code": 404,
+  "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/tests/orphan-demo",
+  "staleDaLocation": true
+}

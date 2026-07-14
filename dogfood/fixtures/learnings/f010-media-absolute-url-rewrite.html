@@ -3,36 +3,34 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f010 · content · open</p>
+      <p>f010 · content · fixed</p>
       <h1>Relative <code>/media/…</code> image URLs rewrite to <code>about:error</code></h1>
     </div>
     <div>
       <h2>Symptom</h2>
       <p>DA HTML authored with host-less image paths:</p>
       <p><code>&lt;img src="/media/example.webp" alt=""&gt;</code></p>
-      <p>After preview, <code>.plain.html</code> showed <code>&lt;img src="about:error"&gt;</code> even when the binary existed on the content bus and <code>GET /media/example.webp</code> redirected to a hashed media URL successfully.</p>
-      <p>Absolute content-bus URLs worked:</p>
+      <p>After preview, <code>.plain.html</code> showed <code>&lt;img src="about:error"&gt;</code> even when the binary existed on the content bus. Absolute content-bus URLs worked:</p>
       <p><code>https://content.da.live/{org}/{repo}/media/example.webp</code></p>
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>Agents default to site-relative media paths. Failures are silent in the browser (broken image) and only obvious in plain HTML. Video <code>&lt;a href="/media/….mp4"&gt;</code> links often still work because they are not Media-Bus-rewritten the same way — asymmetric and confusing.</p>
+      <p>Agents default to site-relative media paths. Failures are silent in the browser (broken image). Platform media rewrite needs a fetchable absolute URL for hashing into Media Bus.</p>
     </div>
     <div>
-      <h2>Workaround (today)</h2>
-      <ol>
-        <li>Put the binary with <code>da content put /media/…</code>.</li>
-        <li>Reference images with absolute <code>https://content.da.live/{org}/{repo}/media/…</code> (or a reachable absolute URL) so preview can fetch and hash into Media Bus.</li>
-        <li>Re-put and re-preview the HTML after media is on the bus.</li>
-      </ol>
-    </div>
-    <div>
-      <h2>Resolution (planned)</h2>
-      <p>Product options: (a) Helix/DA preview resolves same-tenant host-less <code>/media/*</code> against the content bus before Media Bus rewrite; (b) <code>da content put</code> / a content linter warns when HTML contains host-less <code>img src</code>; (c) agent skill default remains absolute URLs until (a) ships. Prefer (a)+(b) for low-friction agents.</p>
+      <h2>Resolution</h2>
+      <p><strong>CLI (da-cli, this release track):</strong></p>
+      <ul>
+        <li><code>content put</code> / <code>put-tree</code> <strong>warn</strong> when HTML has host-less <code>/media</code> on <code>img</code>/<code>source</code> <code>src</code> or <code>srcset</code></li>
+        <li><code>--rewrite-media-urls</code> expands them to <code>https://content.da.live/{org}/{repo}/media/…</code> before upload</li>
+        <li><code>--strict-media-urls</code> fails the put until fixed (CI / agent gates)</li>
+        <li><code>&lt;a href="/media/…"&gt;</code> left alone (file/video links often work relatively)</li>
+      </ul>
+      <p><strong>Still platform-side:</strong> Helix could resolve same-tenant host-less <code>/media/*</code> itself; until then absolute URLs (or rewrite flag) are the contract. Skills should keep absolute-URL defaults.</p>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending platform/CLI. Observed on multi-site dogfood (hero plates, poster stills). Skills should keep absolute-URL guidance until fixed.</p>
+      <p>Unit tests in <code>media-urls.test.js</code>. Preflight notes include f010 + recovery. <strong>0.6.0 friction gate:</strong> High — closed on CLI warn/rewrite/strict; platform auto-resolve remains optional follow-on.</p>
     </div>
     <div>
       <div class="metadata">
@@ -50,7 +48,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -62,7 +60,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>Host-less /media img src becomes about:error after preview; absolute content.da.live URLs rewrite correctly.</div>
+          <div>content put warns/rewrites/strict-fails host-less /media img URLs (f010 about:error).</div>
         </div>
       </div>
     </div>

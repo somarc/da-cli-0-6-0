@@ -88,16 +88,33 @@ See **CONTENT-IA.md** for page kinds and how the history grows. Public hub:
 https://main--da-cli-0-6-0--somarc.aem.live/learnings
 
 - **f001** (fixed, PR #37): [`/learnings/f001-site-info-target`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f001-site-info-target) — `site info` ignored root `--org/--repo`.
-- **f002** (open, Wave 2): [`/learnings/f002-design-detect-envelope`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f002-design-detect-envelope) — `design detect` empty error vs no design system.
+- **f002** (fixed, High friction gate): [`/learnings/f002-design-detect-envelope`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f002-design-detect-envelope) — design detect/token-check structured envelopes (`clean` / `no-design-tokens`).
 - **f003** (fixed): [`/learnings/f003-index-build`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f003-index-build) — `da index build`.
 - **f004** (fixed): [`/learnings/f004-index-env-preview`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f004-index-env-preview) — index `--env preview` silently live.
 - **f005** (fixed): [`/learnings/f005-route-codebus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f005-route-codebus) — code assets classified orphan.
 - **f006** (fixed): [`/learnings/f006-stale-contentbus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f006-stale-contentbus) — stale contentbus after source delete.
 - **f007** (fixed): [`/learnings/f007-route-clean-orphan`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f007-route-clean-orphan) — route clean did not unpublish orphans.
-- **f008** (open, Wave 1): [`/learnings/f008-content-merge-path`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f008-content-merge-path) — `content merge /data` 404s; workspace merge works.
-- **f009** (open, Wave 1): [`/learnings/f009-content-put-outside-worktree`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f009-content-put-outside-worktree) — put refuses out-of-tree paths without `--allow-outside-worktree`.
-- **f010** (open, Wave 2): [`/learnings/f010-media-absolute-url-rewrite`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite) — relative `/media` imgs → `about:error`.
-- **f011** (open, Wave 2): [`/learnings/f011-audit-contracts-autoblock`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock) — contracts inventory misses autoblock-only modules.
+- **f008** (fixed, Critical friction gate): [`/learnings/f008-content-merge-path`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f008-content-merge-path) — merge path = document or subtree (clone-compatible); no bare folder `sourceGet`.
+- **f009** (fixed, High friction gate): [`/learnings/f009-content-put-outside-worktree`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f009-content-put-outside-worktree) — refuse out-of-tree by default; flag is ownership opt-in with clear agent recovery.
+- **f010** (fixed, High friction gate): [`/learnings/f010-media-absolute-url-rewrite`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite) — put warns/rewrites/strict-fails host-less `/media` imgs.
+- **f011** (fixed, Medium-high friction gate): [`/learnings/f011-audit-contracts-autoblock`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock) — contracts inventory + verify-code for autoblocks (modal/widget/fragment).
 
 ## Release gate for 0.6.0
-Waves 1–5 green with stored evidence; Wave 6 classified (run or precondition-recorded); construction pipeline regenerates the site; provenance verifies. Then cut 0.6.0.
+
+Two columns — both required. **Hang the hat on agentic operability, not
+command count.**
+
+1. **Waves:** 1–5 green with stored evidence; Wave 6 classified (run or
+   precondition-recorded); construction pipeline regenerates the site;
+   provenance verifies.
+2. **Frictions:** every Critical/High finding fixed + locked. As of
+   **2026-07-14 02:31 UTC** the friction column is **clear** (f001–f011).
+   Checklist + honest residual notes: **`dogfood/FRICTION-GATE-0.6.0.md`**.
+
+**Until the site proves itself:** package stays **0.5.x**, run **local**
+`da` from `da/da-cli`, and **do not** open a git branch named for 0.6.0.
+Product fixes land on 0.5.x; the **0.6.0 label is earned by dogfood proof**,
+then version bump + release branch follow.
+
+**Honest cut state:** friction hat earned for this cycle; **wave hat not** —
+do not cut 0.6.0 until waves + construct/provenance clear.

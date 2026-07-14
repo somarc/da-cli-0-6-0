@@ -9,6 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-14 02:31 UTC):</strong> friction column <strong>clear</strong> (f001–f011 fixed in local 0.5.x). Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -46,9 +47,9 @@
         </div>
         <div>
           <div><p><a href="/learnings/f002-design-detect-envelope">f002</a></p></div>
-          <div><p>open</p></div>
+          <div><p>fixed</p></div>
           <div><p>design</p></div>
-          <div><p><code>design detect</code> empty error on design-less site</p></div>
+          <div><p>detect/token-check structured clean &amp; no-tokens envelopes</p></div>
         </div>
         <div>
           <div><p><a href="/learnings/f003-index-build">f003</a></p></div>
@@ -82,27 +83,27 @@
         </div>
         <div>
           <div><p><a href="/learnings/f008-content-merge-path">f008</a></p></div>
-          <div><p>open</p></div>
+          <div><p>fixed</p></div>
           <div><p>content</p></div>
-          <div><p><code>content merge /data</code> 404s; workspace merge works</p></div>
+          <div><p><code>content merge</code> folder path = subtree (clone-compatible)</p></div>
         </div>
         <div>
           <div><p><a href="/learnings/f009-content-put-outside-worktree">f009</a></p></div>
-          <div><p>open</p></div>
+          <div><p>fixed</p></div>
           <div><p>content</p></div>
-          <div><p><code>content put</code> refuses out-of-tree paths without a flag</p></div>
+          <div><p>Out-of-tree put: refuse + ownership flag (not silent allow)</p></div>
         </div>
         <div>
           <div><p><a href="/learnings/f010-media-absolute-url-rewrite">f010</a></p></div>
-          <div><p>open</p></div>
+          <div><p>fixed</p></div>
           <div><p>content, media</p></div>
-          <div><p>Relative <code>/media</code> imgs → <code>about:error</code></p></div>
+          <div><p>put warns / rewrites host-less <code>/media</code> imgs (about:error)</p></div>
         </div>
         <div>
           <div><p><a href="/learnings/f011-audit-contracts-autoblock">f011</a></p></div>
-          <div><p>open</p></div>
+          <div><p>fixed</p></div>
           <div><p>audit, block</p></div>
-          <div><p><code>audit contracts</code> misses autoblock-only surfaces</p></div>
+          <div><p>contracts inventory includes modal/widget/fragment autoblocks</p></div>
         </div>
       </div>
     </div>
