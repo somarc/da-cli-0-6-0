@@ -24,6 +24,15 @@ footer .footer p:last-child {
   margin-bottom: 0;
 }
 
+/* Base link color before more-specific spine/meta rules (no-descending-specificity) */
+footer .footer a {
+  color: var(--rr-terra, var(--link-color));
+}
+
+footer .footer code {
+  font-size: 0.95em;
+}
+
 /* 1: brand line */
 footer .footer p:first-child {
   font-family: var(--body-font-family);
@@ -68,14 +77,6 @@ footer .footer p:nth-child(3) {
   font-size: 0.85em;
   letter-spacing: 0.03em;
   color: var(--rr-ink-soft, #5c6478);
-}
-
-footer .footer a {
-  color: var(--rr-terra, var(--link-color));
-}
-
-footer .footer code {
-  font-size: 0.95em;
 }
 
 @media (width >= 900px) {

@@ -60,8 +60,8 @@
   margin-top: 1.25rem;
 }
 
-.hero a.button:any-link,
-.hero a.button:any-link:hover {
+/* Hover shares base paint — no separate :hover block (avoids no-descending-specificity vs :has) */
+.hero a.button:any-link {
   background-color: var(--rr-ink, #22315f);
   border-color: var(--rr-ink, #22315f);
   color: var(--rr-paper, #f5eedf);
@@ -109,8 +109,7 @@
   color: #f5eedf;
 }
 
-.hero:has(img) a.button:any-link,
-.hero:has(img) a.button:any-link:hover {
+.hero:has(img) a.button:any-link {
   background-color: var(--rr-chart, #c8e62f);
   border-color: var(--rr-chart, #c8e62f);
   color: var(--rr-ink, #22315f);
