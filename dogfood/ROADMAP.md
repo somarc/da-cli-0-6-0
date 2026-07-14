@@ -94,6 +94,10 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f005** (fixed): [`/learnings/f005-route-codebus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f005-route-codebus) — code assets classified orphan.
 - **f006** (fixed): [`/learnings/f006-stale-contentbus`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f006-stale-contentbus) — stale contentbus after source delete.
 - **f007** (fixed): [`/learnings/f007-route-clean-orphan`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f007-route-clean-orphan) — route clean did not unpublish orphans.
+- **f008** (open, Wave 1): [`/learnings/f008-content-merge-path`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f008-content-merge-path) — `content merge /data` 404s; workspace merge works.
+- **f009** (open, Wave 1): [`/learnings/f009-content-put-outside-worktree`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f009-content-put-outside-worktree) — put refuses out-of-tree paths without `--allow-outside-worktree`.
+- **f010** (open, Wave 2): [`/learnings/f010-media-absolute-url-rewrite`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite) — relative `/media` imgs → `about:error`.
+- **f011** (open, Wave 2): [`/learnings/f011-audit-contracts-autoblock`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock) — contracts inventory misses autoblock-only modules.
 
 ## Release gate for 0.6.0
 Waves 1–5 green with stored evidence; Wave 6 classified (run or precondition-recorded); construction pipeline regenerates the site; provenance verifies. Then cut 0.6.0.

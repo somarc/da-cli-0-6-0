@@ -104,9 +104,33 @@ steps:
   - id: preview-f007
     command: preview page /learnings/f007-route-clean-orphan --format json
     depends_on: [put-f007]
+  - id: put-f008
+    command: content put /learnings/f008-content-merge-path.html dogfood/fixtures/learnings/f008-content-merge-path.html --format json
+    depends_on: [preview-f007]
+  - id: preview-f008
+    command: preview page /learnings/f008-content-merge-path --format json
+    depends_on: [put-f008]
+  - id: put-f009
+    command: content put /learnings/f009-content-put-outside-worktree.html dogfood/fixtures/learnings/f009-content-put-outside-worktree.html --format json
+    depends_on: [preview-f008]
+  - id: preview-f009
+    command: preview page /learnings/f009-content-put-outside-worktree --format json
+    depends_on: [put-f009]
+  - id: put-f010
+    command: content put /learnings/f010-media-absolute-url-rewrite.html dogfood/fixtures/learnings/f010-media-absolute-url-rewrite.html --format json
+    depends_on: [preview-f009]
+  - id: preview-f010
+    command: preview page /learnings/f010-media-absolute-url-rewrite --format json
+    depends_on: [put-f010]
+  - id: put-f011
+    command: content put /learnings/f011-audit-contracts-autoblock.html dogfood/fixtures/learnings/f011-audit-contracts-autoblock.html --format json
+    depends_on: [preview-f010]
+  - id: preview-f011
+    command: preview page /learnings/f011-audit-contracts-autoblock --format json
+    depends_on: [put-f011]
   - id: put-dualform
     command: content put /dualform.html dogfood/fixtures/dualform.html --format json
-    depends_on: [preview-f007]
+    depends_on: [preview-f011]
   - id: preview-dualform
     command: preview page /dualform --format json
     depends_on: [put-dualform]

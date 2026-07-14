@@ -1,0 +1,67 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f011 · audit · open</p>
+      <h1><code>audit contracts</code> misses autoblock-only surfaces</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p><code>da audit contracts --prefix / --verify-code</code> lists block classes found in page markup. The <strong>modal</strong> pattern is mostly link-driven (<code>/modals/…</code> → JS <code>openModal</code>), so <code>modal</code> often never appears as a decorated block class on the page. Contracts can be green while <code>/blocks/modal/modal.js</code> is unlisted — agents may think modal is out of scope.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Wave 2 gates use contracts as the code-bus checklist. Autoblocks (modal, fragment rewrite, widgets) are first-class PE and need the same verify-code signal.</p>
+    </div>
+    <div>
+      <h2>Workaround (today)</h2>
+      <ol>
+        <li>Curl or <code>da code status</code> the JS/CSS paths for autoblock assets.</li>
+        <li>Keep a kitchen-sink link that exercises the autoblock.</li>
+        <li>Document autoblocks in <code>BLOCK-COVERAGE.md</code> as Required even when contracts omit them.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Resolution (planned)</h2>
+      <p>Extend contracts (or a sibling report) to include known autoblock modules from code bus + static analysis of <code>scripts.js</code> imports / <code>/modals/</code> links / <code>/widgets/</code> links. Structured list: page blocks vs autoblocks vs missing assets.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Pending product. Observed on kitchen-sink after modal port: modal.js/css 200 on live; contracts inventory omitted modal.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>2</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>audit, block</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>open</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f011</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f011 — audit contracts misses autoblocks</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>audit contracts only inventories decorated block classes; modal-style autoblocks can be absent from the report.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

@@ -80,12 +80,36 @@
           <div><p>route</p></div>
           <div><p><code>route clean</code> did not remove orphans</p></div>
         </div>
+        <div>
+          <div><p><a href="/learnings/f008-content-merge-path">f008</a></p></div>
+          <div><p>open</p></div>
+          <div><p>content</p></div>
+          <div><p><code>content merge /data</code> 404s; workspace merge works</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f009-content-put-outside-worktree">f009</a></p></div>
+          <div><p>open</p></div>
+          <div><p>content</p></div>
+          <div><p><code>content put</code> refuses out-of-tree paths without a flag</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f010-media-absolute-url-rewrite">f010</a></p></div>
+          <div><p>open</p></div>
+          <div><p>content, media</p></div>
+          <div><p>Relative <code>/media</code> imgs → <code>about:error</code></p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f011-audit-contracts-autoblock">f011</a></p></div>
+          <div><p>open</p></div>
+          <div><p>audit, block</p></div>
+          <div><p><code>audit contracts</code> misses autoblock-only surfaces</p></div>
+        </div>
       </div>
     </div>
     <div>
       <h2>How to add the next learning</h2>
       <ol>
-        <li>Allocate the next id (<code>f008</code>, …) — never reuse.</li>
+        <li>Allocate the next id (<code>f012</code>, …) — never reuse.</li>
         <li>Add <code>dogfood/fixtures/learnings/fNNN-slug.html</code> with metadata <code>kind=learning</code>.</li>
         <li>Link it from this hub table.</li>
         <li>Wire put/preview in <code>construct.yaml</code>.</li>

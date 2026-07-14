@@ -1,0 +1,69 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f008 · content · open</p>
+      <h1><code>content merge</code> 404s on a DA folder path</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>After <code>da content clone --path /data</code>, the natural follow-up <code>da content merge /data</code> threw:</p>
+      <p><code>DaApiError: DA API 404 at https://admin.da.live/source/{org}/{repo}/data</code></p>
+      <p>Merging the workspace with no path (<code>da content merge</code>) succeeded and reported “Merged 2 file(s)”.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Agents chain clone → merge → diff → put-tree. A folder path that works for clone should not 404 on merge, or the CLI should reject the path with a structured recovery (“merge the workspace root, not a DA folder URL”). Empty 404 bodies leave the agent guessing.</p>
+    </div>
+    <div>
+      <h2>Workaround (today)</h2>
+      <ol>
+        <li><code>da content clone --path /data --force</code> (or <code>--all</code>)</li>
+        <li><code>da content merge</code> with <strong>no path</strong> (or path that the workspace merge API accepts)</li>
+        <li><code>da content diff</code> then put/push as needed</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Resolution (planned)</h2>
+      <p>Either (a) make <code>merge &lt;folder&gt;</code> resolve to workspace-relative merge of that subtree, or (b) hard-error with an ADR-0001 envelope: wrong path shape, next commands, and no silent 404. Lock with a unit/integration test.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Pending product fix. Wave 1 evidence: <code>dogfood/evidence/wave-1/content-merge-data.txt</code> (404) vs <code>content-merge.txt</code> (success).</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>1</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>content</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>open</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f008</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f008 — content merge path 404</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>content merge /data 404s; workspace merge without path succeeds.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
