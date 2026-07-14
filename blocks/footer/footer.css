@@ -13,6 +13,7 @@ footer .footer > div {
   padding: 36px 24px 40px;
 }
 
+/* Classes on <p> are stripped in .plain.html — style by structure */
 footer .footer p {
   margin: 0 0 0.85rem;
   max-width: 68ch;
@@ -23,20 +24,22 @@ footer .footer p:last-child {
   margin-bottom: 0;
 }
 
-footer .footer .footer-brand {
+/* 1: brand line */
+footer .footer p:first-child {
   font-family: var(--body-font-family);
   font-size: 0.95rem;
   letter-spacing: 0.02em;
   color: var(--rr-ink, #22315f);
 }
 
-footer .footer .footer-brand strong {
+footer .footer p:first-child strong {
   font-family: var(--heading-font-family);
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 
-footer .footer .footer-nav {
+/* 2: spine link row */
+footer .footer p:nth-child(2) {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1.1rem;
@@ -47,19 +50,20 @@ footer .footer .footer-nav {
   text-transform: uppercase;
 }
 
-footer .footer .footer-nav a {
+footer .footer p:nth-child(2) a {
   color: var(--rr-ink, #22315f);
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
 
-footer .footer .footer-nav a:hover,
-footer .footer .footer-nav a:focus-visible {
+footer .footer p:nth-child(2) a:hover,
+footer .footer p:nth-child(2) a:focus-visible {
   color: var(--rr-terra, #c05433);
   border-bottom-color: var(--rr-line, #d8ccb4);
 }
 
-footer .footer .footer-meta {
+/* 3: provenance meta */
+footer .footer p:nth-child(3) {
   max-width: 72ch;
   font-size: 0.85em;
   letter-spacing: 0.03em;
