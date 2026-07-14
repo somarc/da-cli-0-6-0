@@ -1,6 +1,6 @@
 /**
- * n8n-form stub — scdemos spectrum (webhook submit).
- * Full scdemos block posts to an external webhook / worker URL.
+ * n8n-form stub — webhook / edge submit pattern.
+ * Production blocks often POST to a webhook or worker URL.
  * Dogfood: render authorable fields + document worker dependency.
  */
 export default function decorate(block) {

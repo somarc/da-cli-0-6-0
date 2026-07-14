@@ -1,26 +1,26 @@
 # Edge workers (Wrangler stubs) — da-cli 0.6.0 dogfood
 
-**scdemos/demo** backs several block types with **Cloudflare Workers**
-(`workers/*` + `wrangler.toml` + npm scripts). This dogfood site **stubs** that
-layer so:
+Several common EDS block types **need an edge endpoint** (form submit, auth
+session, gated HTML). Real sites often implement those with **Cloudflare
+Workers** + Wrangler. This dogfood site **stubs** that layer so:
 
 1. Code-bus still has the **block** (kitchen-sink / contracts can see it).  
 2. Operators know **which surface needs a worker**.  
-3. Local `wrangler dev` can prove submit/session **without** real Slack/Auth secrets.
+3. Local `wrangler dev` can prove submit/session **without** real secrets.
 
 This is **not** production CDN wiring. Routes and `account_id` are placeholders.
 
 ---
 
-## scdemos worker map (oracle)
+## Typical worker roles in the field
 
-| Worker (scdemos) | Typical consumers | What it does |
-|------------------|-------------------|--------------|
-| `contact_us` | `form` submit URL | POST form JSON → e.g. Slack |
-| `auth` | `auth-toggle`, gated chrome | Session / Access-style auth API |
-| `feed` | dynamic / feed tools | Content feed proxy |
-| `cdn` | gated pages | Edge HTML gating |
-| `cloneit_token` | tools | Token mint for cloneit |
+| Role | Typical consumers | What it does |
+|------|-------------------|--------------|
+| Form submit | `form` submit URL | POST form JSON → CRM/Slack/email |
+| Auth session | `auth-toggle`, gated chrome | Session / Access-style auth API |
+| Feed proxy | dynamic / feed tools | Content feed proxy |
+| CDN gate | gated pages | Edge HTML gating |
+| Tool tokens | side tools | Short-lived tokens for operators |
 
 Dogfood stubs implement **shape**, not product integrations.
 
@@ -70,12 +70,10 @@ npm run worker:auth-session
 Smoke:
 
 ```bash
-# form-submit
 curl -s -X POST http://127.0.0.1:8787/ \
   -H 'content-type: application/json' \
   -d '{"data":{"name":"Marc","email":"m@example.com","message":"dogfood"}}'
 
-# auth-session
 curl -s http://127.0.0.1:8788/auth/session
 ```
 
@@ -85,15 +83,16 @@ Both return JSON with `"stub": true`.
 
 ## Wiring form block to the stub
 
-Kitchen-sink form currently loads definition only (sheet). To exercise submit:
+Kitchen-sink form loads definition + optional local submit link.
 
 1. Run `npm run worker:form-submit`.  
-2. Author form block with **two** links:
+2. Form block links:
    - definition: `/data/contact-form.json`
    - submit: `http://127.0.0.1:8787/` (local) or your deployed worker URL  
 3. Preview page; submit; expect `{ ok: true, stub: true, … }`.
 
-Production scdemos uses a real route (e.g. `demo.bbird.live/contact-us/*`) and secrets (`SLACK_WEBHOOK_URL`). **Do not** commit secrets here — use `wrangler secret put`.
+Production sites use real routes and secrets. **Do not** commit secrets — use
+`wrangler secret put`.
 
 ---
 
@@ -105,7 +104,7 @@ npx wrangler deploy --config ./workers/form-submit/wrangler.toml
 npx wrangler secret put SLACK_WEBHOOK_URL --config ./workers/form-submit/wrangler.toml
 ```
 
-Custom domain routes require zone access in the Cloudflare account (same pattern as scdemos).
+Custom domain routes require zone access in the Cloudflare account.
 
 ---
 
@@ -116,10 +115,10 @@ Custom domain routes require zone access in the Cloudflare account (same pattern
 | Block decorate + code-bus assets | **Yes** — kitchen-sink + `audit contracts` |
 | DA sheet → form fields | **Yes** — `/data/contact-form.json` |
 | Worker POST contract (local stub) | **Optional** — wrangler dev smoke |
-| Real Slack / Cloudflare Access / CDN gate | **Out of scope** — document only |
-| `da` surface for deploy workers | Future — not a Wave 2 required-core gate |
+| Real Slack / Access / CDN gate | **Out of scope** — document only |
 
-Wave 2 cut = **blocks + contracts**. Worker stubs are **documented PE** so form/auth types stay honest about edge dependencies.
+Wave 2 cut = **blocks + contracts**. Worker stubs are **documented PE** so
+form/auth types stay honest about edge dependencies.
 
 ---
 
@@ -135,6 +134,5 @@ Wave 2 cut = **blocks + contracts**. Worker stubs are **documented PE** so form/
 
 ## Reference
 
-- Oracle workers: `aem-code/scdemos/demo/workers/`  
-- Oracle package scripts: `scdemos/demo/package.json` (`dev:*` / `deploy:*`)  
 - Block matrix: `dogfood/BLOCK-COVERAGE.md`  
+- Adobe Block Collection (authoring patterns for form/search/modal)  

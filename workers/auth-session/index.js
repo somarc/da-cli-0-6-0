@@ -1,5 +1,5 @@
 /**
- * Stub auth session worker (scdemos auth surface shape).
+ * Stub auth session worker (anonymous session JSON shape).
  * Local: npm run worker:auth-session → http://127.0.0.1:8788/
  */
 

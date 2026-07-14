@@ -1,5 +1,5 @@
 /**
- * Stub form-submit worker (scdemos contact_us shape, no Slack).
+ * Stub form-submit worker (typical contact-form POST shape, no Slack).
  * Local: npm run worker:form-submit → http://127.0.0.1:8787/
  */
 

@@ -51,7 +51,7 @@ pass repo + org; fix candidate = pin-target / resolveConfig (related to finding 
 
 ### Wave 2 — pass criteria
 
-**Oracle:** `scdemos/demo` block library scale → `dogfood/BLOCK-COVERAGE.md`.  
+**Spectrum:** field-scale EDS block types → `dogfood/BLOCK-COVERAGE.md`.  
 Wave 2 is not cut until every **Required** conceptual type is present and contracts-ok.
 
 | Surface | Status | Notes |

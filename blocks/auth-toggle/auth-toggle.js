@@ -1,7 +1,7 @@
 /**
- * auth-toggle stub — scdemos spectrum (session / Access).
- * Real scdemos implementation talks to workers/auth.
- * Dogfood: show anonymous state + document wrangler path.
+ * auth-toggle stub — session / Access-style control.
+ * Production sites often call an edge auth worker; dogfood shows anonymous
+ * state and documents the wrangler path (workers/README.md).
  */
 export default async function decorate(block) {
   const endpoint = block.querySelector('a[href]')?.href

@@ -51,8 +51,8 @@ exactly this if it happens.)
 - Proof: preview + live URLs, `.plain.html` verified, freshness gate green.
 
 **Wave 2 — Blocks, audits, design, media**
-- **Oracle:** `scdemos/demo` conceptual block scale → `dogfood/BLOCK-COVERAGE.md`
-  (Required tier = Wave 2 cut; Vertical calculators out of core scope).
+- **Spectrum:** field-scale EDS block coverage → `dogfood/BLOCK-COVERAGE.md`
+  (Required tier = Wave 2 cut; vertical product demos out of core scope).
 - Content: **kitchen-sink page** (`/kitchen-sink`) exercising Required spectrum
   (hero, cards, columns, tabs, table, embed, accordion/faq, form, search, modal,
   teaser, carousel, quote, …). See also design-industry-language `site-modules.md`.
