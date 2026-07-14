@@ -1,7 +1,6 @@
-/* Painterly collage hero — Renderaissance depth: collage
-   Authoring: 2-col table → [copy | art×3 stacked images]
-   Art intent: ONE stage. layer-bg fills it; focal + object stack ON that surface
-   (Hydroponics-style), not three separate plates in document flow.
+/* Painterly collage hero — Renderaissance
+   Collage stage OR soft single plate; optional lit PE (Tarot contract).
+   Soft dissolve into paper — never a boxed/shadowed stage.
 */
 /* stylelint-disable property-no-vendor-prefix -- Safari mask-image */
 
@@ -79,24 +78,41 @@
   margin-top: 0.75em;
 }
 
-/* ——— Collage stage: fixed box all layers share ——— */
+/* Collage stage: fixed box all layers share.
+   No background, border, or box-shadow on .ph-art (field-lessons §11). */
 .painterly-hero .ph-art {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
   margin: 0 auto;
   aspect-ratio: 5 / 4;
   pointer-events: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
 
-  /* whole stage dissolves into paper (one soft edge, not three frames) */
-  -webkit-mask-image: radial-gradient(ellipse 92% 90% at 55% 48%, #000 52%, transparent 86%);
-  mask-image: radial-gradient(ellipse 92% 90% at 55% 48%, #000 52%, transparent 86%);
+  /* whole stage dissolves into paper */
+  -webkit-mask-image: radial-gradient(ellipse 94% 92% at 52% 48%, #000 48%, transparent 88%);
+  mask-image: radial-gradient(ellipse 94% 92% at 52% 48%, #000 48%, transparent 88%);
 }
 
 .painterly-hero .ph-layer {
   position: absolute;
   will-change: transform;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.painterly-hero .ph-lit-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: auto;
 }
 
 /* 1) Wash fills the stage */
@@ -122,19 +138,25 @@
   right: -2%;
   bottom: 8%;
   width: 78%;
+  pointer-events: auto;
 
   --rr-depth: 16px;
 }
 
-.painterly-hero .layer-focal img {
+.painterly-hero .layer-focal img,
+.painterly-hero .layer-focal .ph-lit-canvas {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: right bottom;
-  filter: drop-shadow(0 6px 10px rgb(34 49 95 / 6%));
+  filter: none;
 }
 
-/* 3) Object sits ON the same stage — bottom-left, overlapping wash + figure feet */
+.painterly-hero .layer-focal.is-webgl img {
+  visibility: hidden;
+}
+
+/* 3) Object sits ON the same stage — bottom-left */
 .painterly-hero .layer-object {
   z-index: 3;
   left: 2%;
@@ -148,7 +170,7 @@
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 4px 8px rgb(34 49 95 / 5%));
+  filter: none;
 }
 
 .painterly-hero .ph-layer img {
@@ -157,12 +179,12 @@
   background: transparent;
 }
 
-/* Single-art variant (why page): one plate, still soft-edged */
+/* Single soft plate (preferred homepage path) */
 .painterly-hero.ph-single .ph-art {
-  aspect-ratio: 16 / 10;
-  max-width: 560px;
-  -webkit-mask-image: radial-gradient(ellipse 94% 92% at 50% 50%, #000 55%, transparent 88%);
-  mask-image: radial-gradient(ellipse 94% 92% at 50% 50%, #000 55%, transparent 88%);
+  aspect-ratio: 4 / 3;
+  max-width: 620px;
+  -webkit-mask-image: radial-gradient(ellipse 96% 94% at 50% 50%, #000 58%, transparent 90%);
+  mask-image: radial-gradient(ellipse 96% 94% at 50% 50%, #000 58%, transparent 90%);
 }
 
 .painterly-hero.ph-single .layer-focal {
@@ -170,9 +192,25 @@
   width: auto;
 }
 
-.painterly-hero.ph-single .layer-focal img {
-  object-fit: cover;
+.painterly-hero.ph-single .layer-focal img,
+.painterly-hero.ph-single .layer-focal .ph-lit-canvas {
+  object-fit: contain;
   object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Subtle rest shadow under single plate only — not a box frame */
+.painterly-hero.ph-single .layer-focal::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 4%;
+  height: 18%;
+  background: radial-gradient(ellipse at center, rgb(34 49 95 / 8%) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Entrance */
@@ -184,7 +222,9 @@
   }
 
   .painterly-hero .layer-bg img { animation-delay: 0ms; }
+
   .painterly-hero .layer-focal img { animation-delay: 90ms; }
+
   .painterly-hero .layer-object img { animation-delay: 160ms; }
 }
 
@@ -206,11 +246,11 @@
   }
 }
 
-/* Desktop: copy left, collage stage right (not full-bleed column height) */
+/* Desktop: copy left, collage stage right */
 @media (width >= 900px) {
   .painterly-hero .ph-inner {
-    grid-template-columns: minmax(280px, 44%) minmax(320px, 1fr);
-    gap: 32px 40px;
+    grid-template-columns: minmax(280px, 42%) minmax(340px, 1fr);
+    gap: 32px 48px;
     padding: 64px 32px 56px;
     align-items: center;
   }
@@ -220,6 +260,12 @@
     width: 100%;
     aspect-ratio: 5 / 4;
     margin: 0;
+  }
+
+  .painterly-hero.ph-single .ph-art {
+    max-width: none;
+    margin-left: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .painterly-hero .layer-focal {
@@ -235,10 +281,9 @@
     width: 44%;
   }
 
-  .painterly-hero.ph-single .ph-art {
-    max-width: 560px;
-    margin-left: auto;
-    aspect-ratio: 16 / 10;
+  .painterly-hero.ph-single .layer-focal {
+    inset: 0;
+    width: auto;
   }
 }
 

@@ -1,6 +1,6 @@
 /**
- * Painterly collage hero — Renderaissance collage depth.
- * Static images first; optional mouse parallax when motion is allowed.
+ * Painterly collage hero — Renderaissance.
+ * Depth collage by default; lit PE when focal maps are present.
  */
 
 function classifyCopy(copy) {
@@ -53,6 +53,62 @@ function splitCopyAndArt(block) {
   return { copyCell: cols[0] || firstRow, artCell: null };
 }
 
+/**
+ * Collect optional map URLs from the art cell.
+ *
+ * Authoring contracts (order survives Helix media rewrite):
+ *  1. Four images → [plate, normal, roughness, height] = single plate + lit maps
+ *  2. Filename/data-role hints when present (dev / local fixtures)
+ *  3. One–three images → collage layers (bg, focal, object)
+ */
+function extractMaps(artCell) {
+  const maps = { normal: null, rough: null, height: null };
+  if (!artCell) return { pictures: [], maps };
+
+  const allPics = [];
+  artCell.querySelectorAll('picture').forEach((p) => allPics.push(p));
+  artCell.querySelectorAll('img').forEach((img) => {
+    if (!img.closest('picture')) {
+      const pic = document.createElement('picture');
+      pic.append(img);
+      allPics.push(pic);
+    }
+  });
+
+  // Preferred: plate + 3 maps by order (hashes lose -normal suffixes)
+  if (allPics.length === 4) {
+    const srcOf = (pic) => {
+      const img = pic.querySelector('img');
+      return img?.currentSrc || img?.src || '';
+    };
+    maps.normal = srcOf(allPics[1]);
+    maps.rough = srcOf(allPics[2]);
+    maps.height = srcOf(allPics[3]);
+    return { pictures: [allPics[0]], maps };
+  }
+
+  const pictures = [];
+  allPics.forEach((pic) => {
+    const img = pic.querySelector('img');
+    const src = (img?.currentSrc || img?.src || '').toLowerCase();
+    const role = (img?.dataset.role || '').toLowerCase();
+    const alt = (img?.alt || '').toLowerCase();
+    if (role === 'normal' || src.includes('-normal') || alt === 'normal map') {
+      maps.normal = img.currentSrc || img.src;
+    } else if (role === 'roughness' || role === 'rough'
+      || src.includes('-roughness') || src.includes('-rough')
+      || alt === 'roughness map') {
+      maps.rough = img.currentSrc || img.src;
+    } else if (role === 'height' || src.includes('-height') || alt === 'height map') {
+      maps.height = img.currentSrc || img.src;
+    } else {
+      pictures.push(pic);
+    }
+  });
+
+  return { pictures, maps };
+}
+
 function buildStructure(block) {
   const { copyCell, artCell } = splitCopyAndArt(block);
 
@@ -69,18 +125,8 @@ function buildStructure(block) {
   const art = document.createElement('div');
   art.className = 'ph-art';
 
-  const pictures = [];
-  if (artCell) {
-    pictures.push(...artCell.querySelectorAll('picture'));
-    // bare imgs without picture
-    artCell.querySelectorAll('img').forEach((img) => {
-      if (!img.closest('picture')) {
-        const pic = document.createElement('picture');
-        pic.append(img);
-        pictures.push(pic);
-      }
-    });
-  }
+  const { pictures, maps } = extractMaps(artCell);
+
   // fallback: any remaining pictures in block
   if (!pictures.length) {
     pictures.push(...block.querySelectorAll('picture'));
@@ -92,7 +138,6 @@ function buildStructure(block) {
   const limited = pictures.slice(0, 3);
   if (limited.length === 1) {
     block.classList.add('ph-single');
-    // Single plate sits as focal (skip empty bg)
     art.append(wrapLayer(limited[0], 'layer-focal', '14px'));
   } else {
     limited.forEach((pic, i) => {
@@ -104,6 +149,14 @@ function buildStructure(block) {
     });
   }
 
+  // Stash maps on focal for PE (URLs already rewritten to media_* when live)
+  const focalImg = art.querySelector('.layer-focal img');
+  if (focalImg && maps.normal) {
+    focalImg.dataset.normal = maps.normal;
+    if (maps.rough) focalImg.dataset.rough = maps.rough;
+    if (maps.height) focalImg.dataset.height = maps.height;
+  }
+
   inner.append(copy, art);
   block.replaceChildren(inner);
 }
@@ -111,6 +164,8 @@ function buildStructure(block) {
 function armParallax(block) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (window.matchMedia('(pointer: coarse)').matches) return;
+  // Skip layer parallax when WebGL lighting owns pointer response
+  if (block.querySelector('.is-webgl')) return;
 
   const layers = [...block.querySelectorAll('.ph-layer')].map((el) => ({
     el,
@@ -126,7 +181,7 @@ function armParallax(block) {
   window.setTimeout(arm, 1200);
 
   window.addEventListener('mousemove', (e) => {
-    if (!armed) return;
+    if (!armed || block.querySelector('.is-webgl')) return;
     const mx = (e.clientX / window.innerWidth) * 2 - 1;
     layers.forEach(({ el, depth }) => {
       el.style.transform = `translateX(${(mx * depth).toFixed(2)}px)`;
@@ -134,7 +189,36 @@ function armParallax(block) {
   }, { passive: true });
 }
 
+function armLighting(block) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Still allow static soft light at rest? Skip entirely for simplicity.
+    return;
+  }
+  const img = block.querySelector('.layer-focal img');
+  if (!img?.dataset.normal) return;
+
+  const maps = {
+    normal: img.dataset.normal,
+    rough: img.dataset.rough || img.dataset.normal,
+    height: img.dataset.height || img.dataset.normal,
+  };
+
+  // Idle-import so LCP is the static plate
+  const run = () => {
+    import('./lite-lighting.js')
+      .then((m) => m.default(img, maps))
+      .catch(() => {});
+  };
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(run, { timeout: 1800 });
+  } else {
+    window.setTimeout(run, 400);
+  }
+}
+
 export default function decorate(block) {
   buildStructure(block);
   armParallax(block);
+  armLighting(block);
 }
