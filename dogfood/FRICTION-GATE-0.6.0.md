@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column reopened** (f012, High, logged 2026-07-14) — wave column still open  
+**Status:** **friction column pending merge** (f012, High, fixed + locked on branch `fix/f012-da-permission-headers`, not yet merged to main) — wave column still open  
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`  
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -38,17 +38,16 @@ If (1) and (2) pass but (3) fails, **do not cut 0.6.0**. That is the hat.
 
 ---
 
-## Honest assessment — 2026-07-14 (f012 logged)
+## Honest assessment — 2026-07-14 (f012 fixed on branch)
 
-### Friction column: **REOPENED**
+### Friction column: **PENDING MERGE**
 
 All frictions logged through the previous cycle (**f001–f011**) are **fixed in
-the local 0.5.x tree** with unit tests and public learning pages. **f012**, found
-during due-diligence on a competing CLI's docs, is **new, High, and unfixed** —
-DA's `x-da-actions`/`x-da-child-actions` permission hints are discarded on
-every response, and `403` gets no distinct handling from `401` or a generic
-error. The friction column cannot be marked clear again until f012 is fixed
-and locked.
+the local 0.5.x tree** with unit tests and public learning pages. **f012**,
+found during due-diligence on a competing CLI's docs, is now **fixed and
+locked with tests** on branch `fix/f012-da-permission-headers` — but that
+branch is **not yet merged to main**, so it isn't yet part of the tree the
+gate certifies. The friction column moves to clear once it lands.
 
 | Id | Severity | Status | What we actually shipped |
 |----|----------|--------|---------------------------|
@@ -59,7 +58,7 @@ and locked.
 | f009 | High | **fixed** | out-of-tree put refuse + ownership flag messaging |
 | f010 | High | **fixed** | media URL warn / `--rewrite-media-urls` / `--strict-media-urls` |
 | f011 | Medium-high | **fixed** | contracts inventory + verify for autoblocks (modal/widget/fragment) |
-| f012 | High | **open** | (not yet fixed) — permission-hint headers discarded; 403 handling gap |
+| f012 | High | **fixed on branch** | permission hints captured (`err.permissionHints`, `list().daPermissionHints`); 403 distinct from 401; `content list`/`get` warn proactively on read-only access. Pending merge to main. |
 
 ### What “fixed” means (and what it does not)
 
@@ -82,10 +81,11 @@ and locked.
 
 ### Bottom line
 
-- **Friction hat:** **reopened** — f012 is a new High finding, unfixed. Cannot
-  claim the agentic-operability story clear again until it's fixed + locked.  
+- **Friction hat:** **pending merge** — f012 is fixed + locked with tests on
+  a feature branch, but not yet on main. Cannot claim the agentic-operability
+  story clear until it lands.  
 - **Release hat:** **do not cut 0.6.0** yet. Wave proof + construct regen +
-  provenance + 0.5.x→0.6.0 branch/version discipline remain, plus f012 now.  
+  provenance + 0.5.x→0.6.0 branch/version discipline remain, plus f012's merge.  
 - **Residual risks (not open fNNN, but real):** Helix unpublish 403 on orphans
   (`/findings` ghost CDN); skill docs may lag local CLI; media still needs
   absolute or rewrite discipline at authoring time.
@@ -96,7 +96,7 @@ and locked.
 
 | Id | Severity | Surface | Summary |
 |----|----------|---------|---------|
-| **f012** | High | auth, content | `x-da-actions`/`x-da-child-actions` response headers discarded on every fetch (`da-client.js`); `403` has no distinct handling from `401`/generic errors in `handleApiError`. |
+| **f012** | High | auth, content | Fixed + locked on branch `fix/f012-da-permission-headers`; open only in the sense of **not yet merged to main**. No remaining code gap. |
 
 New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
@@ -117,6 +117,7 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 | **f009** | content | out-of-tree put refuse + ownership flag |
 | **f010** | content, media | host-less /media img warn + rewrite/strict |
 | **f011** | audit, block | contracts inventory includes autoblocks |
+| **f012** | auth, content | permission hints captured; 403 distinct from 401; content list/get warn on read-only access (pending merge to main) |
 
 ---
 
@@ -128,9 +129,10 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 - [x] f009 fixed + lock  
 - [x] f010 fixed + lock  
 - [x] f011 fixed + lock  
-- [ ] f012 fixed + lock  
+- [x] f012 fixed + lock (on branch)  
+- [ ] f012 merged to main  
 - [x] Clone/merge notes in COMMANDS/AGENTS  
-- [x] Public learnings show fixed for f002, f008–f011  
+- [x] Public learnings show fixed for f002, f008–f012  
 
 ### Wave / release column (still required)
 - [x] Wave 2 formal cut with evidence (2026-07-14 02:51 UTC)  
@@ -141,4 +143,4 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
 When **both** columns are checked: **cut 0.6.0**.
 
-Last updated: **2026-07-14** — friction column reopened; f012 logged (open, High) during due-diligence on a competing CLI's docs; fix pending on branch `fix/f012-da-permission-headers`.
+Last updated: **2026-07-14** — f012 (High, discovered during due-diligence on a competing CLI's docs) fixed + locked with 522/522 tests passing on branch `fix/f012-da-permission-headers`; friction column moves to clear once that branch merges to main.

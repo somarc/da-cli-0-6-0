@@ -3,24 +3,31 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f012 · auth, content · open</p>
+      <p>f012 · auth, content · fixed</p>
       <h1>DA permission-hint headers discarded; 403 has no distinct handling</h1>
     </div>
     <div>
       <h2>Symptom</h2>
-      <p>DA's admin API returns <code>x-da-actions</code> / <code>x-da-child-actions</code> response headers hinting at the resolved permission set for a path (and for a folder listing's children). <code>src/lib/da-client.js</code> discards response headers on every fetch path, including on <code>200</code> success &mdash; only <code>status</code>, <code>url</code>, and the raw text body are ever captured (see <code>DaApiError</code>). Separately, <code>src/lib/api-error.js</code>'s <code>handleApiError</code> special-cases <code>401</code> ("run <code>da auth login</code>") and <code>404</code> ("Not found"), but <code>403</code> falls into the generic <code>else</code> branch and prints the raw <code>DA API 403 at &lt;url&gt;: &lt;body&gt;</code> message &mdash; identical treatment to a network blip or any other unexpected status.</p>
+      <p>DA's admin API returns <code>x-da-actions</code> / <code>x-da-child-actions</code> response headers hinting at the resolved permission set for a path (and for a folder listing's children). <code>src/lib/da-client.js</code> discarded response headers on every fetch path, including on <code>200</code> success &mdash; only <code>status</code>, <code>url</code>, and the raw text body were ever captured (see <code>DaApiError</code>). Separately, <code>src/lib/api-error.js</code>'s <code>handleApiError</code> special-cased <code>401</code> ("run <code>da auth login</code>") and <code>404</code> ("Not found"), but <code>403</code> fell into the generic <code>else</code> branch and printed the raw <code>DA API 403 at &lt;url&gt;: &lt;body&gt;</code> message &mdash; identical treatment to a network blip or any other unexpected status.</p>
     </div>
     <div>
       <h2>Why it matters</h2>
-      <p>An agent calling <code>da resolve</code> or <code>da content list</code> today has no way to learn "you have read-only access here" until it attempts a write and fails. And when a write does fail with <code>403</code>, the agent gets no signal distinguishing "you're authenticated but not permitted" (recoverable by requesting access) from "you're not authenticated" (recoverable by <code>da auth login</code>) or from a transient error. This directly undermines the ADR 0001 orientation principle &mdash; "every operation should leave the agent better oriented than before it ran" &mdash; and the agent-v1 envelope's structured error-code taxonomy, which has no code for permission-denied today.</p>
+      <p>An agent calling <code>da content list</code> or <code>da content get</code> had no way to learn "you have read-only access here" until it attempted a write and failed. And when a write did fail with <code>403</code>, the agent got no signal distinguishing "you're authenticated but not permitted" (recoverable by requesting access) from "you're not authenticated" (recoverable by <code>da auth login</code>) or from a transient error. This directly undermined the ADR 0001 orientation principle &mdash; "every operation should leave the agent better oriented than before it ran."</p>
     </div>
     <div>
       <h2>Resolution</h2>
-      <p><strong>Not yet fixed.</strong> Candidate approach: capture <code>x-da-actions</code> / <code>x-da-child-actions</code> on every response in <code>da-client.js</code>, surface resolved actions in <code>resolve</code> / <code>content list</code> / <code>content get</code> envelope <code>data</code>, and give <code>handleApiError</code> (plus the agent-v1 envelope error path) a distinct <code>permission-denied</code> code for <code>403</code> with a <code>next[]</code> hint (distinct from <code>401</code>'s <code>auth login</code> hint).</p>
+      <p><strong>Fixed in da-cli</strong> (branch <code>fix/f012-da-permission-headers</code>, not yet merged):</p>
+      <ul>
+        <li><code>DaApiError</code> now captures resolved permission hints from response headers via <code>extractPermissionHints()</code>, exposed as <code>err.permissionHints</code></li>
+        <li><code>client.list()</code> attaches the same hints to its returned data as a non-enumerable <code>daPermissionHints</code> property (existing consumers unaffected)</li>
+        <li><code>handleApiError</code> gives <code>403</code> a distinct message &mdash; "Permission denied," notes <code>da auth login</code> will not fix it, and includes the resolved access hint when present</li>
+        <li><code>content list</code> / <code>content get</code> proactively <code>warn()</code> to stderr when resolved access is read-only, before any write is attempted</li>
+      </ul>
+      <p><strong>Honest bound:</strong> this is the plain-CLI error path and a proactive stderr warning, not a full agent-v1 envelope <code>permission-denied</code> error code or <code>next[]</code> hint &mdash; those commands don't use the envelope contract yet. <code>da resolve</code> was out of scope: it's a pure local URL/path parser and never makes a network call, so there are no permission hints for it to surface.</p>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Not yet written &mdash; pending fix. Will need a unit test asserting <code>403</code> produces a distinct error code/message from <code>401</code>/generic errors, and a resolve/list fixture asserting permission hints surface in envelope <code>data</code> when present.</p>
+      <p>Unit tests: <code>da-client.test.js</code> (<code>extractPermissionHints</code>, <code>DaApiError.permissionHints</code>, <code>list()</code> attaching non-enumerable hints), <code>api-error.test.js</code> (403 message distinct from 401/generic, includes resolved-access hint), <code>content.test.js</code> (<code>warnIfReadOnly</code>: silent when hints absent or include write, warns with resolved actions when read-only). 522/522 suite passing.</p>
     </div>
     <div>
       <div class="metadata">
@@ -38,7 +45,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
