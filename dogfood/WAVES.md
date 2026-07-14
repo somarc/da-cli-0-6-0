@@ -5,12 +5,13 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
 **Rule:** git fixtures → `construct.yaml` → DA put/preview → public proof.  
+**CLI runtime:** local `da/da-cli` tree (0.5.x line) until site proves 0.6.0 — no early version bump or `0.6.0` release branch.  
 **Content IA:** `dogfood/CONTENT-IA.md` — narrative / proof / learning / lab.  
 **Learnings hub:** https://main--da-cli-0-6-0--somarc.aem.live/learnings
 
 ---
 
-## Wave status (2026-07-14 01:30 UTC)
+## Wave status (2026-07-14 02:31 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -18,7 +19,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | Wave | Claimed in index metadata | Operational truth |
 |------|---------------------------|-------------------|
 | **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
-| **2** Blocks/audits/design | kitchen-sink `in-progress` | **In progress** — field-scale kitchen-sink + contracts green for present blocks; f002 design detect open; not cut |
+| **2** Blocks/audits/design | kitchen-sink `in-progress` | **In progress** — kitchen-sink + contracts include autoblocks (f011); design envelopes (f002); formal Wave 2 cut still pending board hygiene |
 | **3** Index/routes | coverage `in-progress` | Index + sheet + orphan demo exist; reindex after new routes; full matrix incomplete |
 | **4–6** | not started | deferred |
 
@@ -58,9 +59,9 @@ Wave 2 is not cut until every **Required** conceptual type is present and contra
 | `audit full` on kitchen-sink | ⬜ | zero errors preferred |
 | `audit contracts --prefix / --verify-code` | ⬜ | all Required blocks js/css 200, missing=[] |
 | `block list` / `block inspect` | ⚠️ | built-in contracts sparse; code-bus verify still primary |
-| `design audit` / `detect` / `token-check` | ⚠️ | f002 open for detect envelope |
+| `design audit` / `detect` / `token-check` | ✅ | f002 envelopes (`clean` / `no-design-tokens`) |
 | `code status` / `verify` | ⬜ | after new blocks land |
-| Finding #2 `design detect` envelope | open | structured no-design-system result |
+| Finding #2 `design detect` envelope | **fixed** | structured clean / no-tokens result |
 
 ---
 
@@ -140,13 +141,33 @@ da --org somarc --repo da-cli-0-6-0 --format json <cmd> \
 
 ---
 
+## Friction gate (blocks 0.6.0 cut)
+
+Waves prove coverage. **Frictions prove agentic operability.** Full hang-hat
+doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
+
+| Id | Severity | Status |
+|----|----------|--------|
+| f008 | Critical | **fixed** — subtree merge path semantics (clone-compatible) |
+| f009 | High | **fixed** — refuse out-of-tree + ownership flag messaging |
+| f002 | High | **fixed** — design detect/token-check structured envelopes |
+| f010 | High | **fixed** — put media URL warn/rewrite/strict |
+| f011 | Medium-high | **fixed** — contracts inventory includes autoblocks |
+
+**Friction column clear (2026-07-14 02:31 UTC).** Still do not cut 0.6.0 until **waves** + construct/provenance clear.
+
+---
+
 ## Immediate next actions (ordered)
 
-1. **Close Wave 1 formally** — pin target, run remaining content verbs, write evidence pack, dry-run construct pipeline  
-2. **Author site-modules spectrum** into design-industry-language (done in skill twins)  
-3. **Build kitchen-sink fixture + port blocks** (Wave 2 main content)  
-4. **Wire construct.yaml + audits** until Wave 2 gate is honest  
-5. Only then advance Wave 3 (index automation, route matrix)
+1. ~~Close Wave 1 formally~~ — **done 2026-07-14** (evidence pack)  
+2. ~~f008 Critical~~ — **fixed** (subtree merge)  
+3. ~~f009 High~~ — **fixed** (ownership flag messaging)  
+4. ~~f002 High~~ — **fixed** (design envelopes)  
+5. ~~f010 High~~ — **fixed** (media URL policy)  
+6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**  
+7. **Finish Wave 2 formal cut** — use `/cli-surface` + tools map as command addendum; re-run audits; stamp test-plan  
+8. Wave 3 matrix → Waves 4–6; then 0.6.0 version/branch when site proves
 
 ---
 

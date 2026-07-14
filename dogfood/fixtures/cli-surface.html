@@ -1,0 +1,232 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <div class="painterly-hero">
+        <div>
+          <div>
+            <p>WAVE 2 · CLI SURFACE · ADDENDUM</p>
+            <h1>Commands that proved this site</h1>
+            <p>This page is the <strong>Wave 2 formal-cut ledger</strong>: not abstract docs, but the <code>da</code> surface we actually ran against <em>this</em> dogfood — mapped to proof targets, evidence packs, and status. Inspired by the official <a href="https://main--da-cli-eds--somarc.aem.live/tools/da-cli-flows.html">Workflow Explorer</a>, scoped to certification.</p>
+            <p><strong>As of 2026-07-14 02:45 UTC</strong> · Interactive map: <a href="/tools/wave-2-cli-surface.html">tools/wave-2-cli-surface</a> · Machine sheet: <a href="/data/wave-2-cli-surface.json">wave-2-cli-surface.json</a></p>
+          </div>
+          <div>
+            <p>
+              <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/test-plan-waves.webp" alt="Painterly chart of waves and survey flags — CLI surface mapped as a test plan">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>How to read this ledger</h2>
+      <ul>
+        <li><strong>Journey</strong> — a cert story (block spectrum, audit gate, design, content bus, friction locks).</li>
+        <li><strong>Command</strong> — the <code>da</code> invocation (local 0.5.x tree).</li>
+        <li><strong>Proof target</strong> — public route or artifact on this site.</li>
+        <li><strong>Evidence</strong> — git path under <code>dogfood/evidence/</code> when stored.</li>
+        <li><strong>Status</strong> — ran · ok · partial · pending for formal Wave 2 cut.</li>
+      </ul>
+      <p>This is an <strong>addendum to the kitchen sink</strong>: the sink proves modules render; this page proves the CLI surface that measured them.</p>
+    </div>
+
+    <div>
+      <h2>Journey A — Block spectrum</h2>
+      <p>Force code bus + decoration against a full modern-site palette.</p>
+      <div class="table">
+        <div>
+          <div><p>Command</p></div>
+          <div><p>Proof target</p></div>
+          <div><p>Evidence / note</p></div>
+          <div><p>Status</p></div>
+        </div>
+        <div>
+          <div><p><code>content put /kitchen-sink.html …</code></p></div>
+          <div><p><a href="/kitchen-sink">/kitchen-sink</a></p></div>
+          <div><p>construct + fixtures</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p><code>preview page /kitchen-sink</code> · <code>publish page /kitchen-sink</code></p></div>
+          <div><p>preview + live</p></div>
+          <div><p>public URL</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p><code>audit contracts --prefix / --verify-code</code></p></div>
+          <div><p>all HTML routes + autoblocks</p></div>
+          <div><p><code>evidence/wave-2/audit-contracts.json</code></p></div>
+          <div><p>ok · includes modal/widget/fragment (f011)</p></div>
+        </div>
+        <div>
+          <div><p><code>audit full /kitchen-sink</code></p></div>
+          <div><p>/kitchen-sink</p></div>
+          <div><p><code>evidence/wave-2/audit-full-kitchen-sink.json</code></p></div>
+          <div><p>ok · re-run at cut</p></div>
+        </div>
+        <div>
+          <div><p><code>block list</code> / <code>block inspect &lt;name&gt;</code></p></div>
+          <div><p>built-in contracts sparse</p></div>
+          <div><p>code-bus verify primary</p></div>
+          <div><p>partial</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Journey B — Design surface</h2>
+      <div class="table">
+        <div>
+          <div><p>Command</p></div>
+          <div><p>Proof target</p></div>
+          <div><p>Evidence / note</p></div>
+          <div><p>Status</p></div>
+        </div>
+        <div>
+          <div><p><code>design detect / --format json</code></p></div>
+          <div><p>home / any page</p></div>
+          <div><p>envelope <code>status: clean|findings</code> (f002)</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p><code>design token-check / --format json</code></p></div>
+          <div><p>stardust tokens</p></div>
+          <div><p><code>no-design-tokens</code> structured (f002)</p></div>
+          <div><p>ok · intentional for this site</p></div>
+        </div>
+        <div>
+          <div><p><code>design audit /kitchen-sink</code></p></div>
+          <div><p>/kitchen-sink</p></div>
+          <div><p>impeccable categories</p></div>
+          <div><p>ok · re-run at cut</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Journey C — Content + media bus</h2>
+      <div class="table">
+        <div>
+          <div><p>Command</p></div>
+          <div><p>Proof target</p></div>
+          <div><p>Evidence / note</p></div>
+          <div><p>Status</p></div>
+        </div>
+        <div>
+          <div><p><code>content put</code> / <code>put-tree</code> (fixtures)</p></div>
+          <div><p>construct.yaml artifacts</p></div>
+          <div><p>site regen loop</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p><code>content clone --path /data</code> · <code>content merge /data</code></p></div>
+          <div><p>workspace subtree</p></div>
+          <div><p>f008 merge path lock</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p><code>content put … --rewrite-media-urls</code> / warn</p></div>
+          <div><p>host-less /media imgs</p></div>
+          <div><p>f010 media policy</p></div>
+          <div><p>ok</p></div>
+        </div>
+        <div>
+          <div><p>absolute <code>content.da.live</code> media on pages</p></div>
+          <div><p>heroes, kitchen-sink, chrome</p></div>
+          <div><p>preview rewrite</p></div>
+          <div><p>ok</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Journey D — Friction locks (agentic operability)</h2>
+      <p>Not Wave 2-only, but required so Wave 2 audits mean something to agents.</p>
+      <div class="table">
+        <div>
+          <div><p>Finding</p></div>
+          <div><p>Command / surface</p></div>
+          <div><p>Learning</p></div>
+          <div><p>Status</p></div>
+        </div>
+        <div>
+          <div><p>f002</p></div>
+          <div><p>design detect / token-check envelopes</p></div>
+          <div><p><a href="/learnings/f002-design-detect-envelope">f002</a></p></div>
+          <div><p>fixed</p></div>
+        </div>
+        <div>
+          <div><p>f008</p></div>
+          <div><p>content merge subtree</p></div>
+          <div><p><a href="/learnings/f008-content-merge-path">f008</a></p></div>
+          <div><p>fixed</p></div>
+        </div>
+        <div>
+          <div><p>f009</p></div>
+          <div><p>put outside worktree ownership</p></div>
+          <div><p><a href="/learnings/f009-content-put-outside-worktree">f009</a></p></div>
+          <div><p>fixed</p></div>
+        </div>
+        <div>
+          <div><p>f010</p></div>
+          <div><p>media URL warn / rewrite / strict</p></div>
+          <div><p><a href="/learnings/f010-media-absolute-url-rewrite">f010</a></p></div>
+          <div><p>fixed</p></div>
+        </div>
+        <div>
+          <div><p>f011</p></div>
+          <div><p>audit contracts autoblocks</p></div>
+          <div><p><a href="/learnings/f011-audit-contracts-autoblock">f011</a></p></div>
+          <div><p>fixed</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Formal Wave 2 cut bar (this ledger)</h2>
+      <ol>
+        <li>Every <strong>Journey A–C</strong> row is <code>ok</code> (or partial with explicit exception).</li>
+        <li>Evidence JSON under <code>dogfood/evidence/wave-2/</code> matches a re-run timestamp.</li>
+        <li><a href="/kitchen-sink">Kitchen sink</a> live + contracts include Required spectrum + autoblocks.</li>
+        <li>This page + interactive tool published; nav and coverage link here.</li>
+        <li>Progress log on <a href="/test-plan">test plan</a> records <strong>Wave 2 cut</strong> with UTC stamp.</li>
+      </ol>
+      <p>Friction column is already clear (f001–f011). Wave 2 cut is still a <strong>wave</strong> claim, not a 0.6.0 release cut.</p>
+    </div>
+
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>proof</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>2</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>block, audit, design, content, code</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>in-progress</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>CLI surface — Wave 2 command ledger</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Addendum mapping da-cli commands run against this dogfood site for Wave 2 formal cut.</div>
+        </div>
+        <div>
+          <div>last-updated</div>
+          <div>2026-07-14T02:45:00Z</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

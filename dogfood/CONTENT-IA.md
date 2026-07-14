@@ -33,6 +33,9 @@ the spine.
 
 /coverage                 Living catalog (spine of the suite; not the full nav)
 /kitchen-sink             Wave 2 block/audit/design proof (spectrum)
+/cli-surface              Wave 2 CLI command ledger (addendum for formal cut)
+/tools/wave-2-cli-surface.html  Interactive command map (codebus; flows-inspired)
+/data/wave-2-cli-surface.json   Machine sheet for the CLI surface ledger
 /blocks                   Short narrative: authoring vs proving → points to kitchen-sink
 
 /learnings                Learnings hub — flywheel + index of all findings

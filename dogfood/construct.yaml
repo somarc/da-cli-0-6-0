@@ -148,10 +148,23 @@ steps:
   - id: preview-kitchen-sink
     command: preview page /kitchen-sink --format json
     depends_on: [put-kitchen-sink]
+  # Wave 2 — CLI surface ledger (command addendum for formal cut)
+  - id: put-cli-surface
+    command: content put /cli-surface.html dogfood/fixtures/cli-surface.html --format json
+    depends_on: [preview-kitchen-sink]
+  - id: preview-cli-surface
+    command: preview page /cli-surface --format json
+    depends_on: [put-cli-surface]
+  - id: put-wave-2-cli-surface-data
+    command: content put /data/wave-2-cli-surface.json dogfood/fixtures/data/wave-2-cli-surface.json --format json
+    depends_on: [preview-cli-surface]
+  - id: preview-wave-2-cli-surface-data
+    command: preview page /data/wave-2-cli-surface.json --format json
+    depends_on: [put-wave-2-cli-surface-data]
   # Wave 3 — authored structured-data sheet (contentbus), discovered by `da content sheets`.
   - id: put-coverage-data
     command: content put /data/coverage.json dogfood/fixtures/coverage-data.json --format json
-    depends_on: [preview-kitchen-sink]
+    depends_on: [preview-wave-2-cli-surface-data]
   - id: preview-coverage-data
     command: preview page /data/coverage.json --format json
     depends_on: [put-coverage-data]

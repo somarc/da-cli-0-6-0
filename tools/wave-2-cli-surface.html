@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wave 2 CLI Surface · da-cli-0-6-0 dogfood</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:#0d1117;color:#e6edf3;min-height:100dvh;display:flex;flex-direction:column}
+a{color:#79c0ff;text-decoration:none}
+a:hover{text-decoration:underline}
+#site-nav{height:48px;background:#161b22;border-bottom:1px solid #30363d;display:flex;align-items:center;padding:0 16px;gap:12px;flex-wrap:wrap}
+#site-nav .brand{font-weight:700;color:#e6edf3;font-size:13px}
+#site-nav .sep{width:1px;height:16px;background:#30363d}
+#site-nav a.nav{font-size:12px;color:#8b949e}
+#site-nav a.nav:hover{color:#c9d1d9}
+#site-nav .badge{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#484f58}
+#workspace{flex:1;display:flex;min-height:0}
+#sidebar{width:280px;min-width:240px;background:#161b22;border-right:1px solid #30363d;overflow-y:auto;display:flex;flex-direction:column}
+#sidebar-hd{padding:14px 16px;border-bottom:1px solid #30363d}
+#sidebar-hd h1{font-size:14px;color:#58a6ff}
+#sidebar-hd p{font-size:11px;color:#8b949e;margin-top:6px;line-height:1.4}
+#journeys{display:grid;gap:6px;margin-top:12px}
+.journey{border:1px solid #30363d;border-radius:6px;padding:8px 10px;background:#0d1117;color:#c9d1d9;font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:left;cursor:pointer}
+.journey:hover,.journey.on{border-color:#58a6ff;color:#fff}
+#cmd-tree{flex:1;overflow-y:auto}
+.grp{border-bottom:1px solid #21262d}
+.grp-hd{padding:8px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8b949e;cursor:pointer;display:flex;justify-content:space-between}
+.grp-hd:hover{background:#1c2128;color:#c9d1d9}
+.grp.closed .grp-body{display:none}
+.cmd{padding:7px 14px 7px 22px;font-size:11px;font-family:'IBM Plex Mono',monospace;cursor:pointer;color:#c9d1d9;border-left:3px solid transparent}
+.cmd:hover{background:#1c2128}
+.cmd.on{background:#1c2840;color:#58a6ff;border-left-color:#58a6ff}
+.st{display:inline-block;margin-left:6px;font-size:9px;padding:1px 5px;border-radius:999px;border:1px solid #30363d;color:#8b949e}
+.st.ok,.st.fixed{border-color:#238636;color:#7ee787}
+.st.partial{border-color:#b45309;color:#fbbf24}
+#main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+#toolbar{padding:10px 16px;background:#161b22;border-bottom:1px solid #30363d;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ee787}
+#toolbar .dim{color:#8b949e}
+#detail{flex:1;overflow-y:auto;padding:20px 22px}
+.card{border:1px solid #30363d;border-radius:8px;background:#161b22;padding:16px;margin-bottom:14px}
+.card h2{font-size:13px;color:#58a6ff;margin-bottom:8px}
+.card pre{font-family:'IBM Plex Mono',monospace;font-size:11px;background:#0d1117;border:1px solid #21262d;border-radius:6px;padding:10px 12px;overflow-x:auto;color:#c9d1d9;line-height:1.45}
+.meta{display:grid;grid-template-columns:120px 1fr;gap:6px 12px;font-size:12px;margin-top:10px}
+.meta dt{color:#8b949e;font-family:'IBM Plex Mono',monospace;font-size:10px}
+.meta dd{color:#e6edf3}
+#empty{color:#484f58;font-size:13px;padding:40px 8px;text-align:center}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow .node{border:1px solid #3b5bdb;background:#13161e;color:#748ffc;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:6px 8px;border-radius:6px}
+.flow .arrow{color:#30363d;font-size:12px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:#8b949e;margin-top:8px}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}
+@media(max-width:820px){
+  #workspace{flex-direction:column}
+  #sidebar{width:auto;max-height:42vh;border-right:0;border-bottom:1px solid #30363d}
+}
+</style>
+</head>
+<body>
+<nav id="site-nav">
+  <a class="brand" href="/">da-cli-0-6-0</a>
+  <div class="sep"></div>
+  <a class="nav" href="/cli-surface">CLI surface ledger</a>
+  <a class="nav" href="/kitchen-sink">Kitchen sink</a>
+  <a class="nav" href="/test-plan">Test plan</a>
+  <a class="nav" href="https://main--da-cli-eds--somarc.aem.live/tools/da-cli-flows.html">Official flows ↗</a>
+  <span class="badge">Wave 2 · dogfood surface · 2026-07-14 · local 0.5.x</span>
+</nav>
+<div id="workspace">
+  <aside id="sidebar">
+    <div id="sidebar-hd">
+      <h1>Wave 2 CLI Surface</h1>
+      <p>Commands actually run against this cert site — not the full da-cli reference. Borrowed UX from the official Workflow Explorer; data is dogfood-scoped.</p>
+      <div id="journeys"></div>
+      <div class="legend">
+        <span><i style="background:#7ee787"></i>ok / fixed</span>
+        <span><i style="background:#fbbf24"></i>partial</span>
+      </div>
+    </div>
+    <div id="cmd-tree"></div>
+  </aside>
+  <main id="main">
+    <div id="toolbar"><span class="dim">← select a command to see proof target, flow, and evidence</span></div>
+    <div id="detail"><div id="empty">Select a command from the sidebar</div></div>
+  </main>
+</div>
+<script>
+const SURFACE = {
+  asOf: '2026-07-14T02:45:00Z',
+  journeys: [
+    { id: 'A', label: 'A · Block spectrum', filter: 'A-block-spectrum' },
+    { id: 'B', label: 'B · Design', filter: 'B-design' },
+    { id: 'C', label: 'C · Content / media', filter: 'C-content-media' },
+    { id: 'D', label: 'D · Friction locks', filter: 'D-friction' },
+  ],
+  groups: [
+    {
+      id: 'A-block-spectrum',
+      title: 'Block spectrum',
+      items: [
+        {
+          id: 'put-ks',
+          label: 'content put kitchen-sink',
+          syntax: 'da --commit content put /kitchen-sink.html dogfood/fixtures/kitchen-sink.html',
+          target: '/kitchen-sink',
+          evidence: 'dogfood/fixtures/kitchen-sink.html · construct.yaml',
+          status: 'ok',
+          flow: ['fixtures', 'content put', 'DA source', 'preview', 'live'],
+          note: 'Authoring input for the full module spectrum (hero, cards, form, modal link, embed, …).',
+        },
+        {
+          id: 'preview-ks',
+          label: 'preview + publish kitchen-sink',
+          syntax: 'da --commit preview page /kitchen-sink\nda --commit publish page /kitchen-sink',
+          target: 'aem.page + aem.live',
+          evidence: 'https://main--da-cli-0-6-0--somarc.aem.live/kitchen-sink',
+          status: 'ok',
+          flow: ['DA source', 'admin.hlx preview', 'admin.hlx live'],
+          note: 'Delivery proof: public page must render decorated blocks.',
+        },
+        {
+          id: 'contracts',
+          label: 'audit contracts --verify-code',
+          syntax: 'da --format json audit contracts --prefix / --verify-code',
+          target: 'site-wide blocks + autoblocks',
+          evidence: 'dogfood/evidence/wave-2/audit-contracts.json',
+          status: 'ok',
+          flow: ['.plain.html scan', 'link autoblocks', 'scripts.js', 'codebus HEAD js/css'],
+          note: 'f011: modal/widget/fragment appear with source page|autoblock|page+autoblock.',
+        },
+        {
+          id: 'audit-full',
+          label: 'audit full /kitchen-sink',
+          syntax: 'da --format json audit full /kitchen-sink',
+          target: '/kitchen-sink',
+          evidence: 'dogfood/evidence/wave-2/audit-full-kitchen-sink.json',
+          status: 'ok',
+          flow: ['preview HTML', 'audit-engines', 'report'],
+          note: 'Structural / quality scan on the spectrum page. Re-run at formal cut.',
+        },
+        {
+          id: 'block-inspect',
+          label: 'block list / inspect',
+          syntax: 'da block list\nda block inspect <name>',
+          target: 'built-in contracts',
+          evidence: 'sparse catalog — code-bus verify is primary',
+          status: 'partial',
+          flow: ['block-contracts', 'optional inspect'],
+          note: 'Built-in contract catalog is thinner than field blocks; contracts --verify-code carries the gate.',
+        },
+      ],
+    },
+    {
+      id: 'B-design',
+      title: 'Design surface',
+      items: [
+        {
+          id: 'design-detect',
+          label: 'design detect',
+          syntax: 'da --format json design detect /',
+          target: '/',
+          evidence: 'f002 envelope status: clean | findings',
+          status: 'ok',
+          flow: ['fetch HTML', 'impeccable rules', 'structured envelope'],
+          note: 'Never empty stdout on clean scan (f002).',
+        },
+        {
+          id: 'token-check',
+          label: 'design token-check',
+          syntax: 'da --format json design token-check /',
+          target: '/',
+          evidence: 'f002 status: no-design-tokens (intentional)',
+          status: 'ok',
+          flow: ['fetch HTML', 'stardust token list', 'envelope'],
+          note: 'Renderaissance site is not stardust-token branded; structured “nothing here” is success of orientation.',
+        },
+        {
+          id: 'design-audit',
+          label: 'design audit kitchen-sink',
+          syntax: 'da design audit /kitchen-sink',
+          target: '/kitchen-sink',
+          evidence: 're-run at cut',
+          status: 'ok',
+          flow: ['fetch', 'ai-slop + quality + eds', 'report'],
+          note: 'Full impeccable categories against the spectrum page.',
+        },
+      ],
+    },
+    {
+      id: 'C-content-media',
+      title: 'Content & media',
+      items: [
+        {
+          id: 'construct-put',
+          label: 'construct put/preview loop',
+          syntax: 'da pipeline run dogfood/construct.yaml --dry-run\n# --commit for regen',
+          target: 'all fixtures',
+          evidence: 'dogfood/construct.yaml',
+          status: 'ok',
+          flow: ['git fixtures', 'content put', 'preview page'],
+          note: 'Site is regenerable (ADR 0003).',
+        },
+        {
+          id: 'merge-data',
+          label: 'content merge /data',
+          syntax: 'da content clone --path /data --force\nda content merge /data',
+          target: '/data/* workspace',
+          evidence: 'f008 subtree merge',
+          status: 'ok',
+          flow: ['listContentPaths', 'sourceGet files', 'workspace write'],
+          note: 'Folder path never bare sourceGet (f008).',
+        },
+        {
+          id: 'media-f010',
+          label: 'media URL policy on put',
+          syntax: 'da content put …   # warns\nda content put … --rewrite-media-urls',
+          target: 'img /media host-less',
+          evidence: 'f010',
+          status: 'ok',
+          flow: ['scan HTML', 'warn or rewrite', 'content.da.live absolute'],
+          note: 'Avoids about:error after Helix media rewrite.',
+        },
+      ],
+    },
+    {
+      id: 'D-friction',
+      title: 'Friction locks',
+      items: [
+        { id: 'f002', label: 'f002 design envelopes', syntax: 'see design detect/token-check', target: 'design', evidence: '/learnings/f002-design-detect-envelope', status: 'fixed', flow: ['symptom', 'fix', 'lock'], note: 'High friction gate closed.' },
+        { id: 'f008', label: 'f008 merge path', syntax: 'content merge <folder>', target: 'content-workspace', evidence: '/learnings/f008-content-merge-path', status: 'fixed', flow: ['clone', 'merge subtree'], note: 'Critical closed.' },
+        { id: 'f009', label: 'f009 outside worktree', syntax: 'content put --allow-outside-worktree', target: 'content put', evidence: '/learnings/f009-content-put-outside-worktree', status: 'fixed', flow: ['refuse', 'ownership flag'], note: 'High closed.' },
+        { id: 'f010', label: 'f010 media about:error', syntax: '--rewrite-media-urls | --strict-media-urls', target: 'put/put-tree', evidence: '/learnings/f010-media-absolute-url-rewrite', status: 'fixed', flow: ['warn', 'rewrite'], note: 'High closed.' },
+        { id: 'f011', label: 'f011 contracts autoblocks', syntax: 'audit contracts --verify-code', target: 'modal/widget/fragment', evidence: '/learnings/f011-audit-contracts-autoblock', status: 'fixed', flow: ['links', 'scripts.js', 'verify-code'], note: 'Medium-high closed.' },
+      ],
+    },
+  ],
+};
+
+const journeysEl = document.getElementById('journeys');
+const treeEl = document.getElementById('cmd-tree');
+const toolbar = document.getElementById('toolbar');
+const detail = document.getElementById('detail');
+let activeJourney = null;
+let activeId = null;
+
+function renderJourneys() {
+  journeysEl.innerHTML = '';
+  SURFACE.journeys.forEach((j) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'journey' + (activeJourney === j.filter ? ' on' : '');
+    b.textContent = j.label;
+    b.onclick = () => {
+      activeJourney = activeJourney === j.filter ? null : j.filter;
+      renderTree();
+      renderJourneys();
+    };
+    journeysEl.appendChild(b);
+  });
+}
+
+function renderTree() {
+  treeEl.innerHTML = '';
+  SURFACE.groups
+    .filter((g) => !activeJourney || g.id === activeJourney)
+    .forEach((g) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'grp';
+      const hd = document.createElement('div');
+      hd.className = 'grp-hd';
+      hd.innerHTML = `<span>${g.title}</span><span>▾</span>`;
+      hd.onclick = () => wrap.classList.toggle('closed');
+      const body = document.createElement('div');
+      body.className = 'grp-body';
+      g.items.forEach((item) => {
+        const row = document.createElement('div');
+        row.className = 'cmd' + (activeId === item.id ? ' on' : '');
+        row.innerHTML = `${item.label}<span class="st ${item.status}">${item.status}</span>`;
+        row.onclick = () => select(item.id);
+        body.appendChild(row);
+      });
+      wrap.appendChild(hd);
+      wrap.appendChild(body);
+      treeEl.appendChild(wrap);
+    });
+}
+
+function findItem(id) {
+  for (const g of SURFACE.groups) {
+    const hit = g.items.find((i) => i.id === id);
+    if (hit) return hit;
+  }
+  return null;
+}
+
+function select(id) {
+  activeId = id;
+  renderTree();
+  const item = findItem(id);
+  if (!item) return;
+  toolbar.innerHTML = `<code>${escapeHtml(item.syntax.split('\n')[0])}</code>`;
+  const flowHtml = (item.flow || [])
+    .map((n, i, arr) => `<span class="node">${escapeHtml(n)}</span>${i < arr.length - 1 ? '<span class="arrow">→</span>' : ''}`)
+    .join('');
+  const evidenceLink = item.evidence.startsWith('http') || item.evidence.startsWith('/')
+    ? `<a href="${escapeHtml(item.evidence)}">${escapeHtml(item.evidence)}</a>`
+    : `<code>${escapeHtml(item.evidence)}</code>`;
+  detail.innerHTML = `
+    <div class="card">
+      <h2>${escapeHtml(item.label)}</h2>
+      <pre>${escapeHtml(item.syntax)}</pre>
+      <dl class="meta">
+        <dt>status</dt><dd><span class="st ${item.status}">${item.status}</span></dd>
+        <dt>proof target</dt><dd>${escapeHtml(item.target)}</dd>
+        <dt>evidence</dt><dd>${evidenceLink}</dd>
+      </dl>
+      <div class="flow">${flowHtml}</div>
+      <p style="font-size:13px;color:#c9d1d9;line-height:1.5;margin-top:8px">${escapeHtml(item.note || '')}</p>
+    </div>
+    <div class="card">
+      <h2>Related</h2>
+      <p style="font-size:12px;color:#8b949e;line-height:1.5">
+        Human ledger: <a href="/cli-surface">/cli-surface</a> ·
+        Sheet: <a href="/data/wave-2-cli-surface.json">wave-2-cli-surface.json</a> ·
+        Official architecture map: <a href="https://main--da-cli-eds--somarc.aem.live/tools/da-cli-flows.html">da-cli-flows</a>
+      </p>
+    </div>`;
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+renderJourneys();
+renderTree();
+</script>
+</body>
+</html>
