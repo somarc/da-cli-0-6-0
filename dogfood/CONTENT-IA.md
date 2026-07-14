@@ -104,12 +104,26 @@ Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropd
 |-----------|----------|
 | **Home** | — |
 | **Story** | Why · Test plan · Coverage catalog |
-| **Prove** | Kitchen sink · Blocks narrative · Coverage by wave · Command sheet · Query index |
-| **Learnings** | Hub · f001–f011+ (no legacy `/findings` route) |
-| **Labs** | Dualform · Renderaissance home hero · Modal sample |
+| **Prove** | Kitchen sink · CLI surface ledger · Wave 2 CLI map · Blocks · Coverage · sheets · index |
+| **Learnings** | **Direct link to hub only** — never enumerate fNNN here |
+| **Labs** | Dualform · home hero · Modal sample |
 
-Growth rule: add new proof/learning routes as **submenu items**, not new top-level
-links, unless they define a new IA pillar.
+Growth rule: add new proof routes as **Prove submenu** items when they are cut
+gates; add learnings only under `/learnings` hub table + construct.yaml — **not**
+nav. Top-level stays short.
+
+### Nav freshness (avoid content debt)
+
+| Rule | Why |
+|------|-----|
+| **Learnings = hub link only** | fNNN list grows forever; the hub table is the index of record |
+| **Prove submenu = stable cut surfaces** | kitchen-sink, cli-surface, tools map — not every lab |
+| **Source of truth** | `dogfood/fixtures/nav.html` → construct put/preview; never hand-edit DA nav alone |
+| **When adding a learning** | fixture + construct + hub table row; **do not** edit nav |
+| **When adding a Wave proof page** | nav Prove (one link) + coverage + test-plan progress log |
+| **Optional later** | query-index-driven nav for Prove only; Learnings stay hub-only forever |
+
+Anti-pattern already logged: *“Nav that grows one link per finding.”*
 
 ---
 
