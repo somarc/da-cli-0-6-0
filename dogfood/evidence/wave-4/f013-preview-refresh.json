@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "preview.page",
+  "target": "somarc/da-cli-0-6-0/learnings/f013-tools-classify-probe-gap",
+  "data": {
+    "mode": "committed",
+    "path": "/learnings/f013-tools-classify-probe-gap",
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f013-tools-classify-probe-gap"
+  },
+  "changes": [
+    "/learnings/f013-tools-classify-probe-gap"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit publish page /learnings/f013-tools-classify-probe-gap"
+  ]
+}

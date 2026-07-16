@@ -3,7 +3,7 @@
   <main>
     <div>
       <p><a href="/learnings">← Learnings</a></p>
-      <p>f013 · route · open</p>
+      <p>f013 · route · fixed</p>
       <h1><code>route classify</code> probes miss codebus static HTML under <code>/tools/</code></h1>
     </div>
     <div>
@@ -16,15 +16,15 @@
     </div>
     <div>
       <h2>Interim guardrail</h2>
-      <p>Documented on the <a href="/route-matrix">route matrix</a> at the Wave 3 cut: when class is orphan but the path is known codebus static, prefer curl/live proof and do <strong>not</strong> treat the route as a clean candidate. A live <strong>200</strong> that disagrees with an all-404 probe is a <em>probe conflict</em>, not an orphan.</p>
+      <p>Documented on the <a href="/route-matrix">route matrix</a> at the Wave 3 cut: when class is orphan but the path is known codebus static, prefer curl/live proof and do <strong>not</strong> treat the route as a clean candidate. A live <strong>200</strong> that disagrees with an all-404 probe is a <em>probe conflict</em>, not an orphan. This guardrail remains useful for older CLI versions.</p>
     </div>
     <div>
       <h2>Resolution</h2>
-      <p><strong>Open.</strong> Candidate fix in da-cli: align the codebus probe for extensioned static routes with how the edge actually serves them (probe the raw path against the code bus in addition to the helix status <code>code.status</code> read), and surface live-200/probe-404 disagreement as an explicit <code>probe-conflict</code> signal instead of falling through to <code>orphan</code>. Severity: Medium — tracked in <code>dogfood/FRICTION-GATE-0.6.0.md</code>; does not block the Critical/High friction column.</p>
+      <p><strong>Fixed in da-cli commit <code>1954c73</code>.</strong> Before an extensioned route can be called <code>orphan</code>, the classifier now re-probes the literal path that the code bus actually keys. A literal code <strong>200</strong> promotes the verdict to <code>codebus</code>. Any <strong>403</strong> from the canonical or literal status probes now yields <code>probe-failed</code>: permission-denied means ownership is unknown, never absent, so <code>route clean</code> refuses instead of passing through its orphan safety gate. Release review upgraded the finding from Medium to High because the old result could orient an agent toward deletion without <code>--force</code>.</p>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Pending. When fixed, lock with regression coverage in <code>route-classify.test.js</code> (static codebus HTML must not classify orphan) and re-run the Wave 3 ownership matrix so <code>/tools/wave-2-cli-surface.html</code> reports its true class publicly.</p>
+      <p>Seven focused locks in <code>src/commands/route.test.js</code> cover literal <code>.html</code> codebus success, a genuine literal 404 orphan, canonical and literal 403 handling, the extensionless no-reprobe path, and unchanged DA-content ownership. The original field command was re-run: <code>/tools/wave-2-cli-surface.html</code> now reports <code>codebus</code> with <code>literalProbe.code: 200</code> (the command's documented codebus exit is 3). Before/after evidence is checked in under <code>dogfood/evidence/wave-3/</code>.</p>
     </div>
     <div>
       <div class="metadata">
@@ -42,7 +42,7 @@
         </div>
         <div>
           <div>status</div>
-          <div>open</div>
+          <div>fixed</div>
         </div>
         <div>
           <div>finding</div>
@@ -54,7 +54,7 @@
         </div>
         <div>
           <div>Description</div>
-          <div>Classify probes report orphan for codebus-served /tools/*.html while live returns 200 — probe conflict, not an orphan; open Medium friction.</div>
+          <div>Literal-path codebus probing and 403-as-unknown handling prevent living static HTML from falling into the orphan clean-candidate class; fixed and locked.</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/learnings.html",
+  "data": {
+    "mode": "committed",
+    "path": "/learnings.html",
+    "source": "dogfood/fixtures/learnings.html"
+  },
+  "changes": [
+    "/learnings.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit preview page /learnings.html"
+  ]
+}

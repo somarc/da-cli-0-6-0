@@ -38,13 +38,13 @@ Prove agents can **discover sheets**, **trust the public query index**, and **cl
 | `/blocks/hero/hero.js` | codebus | classify · code 200, daSource false |
 | `/media/.../mascot-cupid.webp` | hybrid | classify · daSource true, code 200 |
 | `/tests/orphan-demo` | orphan | classify + clean dry-run |
-| `/tools/wave-2-cli-surface.html` | orphan (probe) | classify all 404 vs **live curl 200** — **documented gap** |
+| `/tools/wave-2-cli-surface.html` | codebus (f013 fix) | canonical statuses remain 404; literal-path probe is **200** — before/after artifacts checked in |
 
 ## Documented partials (not blockers)
 
 | Surface | Status | Note |
 |---------|--------|------|
-| tools static classify | probe gap | Codebus `tools/*.html` live 200; classify returned orphan/404s. Do not `route clean`. Prefer live curl when class conflicts with known codebus static. |
+| tools static classify | fixed (f013) | Literal-path re-probe now classifies codebus `tools/*.html` correctly; any 403 becomes `probe-failed`, so unknown ownership cannot pass the orphan clean gate. |
 | index eventual consistency | expected | Publish → `index build` → new path appeared in live index within ~2 min (`total` 23 → 24). |
 
 ## Public proof

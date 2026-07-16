@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "preview.page",
+  "target": "somarc/da-cli-0-6-0/learnings/f017-envelope-coverage",
+  "data": {
+    "mode": "committed",
+    "path": "/learnings/f017-envelope-coverage",
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f017-envelope-coverage"
+  },
+  "changes": [
+    "/learnings/f017-envelope-coverage"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit publish page /learnings/f017-envelope-coverage"
+  ]
+}

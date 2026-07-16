@@ -24,7 +24,7 @@
       <p>Wave 1 proved put/preview/publish. Wave 2 proved blocks and audits. <strong>Wave 3 proves the map of the site:</strong></p>
       <ol>
         <li><strong>Sheets</strong> — DA JSON tables discovered by <code>da content sheets</code> (strict <code>:type: sheet</code> + <code>data[]</code> only — inventory, not full multi-sheet model; expand as awareness grows).</li>
-        <li><strong>Query index</strong> — live <code>/query-index.json</code> built from published pages + <code>helix-query.yaml</code>; exercised via <code>da index show / validate / query / build</code>.</li>
+        <li><strong>Query index</strong> — live <code>/query-index.json</code> built from published pages + Configuration Service <code>content/query.yaml</code>; exercised via <code>da index show / validate / query / build</code>.</li>
         <li><strong>Route ownership</strong> — for each path, is it contentbus, codebus, hybrid, orphan, or probe-failed? Commands: <code>route classify / audit / canonical / clean</code>.</li>
       </ol>
       <p>Without this wave, agents guess wrong about “edit DA vs edit git” and ship broken reindexes.</p>
@@ -45,7 +45,7 @@
         </div>
         <div>
           <div><p><code>index show</code></p></div>
-          <div><p>Read helix-query.yaml field list</p></div>
+          <div><p>Read Configuration Service query field list</p></div>
           <div><p><code>evidence/wave-3/index-show.json</code></p></div>
         </div>
         <div>
@@ -139,7 +139,7 @@ da route clean /tests/orphan-demo
       <h2>Already in place</h2>
       <ul>
         <li>Sheets: <a href="/data/coverage.json">/data/coverage.json</a>, <a href="/data/wave-2-cli-surface.json">wave-2-cli-surface.json</a>, contact-form sheet</li>
-        <li>Index fields wave/surface/status in <code>helix-query.yaml</code></li>
+        <li>Index fields wave/surface/status in Configuration Service <code>content/query.yaml</code></li>
         <li>Live <a href="/query-index.json">query-index.json</a></li>
         <li>Orphan demo route under <code>/tests/</code> (excluded from index by design)</li>
       </ul>

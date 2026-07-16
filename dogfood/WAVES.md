@@ -49,7 +49,7 @@ Proof line: pipelines green; durable job resumes after interruption; migration v
 **Not blocks.** Prove the **map** of the site:
 
 1. **Sheets** — `da content sheets` finds strict DA sheet JSON (`:type: sheet` + `data[]`) — coverage, forms, CLI surface sheet.  
-2. **Query index** — published pages → `/query-index.json` via `helix-query.yaml`; `index show / validate / query / build`.  
+2. **Query index** — published pages → `/query-index.json` via Configuration Service `content/query.yaml`; `index show / validate / query / build`.
 3. **Route ownership** — for each path: contentbus / codebus / hybrid / orphan; `route classify / audit / clean`.
 
 **Why:** agents must know whether to edit DA, edit git, or run `route clean` — guessing breaks sites.

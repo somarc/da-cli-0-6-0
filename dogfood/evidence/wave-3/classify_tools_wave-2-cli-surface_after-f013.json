@@ -1,0 +1,20 @@
+{
+  "command": "da --org somarc --repo da-cli-0-6-0 --branch main --format json route classify /tools/wave-2-cli-surface.html",
+  "capturedAt": "2026-07-16",
+  "exitCode": 3,
+  "result": {
+    "path": "/tools/wave-2-cli-surface.html",
+    "ownership": "codebus",
+    "daSource": false,
+    "sourcePath": "/tools/wave-2-cli-surface.html",
+    "preview": 404,
+    "live": 404,
+    "code": 404,
+    "sourceLocation": null,
+    "staleDaLocation": false,
+    "literalProbe": {
+      "code": 200,
+      "note": "codebus static — visible only to literal-path probe (f013)"
+    }
+  }
+}

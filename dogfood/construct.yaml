@@ -184,7 +184,7 @@ steps:
     depends_on: [put-route-matrix]
   # Wave 3 — query index: after publish, run `da --commit index build --yes` (or
   # Configuration Service reindex). Evidence under dogfood/evidence/wave-3/.
-  # Flywheel — learnings published after the Wave 3 cut (f012 fixed, f013 open)
+  # Flywheel — learnings published after the Wave 3 cut (f012/f013 fixed)
   - id: put-f012
     command: content put /learnings/f012-da-permission-headers.html dogfood/fixtures/learnings/f012-da-permission-headers.html --format json
     depends_on: [preview-route-matrix]
