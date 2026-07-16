@@ -57,6 +57,13 @@ public learning pages. Nothing Critical/High remains open on this list.
 | f011 | Medium-high | **fixed** | contracts inventory + verify for autoblocks (modal/widget/fragment) |
 | f012 | High | **fixed** | permission hints captured (`err.permissionHints`, `list().daPermissionHints`); 403 distinct from 401; `content list`/`get` warn proactively on read-only access. Merged to main (fast-forward, no PR — small, tested, low-risk change). |
 | f013 | Medium | **open** | `route classify` probes report orphan for codebus static `/tools/*.html` while live returns 200 — probe conflict, not an orphan. Does not block the Critical/High column; tracked with public learning page `/learnings/f013-tools-classify-probe-gap`. Candidate fix: raw-path codebus probe + explicit `probe-conflict` class (lock in `route-classify.test.js`). |
+| f014 | High | **fixed** | `pipeline run --format json` interleaved child-step stdout with the envelope (`stdio: 'inherit'`) — `JSON.parse(stdout)` failed on a flawless 58-step run. Fixed: JSON parent pipes child stdout to stderr; stdout carries exactly one envelope. e2e lock in `pipeline.test.js` (524/524). Field proof: `dogfood/evidence/wave-4/pipeline-run-clean.json`. |
+
+### Next friction candidates (not yet numbered pages)
+
+- `content put` / `preview page` / `publish page` emit human preflight text with no JSON envelope under `--format json` — envelope coverage gap (roadmap bucket 3), observed during the cut-sync pass.
+- `index build` is fire-and-forget: rebuild triggered, no `--wait`/convergence verification; agents must poll `query-index.json` manually. Natural Wave 4 durable-job candidate.
+- `pipeline run` has no `--job` mode — long regenerations cannot checkpoint/survive interruption yet (Wave 4 board).
 
 ### What “fixed” means (and what it does not)
 

@@ -9,7 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
-            <p><strong>0.6.0 hang-hat (2026-07-16 03:05 UTC):</strong> friction column <strong>clear</strong> (f001–f012 fixed in local 0.5.x, f012 merged to main; f013 open at Medium — tracked, does not block the Critical/High column). Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-16 03:30 UTC):</strong> friction column <strong>clear</strong> (f001–f012 and f014 fixed in local 0.5.x; f013 open at Medium — tracked, does not block the Critical/High column). Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -117,12 +117,18 @@
           <div><p>route</p></div>
           <div><p><code>route classify</code> misses codebus static <code>/tools/*.html</code> (live 200, probe 404)</p></div>
         </div>
+        <div>
+          <div><p><a href="/learnings/f014-pipeline-json-stdout">f014</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>pipeline</p></div>
+          <div><p><code>pipeline run --format json</code>: child stdout no longer pollutes the envelope</p></div>
+        </div>
       </div>
     </div>
     <div>
       <h2>How to add the next learning</h2>
       <ol>
-        <li>Allocate the next id (<code>f014</code>, …) — never reuse.</li>
+        <li>Allocate the next id (<code>f015</code>, …) — never reuse.</li>
         <li>Add <code>dogfood/fixtures/learnings/fNNN-slug.html</code> with metadata <code>kind=learning</code>.</li>
         <li>Link it from this hub table.</li>
         <li>Wire put/preview in <code>construct.yaml</code>.</li>

@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-16 03:10 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-16 03:30 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -27,7 +27,7 @@
 
     <div>
       <h2>Status at a glance</h2>
-      <p>As of <strong>2026-07-16 03:05 UTC</strong>:</p>
+      <p>As of <strong>2026-07-16 03:30 UTC</strong>:</p>
       <div class="table">
         <div>
           <div><p>Wave</p></div>
@@ -51,8 +51,8 @@
         </div>
         <div>
           <div><p>4 — Coordination, durability, migration</p></div>
-          <div><p>not started</p></div>
-          <div><p>Pipeline/job/migrate surfaces</p></div>
+          <div><p>in-progress</p></div>
+          <div><p>Opened 2026-07-16: construct regenerated the whole site twice, byte-idempotent (28 routes, sha256); f014 pipeline JSON contract fixed + locked. Remaining: durable jobs, interruption survival, migration. Pack: <code>dogfood/evidence/wave-4/</code>.</p></div>
         </div>
         <div>
           <div><p>5 — Failure &amp; recovery</p></div>
@@ -103,6 +103,10 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-16 03:30</p></div>
+          <div><p><strong>Wave 4 opened — the YAML surface held.</strong> Ran the full committed <code>construct.yaml</code> (58 steps) against the live site <em>twice</em> (runs <code>7165cc1f</code>, <code>d691ab30</code>): all 28 public routes byte-identical before and after both regenerations — the site is provably regenerable and the pipeline is idempotent. The rep surfaced <a href="/learnings/f014-pipeline-json-stdout">f014</a>: child-step stdout polluted the parent's <code>--format json</code> envelope (perfect run, unparseable output). Fixed same session — JSON parent routes child stdout to stderr — locked e2e (524/524), field-proven on the second run whose raw stdout parses clean. Evidence: <code>dogfood/evidence/wave-4/</code>. Remaining for Wave 4: durable jobs (<code>pipeline run --job</code> does not exist yet), interruption survival, migration. Next friction candidates noted in <code>dogfood/FRICTION-GATE-0.6.0.md</code>: put/preview/publish envelope gaps, <code>index build --wait</code>.</p></div>
         </div>
         <div>
           <div><p>2026-07-16 03:10</p></div>
@@ -199,7 +203,7 @@
         <li><strong>Frictions:</strong> every Critical/High agentic friction closed — see git <code>dogfood/FRICTION-GATE-0.6.0.md</code> and <a href="/learnings">/learnings</a> (f001–f012 fixed; f013 open at Medium, tracked).</li>
       </ol>
       <p>Waves without friction fixes are not enough. Friction fixes without wave evidence are not enough.</p>
-      <p>As of <strong>2026-07-16 03:05 UTC</strong>: <strong>friction column clear</strong> (f001–f012 fixed; f013 open, Medium); Waves 1–3 <strong>cut</strong>; Waves 4–6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
+      <p>As of <strong>2026-07-16 03:30 UTC</strong>: <strong>friction column clear</strong> (f001–f012, f014 fixed; f013 open, Medium); Waves 1–3 <strong>cut</strong>; Wave 4 <strong>in progress</strong> (construct idempotence proven, durable jobs remaining); Waves 5–6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
     </div>
 
     <div>

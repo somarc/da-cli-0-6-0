@@ -190,3 +190,9 @@ steps:
   - id: preview-f013
     command: preview page /learnings/f013-tools-classify-probe-gap --format json
     depends_on: [put-f013]
+  - id: put-f014
+    command: content put /learnings/f014-pipeline-json-stdout.html dogfood/fixtures/learnings/f014-pipeline-json-stdout.html --format json
+    depends_on: [preview-f013]
+  - id: preview-f014
+    command: preview page /learnings/f014-pipeline-json-stdout --format json
+    depends_on: [put-f014]
