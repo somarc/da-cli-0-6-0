@@ -282,3 +282,15 @@ steps:
   - id: preview-f027
     command: preview page /learnings/f027-list-success-bare-array --format json
     depends_on: [put-f027]
+  - id: put-f028
+    command: content put /learnings/f028-config-read-gated-build.html dogfood/fixtures/learnings/f028-config-read-gated-build.html --format json
+    depends_on: [preview-f027]
+  - id: preview-f028
+    command: preview page /learnings/f028-config-read-gated-build --format json
+    depends_on: [put-f028]
+  - id: put-f029
+    command: content put /learnings/f029-index-config-false-migration.html dogfood/fixtures/learnings/f029-index-config-false-migration.html --format json
+    depends_on: [preview-f028]
+  - id: preview-f029
+    command: preview page /learnings/f029-index-config-false-migration --format json
+    depends_on: [put-f029]

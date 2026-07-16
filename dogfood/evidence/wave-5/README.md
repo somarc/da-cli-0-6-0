@@ -45,6 +45,42 @@ seam; verified 0/7 on old code; suite 600/600). Learning:
   scope drift vs config-native change vs platform behavior) as part of the C3
   drill, not by guessing here.
 
+## C3 — index states: frozen fossil, blocked lane, false migration (2026-07-16)
+
+The live site WAS the injection — no synthetic failure needed. The freshly
+published f027 page served 200 but never entered `/query-index.json`;
+`maxLastModified` was frozen hours old; wildcard reindex jobs were accepted
+(202) with zero effect.
+
+- `c3-index-show.json` / `c3-index-validate.json` — the config-native index
+  surfaces both 403 for this identity (clean envelopes, correct "auth login
+  won't fix this" guidance). CLI fitness gap per ADR 0002 D6: config truth is
+  unobservable without Configuration Service access.
+- `f027-index-build.json` (earlier) — **f028 symptom**: `index build --wait`
+  died as `Permission denied for *` while the reindex route itself was
+  authorized (raw POST → 202). The Configuration Service *verification read*
+  gated the build and misattributed the denial.
+- `c3-index-build-recovered.json` — the same command through the f028 fix:
+  `built-and-verified` with one honest warning naming the actual denied route.
+  But `total: 39, changed: false` — which exposed the deeper truth:
+- **f029**: the previous session's "config-native migration" was never
+  observed on the platform. Single-path reindex of an already-indexed page
+  matched only `#simple` — no named index config active anywhere. The deleted
+  `helix-query.yaml` had been the ACTIVE config; the index was a fossil.
+- `c3-code-sync-query-yaml.json` — recovery: yaml restored from git history +
+  pushed; code sync shows codebus parity (`changes: []`). Probe-gap lesson:
+  config files 404 on the public host *by design* — a public 404 is not
+  deletion evidence.
+- `c3-index-build-final.json` — full recovery proof: named `default` index
+  matches again with all custom fields; rebuild `built-and-verified`,
+  `total 39→40, changed: true`; f027 present in the live index.
+
+Recognized (triangulation: frozen maxLastModified + `#simple`-only + config
+403) → contained (fossil kept serving; nothing destructive) → recovered
+(restore + resync + reindex + verified). Findings: **f028** (fixed+locked),
+**f029** (recovered; discipline stated — platform claims need live-response
+proof).
+
 ## Banked drills (Wave 4 / hardening-pass field evidence)
 
 | Drill | Banked evidence | Pointer |

@@ -107,6 +107,8 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f018** (fixed, High): workspace DA-path traversal guard — `content diff ../../../x` refused.
 - **f019** (fixed, Medium-High): publish/unpublish/deploy/index build raised to preview safety tier.
 - **f027** (fixed, High): [`/learnings/f027-list-success-bare-array`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f027-list-success-bare-array) — Wave 5 opening catch: `content list/tree/sheets/versions` succeeded as bare arrays under json (failure side already had envelopes) — agents could parse failures but not verify recoveries. One envelope on success now, empty results included; hermetic locks via new `DA_ADMIN_URL` seam.
+- **f028** (fixed, High): [`/learnings/f028-config-read-gated-build`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f028-config-read-gated-build) — `index build --wait` died on an unauthorized Configuration Service read while the rebuild itself was authorized; the error blamed `*` instead of the config route. Config read now best-effort with the denied route named; build always dispatches.
+- **f029** (recovered, High/process): [`/learnings/f029-index-config-false-migration`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f029-index-config-false-migration) — index config migration claimed without observing platform truth; deleting `helix-query.yaml` silently de-configured live indexing (fossil index kept serving). Restored + reindexed + verified 39→40; discipline: platform-state claims require live-response proof.
 
 ## Release gate for 0.6.0
 

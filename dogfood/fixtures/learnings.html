@@ -9,7 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
-            <p><strong>0.6.0 hang-hat (2026-07-16 23:55 UTC):</strong> Wave 5 opened, and its first drill injected itself — the session began on a naturally expired token (drill A2). Recognition, containment, and recovery all held; the recovery <em>verification</em> then surfaced <strong>f027</strong>: <code>content list</code> succeeded as a bare array, so an agent could parse its failure but not verify its recovery. Fixed + locked same-session. Before it: the Wave 4 completion haul <strong>f022 (Critical) through f026</strong> — durable jobs that couldn't survive SIGKILL, migration false-success and silent overwrite, an abort clobbered by its own runner, and a deploy that couldn't be parsed — all fixed + locked. Friction column <strong>clear</strong>. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-17 00:25 UTC):</strong> Wave 5's first day: every drill surfaced a real finding. A2 (a naturally expired token) held through recognize/contain/recover — and the recovery <em>verification</em> surfaced <strong>f027</strong> (<code>content list</code> succeeded as a bare array). C3 found the live index frozen: <strong>f028</strong> (<code>index build --wait</code> died on an unauthorized config read while the rebuild itself was authorized) and <strong>f029</strong> (the claimed "config-native" index migration was never real — deleting <code>helix-query.yaml</code> silently de-configured live indexing; restored, reindexed, verified 39→40). All fixed/recovered same-session. Friction column <strong>clear</strong>. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -200,6 +200,18 @@
           <div><p>fixed</p></div>
           <div><p>content, contract</p></div>
           <div><p><code>content list</code> succeeded as a bare array — agents could parse failures but not verify recoveries</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f028-config-read-gated-build">f028</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>index, auth</p></div>
+          <div><p><code>index build --wait</code> died on an unauthorized config read while the build itself was authorized</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f029-index-config-false-migration">f029</a></p></div>
+          <div><p>recovered</p></div>
+          <div><p>index, process</p></div>
+          <div><p>Index config migration claimed without observing platform truth — live indexing silently de-configured</p></div>
         </div>
       </div>
     </div>

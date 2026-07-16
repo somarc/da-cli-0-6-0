@@ -68,7 +68,7 @@
     },
     {
       "path": "/query-index.json",
-      "source": "Configuration Service content/query.yaml + page metadata (wave/surface/status)",
+      "source": "helix-query.yaml (active legacy mode — observed via named-index match, f029) + page metadata (wave/surface/status)",
       "builtBy": "publish pages → POST admin.hlx.page/index/somarc/da-cli-0-6-0/main/* (NOT buildable via da yet — finding #3)",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.live/query-index.json",
       "kind": "query-index",

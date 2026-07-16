@@ -22,7 +22,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
 | **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
-| **5** Failure & recovery injection | in progress | **Opened 2026-07-16** — opening rep (expired auth) recognized/contained/recovered and surfaced **f027** (fixed+locked same-session, 600/600); evidence `dogfood/evidence/wave-5/` |
+| **5** Failure & recovery injection | in progress | **Opened 2026-07-16** — A2 (expired auth) + C3 (frozen index) both closed same-day; every drill so far surfaced a real finding (f027, f028, f029), all fixed/recovered same-session; evidence `dogfood/evidence/wave-5/` |
 | **6** Lifecycle | not started | auth flows, skills bootstrap, site create, conditional integrations |
 
 ### Wave 5 — pass criteria — **IN PROGRESS (opened 2026-07-16)**
@@ -48,15 +48,22 @@ triple.
 | B3 | missing block assets | ⬜ | audit contracts `--verify-code` must name the missing asset |
 | C1 | stale preview / stale live | ⬜ | site freshness must recognize both tiers |
 | C2 | orphan + protected hybrid routes | ⬜ | banked f007/f013 (clean gate, probe-failed); fresh containment rep |
-| C3 | index absent / configured-unpopulated / queryable | ⬜ | config-native `index config` surfaces (new since Wave 3) distinguish all three states |
+| C3 | index absent / configured-unpopulated / queryable | ✅ **2026-07-16** | the live site WAS the injection: frozen index (fossil serving, updates dead) + blocked reindex lane. Recognized via `#simple`-only match + frozen `maxLastModified` + config 403 triangulation; recovered via config restore + reindex → `total 39→40, changed:true`. Produced **f028** (config read gated authorized build — fixed+locked) and **f029** (false-claimed migration — recovered, discipline stated). Evidence `c3-*` |
 | D1 | interrupted job → resume | 🏦 banked | f022 drill (SIGKILL at 7/21 → resume 21/21, attempts all 1) — wave-4 evidence pointer |
 | D2 | cancelled job | 🏦 banked | wave-4 `job-cancel-show.json` — workers stop between tasks |
 | D3 | pipeline step failure / approval / abort | ◐ | abort banked (f025, real 74-step regen); step-failure + approval reps pending |
 | D4 | partial batch-migration failure | ◐ | collision refusal banked (f024); mid-batch partial failure rep pending |
 
-**Wave 5 residue watch:** `status` reports `ok:false` (expired auth) but exits
-0 — flagged as a friction candidate during the opening rep; classify
-(diagnosis-command semantics vs contract violation) before cut.
+**Wave 5 residue watch:**
+- `status` reports `ok:false` (expired auth) but exits 0 — classify
+  (diagnosis-command semantics vs contract violation) before cut.
+- `code sync` pre-dispatch safety refusal prints to stderr with **empty stdout
+  under json** (f017 class) — seen during the C3 recovery; fold into the
+  envelope march.
+- `da index show/validate` cannot observe config truth for identities without
+  Configuration Service access (both 403 with clean envelopes) — recorded as a
+  CLI fitness gap per ADR 0002 D6; raw-API single-path reindex is the
+  documented state probe.
 
 ### Wave 4 — pass criteria — **CUT 2026-07-16**
 
@@ -83,7 +90,7 @@ Proof line: pipelines green; durable job resumes after interruption; migration v
 **Not blocks.** Prove the **map** of the site:
 
 1. **Sheets** — `da content sheets` finds strict DA sheet JSON (`:type: sheet` + `data[]`) — coverage, forms, CLI surface sheet.  
-2. **Query index** — published pages → `/query-index.json` via Configuration Service `content/query.yaml`; `index show / validate / query / build`.
+2. **Query index** — published pages → `/query-index.json` via repo-local `helix-query.yaml` (**observed active mode** — the claimed Configuration Service migration was false, see f029; a real migration is a future onboarding step with live proof); `index show / validate / query / build`.
 3. **Route ownership** — for each path: contentbus / codebus / hybrid / orphan; `route classify / audit / clean`.
 
 **Why:** agents must know whether to edit DA, edit git, or run `route clean` — guessing breaks sites.

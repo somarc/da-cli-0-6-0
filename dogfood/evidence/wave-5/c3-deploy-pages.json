@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "operation": "deploy.pages",
+  "target": "/tmp/c3-paths.txt",
+  "data": {
+    "total": 4,
+    "previewed": 4,
+    "published": 4,
+    "failedPreview": 0,
+    "failedPublish": 0,
+    "preview": [
+      {
+        "path": "/learnings/f028-config-read-gated-build",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f028-config-read-gated-build",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f029-index-config-false-migration",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f029-index-config-false-migration",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+        "status": "ok"
+      }
+    ],
+    "publish": [
+      {
+        "path": "/learnings/f028-config-read-gated-build",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f028-config-read-gated-build",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f029-index-config-false-migration",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f029-index-config-false-migration",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+        "status": "ok"
+      }
+    ]
+  },
+  "changes": [
+    "/learnings/f028-config-read-gated-build",
+    "/learnings/f029-index-config-false-migration",
+    "/learnings",
+    "/test-plan"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --wait --yes"
+  ]
+}

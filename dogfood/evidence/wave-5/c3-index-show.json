@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "operation": "index.list",
+  "warnings": [],
+  "errors": [
+    "Permission denied — you're authenticated but not authorized for this resource. Check DA org/group permissions; `da auth login` will not fix this."
+  ],
+  "next": [
+    "da auth status --format json"
+  ]
+}

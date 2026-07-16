@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "action": "built-and-verified",
+  "path": "*",
+  "org": "somarc",
+  "repo": "da-cli-0-6-0",
+  "branch": "main",
+  "job": {
+    "name": "job-2026-07-16-23-47-44-4e0a52b1",
+    "topic": "index",
+    "state": "stopped",
+    "progress": {
+      "total": 42,
+      "processed": 42,
+      "failed": 0
+    }
+  },
+  "publicIndex": {
+    "status": 200,
+    "total": 39,
+    "maxLastModified": 1784221216,
+    "changed": false,
+    "stable": true,
+    "timedOut": false
+  },
+  "verificationTarget": "/query-index.json",
+  "warnings": [
+    "Configuration Service index definition unavailable (403 at https://admin.hlx.page/config/somarc/sites/da-cli-0-6-0/content/query.yaml) — verifying default /query-index.json instead"
+  ],
+  "caveats": [
+    "The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up."
+  ],
+  "next": [
+    "da index query default --target live --format json",
+    "da index validate --target live --format json"
+  ]
+}

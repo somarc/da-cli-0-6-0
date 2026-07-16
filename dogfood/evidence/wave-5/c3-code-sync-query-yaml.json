@@ -1,0 +1,54 @@
+{
+  "path": "/helix-query.yaml",
+  "sync": {
+    "job": {
+      "topic": "code",
+      "user": "mhess@adobe.com",
+      "name": "job-2026-07-16-23-52-06-ee135c7a",
+      "state": "stopped",
+      "createTime": "2026-07-16T23:52:06.995Z",
+      "data": {
+        "changes": [],
+        "owner": "somarc",
+        "repo": "da-cli-0-6-0",
+        "ref": "main",
+        "branch": "main",
+        "codeOwner": "somarc",
+        "codeRepo": "da-cli-0-6-0",
+        "codeRef": "main",
+        "codePrefix": "/somarc/da-cli-0-6-0/main/",
+        "installationId": 105021419,
+        "phase": "completed",
+        "resources": [
+          {
+            "status": 200,
+            "resourcePath": "/helix-query.yaml",
+            "lastModified": "Thu, 16 Jul 2026 23:50:19 GMT",
+            "contentType": "text/yaml; charset=utf-8",
+            "contentLength": 819
+          }
+        ],
+        "githubRateLimit": {
+          "limit": 5050,
+          "used": 32,
+          "remaining": 5018,
+          "reset": 1784247724
+        },
+        "sha": "96d5893431305c1ab4e78091d3d1703586a4d088"
+      },
+      "startTime": "2026-07-16T23:52:06.995Z",
+      "stopTime": "2026-07-16T23:52:09.376Z",
+      "invocationId": "ef4f2bdc-9b49-4392-ab64-a75e39a46512",
+      "progress": {
+        "total": 1,
+        "processed": 1,
+        "failed": 0,
+        "ignored": 0
+      }
+    },
+    "links": {
+      "list": "https://admin.hlx.page/job/somarc/da-cli-0-6-0/main/code",
+      "self": "https://admin.hlx.page/job/somarc/da-cli-0-6-0/main/code/job-2026-07-16-23-52-06-ee135c7a"
+    }
+  }
+}

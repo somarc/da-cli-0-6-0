@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-16 23:55 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-17 00:25 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -57,7 +57,7 @@
         <div>
           <div><p>5 — Failure &amp; recovery</p></div>
           <div><p>in progress</p></div>
-          <div><p><strong>Opened 2026-07-16.</strong> Standard: each injected failure recognized + contained + recovered — never retried-until-green. Opening rep (expired auth) closed the full triple and surfaced <a href="/learnings/f027-list-success-bare-array">f027</a> in the process (fixed + locked same-session). Drill matrix: <code>dogfood/WAVES.md</code>; evidence: <code>dogfood/evidence/wave-5/</code>.</p></div>
+          <div><p><strong>Opened 2026-07-16.</strong> Standard: each injected failure recognized + contained + recovered — never retried-until-green. Two drills closed on day one, and both surfaced real findings: A2 (expired auth) → <a href="/learnings/f027-list-success-bare-array">f027</a>; C3 (frozen index) → <a href="/learnings/f028-config-read-gated-build">f028</a> + <a href="/learnings/f029-index-config-false-migration">f029</a>. All fixed/recovered same-session. Drill matrix: <code>dogfood/WAVES.md</code>; evidence: <code>dogfood/evidence/wave-5/</code>.</p></div>
         </div>
         <div>
           <div><p>6 — Lifecycle &amp; conditional</p></div>
@@ -103,6 +103,10 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-17 00:25</p></div>
+          <div><p><strong>Drill C3 closed — the live site was the injection.</strong> The freshly published f027 page never entered the query index; <code>maxLastModified</code> was frozen; wildcard reindex jobs were accepted with zero effect. Two findings underneath: <a href="/learnings/f028-config-read-gated-build">f028</a> — <code>index build --wait</code> died on an unauthorized Configuration Service <em>verification read</em> while the rebuild itself was authorized (raw POST → 202), blaming <code>*</code> instead of the config route (fixed: config read is best-effort with the denied route named; new <code>DA_PUBLIC_HOST_URL</code> hermetic seam; 602/602). And <a href="/learnings/f029-index-config-false-migration">f029</a> — the previous session's "config-native" index migration was claimed in docs but never observed on the platform: the deleted <code>helix-query.yaml</code> was the ACTIVE config and live indexing had silently de-configured (fossil index kept serving; <code>#simple</code>-only reindex match was the tell). Recovered: yaml restored, codebus parity confirmed, named-index match returned, rebuild <code>built-and-verified</code>, <code>total 39→40, changed:true</code>, f027 now live in the index. Boards/provenance reverted to observed truth; discipline stated: platform-state claims require live-response proof. Residue: <code>code sync</code> safety refusal is empty-stdout under json (f017 class); <code>index show/validate</code> can't observe config truth without Configuration Service access (D6 fitness gap).</p></div>
         </div>
         <div>
           <div><p>2026-07-16 23:55</p></div>
@@ -211,7 +215,7 @@
         <li><strong>Frictions:</strong> every Critical/High agentic friction closed — see git <code>dogfood/FRICTION-GATE-0.6.0.md</code> and <a href="/learnings">/learnings</a> (f001–f012 fixed; f013 open at Medium, tracked).</li>
       </ol>
       <p>Waves without friction fixes are not enough. Friction fixes without wave evidence are not enough.</p>
-      <p>As of <strong>2026-07-16 23:55 UTC</strong>: <strong>friction column clear</strong> (f001–f027 fixed; f017 partial with seams landed and migration tracked); Waves 1–4 <strong>cut</strong>; Wave 5 <strong>in progress</strong> (opening rep A2 done, drill matrix open); Wave 6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
+      <p>As of <strong>2026-07-17 00:25 UTC</strong>: <strong>friction column clear</strong> (f001–f029 fixed/recovered; f017 partial with seams landed and migration tracked); Waves 1–4 <strong>cut</strong>; Wave 5 <strong>in progress</strong> (A2 + C3 closed, drill matrix open); Wave 6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
     </div>
 
     <div>
