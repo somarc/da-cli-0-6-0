@@ -8,6 +8,13 @@ name: da-cli-0-6-0-construct
 # Regenerate: da --org somarc --repo da-cli-0-6-0 --commit pipeline run dogfood/construct.yaml
 #
 # Root --commit is the single approval boundary; never bury --commit in a step.
+#
+# STATED BOUNDARY: this pipeline intentionally stops at PREVIEW. Publishing to
+# live is a separate promotion decision, taken explicitly after the previewed
+# site is verified:
+#   da --org somarc --repo da-cli-0-6-0 --commit publish pages / --bulk --yes
+#   da --org somarc --repo da-cli-0-6-0 --commit index build --wait --yes
+# (See da-cli docs/BOUNDARIES.md "Pipelines Stop At Preview By Design".)
 steps:
   - id: put-index
     command: content put /index.html dogfood/fixtures/index.html --format json
