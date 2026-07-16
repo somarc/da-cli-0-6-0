@@ -67,9 +67,12 @@ public learning pages. Nothing Critical/High remains open on this list.
 
 ### Next friction candidates (not yet numbered pages)
 
-- `content put` / `preview page` / `publish page` emit human preflight text with no JSON envelope under `--format json` — envelope coverage gap (roadmap bucket 3), observed during the cut-sync pass.
-- `index build` is fire-and-forget: rebuild triggered, no `--wait`/convergence verification; agents must poll `query-index.json` manually. Natural Wave 4 durable-job candidate.
+- ~~put/preview/publish envelope gaps~~ — **closed** under f017 seams (success envelopes) + `handleApiError` now emits `ok:false` envelopes with `next[]` recovery on every API failure path (least-friction pass, 2026-07-16).
+- ~~`index build` fire-and-forget~~ — **closed**: `index build --wait` does pre-build snapshot → job poll attempt (transient index jobs are not persisted; honest fallback warning) → bounded cache-busted public convergence (`changed | stable | timedOut`). Field: 9.3s single parseable `built-and-verified`. `--force-async` plumbs ground-truth body.
+- ~~2×N page loops~~ — **closed**: `preview pages --bulk` / `publish pages --bulk` ride the platform bulk job (1 request + 1 pollable job), with `/.helix/*` batch-poison filtering and auto `forceAsync` >100 paths.
+- Publish boundary in construct pipelines is now a **stated** product position (BOUNDARIES.md "Pipelines Stop At Preview By Design" + construct.yaml recipe).
 - `pipeline run` has no `--job` mode — long regenerations cannot checkpoint/survive interruption yet (Wave 4 board).
+- f017 remainder: migrate config/auth/site create/deploy pages and the rest of the command surface onto the envelope seams.
 
 ### What “fixed” means (and what it does not)
 
