@@ -9,7 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
-            <p><strong>0.6.0 hang-hat (2026-07-16 14:30 UTC):</strong> the release-review subagent audit produced the biggest single-session haul of the run — <strong>f015 (Critical) through f019</strong>, all fixed and locked in local 0.5.x same-session (f017 partial: seams landed, migration tracked), plus <strong>f020</strong> found by CI itself. f013 upgraded and fixed (403-as-unknown, literal-path re-probe). Friction column <strong>clear</strong> again. Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-16 14:30 UTC):</strong> the release-review subagent audit produced the biggest single-session haul of the run — <strong>f015 (Critical) through f019</strong>, all fixed and locked in local 0.5.x same-session (f017 partial: seams landed, migration tracked), plus <strong>f020</strong> found by CI itself and <strong>f021</strong> found publishing these very pages (bulk jobs "succeeding" at <code>total: 0</code>). f013 upgraded and fixed (403-as-unknown, literal-path re-probe). Friction column <strong>clear</strong> again. Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -158,6 +158,12 @@
           <div><p>fixed</p></div>
           <div><p>auth, agent-ux</p></div>
           <div><p>No token + no TTY hung forever; CI exposed environment-coupled locks</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f021-bulk-silent-noop">f021</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>bulk, jobs, contract</p></div>
+          <div><p>Bulk jobs reported success with <code>total: 0</code>; job route needed the ref segment</p></div>
         </div>
       </div>
     </div>

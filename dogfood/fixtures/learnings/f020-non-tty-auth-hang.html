@@ -16,11 +16,12 @@
     </div>
     <div>
       <h2>Resolution</h2>
-      <p><strong>Fixed in da-cli (two layers):</strong> (1) when stdin is not a TTY and no token is cached, <code>getToken()</code> throws immediately with executable recovery — set <code>DA_TOKEN</code>, or run <code>da auth login</code> from an interactive terminal. The 30s hang is now an instant exit 1. (2) The f019/f017 locks are hermetic: synthetic <code>DA_TOKEN</code>, isolated <code>HOME</code>/<code>DA_TOKEN_PATH</code> — they test target authority, never runner auth state. CI back from 4m28s red to 34s green.</p>
+      <p><strong>Fixed in da-cli (two layers):</strong> (1) when auth is triggered <em>implicitly</em> — as a side effect of some other command — in a non-TTY shell with no cached token, <code>getToken()</code> throws immediately with executable recovery — set <code>DA_TOKEN</code>, or run <code>da auth login</code>. The 30s hang is now an instant exit 1. (2) The f019/f017 locks are hermetic: synthetic <code>DA_TOKEN</code>, isolated <code>HOME</code>/<code>DA_TOKEN_PATH</code> — they test target authority, never runner auth state. CI back from 4m28s red to 34s green.</p>
+      <p><strong>Refined same-day, in the field:</strong> the first cut of the guard keyed on TTY-ness alone — and promptly blocked the fixing agent from running <code>da auth login</code>, whose flow is <em>browser</em>-interactive, not stdin-interactive. TTY is a proxy for "is a human driving?", not a requirement of the helper. Refinement: explicit <code>da auth login</code> carries user intent and launches the browser flow from any shell (agents included, <code>interactive: true</code>); only <em>implicit</em> auth bootstrap keeps the non-TTY fail-fast. Verified by the fixing agent authenticating from its own non-TTY shell in under 30 seconds.</p>
     </div>
     <div>
       <h2>Lock</h2>
-      <p>Auth test reproducing the exact bare-HOME, non-TTY condition asserts the fast failure with recovery guidance (skips gracefully in a real terminal). Tracked residue: the fail-fast surfaces as a thrown error, not an <code>ok:false</code> envelope — bootstrap errors flow into the f017 remainder (<code>printErrorEnvelope</code> migration).</p>
+      <p>Two auth locks: implicit + non-TTY + no token asserts the fast failure with recovery guidance; explicit <code>interactive: true</code> asserts the guard is <em>bypassed</em> (login must reach the helper from any shell). Both skip gracefully in a real terminal. Tracked residue: the fail-fast surfaces as a thrown error, not an <code>ok:false</code> envelope — bootstrap errors flow into the f017 remainder (<code>printErrorEnvelope</code> migration).</p>
     </div>
     <div>
       <div class="metadata">

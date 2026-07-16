@@ -240,3 +240,9 @@ steps:
   - id: preview-f020
     command: preview page /learnings/f020-non-tty-auth-hang --format json
     depends_on: [put-f020]
+  - id: put-f021
+    command: content put /learnings/f021-bulk-silent-noop.html dogfood/fixtures/learnings/f021-bulk-silent-noop.html --format json
+    depends_on: [preview-f020]
+  - id: preview-f021
+    command: preview page /learnings/f021-bulk-silent-noop --format json
+    depends_on: [put-f021]

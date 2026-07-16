@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f021 · bulk, jobs, contract · fixed</p>
+      <h1>Bulk jobs reported success while doing nothing — and the fix for f016 was itself wrong</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found while publishing the f015–f020 learning pages (this very site section): <code>preview pages --bulk</code> submitted cleanly, the job reached <code>stopped</code> — and processed <strong>zero paths</strong>. <code>#bulkBody</code> reused <code>helixPath()</code>, a URL-segment transform that strips the leading slash; the platform silently drops slash-less body paths, so the job "succeeded" with <code>total: 0</code>. Separately, the details poll crashed with a 404: the job route needs a <strong>ref segment</strong> — <code>/job/{org}/{repo}/{ref}/{topic}/{name}/details</code> — which f016's fix, verified against source rather than a live response, had omitted.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>False success is the worst contract violation — worse than any error, because nothing tells you to look. And f021 corrects f016's correction: reading platform source produced a route that never matched a real job. The lesson is method, not just code: <strong>ground truth is a live response, not a source read</strong> — the <code>links.self</code> on an actual submission settled in one request what source archaeology got wrong. Bonus cascade: the ref-less route also explains why <code>index build --wait</code> believed its job was "transient, not queryable" — those jobs were queryable all along.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> bulk body paths are site-absolute (<code>.html</code>-stripped, leading slash kept); <code>helixJob</code> includes the ref. Field proof, same 7-path run: <code>total: 0</code> + crash → <code>7/7 success, failed: 0</code>, one parseable envelope — and <code>index build --wait</code> now polls its real job (38/38 processed) instead of falling back.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Four locks that had encoded the wrong shapes were flipped: bulk bodies assert <code>/index</code>-style paths; job-route tests assert the ref-ful shape. Tracked residue: <code>publish pages</code> accepts one source where <code>preview pages</code> is variadic (asymmetry), and the bulk poll crash surfaced as a bare stack trace under <code>--format json</code> — both queued with the f017 remainder.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>bulk, jobs, contract</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f021</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f021 — bulk jobs silently processed zero paths; job route needed the ref segment</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Slash-less bulk body paths were silently dropped (success with total: 0) and the job details route was missing its ref segment — f016's source-derived fix corrected by live-response ground truth.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
