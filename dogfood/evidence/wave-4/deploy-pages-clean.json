@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "operation": "deploy.pages",
+  "target": "/tmp/f025-deploy-paths.txt",
+  "data": {
+    "total": 6,
+    "previewed": 6,
+    "published": 6,
+    "failedPreview": 0,
+    "failedPublish": 0,
+    "preview": [
+      {
+        "path": "/learnings/f022-stale-job-lock",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f022-stale-job-lock",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f023-migrate-path-normalization",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f023-migrate-path-normalization",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f024-batch-collision-overwrite",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f024-batch-collision-overwrite",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f025-abort-marker-clobbered",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f025-abort-marker-clobbered",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+        "status": "ok"
+      }
+    ],
+    "publish": [
+      {
+        "path": "/learnings/f022-stale-job-lock",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f022-stale-job-lock",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f023-migrate-path-normalization",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f023-migrate-path-normalization",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f024-batch-collision-overwrite",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f024-batch-collision-overwrite",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f025-abort-marker-clobbered",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f025-abort-marker-clobbered",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+        "status": "ok"
+      }
+    ]
+  },
+  "changes": [
+    "/learnings/f022-stale-job-lock",
+    "/learnings/f023-migrate-path-normalization",
+    "/learnings/f024-batch-collision-overwrite",
+    "/learnings/f025-abort-marker-clobbered",
+    "/learnings",
+    "/test-plan"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --wait --yes"
+  ]
+}

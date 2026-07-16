@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://example.net/",
+    "status": "done",
+    "path": "/drafts/migrate/batch/example-net.html",
+    "title": "Example Domain"
+  },
+  {
+    "url": "https://example.com/",
+    "status": "done",
+    "path": "/drafts/migrate/batch/example-com.html",
+    "title": "Example Domain"
+  },
+  {
+    "url": "https://example.org/",
+    "status": "done",
+    "path": "/drafts/migrate/batch/example-org.html",
+    "title": "Example Domain"
+  }
+]

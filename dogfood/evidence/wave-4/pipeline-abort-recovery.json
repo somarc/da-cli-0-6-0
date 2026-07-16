@@ -1,0 +1,541 @@
+{
+  "ok": true,
+  "operation": "pipeline.run",
+  "target": "dogfood/construct.yaml",
+  "data": {
+    "runId": "7d69ed57",
+    "name": "da-cli-0-6-0-construct",
+    "status": "completed",
+    "startedAt": "2026-07-16T16:31:26.490Z",
+    "completedAt": "2026-07-16T16:33:20.123Z",
+    "steps": {
+      "put-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:28.375Z"
+      },
+      "preview-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:30.412Z"
+      },
+      "put-nav": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:31.603Z"
+      },
+      "preview-nav": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:33.564Z"
+      },
+      "put-footer": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:34.797Z"
+      },
+      "preview-footer": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:36.324Z"
+      },
+      "put-why": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:37.484Z"
+      },
+      "preview-why": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:39.494Z"
+      },
+      "put-test-plan": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:40.596Z"
+      },
+      "preview-test-plan": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:42.759Z"
+      },
+      "put-blocks": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:43.986Z"
+      },
+      "preview-blocks": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:45.570Z"
+      },
+      "put-coverage": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:46.897Z"
+      },
+      "preview-coverage": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:48.665Z"
+      },
+      "put-learnings": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:49.876Z"
+      },
+      "preview-learnings": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:52.050Z"
+      },
+      "put-f001": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:53.669Z"
+      },
+      "preview-f001": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:55.288Z"
+      },
+      "put-f002": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:56.497Z"
+      },
+      "preview-f002": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:58.108Z"
+      },
+      "put-f003": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:31:59.368Z"
+      },
+      "preview-f003": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:01.151Z"
+      },
+      "put-f004": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:02.550Z"
+      },
+      "preview-f004": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:04.192Z"
+      },
+      "put-f005": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:05.594Z"
+      },
+      "preview-f005": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:07.093Z"
+      },
+      "put-f006": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:08.578Z"
+      },
+      "preview-f006": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:10.257Z"
+      },
+      "put-f007": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:11.913Z"
+      },
+      "preview-f007": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:13.529Z"
+      },
+      "put-f008": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:14.725Z"
+      },
+      "preview-f008": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:16.359Z"
+      },
+      "put-f009": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:17.554Z"
+      },
+      "preview-f009": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:19.123Z"
+      },
+      "put-f010": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:20.259Z"
+      },
+      "preview-f010": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:21.899Z"
+      },
+      "put-f011": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:23.174Z"
+      },
+      "preview-f011": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:24.771Z"
+      },
+      "put-dualform": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:25.930Z"
+      },
+      "preview-dualform": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:28.210Z"
+      },
+      "put-contact-form": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:29.218Z"
+      },
+      "preview-contact-form": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:31.260Z"
+      },
+      "put-modal-sample": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:32.674Z"
+      },
+      "preview-modal-sample": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:34.350Z"
+      },
+      "put-kitchen-sink": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:35.535Z"
+      },
+      "preview-kitchen-sink": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:37.754Z"
+      },
+      "put-cli-surface": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:39.147Z"
+      },
+      "preview-cli-surface": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:41.099Z"
+      },
+      "put-wave-2-cli-surface-data": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:42.142Z"
+      },
+      "preview-wave-2-cli-surface-data": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:43.965Z"
+      },
+      "put-coverage-data": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:45.027Z"
+      },
+      "preview-coverage-data": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:46.590Z"
+      },
+      "put-route-matrix": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:47.925Z"
+      },
+      "preview-route-matrix": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:49.928Z"
+      },
+      "put-f012": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:51.260Z"
+      },
+      "preview-f012": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:52.876Z"
+      },
+      "put-f013": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:54.132Z"
+      },
+      "preview-f013": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:55.691Z"
+      },
+      "put-f014": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:56.919Z"
+      },
+      "preview-f014": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:58.547Z"
+      },
+      "put-f015": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:32:59.923Z"
+      },
+      "preview-f015": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:01.604Z"
+      },
+      "put-f016": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:02.944Z"
+      },
+      "preview-f016": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:04.542Z"
+      },
+      "put-f017": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:05.851Z"
+      },
+      "preview-f017": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:07.674Z"
+      },
+      "put-f018": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:08.953Z"
+      },
+      "preview-f018": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:11.046Z"
+      },
+      "put-f019": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:12.395Z"
+      },
+      "preview-f019": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:14.055Z"
+      },
+      "put-f020": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:15.250Z"
+      },
+      "preview-f020": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:16.953Z"
+      },
+      "put-f021": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:18.463Z"
+      },
+      "preview-f021": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-16T16:33:20.122Z"
+      }
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --format json pipeline status 7d69ed57"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/7d69ed57/result.json"
+    }
+  ]
+}

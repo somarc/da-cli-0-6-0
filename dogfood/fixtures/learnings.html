@@ -9,7 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
-            <p><strong>0.6.0 hang-hat (2026-07-16 14:30 UTC):</strong> the release-review subagent audit produced the biggest single-session haul of the run — <strong>f015 (Critical) through f019</strong>, all fixed and locked in local 0.5.x same-session (f017 partial: seams landed, migration tracked), plus <strong>f020</strong> found by CI itself and <strong>f021</strong> found publishing these very pages (bulk jobs "succeeding" at <code>total: 0</code>). f013 upgraded and fixed (403-as-unknown, literal-path re-probe). Friction column <strong>clear</strong> again. Wave column still open — do not cut 0.6.0 yet. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-16 17:00 UTC):</strong> Wave 4 completion drills produced <strong>f022 (Critical) through f025</strong> — durable jobs couldn't survive a SIGKILL (f022), migration reported success on unservable paths (f023) and silently overwrote colliding batch lines (f024), and <code>pipeline abort</code> was clobbered by the runner's own step saves (f025, found running the interruption drill on the real site regen). All four fixed + locked in local 0.5.x same-session — and deploying THESE pages surfaced <strong>f026</strong> (deploy pages wrote two bare arrays to stdout), fixed before this sentence was published. The prior haul — <strong>f015 (Critical) through f021</strong> — remains fixed. Friction column <strong>clear</strong>. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -164,6 +164,36 @@
           <div><p>fixed</p></div>
           <div><p>bulk, jobs, contract</p></div>
           <div><p>Bulk jobs reported success with <code>total: 0</code>; job route needed the ref segment</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f022-stale-job-lock">f022</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>jobs, durability</p></div>
+          <div><p>SIGKILLed runner's stale lock crashed resume with <code>EEXIST</code> — durable jobs weren't</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f023-migrate-path-normalization">f023</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>migrate, contract</p></div>
+          <div><p>Explicit <code>--path</code> skipped <code>.html</code> normalization — unservable content reported 'imported'</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f024-batch-collision-overwrite">f024</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>migrate, batch, safety</p></div>
+          <div><p>Batch lines deriving the same DA path silently overwrote each other, all 'done'</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f025-abort-marker-clobbered">f025</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>pipeline, durability</p></div>
+          <div><p>Per-step saves clobbered the abort marker — runs completed through their own abort</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f026-deploy-double-envelope">f026</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>deploy, contract</p></div>
+          <div><p><code>deploy pages</code> wrote two bare arrays to stdout — unparseable flawless deploy</p></div>
         </div>
       </div>
     </div>

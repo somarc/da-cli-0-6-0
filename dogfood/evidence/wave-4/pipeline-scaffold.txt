@@ -1,0 +1,8 @@
+{
+  "kind": "eds-validate",
+  "yaml": "name: eds-validate\nsteps:\n  - id: quality\n    command: pipeline quality-gate .da/workspace/index.html --min-score 85 --format json\n  - id: preview\n    command: preview status /index.html --format json\n    depends_on: [quality]\n  - id: explain\n    command: preview explain /index --format json\n    depends_on: [preview]\n",
+  "pipeline": {
+    "name": "eds-validate",
+    "steps": [
+      {
+        "id": "quality",

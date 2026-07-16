@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f026 · deploy, contract · fixed</p>
+      <h1>deploy pages wrote two bare arrays to stdout — a flawless deploy that couldn't be parsed</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found deploying the f022–f025 learning pages (the Wave 4 cut's own publish lane — the third session running where publishing the haul generated the next finding): <code>deploy pages --format json</code> printed the preview-phase result array and the publish-phase result array back-to-back. <code>JSON.parse(stdout)</code> failed with <code>Extra data</code> on a perfect 6/6 deploy. No envelope, no <code>ok</code>, no <code>next</code> — just two anonymous lists. Dry-run had the sibling gap: silent-empty stdout.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>f014 for pipelines, f021 for bulk jobs, now f026 for deploy: every multi-phase command re-invents output and re-breaks the same contract. The pattern is now unmistakable — <strong>the one-command-one-envelope rule must be owned by a seam, not by each author's memory</strong>. That is the f017 migration march, and this is its fourth field specimen.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> json mode suppresses the per-phase tables and emits one <code>deploy.pages</code> envelope carrying both phases, <code>changes[]</code>, <code>errors[]</code> (exit 1 when any path fails); dry-run emits an <code>ok: true, mode: 'dry-run'</code> envelope. Human formats keep both tables. Field proof: the same 6-path deploy re-run parses as one envelope, <code>published: 6/6</code>.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Hermetic CLI locks in <code>deploy.test.js</code> against a local helix-admin stub (new <code>DA_HELIX_ADMIN_URL</code> test seam): committed single-envelope with both phases, dry-run envelope, and failure→<code>ok:false</code>+exit 1. Verified 0/3 against the old code. Meta-catch: the first lock draft used <code>spawnSync</code>, which starved the in-process stub — the lock's own harness needed the interruption lesson.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>deploy, contract</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f026</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f026 — deploy pages emitted two bare arrays under --format json; now one envelope</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>The preview and publish phase arrays hit stdout back-to-back — unparseable success on the lane agents automate. One deploy.pages envelope now carries both phases; dry-run stopped being silent-empty.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

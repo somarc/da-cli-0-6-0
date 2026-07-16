@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "runId": "7a52ef28",
+    "name": "da-cli-0-6-0-construct",
+    "startedAt": "2026-07-16T16:29:46.872Z",
+    "status": "aborted",
+    "resultPath": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/7a52ef28/result.json",
+    "abortedAt": "2026-07-16T16:30:03.605Z",
+    "completedAt": "2026-07-16T16:30:03.605Z"
+  },
+  "put-index": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:48.386Z"
+  },
+  "preview-index": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:50.655Z"
+  },
+  "put-nav": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:51.978Z"
+  },
+  "preview-nav": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:53.933Z"
+  },
+  "put-footer": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:55.297Z"
+  },
+  "preview-footer": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:56.962Z"
+  },
+  "put-why": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:29:58.312Z"
+  },
+  "preview-why": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:30:00.122Z"
+  },
+  "put-test-plan": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:30:01.395Z"
+  },
+  "preview-test-plan": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:30:03.382Z"
+  },
+  "put-blocks": {
+    "status": "completed",
+    "exitCode": 0,
+    "attempts": 1,
+    "retries": 0,
+    "completedAt": "2026-07-16T16:30:05.446Z"
+  },
+  "preview-blocks": {
+    "status": "pending"
+  },
+  "put-coverage": {
+    "status": "pending"
+  },
+  "preview-coverage": {
+    "status": "pending"
+  },
+  "put-learnings": {
+    "status": "pending"
+  },
+  "preview-learnings": {
+    "status": "pending"
+  },
+  "put-f001": {
+    "status": "pending"
+  },
+  "preview-f001": {
+    "status": "pending"
+  },
+  "put-f002": {
+    "status": "pending"
+  },
+  "preview-f002": {
+    "status": "pending"
+  },
+  "put-f003": {
+    "status": "pending"
+  },
+  "preview-f003": {
+    "status": "pending"
+  },
+  "put-f004": {
+    "status": "pending"
+  },
+  "preview-f004": {
+    "status": "pending"
+  },
+  "put-f005": {
+    "status": "pending"
+  },
+  "preview-f005": {
+    "status": "pending"
+  },
+  "put-f006": {
+    "status": "pending"
+  },
+  "preview-f006": {
+    "status": "pending"
+  },
+  "put-f007": {
+    "status": "pending"
+  },
+  "preview-f007": {
+    "status": "pending"
+  },
+  "put-f008": {
+    "status": "pending"
+  },
+  "preview-f008": {
+    "status": "pending"
+  },
+  "put-f009": {
+    "status": "pending"
+  },
+  "preview-f009": {
+    "status": "pending"
+  },
+  "put-f010": {
+    "status": "pending"
+  },
+  "preview-f010": {
+    "status": "pending"
+  },
+  "put-f011": {
+    "status": "pending"
+  },
+  "preview-f011": {
+    "status": "pending"
+  },
+  "put-dualform": {
+    "status": "pending"
+  },
+  "preview-dualform": {
+    "status": "pending"
+  },
+  "put-contact-form": {
+    "status": "pending"
+  },
+  "preview-contact-form": {
+    "status": "pending"
+  },
+  "put-modal-sample": {
+    "status": "pending"
+  },
+  "preview-modal-sample": {
+    "status": "pending"
+  },
+  "put-kitchen-sink": {
+    "status": "pending"
+  },
+  "preview-kitchen-sink": {
+    "status": "pending"
+  },
+  "put-cli-surface": {
+    "status": "pending"
+  },
+  "preview-cli-surface": {
+    "status": "pending"
+  },
+  "put-wave-2-cli-surface-data": {
+    "status": "pending"
+  },
+  "preview-wave-2-cli-surface-data": {
+    "status": "pending"
+  },
+  "put-coverage-data": {
+    "status": "pending"
+  },
+  "preview-coverage-data": {
+    "status": "pending"
+  },
+  "put-route-matrix": {
+    "status": "pending"
+  },
+  "preview-route-matrix": {
+    "status": "pending"
+  },
+  "put-f012": {
+    "status": "pending"
+  },
+  "preview-f012": {
+    "status": "pending"
+  },
+  "put-f013": {
+    "status": "pending"
+  },
+  "preview-f013": {
+    "status": "pending"
+  },
+  "put-f014": {
+    "status": "pending"
+  },
+  "preview-f014": {
+    "status": "pending"
+  },
+  "put-f015": {
+    "status": "pending"
+  },
+  "preview-f015": {
+    "status": "pending"
+  },
+  "put-f016": {
+    "status": "pending"
+  },
+  "preview-f016": {
+    "status": "pending"
+  },
+  "put-f017": {
+    "status": "pending"
+  },
+  "preview-f017": {
+    "status": "pending"
+  },
+  "put-f018": {
+    "status": "pending"
+  },
+  "preview-f018": {
+    "status": "pending"
+  },
+  "put-f019": {
+    "status": "pending"
+  },
+  "preview-f019": {
+    "status": "pending"
+  },
+  "put-f020": {
+    "status": "pending"
+  },
+  "preview-f020": {
+    "status": "pending"
+  },
+  "put-f021": {
+    "status": "pending"
+  },
+  "preview-f021": {
+    "status": "pending"
+  }
+}

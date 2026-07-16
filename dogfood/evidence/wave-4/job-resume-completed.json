@@ -1,0 +1,16 @@
+{
+  "jobId": "preview-tree-20260716-145133-5f334cb0",
+  "type": "preview-tree",
+  "operation": "preview tree /learnings",
+  "status": "completed",
+  "total": 21,
+  "completed": 21,
+  "failed": 0,
+  "progress": "100%",
+  "createdAt": "2026-07-16T14:51:33.030Z",
+  "updatedAt": "2026-07-16T14:55:26.060Z",
+  "stateFile": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/jobs/preview-tree-20260716-145133-5f334cb0.json",
+  "workerPid": "",
+  "logFile": "",
+  "next": "da job watch preview-tree-20260716-145133-5f334cb0"
+}

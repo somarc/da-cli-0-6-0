@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f023 · migrate, contract · fixed</p>
+      <h1>migrate import accepted a path it could never serve — and said "imported"</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 4 migration rep: <code>migrate import --path /migrated/example</code> uploaded cleanly and printed <code>status: 'imported'</code>. But the explicit <code>--path</code> was used verbatim — no <code>.html</code> extension — so the resulting DA source could never be listed, previewed, or published. Derived paths (from the source URL) got <code>ensureHtmlPath</code> normalization; explicit paths skipped it entirely. The strictest, most intentional input got the weakest handling.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>This is f021's lesson wearing a different coat: <strong>false success is the worst contract violation</strong>. An agent migrating a hundred pages with explicit paths would see a hundred green envelopes and a site with zero servable routes. The command that exists to move content into DA produced content DA cannot serve — silently.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> explicit <code>--path</code> values pass through the same <code>ensureHtmlPath</code> normalization as derived ones. Field proof: the same import re-run lands at <code>/migrated/example.html</code>, is listable, previews clean, and <code>migrate validate</code> matches the known source (1 heading, title "Example Domain", 1 external link). Evidence: <code>dogfood/evidence/wave-4/migrate-import.json</code>, <code>migrate-validate-import.json</code>.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p><code>migrate-paths.test.js</code> asserts explicit-path normalization alongside the existing derived-path suite: extension-less input gains <code>.html</code>, already-correct input passes through untouched, and non-HTML asset paths are left alone.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>migrate, contract</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f023</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f023 — migrate import used explicit --path verbatim; unservable content reported 'imported'</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Explicit migration paths skipped the .html normalization that derived paths got — uploads succeeded into unservable locations with green envelopes. Explicit paths now normalize identically.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

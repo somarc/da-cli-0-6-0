@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-14 03:06 UTC)
+## Wave status (2026-07-16 17:30 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -21,8 +21,28 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
 | **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
-| **4** | **in progress** (opened 2026-07-16) | construct idempotence proven (2× full regen, 28 routes byte-identical); f014 fixed; durable jobs/interruption/migration remaining |
+| **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
 | **5–6** | not started | failure/recovery, then lifecycle |
+
+### Wave 4 — pass criteria — **CUT 2026-07-16**
+
+Proof line: pipelines green; durable job resumes after interruption; migration validated.
+
+| Surface | Status | Notes |
+|---------|--------|-------|
+| construct idempotence | ✅ | 2× full regen byte-identical (opening rep); re-proven post-abort-recovery at current CLI (hashes are CLI-version-scoped — see evidence README) |
+| `pipeline scaffold` / `status` | ✅ | `pipeline-scaffold.txt` |
+| `pipeline run` | ✅ | f014 fixed; 74-step committed regens throughout |
+| `pipeline abort` | ✅ | **f025**: abort marker was clobbered by per-step saves — runs completed through their own abort. Fixed+locked; field drill on the real regen: 11 completed, 63 never ran |
+| `job init/run/tasks` + resume | ✅ | **f022**: SIGKILL at 7/21 → stale lock crashed resume. Fixed (pid liveness probe); resume → 21/21, attempts all 1 |
+| `job cancel` | ✅ | cancelled preview-tree job in the ledger; workers stop between tasks |
+| `job promote` / `publish tree` / `job watch` | ✅ | promoted publish-tree job run to completion under `job watch --follow` |
+| `preview tree` | ✅ | the durable-job drill WAS `preview tree /learnings` (21 tasks) |
+| `migrate import/validate` | ✅ | **f023**: explicit `--path` skipped `.html` normalization — unservable content reported 'imported'. Fixed; validate matches known source |
+| `migrate batch/status` | ✅ | **f024**: colliding derived paths silently overwrote. Fixed: up-front refusal + `<url> <daPath>` resolution; mapped batch 3/3 validated |
+| `deploy` | ✅ | f022–f025 pages shipped via `deploy pages` — which surfaced **f026** (two bare arrays on json stdout; fixed+locked same-session, re-deploy 6/6 one envelope) |
+
+**Residue (tracked, not blockers):** `pipeline run --job` (durable pipeline runs) unbuilt; f017 envelope migration march (3 field specimens); `publish pages` variadic asymmetry.
 
 ### Wave 3 — what it is (plain language)
 
@@ -198,7 +218,8 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 8. ~~Wave 3~~ — **cut 2026-07-14 03:05 UTC** (route matrix + index + ownership)  
 9. ~~Wave 4 opened~~ — **2026-07-16** (construct idempotence 2×, f014 fixed+locked, evidence `dogfood/evidence/wave-4/`)
 10. **2026-07-16 hardening pass** (4 subagent audits): **f015 Critical fixed** (job run --commit bypass), f016 fixed (code job URL + terminal states), f013 **fixed** (literal-path probe + 403-as-unknown, clean gate closed), f017 seams landed (envelopes: content put / preview page / publish page), f018 fixed (workspace path traversal), f019 fixed (publish/deploy/index safety tiers). 553/553 tests. See `FRICTION-GATE-0.6.0.md`.
-11. **Wave 4 remaining** durable jobs / interruption survival / migrate; then 5–6; then 0.6.0 version/branch when site proves
+11. ~~Wave 4 remaining~~ — **cut 2026-07-16**: durable jobs (f022 SIGKILL/resume), migrate (f023 path normalization, f024 collision refusal), pipeline abort (f025 marker clobber) — every completion drill found and fixed a real friction. 575/575 tests.
+12. **Wave 5** failure & recovery injection (many specimens already banked: f020 auth, f022 interruption, f024 partial-batch, f025 abort); then Wave 6; then 0.6.0 version/branch when site proves
 
 ---
 

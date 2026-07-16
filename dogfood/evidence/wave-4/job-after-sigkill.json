@@ -1,0 +1,245 @@
+{
+  "jobId": "preview-tree-20260716-145133-5f334cb0",
+  "type": "preview-tree",
+  "operation": "preview tree /learnings",
+  "status": "running",
+  "createdAt": "2026-07-16T14:51:33.030Z",
+  "updatedAt": "2026-07-16T14:52:01.774Z",
+  "startedAt": "2026-07-16T14:51:53.178Z",
+  "endedAt": null,
+  "target": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main"
+  },
+  "params": {
+    "source": "/learnings",
+    "concurrency": 5,
+    "verify": false,
+    "htmlOnly": true,
+    "retry": {
+      "maxAttempts": 3,
+      "backoffMs": 1000,
+      "maxBackoffMs": 30000
+    }
+  },
+  "metadata": {
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "default"
+    },
+    "note": "Run with `da job run <jobId>`, start detached with `da job start <jobId>`, or inspect with `da job watch <jobId>`.",
+    "runner": {
+      "id": "runner-86405-f7f5b0d3",
+      "pid": 86405,
+      "command": "da job run preview-tree-20260716-145133-5f334cb0",
+      "startedAt": "2026-07-16T14:51:53.178Z",
+      "heartbeatAt": "2026-07-16T14:51:53.178Z",
+      "lockPath": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/jobs/preview-tree-20260716-145133-5f334cb0.lock"
+    }
+  },
+  "summary": {
+    "total": 21,
+    "pending": 13,
+    "running": 1,
+    "completed": 7,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "tasks": [
+    {
+      "index": 0,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f001-site-info-target.html",
+      "startedAt": "2026-07-16T14:51:53.180Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f001-site-info-target.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f001-site-info-target",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:51:54.673Z"
+    },
+    {
+      "index": 1,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f002-design-detect-envelope.html",
+      "startedAt": "2026-07-16T14:51:54.675Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f002-design-detect-envelope.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f002-design-detect-envelope",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:51:55.815Z"
+    },
+    {
+      "index": 2,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f003-index-build.html",
+      "startedAt": "2026-07-16T14:51:55.819Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f003-index-build.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f003-index-build",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:51:57.029Z"
+    },
+    {
+      "index": 3,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f004-index-env-preview.html",
+      "startedAt": "2026-07-16T14:51:57.033Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f004-index-env-preview.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f004-index-env-preview",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:51:58.360Z"
+    },
+    {
+      "index": 4,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f005-route-codebus.html",
+      "startedAt": "2026-07-16T14:51:58.363Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f005-route-codebus.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f005-route-codebus",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:51:59.487Z"
+    },
+    {
+      "index": 5,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f006-stale-contentbus.html",
+      "startedAt": "2026-07-16T14:51:59.491Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f006-stale-contentbus.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f006-stale-contentbus",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:52:00.599Z"
+    },
+    {
+      "index": 6,
+      "status": "completed",
+      "attempts": 1,
+      "path": "/learnings/f007-route-clean-orphan.html",
+      "startedAt": "2026-07-16T14:52:00.602Z",
+      "errors": [],
+      "result": {
+        "path": "/learnings/f007-route-clean-orphan.html",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f007-route-clean-orphan",
+        "status": "ok"
+      },
+      "error": null,
+      "completedAt": "2026-07-16T14:52:01.771Z"
+    },
+    {
+      "index": 7,
+      "status": "running",
+      "attempts": 0,
+      "path": "/learnings/f008-content-merge-path.html",
+      "startedAt": "2026-07-16T14:52:01.774Z"
+    },
+    {
+      "index": 8,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f009-content-put-outside-worktree.html"
+    },
+    {
+      "index": 9,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f010-media-absolute-url-rewrite.html"
+    },
+    {
+      "index": 10,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f011-audit-contracts-autoblock.html"
+    },
+    {
+      "index": 11,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f012-da-permission-headers.html"
+    },
+    {
+      "index": 12,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f013-tools-classify-probe-gap.html"
+    },
+    {
+      "index": 13,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f014-pipeline-json-stdout.html"
+    },
+    {
+      "index": 14,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f015-job-run-commit-bypass.html"
+    },
+    {
+      "index": 15,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f016-code-job-broken-route.html"
+    },
+    {
+      "index": 16,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f017-envelope-coverage.html"
+    },
+    {
+      "index": 17,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f018-content-diff-traversal.html"
+    },
+    {
+      "index": 18,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f019-inverted-safety-tiers.html"
+    },
+    {
+      "index": 19,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f020-non-tty-auth-hang.html"
+    },
+    {
+      "index": 20,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f021-bulk-silent-noop.html"
+    }
+  ],
+  "result": null,
+  "error": null
+}

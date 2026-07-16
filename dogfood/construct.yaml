@@ -246,3 +246,33 @@ steps:
   - id: preview-f021
     command: preview page /learnings/f021-bulk-silent-noop --format json
     depends_on: [put-f021]
+  - id: put-f022
+    command: content put /learnings/f022-stale-job-lock.html dogfood/fixtures/learnings/f022-stale-job-lock.html --format json
+    depends_on: [preview-f021]
+  - id: preview-f022
+    command: preview page /learnings/f022-stale-job-lock --format json
+    depends_on: [put-f022]
+  - id: put-f023
+    command: content put /learnings/f023-migrate-path-normalization.html dogfood/fixtures/learnings/f023-migrate-path-normalization.html --format json
+    depends_on: [preview-f022]
+  - id: preview-f023
+    command: preview page /learnings/f023-migrate-path-normalization --format json
+    depends_on: [put-f023]
+  - id: put-f024
+    command: content put /learnings/f024-batch-collision-overwrite.html dogfood/fixtures/learnings/f024-batch-collision-overwrite.html --format json
+    depends_on: [preview-f023]
+  - id: preview-f024
+    command: preview page /learnings/f024-batch-collision-overwrite --format json
+    depends_on: [put-f024]
+  - id: put-f025
+    command: content put /learnings/f025-abort-marker-clobbered.html dogfood/fixtures/learnings/f025-abort-marker-clobbered.html --format json
+    depends_on: [preview-f024]
+  - id: preview-f025
+    command: preview page /learnings/f025-abort-marker-clobbered --format json
+    depends_on: [put-f025]
+  - id: put-f026
+    command: content put /learnings/f026-deploy-double-envelope.html dogfood/fixtures/learnings/f026-deploy-double-envelope.html --format json
+    depends_on: [preview-f025]
+  - id: preview-f026
+    command: preview page /learnings/f026-deploy-double-envelope --format json
+    depends_on: [put-f026]

@@ -1,0 +1,173 @@
+{
+  "jobId": "preview-tree-20260716-145649-55984f24",
+  "type": "preview-tree",
+  "operation": "preview tree /learnings",
+  "status": "cancelled",
+  "createdAt": "2026-07-16T14:56:49.668Z",
+  "updatedAt": "2026-07-16T14:56:49.763Z",
+  "startedAt": null,
+  "endedAt": "2026-07-16T14:56:49.762Z",
+  "target": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main"
+  },
+  "params": {
+    "source": "/learnings",
+    "concurrency": 5,
+    "verify": false,
+    "htmlOnly": true,
+    "retry": {
+      "maxAttempts": 3,
+      "backoffMs": 1000,
+      "maxBackoffMs": 30000
+    }
+  },
+  "metadata": {
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "default"
+    },
+    "note": "Run with `da job run <jobId>`, start detached with `da job start <jobId>`, or inspect with `da job watch <jobId>`."
+  },
+  "summary": {
+    "total": 21,
+    "pending": 21,
+    "running": 0,
+    "completed": 0,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "tasks": [
+    {
+      "index": 0,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f001-site-info-target.html"
+    },
+    {
+      "index": 1,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f002-design-detect-envelope.html"
+    },
+    {
+      "index": 2,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f003-index-build.html"
+    },
+    {
+      "index": 3,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f004-index-env-preview.html"
+    },
+    {
+      "index": 4,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f005-route-codebus.html"
+    },
+    {
+      "index": 5,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f006-stale-contentbus.html"
+    },
+    {
+      "index": 6,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f007-route-clean-orphan.html"
+    },
+    {
+      "index": 7,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f008-content-merge-path.html"
+    },
+    {
+      "index": 8,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f009-content-put-outside-worktree.html"
+    },
+    {
+      "index": 9,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f010-media-absolute-url-rewrite.html"
+    },
+    {
+      "index": 10,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f011-audit-contracts-autoblock.html"
+    },
+    {
+      "index": 11,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f012-da-permission-headers.html"
+    },
+    {
+      "index": 12,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f013-tools-classify-probe-gap.html"
+    },
+    {
+      "index": 13,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f014-pipeline-json-stdout.html"
+    },
+    {
+      "index": 14,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f015-job-run-commit-bypass.html"
+    },
+    {
+      "index": 15,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f016-code-job-broken-route.html"
+    },
+    {
+      "index": 16,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f017-envelope-coverage.html"
+    },
+    {
+      "index": 17,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f018-content-diff-traversal.html"
+    },
+    {
+      "index": 18,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f019-inverted-safety-tiers.html"
+    },
+    {
+      "index": 19,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f020-non-tty-auth-hang.html"
+    },
+    {
+      "index": 20,
+      "status": "pending",
+      "attempts": 0,
+      "path": "/learnings/f021-bulk-silent-noop.html"
+    }
+  ],
+  "result": null,
+  "error": null
+}

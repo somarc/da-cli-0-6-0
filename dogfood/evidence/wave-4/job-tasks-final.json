@@ -1,0 +1,191 @@
+[
+  {
+    "index": 0,
+    "path": "/learnings/f001-site-info-target.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f001-site-info-target"
+  },
+  {
+    "index": 1,
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f002-design-detect-envelope"
+  },
+  {
+    "index": 2,
+    "path": "/learnings/f003-index-build.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f003-index-build"
+  },
+  {
+    "index": 3,
+    "path": "/learnings/f004-index-env-preview.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f004-index-env-preview"
+  },
+  {
+    "index": 4,
+    "path": "/learnings/f005-route-codebus.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f005-route-codebus"
+  },
+  {
+    "index": 5,
+    "path": "/learnings/f006-stale-contentbus.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f006-stale-contentbus"
+  },
+  {
+    "index": 6,
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f007-route-clean-orphan"
+  },
+  {
+    "index": 7,
+    "path": "/learnings/f008-content-merge-path.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f008-content-merge-path"
+  },
+  {
+    "index": 8,
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f009-content-put-outside-worktree"
+  },
+  {
+    "index": 9,
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f010-media-absolute-url-rewrite"
+  },
+  {
+    "index": 10,
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f011-audit-contracts-autoblock"
+  },
+  {
+    "index": 11,
+    "path": "/learnings/f012-da-permission-headers.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f012-da-permission-headers"
+  },
+  {
+    "index": 12,
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f013-tools-classify-probe-gap"
+  },
+  {
+    "index": 13,
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f014-pipeline-json-stdout"
+  },
+  {
+    "index": 14,
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f015-job-run-commit-bypass"
+  },
+  {
+    "index": 15,
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f016-code-job-broken-route"
+  },
+  {
+    "index": 16,
+    "path": "/learnings/f017-envelope-coverage.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f017-envelope-coverage"
+  },
+  {
+    "index": 17,
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f018-content-diff-traversal"
+  },
+  {
+    "index": 18,
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f019-inverted-safety-tiers"
+  },
+  {
+    "index": 19,
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f020-non-tty-auth-hang"
+  },
+  {
+    "index": 20,
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "status": "completed",
+    "attempts": 1,
+    "lastError": "",
+    "result": "ok",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f021-bulk-silent-noop"
+  }
+]

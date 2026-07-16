@@ -1,0 +1,4 @@
+
+Error: migrate batch: 1 path collision(s) — these imports would silently overwrite each other:
+  /drafts/migrate/batch/index.html  ←  https://example.com/, https://example.org/, https://example.net/
+Give colliding lines explicit targets in the URL file: `<url> <daPath>` (e.g. `https://example.org/ /migrate/example-org`).

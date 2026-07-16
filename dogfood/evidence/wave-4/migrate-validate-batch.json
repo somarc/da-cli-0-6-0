@@ -1,0 +1,22 @@
+[
+  {
+    "severity": "pass",
+    "check": "headings",
+    "detail": "1 heading(s), hierarchy ok"
+  },
+  {
+    "severity": "pass",
+    "check": "metadata",
+    "detail": "title: \"Example Domain\""
+  },
+  {
+    "severity": "pass",
+    "check": "links",
+    "detail": "1 link(s): 0 internal, 1 external"
+  },
+  {
+    "severity": "pass",
+    "check": "blocks",
+    "detail": "No blocks found (content-only page)"
+  }
+]

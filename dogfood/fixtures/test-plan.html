@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-16 03:30 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-16 17:30 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -51,8 +51,8 @@
         </div>
         <div>
           <div><p>4 — Coordination, durability, migration</p></div>
-          <div><p>in-progress</p></div>
-          <div><p>Opened 2026-07-16: construct regenerated the whole site twice, byte-idempotent (28 routes, sha256); f014 pipeline JSON contract fixed + locked. Remaining: durable jobs, interruption survival, migration. Pack: <code>dogfood/evidence/wave-4/</code>.</p></div>
+          <div><p>cut</p></div>
+          <div><p><strong>Cut 2026-07-16.</strong> Every completion drill broke something real first — <a href="/learnings/f022-stale-job-lock">f022</a> (SIGKILLed job couldn't resume), <a href="/learnings/f023-migrate-path-normalization">f023</a> (unservable imports reported success), <a href="/learnings/f024-batch-collision-overwrite">f024</a> (batch collisions silently overwrote), <a href="/learnings/f025-abort-marker-clobbered">f025</a> (pipeline abort clobbered by its own runner) — all fixed + locked same-session. Pack: <code>dogfood/evidence/wave-4/</code>.</p></div>
         </div>
         <div>
           <div><p>5 — Failure &amp; recovery</p></div>
@@ -103,6 +103,10 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-16 17:30</p></div>
+          <div><p><strong>Wave 4 cut — the drills ate their own primitives, four times.</strong> Durable jobs: SIGKILL at 7/21 → resume crashed on the dead runner's lock (<a href="/learnings/f022-stale-job-lock">f022</a>, Critical — fixed with pid-liveness reclaim; resume → 21/21, attempts all 1). Migration: explicit <code>--path</code> imported unservable content as 'imported' (<a href="/learnings/f023-migrate-path-normalization">f023</a>); colliding batch lines silently overwrote each other, all 'done' (<a href="/learnings/f024-batch-collision-overwrite">f024</a> — now refuses with the url→path table). Pipelines: <code>pipeline abort</code> was clobbered by the runner's own per-step saves — runs completed <em>through</em> their own abort (<a href="/learnings/f025-abort-marker-clobbered">f025</a>; field drill on the real 74-step regen: 11 completed, 63 never ran, marker preserved through a step save landing 1.8s post-abort). Recovery rerun 74/74; idempotence re-proven at current CLI. And shipping the cut ate one more primitive: <code>deploy pages</code> wrote two bare arrays to json stdout — unparseable flawless deploy (<a href="/learnings/f026-deploy-double-envelope">f026</a>, fixed + locked before this entry was published; re-deploy 6/6, one envelope). All five fixed + locked in local 0.5.x same-session (578/578, CI ≤35s). Surface table on the wave board; evidence: <code>dogfood/evidence/wave-4/</code>. Next: Wave 5 failure-injection — five specimens already banked.</p></div>
         </div>
         <div>
           <div><p>2026-07-16 03:30</p></div>

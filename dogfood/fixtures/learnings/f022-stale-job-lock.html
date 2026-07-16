@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f022 · jobs, durability · fixed</p>
+      <h1>Durable jobs weren't — a SIGKILLed runner's lock made resume crash</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 4's core promise is "durable job resumes after interruption." The drill: start a 21-task job, <code>SIGKILL</code> the runner at 7/21, resume. Reality: the killed runner's lock directory survived it, and the resume crashed with a raw <code>EEXIST</code> — the one scenario durable jobs exist for was the one scenario they couldn't handle. The job state itself was intact; only the lock lied about a runner that no longer existed.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Interruption is not an edge case for agents — closed laptops, killed shells, and timeouts are the normal texture of agentic work. A durability primitive that requires a human to know "go delete the lock dir" fails exactly when it's needed. Critical for Wave 4: without this fix, the wave's proof line was false.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> <code>claimJobRunner</code> now probes the recorded owner pid for liveness. Provably dead (<code>ESRCH</code>) or missing metadata → the lock is stale and is reclaimed with a note. Live process or <code>EPERM</code> (can't prove death) → still refused, with the owner pid named. Field proof: SIGKILL at 7/21 → resume → 21/21 completed, every task <code>attempts: 1</code> — no rework, no double-processing.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Liveness locks in <code>jobs.test.js</code>: a dead-pid lock is reclaimed; a live-pid lock (the test's own <code>process.pid</code> — guaranteed alive, not an arbitrary number) is refused with the exact collision message. Evidence: <code>dogfood/evidence/wave-4/job-after-sigkill.json</code>, <code>job-resume-completed.json</code>, <code>job-tasks-final.json</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>jobs, durability</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f022</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f022 — SIGKILLed job runner's stale lock crashed resume with EEXIST</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Durable jobs couldn't survive the one thing they exist for: a killed runner left its lock behind and resume crashed. claimJobRunner now reclaims provably-dead owners and refuses live ones by name.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
