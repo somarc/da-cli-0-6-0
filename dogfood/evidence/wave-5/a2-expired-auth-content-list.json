@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "operation": "content.list",
+  "warnings": [],
+  "errors": [
+    "No cached DA token, and this command triggered auth implicitly in a non-interactive shell. Set DA_TOKEN in the environment, or run `da auth login` (opens a browser login flow) first."
+  ],
+  "next": [
+    "da auth login"
+  ]
+}

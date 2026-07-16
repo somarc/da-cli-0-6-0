@@ -1,0 +1,1 @@
+Authenticated. Token cached at /Users/mhess/.aem/da-token.json

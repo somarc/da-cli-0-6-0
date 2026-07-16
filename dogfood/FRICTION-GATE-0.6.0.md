@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column clear** (f015 Critical–f026 fixed + locked + pushed 2026-07-16; f013 upgraded + fixed; f017 partial with seams landed and migration tracked; f022–f026 are the Wave 4 completion haul — durability drills that ate their own primitives and got fixed same-session) — wave column: **Wave 4 cut 2026-07-16**, 5–6 open  
+**Status:** **friction column clear** (f015 Critical–f027 fixed + locked + pushed 2026-07-16; f013 upgraded + fixed; f017 partial with seams landed and migration tracked; f022–f026 are the Wave 4 completion haul; **f027 is Wave 5's opening catch** — the expired-auth recovery drill couldn't verify its own recovery against a bare array) — wave column: **Wave 4 cut 2026-07-16**, **Wave 5 opened 2026-07-16**, 6 open  
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`  
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -71,6 +71,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | f024 | High | **fixed** | `migrate batch` lines deriving the same DA path silently overwrote each other — 3 domain roots → one `/index.html`, all three lines `done`. Silent last-writer-wins is data loss with a green checkmark. Collisions now refuse up front with the full url→path table; URL files accept `<url> <daPath>` lines as the explicit per-line resolution. Field: colliding batch refuses naming the collision + recipe; mapped batch imports 3 distinct validated pages. Meta-catch: an early lock draft replaced `migrate.test.js` and silently dropped 37 tests (567→530) — caught by watching the suite count; locks were appended to the original instead. |
 | f025 | High | **fixed** | `pipeline abort` was a no-op in practice: it writes `_meta.status='aborted'` to the state file, but every per-step save rewrote `_meta` from memory — clobbering any abort that landed while a step executed (i.e. almost always). Runs finished `completed` through their own abort. Fixed: `persistState()` merges the on-disk marker before every write; the batch-boundary check now sees it. Field proof on the real 74-step committed regen: abort mid-flight → 11 completed, **63 never ran**, `status: 'aborted'`, exit 1, one parseable `ok:false` envelope; `put-blocks` completed 1.8s *after* the abort and its save preserved the marker (the exact clobber window). e2e lock verified failing against the old runner (reported `completed`). |
 | f026 | High | **fixed** | Found deploying the f022–f025 pages (third session running where publishing the haul generated the next finding): `deploy pages --format json` wrote the preview-phase and publish-phase arrays back-to-back — `JSON.parse` failed with `Extra data` on a flawless 6/6 deploy; dry-run was silent-empty. Fourth field specimen for the f017 envelope march: multi-phase commands keep re-breaking one-command-one-envelope until a seam owns it. Fixed (f017 pattern): json emits one `deploy.pages` envelope with both phases, `changes[]`, `errors[]` + exit 1 on partial failure; dry-run envelope added. Hermetic locks against a local helix-admin stub (`DA_HELIX_ADMIN_URL` test seam), verified 0/3 on old code. Field: same 6-path deploy re-parsed clean, 6/6. |
+| f027 | High | **fixed** | Wave 5's opening catch, in the first minutes of the expired-auth drill: `content list --format json` failed as one `ok:false` envelope with recovery — but *succeeded* as a bare array. The agent could parse its failure and not verify its recovery; empty results were silent stdout. Same asymmetry in `content tree`/`sheets`/`versions`. Fifth f017 field specimen, first found on a success path (the migrated failure side made the asymmetry visible). Fixed: read-listing family routes json success through the seam — one envelope with `data.count` + rows, `count:0` envelopes for empty. Hermetic locks vs a local DA-admin stub (new `DA_ADMIN_URL` seam), verified 0/7 on old code; 600/600. Field: recovery read parses `ok:true, count:17`. |
 
 ### Next friction candidates (not yet numbered pages)
 
@@ -79,7 +80,8 @@ public learning pages. Nothing Critical/High remains open on this list.
 - ~~2×N page loops~~ — **closed**: `preview pages --bulk` / `publish pages --bulk` ride the platform bulk job (1 request + 1 pollable job), with `/.helix/*` batch-poison filtering and auto `forceAsync` >100 paths.
 - Publish boundary in construct pipelines is now a **stated** product position (BOUNDARIES.md "Pipelines Stop At Preview By Design" + construct.yaml recipe).
 - `pipeline run` has no `--job` mode — long regenerations cannot checkpoint/survive interruption yet (Wave 4 board).
-- f017 remainder: migrate config/auth/site create/deploy pages and the rest of the command surface onto the envelope seams.
+- f017 remainder: migrate config/auth/site create and the rest of the command surface onto the envelope seams (deploy pages closed by f026; content read-listing closed by f027).
+- `status` reports `ok:false` (expired auth) but exits **0** — caught during the Wave 5 A2 opening rep. Classify before Wave 5 cuts: diagnosis-command semantics (command succeeded at reporting an unhealthy state) vs agent-contract violation (`ok` must track exit). Whichever way it lands, the position must be stated, not implicit.
 
 ### What “fixed” means (and what it does not)
 
@@ -161,4 +163,4 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
 When **both** columns are checked: **cut 0.6.0**.
 
-Last updated: **2026-07-14** — f012 (High, discovered during due-diligence on a competing CLI's docs) fixed + locked with 522/522 tests passing, merged to main by fast-forward (no PR — small, tested, low-risk); friction column clear.
+Last updated: **2026-07-16** — Wave 5 opened. Opening rep A2 (expired auth, naturally injected) recognized/contained/recovered; the recovery verification surfaced **f027** (content read-listing success paths were bare arrays under json) — fixed + locked same-session, 600/600, pushed to da-cli main. Friction column stays clear; residue watch: `status` ok:false with exit 0.

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/learnings/f027-list-success-bare-array.html",
+  "data": {
+    "mode": "committed",
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "source": "dogfood/fixtures/learnings/f027-list-success-bare-array.html"
+  },
+  "changes": [
+    "/learnings/f027-list-success-bare-array.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit preview page /learnings/f027-list-success-bare-array.html"
+  ]
+}

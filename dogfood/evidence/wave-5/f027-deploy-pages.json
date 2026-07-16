@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "operation": "deploy.pages",
+  "target": "/tmp/wave5-open-paths.txt",
+  "data": {
+    "total": 3,
+    "previewed": 3,
+    "published": 3,
+    "failedPreview": 0,
+    "failedPublish": 0,
+    "preview": [
+      {
+        "path": "/learnings/f027-list-success-bare-array",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f027-list-success-bare-array",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+        "status": "ok"
+      }
+    ],
+    "publish": [
+      {
+        "path": "/learnings/f027-list-success-bare-array",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f027-list-success-bare-array",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+        "status": "ok"
+      }
+    ]
+  },
+  "changes": [
+    "/learnings/f027-list-success-bare-array",
+    "/learnings",
+    "/test-plan"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --wait --yes"
+  ]
+}

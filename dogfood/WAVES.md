@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-16 17:30 UTC)
+## Wave status (2026-07-16 23:55 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -22,7 +22,41 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
 | **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
-| **5–6** | not started | failure/recovery, then lifecycle |
+| **5** Failure & recovery injection | in progress | **Opened 2026-07-16** — opening rep (expired auth) recognized/contained/recovered and surfaced **f027** (fixed+locked same-session, 600/600); evidence `dogfood/evidence/wave-5/` |
+| **6** Lifecycle | not started | auth flows, skills bootstrap, site create, conditional integrations |
+
+### Wave 5 — pass criteria — **IN PROGRESS (opened 2026-07-16)**
+
+Proof line (ADR 0002 D5): each injected failure **recognized + contained +
+recovered** — a structured envelope naming the failure, no damage done, and an
+executable recovery that is then *verified against the contract*. Retrying
+until a command exits zero is not recovery evidence.
+
+**Banked-specimen policy:** Wave 4 and the hardening pass already ran several
+of these drills in the field. A banked row still needs an explicit pointer in
+`dogfood/evidence/wave-5/README.md` to the original evidence; fresh reps are
+run where the banked drill did not capture the full recognize/contain/recover
+triple.
+
+| # | Injection (ADR 0002 D5) | Status | Notes |
+|---|--------------------------|--------|-------|
+| A1 | unresolved target (no org/repo resolvable) | ⬜ | expect structured refusal + pin-target recovery |
+| A2 | missing / expired auth | ✅ **opening rep 2026-07-16** | natural token expiry: one `ok:false` envelope + `da auth login` recovery, exit 1; explicit login from non-TTY shell (f020 path); verification read surfaced **f027** — fixed+locked. Evidence `a2-*` |
+| A3 | mutation attempted without `--commit` | ⬜ | banked f015 (job/pipeline gate); fresh rep on content/preview lanes |
+| B1 | DA source drift after clone (conflict guard) | ⬜ | clone → remote change → merge must recognize drift |
+| B2 | invalid section shape | ⬜ | audit must name the shape violation |
+| B3 | missing block assets | ⬜ | audit contracts `--verify-code` must name the missing asset |
+| C1 | stale preview / stale live | ⬜ | site freshness must recognize both tiers |
+| C2 | orphan + protected hybrid routes | ⬜ | banked f007/f013 (clean gate, probe-failed); fresh containment rep |
+| C3 | index absent / configured-unpopulated / queryable | ⬜ | config-native `index config` surfaces (new since Wave 3) distinguish all three states |
+| D1 | interrupted job → resume | 🏦 banked | f022 drill (SIGKILL at 7/21 → resume 21/21, attempts all 1) — wave-4 evidence pointer |
+| D2 | cancelled job | 🏦 banked | wave-4 `job-cancel-show.json` — workers stop between tasks |
+| D3 | pipeline step failure / approval / abort | ◐ | abort banked (f025, real 74-step regen); step-failure + approval reps pending |
+| D4 | partial batch-migration failure | ◐ | collision refusal banked (f024); mid-batch partial failure rep pending |
+
+**Wave 5 residue watch:** `status` reports `ok:false` (expired auth) but exits
+0 — flagged as a friction candidate during the opening rep; classify
+(diagnosis-command semantics vs contract violation) before cut.
 
 ### Wave 4 — pass criteria — **CUT 2026-07-16**
 
@@ -219,7 +253,8 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 9. ~~Wave 4 opened~~ — **2026-07-16** (construct idempotence 2×, f014 fixed+locked, evidence `dogfood/evidence/wave-4/`)
 10. **2026-07-16 hardening pass** (4 subagent audits): **f015 Critical fixed** (job run --commit bypass), f016 fixed (code job URL + terminal states), f013 **fixed** (literal-path probe + 403-as-unknown, clean gate closed), f017 seams landed (envelopes: content put / preview page / publish page), f018 fixed (workspace path traversal), f019 fixed (publish/deploy/index safety tiers). 553/553 tests. See `FRICTION-GATE-0.6.0.md`.
 11. ~~Wave 4 remaining~~ — **cut 2026-07-16**: durable jobs (f022 SIGKILL/resume), migrate (f023 path normalization, f024 collision refusal), pipeline abort (f025 marker clobber) — every completion drill found and fixed a real friction. 575/575 tests.
-12. **Wave 5** failure & recovery injection (many specimens already banked: f020 auth, f022 interruption, f024 partial-batch, f025 abort); then Wave 6; then 0.6.0 version/branch when site proves
+12. ~~Wave 5 opened~~ — **2026-07-16**: opening rep A2 (expired auth) recognized/contained/recovered; the recovery verification itself surfaced **f027** (content read-listing success paths were bare arrays — fixed+locked same-session, 600/600). Drill matrix on this board; evidence `dogfood/evidence/wave-5/`.
+13. **Wave 5 remaining drills** (A1, A3, B1–B3, C1–C3, D3/D4 fresh reps) + banked-pointer README rows; then Wave 6; then 0.6.0 version/branch when site proves
 
 ---
 

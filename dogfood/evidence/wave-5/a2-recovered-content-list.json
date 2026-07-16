@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "operation": "content.list",
+  "target": "somarc/da-cli-0-6-0/",
+  "data": {
+    "path": "/",
+    "count": 17,
+    "items": [
+      {
+        "name": "blocks.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:58:13"
+      },
+      {
+        "name": "cli-surface.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:59:13"
+      },
+      {
+        "name": "coverage.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:58:17"
+      },
+      {
+        "name": "data/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "drafts/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "dualform.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:59:00"
+      },
+      {
+        "name": "footer.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:58:02"
+      },
+      {
+        "name": "index.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:57:54"
+      },
+      {
+        "name": "kitchen-sink.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:59:09"
+      },
+      {
+        "name": "learnings/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "learnings.html",
+        "type": "file",
+        "lastModified": "2026-07-16 22:24:31"
+      },
+      {
+        "name": "media/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "modals/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "nav.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:57:58"
+      },
+      {
+        "name": "route-matrix.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:59:23"
+      },
+      {
+        "name": "test-plan.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:58:10"
+      },
+      {
+        "name": "why.html",
+        "type": "file",
+        "lastModified": "2026-07-16 16:58:05"
+      }
+    ]
+  },
+  "warnings": [],
+  "next": []
+}

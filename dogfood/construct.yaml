@@ -276,3 +276,9 @@ steps:
   - id: preview-f026
     command: preview page /learnings/f026-deploy-double-envelope --format json
     depends_on: [put-f026]
+  - id: put-f027
+    command: content put /learnings/f027-list-success-bare-array.html dogfood/fixtures/learnings/f027-list-success-bare-array.html --format json
+    depends_on: [preview-f026]
+  - id: preview-f027
+    command: preview page /learnings/f027-list-success-bare-array --format json
+    depends_on: [put-f027]

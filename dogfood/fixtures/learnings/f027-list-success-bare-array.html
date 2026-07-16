@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f027 · content, contract · fixed</p>
+      <h1>content list succeeded in a shape agents can't verify — bare array instead of envelope</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found in the first minutes of Wave 5, running the expired-auth recovery drill: with the token expired, <code>content list --format json</code> failed correctly — one <code>ok: false</code> envelope, executable recovery (<code>da auth login</code>), exit 1. After recovering, the verification read returned… a bare JSON array. No <code>ok</code>, no <code>operation</code>, no envelope. The agent proving its own recovery could parse the failure but not assert the success. Empty results were worse: nothing on stdout at all. Same asymmetry in <code>content tree</code>, <code>content sheets</code>, and <code>content versions</code>.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Recovery proof is Wave 5's whole standard: <em>recognized, contained, recovered</em>. If the success shape of a read command can't carry <code>ok: true</code>, an agent literally cannot close its own recovery loop against the contract — it has to fall back to "non-empty array means probably fine". This is the <strong>fifth field specimen of the f017 envelope march</strong> (f014 pipelines, f021 bulk, f026 deploy, now the read-listing family), and the first one found on a <em>success</em> path: the failure side had already been migrated, which made the asymmetry visible.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> <code>content list</code>, <code>content tree</code>, <code>content sheets</code>, and <code>content versions</code> now route json success through the f017 seam — exactly one envelope (<code>ok</code>, <code>operation</code>, <code>data.count</code> plus <code>items</code> / <code>paths</code> / <code>sheets</code> / <code>versions</code>), including <code>count: 0</code> envelopes for empty results instead of silent stdout. Human table UX unchanged. Field proof: the same recovery-verification read now parses to <code>ok: true, operation: content.list, count: 17</code>.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Hermetic CLI locks in <code>content-envelope.test.js</code> against a local DA admin stub (new <code>DA_ADMIN_URL</code> test seam, mirroring f026's <code>DA_HELIX_ADMIN_URL</code>): populated + empty list, recursive tree, versions history + empty history, sheets empty-inventory — each asserting one parseable non-array envelope. Verified 0/7 against the old code, 7/7 after; suite 600/600.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>content, contract</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f027</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f027 — content read-listing success paths emitted bare arrays under --format json; now one envelope</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>The failure path had an envelope; the success path had a bare array — agents could parse their failures but not verify their recoveries. content list/tree/sheets/versions now emit one ok:true envelope, empty results included.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

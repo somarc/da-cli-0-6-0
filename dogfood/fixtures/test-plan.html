@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-16 17:30 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-16 23:55 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -56,8 +56,8 @@
         </div>
         <div>
           <div><p>5 — Failure &amp; recovery</p></div>
-          <div><p>not started</p></div>
-          <div><p>Induced failures with recovery proof</p></div>
+          <div><p>in progress</p></div>
+          <div><p><strong>Opened 2026-07-16.</strong> Standard: each injected failure recognized + contained + recovered — never retried-until-green. Opening rep (expired auth) closed the full triple and surfaced <a href="/learnings/f027-list-success-bare-array">f027</a> in the process (fixed + locked same-session). Drill matrix: <code>dogfood/WAVES.md</code>; evidence: <code>dogfood/evidence/wave-5/</code>.</p></div>
         </div>
         <div>
           <div><p>6 — Lifecycle &amp; conditional</p></div>
@@ -103,6 +103,10 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-16 23:55</p></div>
+          <div><p><strong>Wave 5 opened — the first drill injected itself.</strong> The session began with a naturally expired token, which IS drill A2 (missing/expired auth): the read attempt failed as exactly one <code>ok:false</code> envelope with executable recovery (<code>da auth login</code>), exit 1; explicit login completed from the agent's own non-TTY shell (the <a href="/learnings/f020-non-tty-auth-hang">f020</a> path); and the recovery-verification read then exposed <a href="/learnings/f027-list-success-bare-array">f027</a> — <code>content list</code> <em>succeeded</em> as a bare array, so the agent could parse its failure but not verify its recovery. Fixed + locked same-session (read-listing family now emits one envelope on success, empty results included; new <code>DA_ADMIN_URL</code> hermetic seam; 600/600, pushed to da-cli main). Wave 5 drill matrix on the wave board: A1–D4 with banked Wave 4 specimens (f022 interruption, f024 partial batch, f025 abort) credited by pointer. Residue watch: <code>status</code> reports <code>ok:false</code> on expired auth but exits 0 — classify before cut. Also landed: index config went config-native (Configuration Service <code>content/query.yaml</code>; repo-local <code>helix-query.yaml</code> retired per ADR 0002 D6/G6).</p></div>
         </div>
         <div>
           <div><p>2026-07-16 17:30</p></div>
@@ -207,7 +211,7 @@
         <li><strong>Frictions:</strong> every Critical/High agentic friction closed — see git <code>dogfood/FRICTION-GATE-0.6.0.md</code> and <a href="/learnings">/learnings</a> (f001–f012 fixed; f013 open at Medium, tracked).</li>
       </ol>
       <p>Waves without friction fixes are not enough. Friction fixes without wave evidence are not enough.</p>
-      <p>As of <strong>2026-07-16 03:30 UTC</strong>: <strong>friction column clear</strong> (f001–f012, f014 fixed; f013 open, Medium); Waves 1–3 <strong>cut</strong>; Wave 4 <strong>in progress</strong> (construct idempotence proven, durable jobs remaining); Waves 5–6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
+      <p>As of <strong>2026-07-16 23:55 UTC</strong>: <strong>friction column clear</strong> (f001–f027 fixed; f017 partial with seams landed and migration tracked); Waves 1–4 <strong>cut</strong>; Wave 5 <strong>in progress</strong> (opening rep A2 done, drill matrix open); Wave 6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
     </div>
 
     <div>

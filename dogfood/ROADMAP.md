@@ -106,6 +106,7 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f017** (partial, High): envelope seams cover the first delivery paths, bulk deploy, API errors, and now pre-dispatch/bootstrap failures; the audit also caught and fixed an `oldContent` scope crash in `content put` dry-run. Core lifecycle and remaining command surface are still tracked; no false closure claim.
 - **f018** (fixed, High): workspace DA-path traversal guard — `content diff ../../../x` refused.
 - **f019** (fixed, Medium-High): publish/unpublish/deploy/index build raised to preview safety tier.
+- **f027** (fixed, High): [`/learnings/f027-list-success-bare-array`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f027-list-success-bare-array) — Wave 5 opening catch: `content list/tree/sheets/versions` succeeded as bare arrays under json (failure side already had envelopes) — agents could parse failures but not verify recoveries. One envelope on success now, empty results included; hermetic locks via new `DA_ADMIN_URL` seam.
 
 ## Release gate for 0.6.0
 
