@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f015 · job, safety · fixed · CRITICAL</p>
+      <h1><code>job run</code> executed live publishes with no <code>--commit</code> check at all</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found by the release-review subagent audit (safety lane), reproduced live: the <code>--commit</code> gate existed only at job <em>creation</em>. Execution (<code>job run</code>, <code>job start</code>, detached workers) trusted unsigned local JSON in <code>.da/jobs/</code> as carried-forward intent — a crafted or stale job file executed real preview/publish mutations with no gate anywhere. Also reachable via pipeline YAML: <code>job</code> was in <code>ALLOWED_PIPELINE_COMMANDS</code> but missing from <code>commandIsMutating()</code>.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>This falsified the CLI's central safety promise — every mutation behind root <code>--commit</code> — for an entire command family. The predictor was visible in coverage: <code>job.js</code> had zero tests, and the audit chose its targets by exactly that signal. Untested command files are where the critical bugs live.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> the gate now runs at <em>execution</em> time — <code>job run</code>/<code>job start</code> without root <code>--commit</code> leave the job <code>pending</code> and print the dry-run message. Detached workers forward commit intent explicitly. <code>job</code>, <code>index</code>, and <code>sitemap</code> added to the pipeline mutation pre-guard so YAML cannot route around it.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>First-ever <code>job.test.js</code> reproduces the exact attack: a crafted job file run without <code>--commit</code> must stay <code>pending</code>; with <code>--commit</code> it executes. Pipeline pre-guard locked alongside.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>job, safety</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f015</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f015 — job run executed live mutations without --commit</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>The --commit gate existed only at job creation; execution trusted unsigned local JSON. Now gated at execution time, workers forward intent, pipeline pre-guard extended. First job.test.js locks the attack.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

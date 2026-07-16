@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column clear** (f012, High, fixed + locked, merged to main 2026-07-14) — wave column still open  
+**Status:** **friction column clear** (f015 Critical–f020 fixed + locked + pushed 2026-07-16; f013 upgraded + fixed; f017 partial with seams landed and migration tracked) — wave column still open  
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`  
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -56,7 +56,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | f010 | High | **fixed** | media URL warn / `--rewrite-media-urls` / `--strict-media-urls` |
 | f011 | Medium-high | **fixed** | contracts inventory + verify for autoblocks (modal/widget/fragment) |
 | f012 | High | **fixed** | permission hints captured (`err.permissionHints`, `list().daPermissionHints`); 403 distinct from 401; `content list`/`get` warn proactively on read-only access. Merged to main (fast-forward, no PR — small, tested, low-risk change). |
-| f013 | Medium | **open** | `route classify` probes report orphan for codebus static `/tools/*.html` while live returns 200 — probe conflict, not an orphan. Does not block the Critical/High column; tracked with public learning page `/learnings/f013-tools-classify-probe-gap`. Candidate fix: raw-path codebus probe + explicit `probe-conflict` class (lock in `route-classify.test.js`). |
+| f013 | High (upgraded from Medium) | **fixed** | Upgraded by the release-review audit: misclassified orphans skip `route clean`'s `--force` gate, and `code:read`-scoped tokens made everything look codebus-less (403 conflated with 404) — a delete-without-safety-net path, not just a misreport. Fixed: literal-path re-probe before any extensioned route is called orphan; any 403 → `probe-failed` (unknown ≠ absent), which `route clean` already refuses. Field-verified: the route that was "orphan" for two days now classifies `codebus`. |
 | f014 | High | **fixed** | `pipeline run --format json` interleaved child-step stdout with the envelope (`stdio: 'inherit'`) — `JSON.parse(stdout)` failed on a flawless 58-step run. Fixed: JSON parent pipes child stdout to stderr; stdout carries exactly one envelope. e2e lock in `pipeline.test.js` (524/524). Field proof: `dogfood/evidence/wave-4/pipeline-run-clean.json`. |
 
 | f015 | **Critical** | **fixed** | `job run`/`job start` executed live mutations with NO --commit check (unsigned local JSON trusted as carried-forward intent; also reachable via pipeline YAML). Now gated at execution time; workers forward --commit; job/index/sitemap added to pipeline pre-guard. First `job.test.js` locks the attack repro. Found by release-review subagent audit. |
@@ -64,6 +64,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | f017 | High | **partial (seams landed)** | Envelope coverage: only 2/23 command groups used the validated agent contract. `printEnvelope`/`printErrorEnvelope` seams added; `content put`, `preview page`, `publish page` now emit exactly one envelope under json (dry-run + committed). f014 residual closed (`resolveFormat()` keying). Remaining command surface tracked for migration. |
 | f018 | High | **fixed** | `content diff`/merge path traversal — DA paths resolving outside `.da/workspace/` (e.g. `../../../etc/hosts`) were read/written locally. `toLocalPath` now refuses workspace escapes. |
 | f019 | Medium-High | **fixed** | Inverted safety tiers: `publish page`/`unpublish`/`deploy page`/`index build` had WEAKER ambiguous-target protection than `preview page`. All raised to the preview tier (+`--yes`); first CLI-level `publish.test.js`. |
+| f020 | Medium-High | **fixed** | Found by CI, not the local suite: the f019 push hung both CI matrix jobs (8 tests × 30s, `exitCode null`). With no cached token and no TTY, `getToken()` spawned the interactive npx auth helper with inherited stdin — indefinite hang for agents/CI/pipes, firing BEFORE the safety gate. Fixed two layers: non-TTY + no token → instant throw with executable recovery (`DA_TOKEN` / `da auth login`); f019/f017 locks made hermetic (synthetic `DA_TOKEN`, isolated `HOME`/`DA_TOKEN_PATH`). CI 4m28s red → 34s green. Auth lock reproduces the bare-HOME condition. Bootstrap errors as `ok:false` envelopes → f017 remainder. |
 
 ### Next friction candidates (not yet numbered pages)
 

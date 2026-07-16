@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f019 · publish, safety · fixed</p>
+      <h1>Live-facing commands had <em>weaker</em> ambiguous-target protection than preview</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found by the release-review subagent audit (safety lane): <code>preview page</code> refused a committed run against a config-derived target without explicit <code>--org/--repo</code> or <code>--yes</code> — but <code>publish page</code>, <code>unpublish</code>, and <code>deploy page</code>, whose blast radius is the live CDN, carried no such check. <code>index build</code> opted out entirely, and its <code>/*</code> wildcard defeats the bulk-path heuristic by construction.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Safety tiers must rank by blast radius. When the safest operation carries the strongest gate, the gate placement was incidental, not designed — an agent in the wrong directory with a stale <code>.da.json</code> could publish to a live site it never intended to touch, while a mere preview would have been refused.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> <code>publish page</code>, <code>unpublish</code>, <code>deploy page</code>, and <code>index build</code> all raised to the preview safety tier (+<code>--yes</code>): committed runs against config-derived targets refuse with retry guidance. Invariant stated: live blast radius is never less protected than preview.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>First CLI-level <code>publish.test.js</code> — refusal and dry-run cases for all four commands. This lock also produced its own finding: the first push hung CI for 30s per test because the spawned CLI hit the interactive auth helper before the safety gate. That became <a href="/learnings/f020-non-tty-auth-hang">f020</a> — the flywheel eating its own output.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>publish, safety</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f019</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f019 — publish/deploy/index had weaker target protection than preview</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Live-facing commands skipped the ambiguous-target gate that preview enforced. All raised to the preview tier with --yes; first CLI-level publish.test.js locks refusal and dry-run behavior.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

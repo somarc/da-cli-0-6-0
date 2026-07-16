@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f017 · contract, output · partial (seams landed, migration ongoing)</p>
+      <h1>The envelope promise was 9% true — 2 of 23 command groups used the contract</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Found by the release-review subagent audit (contract lane): only <code>resolve</code> and <code>status</code> emitted the validated agent envelope. <code>content put</code> succeeded <em>silently</em> under <code>--format json</code>; <code>preview page</code>/<code>publish page</code> printed bare URLs; <code>site create</code> interleaved 13 text lines with JSON; <code>config</code>/<code>auth</code> never checked format at all. The field report graded this "trust the contract: B-" — an agent spent a session grepping stderr for <code>^Uploaded|error</code> because success and failure were both unstructured.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>An agent-first CLI is its envelope. If <code>JSON.parse(stdout)</code> works on 2 commands and fails on 21, the contract is a demo, not a contract — and every consumer builds fragile per-command scraping instead.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Landed in da-cli:</strong> <code>printEnvelope</code>/<code>printErrorEnvelope</code> seams bridging to the validated contract; <code>content put</code>, <code>preview page</code>, <code>publish page</code> emit exactly one envelope under json (dry-run and committed, with <code>next[]</code> steps). The least-friction pass then closed the failure side: <code>handleApiError</code> — the choke point every API failure runs through — emits one <code>ok:false</code> envelope with status-aware recovery commands. Residual f014 gap closed too: emission keys on <code>resolveFormat()</code>, so piped-but-unflagged runs (the default agent pattern) get clean envelopes.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Unit + e2e locks including the piped-no-flag case; the test that had encoded the resolveFormat gap as expected behavior was flipped. <strong>Remaining (tracked):</strong> migrate the other ~18 command groups — <code>config</code>/<code>auth</code>/<code>site create</code> are the worst stdout polluters — and route bootstrap errors (e.g. auth failures thrown before command dispatch) through <code>printErrorEnvelope</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>4</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>contract, output</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>partial</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f017</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f017 — envelope contract covered 2 of 23 command groups</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Only resolve/status used the validated envelope; put/preview/publish were silent or bare-text under json. Seams landed; success + failure envelopes on the worst offenders; full-surface migration tracked.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

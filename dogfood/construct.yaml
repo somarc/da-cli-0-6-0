@@ -203,3 +203,40 @@ steps:
   - id: preview-f014
     command: preview page /learnings/f014-pipeline-json-stdout --format json
     depends_on: [put-f014]
+  # Flywheel — release-review subagent audit haul (f015–f019) + CI-found f020
+  - id: put-f015
+    command: content put /learnings/f015-job-run-commit-bypass.html dogfood/fixtures/learnings/f015-job-run-commit-bypass.html --format json
+    depends_on: [preview-f014]
+  - id: preview-f015
+    command: preview page /learnings/f015-job-run-commit-bypass --format json
+    depends_on: [put-f015]
+  - id: put-f016
+    command: content put /learnings/f016-code-job-broken-route.html dogfood/fixtures/learnings/f016-code-job-broken-route.html --format json
+    depends_on: [preview-f015]
+  - id: preview-f016
+    command: preview page /learnings/f016-code-job-broken-route --format json
+    depends_on: [put-f016]
+  - id: put-f017
+    command: content put /learnings/f017-envelope-coverage.html dogfood/fixtures/learnings/f017-envelope-coverage.html --format json
+    depends_on: [preview-f016]
+  - id: preview-f017
+    command: preview page /learnings/f017-envelope-coverage --format json
+    depends_on: [put-f017]
+  - id: put-f018
+    command: content put /learnings/f018-content-diff-traversal.html dogfood/fixtures/learnings/f018-content-diff-traversal.html --format json
+    depends_on: [preview-f017]
+  - id: preview-f018
+    command: preview page /learnings/f018-content-diff-traversal --format json
+    depends_on: [put-f018]
+  - id: put-f019
+    command: content put /learnings/f019-inverted-safety-tiers.html dogfood/fixtures/learnings/f019-inverted-safety-tiers.html --format json
+    depends_on: [preview-f018]
+  - id: preview-f019
+    command: preview page /learnings/f019-inverted-safety-tiers --format json
+    depends_on: [put-f019]
+  - id: put-f020
+    command: content put /learnings/f020-non-tty-auth-hang.html dogfood/fixtures/learnings/f020-non-tty-auth-hang.html --format json
+    depends_on: [preview-f019]
+  - id: preview-f020
+    command: preview page /learnings/f020-non-tty-auth-hang --format json
+    depends_on: [put-f020]
