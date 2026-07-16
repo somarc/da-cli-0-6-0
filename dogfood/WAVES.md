@@ -21,7 +21,8 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **1** Foundation | **cut** | **Cut** — full evidence pack in `dogfood/evidence/wave-1/` (2026-07-14) |
 | **2** Blocks/audits/design | **cut** | **Cut 2026-07-14 02:51 UTC** — kitchen-sink + CLI surface ledger + evidence re-run (`dogfood/evidence/wave-2/`) |
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
-| **4–6** | not started | deferred (pipelines = Wave 4) |
+| **4** | **in progress** (opened 2026-07-16) | construct idempotence proven (2× full regen, 28 routes byte-identical); f014 fixed; durable jobs/interruption/migration remaining |
+| **5–6** | not started | failure/recovery, then lifecycle |
 
 ### Wave 3 — what it is (plain language)
 
@@ -195,7 +196,9 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**  
 7. ~~Finish Wave 2 formal cut~~ — **done 2026-07-14 02:51 UTC**  
 8. ~~Wave 3~~ — **cut 2026-07-14 03:05 UTC** (route matrix + index + ownership)  
-9. **Wave 4** pipelines / jobs / migrate (meaty); then 5–6; then 0.6.0 version/branch when site proves
+9. ~~Wave 4 opened~~ — **2026-07-16** (construct idempotence 2×, f014 fixed+locked, evidence `dogfood/evidence/wave-4/`)
+10. **2026-07-16 hardening pass** (4 subagent audits): **f015 Critical fixed** (job run --commit bypass), f016 fixed (code job URL + terminal states), f013 **fixed** (literal-path probe + 403-as-unknown, clean gate closed), f017 seams landed (envelopes: content put / preview page / publish page), f018 fixed (workspace path traversal), f019 fixed (publish/deploy/index safety tiers). 553/553 tests. See `FRICTION-GATE-0.6.0.md`.
+11. **Wave 4 remaining** durable jobs / interruption survival / migrate; then 5–6; then 0.6.0 version/branch when site proves
 
 ---
 

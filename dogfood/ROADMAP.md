@@ -101,6 +101,11 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f012** (fixed, High friction gate): [`/learnings/f012-da-permission-headers`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f012-da-permission-headers) — DA `x-da-actions`/`x-da-child-actions` response headers discarded on every fetch; `403` falls into the generic error path with no distinct handling from `401` or a transient error. Fixed + locked, merged to da-cli main.
 - **f013** (open, Medium): [`/learnings/f013-tools-classify-probe-gap`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f013-tools-classify-probe-gap) — `route classify` probes report orphan for codebus static `/tools/*.html` while live returns 200 (probe conflict, not an orphan). Promoted from route-matrix caveat at Wave 3 cut; candidate fix: raw-path codebus probe + explicit probe-conflict class.
 - **f014** (fixed, High friction gate): [`/learnings/f014-pipeline-json-stdout`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f014-pipeline-json-stdout) — `pipeline run --format json` let child-step stdout pollute the envelope; child stdout now routes to stderr under a JSON parent. e2e lock; field-proven on two full construct regenerations (byte-idempotent, evidence wave-4).
+- **f015** (fixed, **Critical** friction gate): `job run`/`job start` executed live mutations with no --commit check — gated at execution time, workers forward --commit, pipeline pre-guard covers job/index/sitemap. Found by subagent release review; locked in first `job.test.js`.
+- **f016** (fixed, High): `da code job` unconditionally 404'd (wrong admin route shape); `helixJobWait` now uses real terminal states stopped/cancelled/expired.
+- **f017** (partial, High): envelope seams `printEnvelope`/`printErrorEnvelope` landed; content put / preview page / publish page emit one envelope under json; remaining surface tracked.
+- **f018** (fixed, High): workspace DA-path traversal guard — `content diff ../../../x` refused.
+- **f019** (fixed, Medium-High): publish/unpublish/deploy/index build raised to preview safety tier.
 
 ## Release gate for 0.6.0
 
