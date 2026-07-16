@@ -1,0 +1,63 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f013 · route · open</p>
+      <h1><code>route classify</code> probes miss codebus static HTML under <code>/tools/</code></h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>During the Wave 3 cut, <code>da route classify /tools/wave-2-cli-surface.html</code> returned ownership <strong>orphan</strong> with preview, live, and code probes all reporting <strong>404</strong> — while a plain <code>curl</code> of the same path on the live host returns <strong>200</strong>. The page is static HTML checked into git under <code>tools/</code> and served straight from the code bus; it is code-owned in practice, but the classifier cannot see it.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p><strong>Orphan is the clean-candidate class.</strong> A probe gap that mislabels a living code-bus page as orphan invites <code>route clean</code> toward content that is very much owned — the exact wrong-orientation failure the ownership matrix exists to prevent. Agents must be able to trust that <code>orphan</code> means "no owner," not "the probe didn't know where to look." Extensioned static routes (<code>/tools/*.html</code>, and similar) are a common EDS pattern for sidekick plugins and site tooling, so this is not an exotic corner.</p>
+    </div>
+    <div>
+      <h2>Interim guardrail</h2>
+      <p>Documented on the <a href="/route-matrix">route matrix</a> at the Wave 3 cut: when class is orphan but the path is known codebus static, prefer curl/live proof and do <strong>not</strong> treat the route as a clean candidate. A live <strong>200</strong> that disagrees with an all-404 probe is a <em>probe conflict</em>, not an orphan.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Open.</strong> Candidate fix in da-cli: align the codebus probe for extensioned static routes with how the edge actually serves them (probe the raw path against the code bus in addition to the helix status <code>code.status</code> read), and surface live-200/probe-404 disagreement as an explicit <code>probe-conflict</code> signal instead of falling through to <code>orphan</code>. Severity: Medium — tracked in <code>dogfood/FRICTION-GATE-0.6.0.md</code>; does not block the Critical/High friction column.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Pending. When fixed, lock with regression coverage in <code>route-classify.test.js</code> (static codebus HTML must not classify orphan) and re-run the Wave 3 ownership matrix so <code>/tools/wave-2-cli-surface.html</code> reports its true class publicly.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>3</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>route</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>open</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f013</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f013 — route classify misses codebus static /tools HTML</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Classify probes report orphan for codebus-served /tools/*.html while live returns 200 — probe conflict, not an orphan; open Medium friction.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

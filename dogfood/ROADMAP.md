@@ -99,6 +99,7 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f010** (fixed, High friction gate): [`/learnings/f010-media-absolute-url-rewrite`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite) — put warns/rewrites/strict-fails host-less `/media` imgs.
 - **f011** (fixed, Medium-high friction gate): [`/learnings/f011-audit-contracts-autoblock`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock) — contracts inventory + verify-code for autoblocks (modal/widget/fragment).
 - **f012** (fixed, High friction gate): [`/learnings/f012-da-permission-headers`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f012-da-permission-headers) — DA `x-da-actions`/`x-da-child-actions` response headers discarded on every fetch; `403` falls into the generic error path with no distinct handling from `401` or a transient error. Fixed + locked, merged to da-cli main.
+- **f013** (open, Medium): [`/learnings/f013-tools-classify-probe-gap`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f013-tools-classify-probe-gap) — `route classify` probes report orphan for codebus static `/tools/*.html` while live returns 200 (probe conflict, not an orphan). Promoted from route-matrix caveat at Wave 3 cut; candidate fix: raw-path codebus probe + explicit probe-conflict class.
 
 ## Release gate for 0.6.0
 

@@ -56,6 +56,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | f010 | High | **fixed** | media URL warn / `--rewrite-media-urls` / `--strict-media-urls` |
 | f011 | Medium-high | **fixed** | contracts inventory + verify for autoblocks (modal/widget/fragment) |
 | f012 | High | **fixed** | permission hints captured (`err.permissionHints`, `list().daPermissionHints`); 403 distinct from 401; `content list`/`get` warn proactively on read-only access. Merged to main (fast-forward, no PR — small, tested, low-risk change). |
+| f013 | Medium | **open** | `route classify` probes report orphan for codebus static `/tools/*.html` while live returns 200 — probe conflict, not an orphan. Does not block the Critical/High column; tracked with public learning page `/learnings/f013-tools-classify-probe-gap`. Candidate fix: raw-path codebus probe + explicit `probe-conflict` class (lock in `route-classify.test.js`). |
 
 ### What “fixed” means (and what it does not)
 

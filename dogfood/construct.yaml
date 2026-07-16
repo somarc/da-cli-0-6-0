@@ -177,3 +177,16 @@ steps:
     depends_on: [put-route-matrix]
   # Wave 3 — query index: after publish, run `da --commit index build --yes` (or
   # Configuration Service reindex). Evidence under dogfood/evidence/wave-3/.
+  # Flywheel — learnings published after the Wave 3 cut (f012 fixed, f013 open)
+  - id: put-f012
+    command: content put /learnings/f012-da-permission-headers.html dogfood/fixtures/learnings/f012-da-permission-headers.html --format json
+    depends_on: [preview-route-matrix]
+  - id: preview-f012
+    command: preview page /learnings/f012-da-permission-headers --format json
+    depends_on: [put-f012]
+  - id: put-f013
+    command: content put /learnings/f013-tools-classify-probe-gap.html dogfood/fixtures/learnings/f013-tools-classify-probe-gap.html --format json
+    depends_on: [preview-f012]
+  - id: preview-f013
+    command: preview page /learnings/f013-tools-classify-probe-gap --format json
+    depends_on: [put-f013]
