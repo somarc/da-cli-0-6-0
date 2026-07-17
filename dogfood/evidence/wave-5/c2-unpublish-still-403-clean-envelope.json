@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "operation": "publish.unpublish",
+  "target": "/drafts/b1-drill.html",
+  "warnings": [],
+  "errors": [
+    "Permission denied for /drafts/b1-drill.html (denied at https://admin.hlx.page/live/somarc/da-cli-0-6-0/main/drafts/b1-drill) — you're authenticated but not authorized for this resource. Check DA org/group permissions; `da auth login` will not fix this."
+  ],
+  "next": [
+    "da auth status --format json"
+  ]
+}

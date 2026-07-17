@@ -1,0 +1,41 @@
+
+Approval required for step "gated". Proceed? [y/N] {
+  "ok": false,
+  "operation": "pipeline.run",
+  "target": "content-staging/d3-approval.yaml",
+  "data": {
+    "runId": "3e6bcf03",
+    "name": "d3-approval",
+    "status": "failed",
+    "startedAt": "2026-07-17T01:21:53.362Z",
+    "completedAt": "2026-07-17T01:21:53.832Z",
+    "steps": {
+      "probe": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-17T01:21:53.826Z"
+      },
+      "gated": {
+        "status": "pending"
+      }
+    }
+  },
+  "warnings": [
+    "Step \"gated\" approval denied"
+  ],
+  "errors": [
+    {
+      "message": "Step \"gated\" approval denied"
+    }
+  ],
+  "next": [
+    "da --format json pipeline status 3e6bcf03"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/3e6bcf03/result.json"
+    }
+  ]
+}

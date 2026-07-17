@@ -9,7 +9,7 @@
             <h1>Learnings</h1>
             <p>This is the <strong>growing history</strong> of the dogfood run: every field problem that taught the CLI something, turned into a primitive fix, and locked with a test. The suite does not only prove commands — it records how trust was earned.</p>
             <p>New learnings get a stable id (<code>fNNN</code>) and their own route under <code>/learnings/</code>. This hub stays the index; primary nav does not grow a link per finding.</p>
-            <p><strong>0.6.0 hang-hat (2026-07-17 01:50 UTC):</strong> Wave 5, five drills in: <em>every single drill has surfaced a real finding.</em> A2 → <strong>f027</strong> (success as a bare array). C3 → <strong>f028</strong> (an unauthorized config read gated an authorized rebuild) + <strong>f029</strong> (the claimed config-native index migration was never real; live indexing silently de-configured, restored + verified). A1 → <strong>f030</strong> (silent global-config fallback read the wrong site). C1 → <strong>f031</strong> (<code>site freshness</code> compared the preview against itself — staleness undetectable by construction). The day's refusals → <strong>f032</strong> (safety refusals were empty-stdout under json; refusals are results). And the ops turn after the drills caught <strong>f033</strong> (PATH <code>da</code> was a fifteen-day-stale install reporting the same 0.5.1 as the fixed tree — ghost findings from a binary the flywheel had already left behind; <code>da status</code> now reports binary provenance). All fixed/recovered same-session, 611/611. Friction column <strong>clear</strong>. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
+            <p><strong>0.6.0 hang-hat (2026-07-17 02:15 UTC):</strong> Wave 5 drill matrix complete — <em>every drill surfaced a real finding.</em> A2 → <strong>f027</strong> (success as a bare array). C3 → <strong>f028</strong> + <strong>f029</strong> (frozen index, false-claimed migration). A1 → <strong>f030</strong> (silent global-config fallback). C1 → <strong>f031</strong> (freshness compared the preview against itself). The refusals → <strong>f032</strong> (refusals are results). The ops turn → <strong>f033</strong> (version-blind binary skew; <code>da status</code> now reports provenance). And the completion haul: B1 → <strong>f034</strong> (the drift guard's recovery instruction destroyed the local side of the conflict — merge now preserves it), B2 → <strong>f035</strong> (<code>--no-strict-sections</code> was a dead switch; the flatten is invisible to rendered-side audits and <code>preview explain</code> is the recognizer), D3 → <strong>f036</strong> (an unanswered approval gate exited 0 and stranded a zombie run). All fixed/recovered same-session, 618/618. Friction column <strong>clear</strong>. Checklist: git <code>dogfood/FRICTION-GATE-0.6.0.md</code>.</p>
           </div>
           <div>
             <p>
@@ -236,6 +236,24 @@
           <div><p>fixed</p></div>
           <div><p>provenance, status</p></div>
           <div><p>A stale PATH install reproduced already-fixed bugs under the same version string — da status now reports which binary answered</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f034-merge-destroys-local-side">f034</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>workspace, safety</p></div>
+          <div><p>The drift guard's own recovery instruction destroyed the local side of the conflict — merge now preserves modified copies under .da/merge-backups/</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f035-broken-off-switch">f035</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>contract, cli-surface</p></div>
+          <div><p>--no-strict-sections never disabled strictness; the refusal blamed an absent flag with empty json stdout</p></div>
+        </div>
+        <div>
+          <div><p><a href="/learnings/f036-approval-gate-zombie">f036</a></p></div>
+          <div><p>fixed</p></div>
+          <div><p>pipeline, contract</p></div>
+          <div><p>An unanswered approval gate exited 0 mid-run and stranded a zombie — approvals are now explicit with fail-fast non-TTY refusals</p></div>
         </div>
       </div>
     </div>

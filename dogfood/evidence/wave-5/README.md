@@ -149,3 +149,39 @@ The route-clean 403 left a REAL orphan (source deleted, preview/live 200):
 Banked rows credit the *injection*; remaining fresh reps (D3 step-failure +
 approval, D4 mid-batch partial failure) and open drills A1, A3, B1–B3, C1–C3
 land here before the wave cuts.
+
+## B1–B3, D3, D4 — the completion haul (2026-07-17)
+
+Every remaining fresh drill ran against the live site; three produced numbered
+findings, all fixed + locked + field-re-proven same-session (618/618).
+
+- **B1** (`b1-*`) — drift guard fired exactly right (push refused, drift named,
+  remote protected) — then the guided recovery **destroyed the local side**:
+  **f034**. Merge now preserves modified copies under `.da/merge-backups/`;
+  push drift refusal is an envelope. Re-proven post-fix: preserved copy named,
+  diff + push per the envelope's `next`.
+- **B2** (`b2-*`) — the strict-sections door refused by default, but
+  `--no-strict-sections` was a dead switch and the refusal was empty stdout
+  under json: **f035**. Deliberate bypass + preview proved the flatten;
+  rendered-side `audit full` passed 0-errors over the destroyed block (blind by
+  construction — the violation erases its evidence); `preview explain` named it
+  (`classes-removed-in-preview`, exit 1). Recovered via `fix-sections --write`.
+- **B3** (`b3-*`) — `audit contracts --verify-code` named `phantom-widget`
+  MISSING (404/404), exit 1; recovered to `missing:[]`. Specimen: document-path
+  prefix scanned 0 pages and reported all-clear — now warns.
+- **D3** (`d3-*`) — step-failure rep textbook (failed step named, dependent
+  held `pending`, re-run 3/3). Approval rep: **f036** — closed-stdin gate
+  exited 0 mid-run and stranded a `running` zombie; now `--approve/--approve-all`,
+  non-TTY fail-fast, stderr prompt, EOF=denial. Abort banked (f025).
+- **D4** (`d4-*`) — mid-batch 404: per-row honesty held (f023/f024 fixes
+  visible), but exit 0 + bare array; now one `migrate.batch` envelope, exit 1
+  on any failed line. Failed line recovered to the same path, validate clean.
+- **C2** (`c2-unpublish-still-403-clean-envelope.json`) — permission re-probed
+  at cut time: live-unpublish still 403 for this identity (clean envelope with
+  `denied at` — f028's improvement visible). Final orphan-removal rep stays
+  deferred on the operator grant; recognition/containment/recovery banked from
+  the natural rep.
+
+**Banked pointers:** D1 = wave-4 f022 SIGKILL/resume evidence; D2 = wave-4
+`job-cancel-show.json`; D3-abort = f025 field drill on the 74-step regen;
+D4-collision = f024 refusal evidence.

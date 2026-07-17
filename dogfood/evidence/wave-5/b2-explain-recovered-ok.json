@@ -1,0 +1,23 @@
+{
+  "path": "/drafts/b2-drill.html",
+  "plainUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b2-drill.plain.html",
+  "plainStatus": 200,
+  "classes": {
+    "source": [
+      "cards"
+    ],
+    "plain": [
+      "cards",
+      "raw-table-outside-any-block"
+    ],
+    "removed": []
+  },
+  "classification": {
+    "expected": [],
+    "problematic": [],
+    "trimmed": []
+  },
+  "hints": [],
+  "diagnostics": [],
+  "status": "ok"
+}

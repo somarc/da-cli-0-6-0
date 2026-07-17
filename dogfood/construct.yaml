@@ -324,3 +324,45 @@ steps:
   - id: preview-f033
     command: preview page /learnings/f033-version-blind-binary-skew --format json
     depends_on: [put-f033]
+  - id: put-f034
+    command: content put /learnings/f034-merge-destroys-local-side.html dogfood/fixtures/learnings/f034-merge-destroys-local-side.html --format json
+    depends_on: [preview-f033]
+  - id: preview-f034
+    command: preview page /learnings/f034-merge-destroys-local-side --format json
+    depends_on: [put-f034]
+  - id: put-f035
+    command: content put /learnings/f035-broken-off-switch.html dogfood/fixtures/learnings/f035-broken-off-switch.html --format json
+    depends_on: [preview-f034]
+  - id: preview-f035
+    command: preview page /learnings/f035-broken-off-switch --format json
+    depends_on: [put-f035]
+  - id: put-f036
+    command: content put /learnings/f036-approval-gate-zombie.html dogfood/fixtures/learnings/f036-approval-gate-zombie.html --format json
+    depends_on: [preview-f035]
+  - id: preview-f036
+    command: preview page /learnings/f036-approval-gate-zombie --format json
+    depends_on: [put-f036]
+  - id: put-wave-1
+    command: content put /waves/1-foundation.html dogfood/fixtures/waves/1-foundation.html --format json
+    depends_on: [preview-f033]
+  - id: preview-wave-1
+    command: preview page /waves/1-foundation --format json
+    depends_on: [put-wave-1]
+  - id: put-wave-4
+    command: content put /waves/4-durability.html dogfood/fixtures/waves/4-durability.html --format json
+    depends_on: [preview-wave-1]
+  - id: preview-wave-4
+    command: preview page /waves/4-durability --format json
+    depends_on: [put-wave-4]
+  - id: put-wave-5
+    command: content put /waves/5-failure-recovery.html dogfood/fixtures/waves/5-failure-recovery.html --format json
+    depends_on: [preview-wave-4]
+  - id: preview-wave-5
+    command: preview page /waves/5-failure-recovery --format json
+    depends_on: [put-wave-5]
+  - id: put-sheets
+    command: content put /sheets.html dogfood/fixtures/sheets.html --format json
+    depends_on: [preview-wave-5]
+  - id: preview-sheets
+    command: preview page /sheets --format json
+    depends_on: [put-sheets]

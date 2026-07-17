@@ -1,0 +1,18 @@
+{
+  "drill": "B2 \u2014 invalid section shape",
+  "date": "2026-07-17",
+  "sequence": [
+    "inject: block div direct under <main> (no section wrapper) + raw table",
+    "door: content put REFUSED by default on DA-backed repo (strict sections) \u2014 but exit 1 with EMPTY stdout under json (tracked residue, field-confirmed) and the message says 'omit the flag' when no flag was passed",
+    "door bug: --no-strict-sections DOES NOT disable strictness (commander negation sets strictSections=false, code falls through to DA-backed default) \u2014 only --allow-top-level-blocks works",
+    "deliberate bypass: put --allow-top-level-blocks + preview \u2192 DA flattened .cards to plain content, class erased",
+    "recognition (rendered audit): audit blocks/full = 0 errors, PASS \u2014 blind by construction, the violation destroyed its own evidence",
+    "recognition (source-aware): preview explain = status classes-removed-in-preview, removed:[cards], severity error, names the flatten cause + executable remediation, exit 1",
+    "recover: content fix-sections --write \u2192 put clean \u2192 preview \u2192 explain status ok, cards present in plain"
+  ],
+  "findings": [
+    "f035 candidate: --no-strict-sections broken off-switch + wrong refusal prose + empty stdout under json",
+    "f036 candidate: audit full passes on flatten-destroyed blocks; source-vs-plain class diff (preview explain) not folded into the unified report",
+    "door gap: content push (workspace lane) runs NO shape check \u2014 put/put-tree only"
+  ]
+}

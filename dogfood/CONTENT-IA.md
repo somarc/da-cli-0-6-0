@@ -32,7 +32,12 @@ the spine.
 /test-plan                Waves 1–6 + gate definition
 
 /coverage                 Living catalog (spine of the suite; not the full nav)
-/kitchen-sink             Wave 2 block/audit/design proof (spectrum)
+/waves/1-foundation       Wave 1 cut certificate (core loop, evidence pack)
+/kitchen-sink             Wave 2 block/audit/design proof (spectrum) — Wave 2's nav landing
+/route-matrix             Wave 3 proof — Wave 3's nav landing
+/waves/4-durability       Wave 4 cut certificate (pipelines, durable jobs, migration)
+/waves/5-failure-recovery Wave 5 live drill board (in progress → cut certificate)
+/sheets                   Machine ledger hub: query index + DA sheets + CLI map
 /cli-surface              Wave 2 CLI command ledger (addendum for formal cut)
 /tools/wave-2-cli-surface.html  Interactive command map (codebus; flows-inspired)
 /data/wave-2-cli-surface.json   Machine sheet for the CLI surface ledger
@@ -105,23 +110,35 @@ Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropd
 |-----------|----------|
 | **Home** | — |
 | **Story** | Why · Test plan · Coverage catalog |
-| **Prove** | Kitchen sink · CLI surface ledger · Wave 2 CLI map · Blocks · Coverage · sheets · index |
+| **Prove** | Coverage — by wave · **Wave N — Topic** (one link per wave, 1:1 with the test plan) · Sheets & indexes |
 | **Learnings** | **Direct link to hub only** — never enumerate fNNN here |
 | **Labs** | Dualform · Frontier · home hero · Modal sample |
 
-Growth rule: add new proof routes as **Prove submenu** items when they are cut
-gates; add learnings only under `/learnings` hub table + construct.yaml — **not**
-nav. Top-level stays short.
+**Prove is the wave spine.** One link per wave, labeled `Wave N — Topic`
+(matching coverage.html headings), pointing at that wave's proof page: an
+existing primary proof (`/kitchen-sink`, `/route-matrix`) where one exists, a
+**cut certificate** under `/waves/N-slug` otherwise. Artifacts (ledgers, tools
+maps, JSON endpoints, narratives) live **on pages, never in nav** — the raw
+machine surfaces are grouped behind the single `Sheets & indexes` link
+(`/sheets`). The header renders exactly two levels; never nest deeper.
+
+Growth rule: a wave **opens** → add its `/waves/N-slug` page (status
+in-progress) + one Prove link + construct.yaml steps; a wave **cuts** → stamp
+the page (status cut, timestamp, evidence pointers). Learnings go only under
+the `/learnings` hub table + construct.yaml — **not** nav. Top-level stays
+short; Prove is bounded at waves + 2 forever.
 
 ### Nav freshness (avoid content debt)
 
 | Rule | Why |
 |------|-----|
 | **Learnings = hub link only** | fNNN list grows forever; the hub table is the index of record |
-| **Prove submenu = stable cut surfaces** | kitchen-sink, cli-surface, tools map — not every lab |
+| **Prove submenu = one link per wave** | the nav mirrors the test plan; artifacts live on wave pages, never as nav peers |
+| **JSON endpoints never in nav** | operator surfaces belong on `/sheets`, annotated, not as raw dropdown links |
 | **Source of truth** | `dogfood/fixtures/nav.html` → construct put/preview; never hand-edit DA nav alone |
 | **When adding a learning** | fixture + construct + hub table row; **do not** edit nav |
-| **When adding a Wave proof page** | nav Prove (one link) + coverage + test-plan progress log |
+| **When a wave opens** | `/waves/N-slug` page (in-progress) + one Prove link + construct steps |
+| **When a wave cuts** | stamp the wave page: status cut, timestamp, evidence pointers, findings list |
 | **Optional later** | query-index-driven nav for Prove only; Learnings stay hub-only forever |
 
 Anti-pattern already logged: *“Nav that grows one link per finding.”*

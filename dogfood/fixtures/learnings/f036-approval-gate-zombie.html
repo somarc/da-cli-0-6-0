@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f036 · pipeline, contract · fixed</p>
+      <h1>the approval gate exited 0 over an unanswered question</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Drill D3's approval rep: a pipeline step with <code>requires_approval: true</code>, run with stdin closed — the standard shape for every orchestrated, piped, or CI execution. The readline prompt's callback can never fire on EOF, the event loop drained, and the process <strong>exited 0 mid-run with no envelope</strong> — while the run state file stayed <code>running</code> forever with zero step results. An orchestrator sees success; <code>pipeline status</code> sees a run still going. Both are wrong. And on the <em>answered</em> path, the prompt printed to <strong>stdout</strong>, prefixing the json envelope with prose — f014's channel lesson at a new gate.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>An approval gate is a safety primitive: it exists so a mutation cannot proceed without a decision. This one inverted its purpose under exactly the conditions agents run in — the undecided gate produced a <em>success</em> exit and a zombie state, the two lies compounding: nothing failed, and nothing finished. f020 taught this shape once (implicit interactive auth hanging non-TTY runs); the gate had not learned it.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> approvals are now explicit where interaction is impossible. <code>pipeline run --approve &lt;step-id…&gt;</code> / <code>--approve-all</code> grant gates in any context; a non-TTY run that reaches an ungranted gate <strong>refuses immediately</strong> — one <code>ok:false</code> envelope naming the step and the exact flag to pass, run state terminal <code>failed</code>, exit 1. The TTY prompt writes to <strong>stderr</strong> (stdout stays a single envelope), and EOF during a prompt is denial, not limbo. The denial path was already contained (step held at <code>pending</code>, f025's abort semantics intact); it now has a clean channel too.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Two CLI locks in <code>pipeline.test.js</code> under the hermetic riverboat harness: closed-stdin run of a gated step → exit 1, <code>ok:false</code> envelope matching <code>--approve gated</code>, run status <code>failed</code> (no zombie); <code>--approve-all</code> → exit 0, step <code>completed</code>, stdout parses as exactly one envelope (a leaked prompt would break the parse). Both verified failing on old code; 618/618. Field proof: the same drill YAML that stranded run <code>9f98d66c</code> as a zombie now refuses in milliseconds with the recovery flag named, and completes cleanly under <code>--approve-all</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>pipeline, contract</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f036</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f036 — a requires_approval gate under closed stdin exited 0 mid-run and stranded a zombie; approvals are now explicit (--approve / --approve-all) with fail-fast refusals</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>EOF drained the event loop past an unanswered prompt: false success plus a run state stuck at running. Non-TTY gates now refuse with the exact flag to pass; the prompt moved to stderr; EOF is denial.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

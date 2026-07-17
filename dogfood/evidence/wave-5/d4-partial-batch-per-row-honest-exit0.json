@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://example.com/this-page-definitely-does-not-exist-d4-drill",
+    "status": "error",
+    "path": "/drafts/migrate/d4/doomed.html",
+    "error": "HTTP 404 fetching https://example.com/this-page-definitely-does-not-exist-d4-drill"
+  },
+  {
+    "url": "https://example.com/",
+    "status": "done",
+    "path": "/drafts/migrate/d4/alpha.html",
+    "title": "Example Domain"
+  },
+  {
+    "url": "https://example.net/",
+    "status": "done",
+    "path": "/drafts/migrate/d4/gamma.html",
+    "title": "Example Domain"
+  }
+]

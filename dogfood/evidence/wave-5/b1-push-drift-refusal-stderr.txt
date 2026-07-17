@@ -1,0 +1,3 @@
+Remote DA source drifted since clone — pushing would overwrite newer content:
+  /drafts/b1-drill.html — modified remotely since clone
+Run `da content merge <path>` to pull the remote copy and re-apply, or pass --force to overwrite.

@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f034 · workspace, safety · fixed</p>
+      <h1>the recovery instruction destroyed the work it was protecting</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Drill B1 (source drift after clone) proved the conflict guard beautifully: a push over remote drift refused with the path and reason named. Then the drill followed the tool's own recovery — <em>"Run <code>da content merge</code> to pull the remote copy and re-apply your change"</em> — and <code>merge</code> <strong>overwrote the modified local file with the remote copy</strong>. The workspace keeps no content snapshots (commits store paths, not text), so there was nothing left to re-apply. The guard protected the remote side of the conflict and the guided recovery deleted the local side. The drill survived only because the operator had manually copied the file first.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>An optimistic-concurrency guard exists precisely because two parties changed the same document. A recovery path that keeps one side and silently discards the other is not recovery — it is data loss with good manners. For an agent, the trap is exact: it parses the refusal, executes the recommended command verbatim, and its work is gone. The machine channel made it worse: the drift refusal was stderr prose while stdout carried a bare planned-paths array that said nothing about any conflict.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> <code>content merge</code> now preserves any local copy that was modified since clone (and differs from the incoming remote) under <code>.da/merge-backups/&lt;stamp&gt;/…</code> before converging — named on stderr, in the envelope's <code>data.preserved</code>, and in <code>warnings</code>, with executable <code>next</code> (<code>content diff</code>, then push). The push drift refusal emits one <code>ok:false</code> envelope naming each drifted path. Same pass: <code>content status</code> emits an envelope under json (was prose when clean, bare array when dirty), <code>clone --path</code> accepts document paths (was a silent <code>Cloned 0 files</code> success), and the out-of-worktree put refusal (f009's guard) emits its envelope (was empty stdout — f032 class).</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Four locks in <code>content-workspace.test.js</code>: modified-local + drift → backup saved with the exact local text and named in the result; unmodified local → clean converge, nothing preserved; remote-deleted + modified local → backup before removal; document-path clone. All verified failing on old code; 618/618. Field proof on the live drill page: re-injected drift → push refusal envelope → merge preserved <code>local rep4 edit</code> at the named backup path → diff + push per the envelope's <code>next</code>.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>workspace, safety</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f034</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f034 — the drift guard's recovery instruction destroyed the local side of the conflict; merge now preserves modified copies under .da/merge-backups/</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>content merge overwrote the modified local file the push guard had just protected, with no snapshot anywhere. Merge now backs up the local side, names it in the envelope, and the drift refusal itself is a parseable result.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

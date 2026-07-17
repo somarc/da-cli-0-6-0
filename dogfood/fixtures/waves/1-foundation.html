@@ -1,0 +1,140 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <div class="painterly-hero">
+        <div>
+          <div>
+            <p>WAVE 1 · FOUNDATION · CORE LOOP</p>
+            <h1>Can the CLI hold the site at all?</h1>
+            <p>Wave 1 certifies the foundation: target resolution, auth status, the content read/write loop, preview activation, site diagnosis, and the local workspace round-trip. Everything later stands on this — if put/preview is not proven, no block proof means anything.</p>
+            <p><strong>Cut 2026-07-14 01:35 UTC</strong> · Evidence: <code>dogfood/evidence/wave-1/</code> · Related: <a href="/test-plan">test plan</a> · <a href="/coverage">coverage</a></p>
+          </div>
+          <div>
+            <p>
+              <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/hero-plate.webp" alt="Painterly foundation plate — the base course everything else stands on">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>What Wave 1 is (plain language)</h2>
+      <p>Before any block, sheet, or pipeline claim, the CLI must prove the <strong>core loop</strong>:</p>
+      <ol>
+        <li><strong>Orientation</strong> — <code>status</code>, <code>resolve</code>, <code>site pin-target</code>: which org/repo am I acting on, with which identity, and does that answer survive an omitted flag?</li>
+        <li><strong>The content loop</strong> — <code>content get / put / list / tree</code> and <code>preview page</code>: a fixture in git becomes a page on the preview host, observably.</li>
+        <li><strong>Diagnosis</strong> — <code>site info / doctor / model / freshness</code>: the CLI can describe the site it just touched.</li>
+        <li><strong>Workspace round-trip</strong> — <code>content clone / diff / merge / put-tree</code>: pull content down, prove no drift, push it back without surprises.</li>
+      </ol>
+      <p>The cut rule for every surface: (1) a CLI run, (2) an observable outcome, (3) a file in the evidence pack.</p>
+    </div>
+
+    <div>
+      <h2>Pass criteria (cut bar)</h2>
+      <div class="table">
+        <div>
+          <div><p>Surface</p></div>
+          <div><p>Must prove</p></div>
+          <div><p>Evidence</p></div>
+        </div>
+        <div>
+          <div><p><code>status</code> / <code>resolve</code></p></div>
+          <div><p>Identity, target, and auth state answered honestly</p></div>
+          <div><p><code>status.json</code>, <code>resolve-index.json</code></p></div>
+        </div>
+        <div>
+          <div><p><code>content list / tree / get / put</code></p></div>
+          <div><p>Read and write the content bus; fixtures land as pages</p></div>
+          <div><p><code>content-list.json</code>, <code>content-tree.json</code> + construct runs</p></div>
+        </div>
+        <div>
+          <div><p><code>preview page</code> / <code>publish page</code></p></div>
+          <div><p>Activation loop drives the live site</p></div>
+          <div><p>This site + construct steps</p></div>
+        </div>
+        <div>
+          <div><p><code>site info / doctor / model / freshness</code></p></div>
+          <div><p>Diagnose the site the CLI just touched</p></div>
+          <div><p><code>site-info.json</code>, <code>site-doctor.json</code>, <code>site-model.json</code>, <code>freshness.json</code></p></div>
+        </div>
+        <div>
+          <div><p><code>site pin-target</code></p></div>
+          <div><p>Pinned target survives omitted flags (no project drift)</p></div>
+          <div><p><code>pin-target.json</code> + repo-root <code>.da.json</code></p></div>
+        </div>
+        <div>
+          <div><p><code>content clone / diff / merge</code></p></div>
+          <div><p>Workspace round-trip with drift made visible</p></div>
+          <div><p><code>content-clone-data.txt</code>, <code>content-diff-after-clone.txt</code>, <code>content-merge.txt</code></p></div>
+        </div>
+        <div>
+          <div><p><code>content put-tree</code> (dry-run)</p></div>
+          <div><p>Bulk write path proven without overwriting live content</p></div>
+          <div><p><code>content-put-tree-dryrun.txt</code></p></div>
+        </div>
+        <div>
+          <div><p><code>content versions</code></p></div>
+          <div><p>Version API exercised (document reports none stored — still a surface exercise)</p></div>
+          <div><p><code>content-versions-index.json</code></p></div>
+        </div>
+        <div>
+          <div><p><code>pipeline run --dry-run</code></p></div>
+          <div><p>Full construct plan validates (42 steps, ok)</p></div>
+          <div><p><code>construct-dry-run.json</code></p></div>
+        </div>
+        <div>
+          <div><p><code>aem up</code> smoke</p></div>
+          <div><p>Local dev loop serves HTTP 200</p></div>
+          <div><p><code>aem-up-smoke.txt</code></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Field notes from the cut</h2>
+      <ul>
+        <li><strong>Pin first.</strong> <code>site pin-target</code> writes <code>.da.json</code> so later commands cannot drift to another project when flags are omitted — the exact failure Wave 5 later injected deliberately (<a href="/learnings/f030-silent-global-target">f030</a>).</li>
+        <li><strong>Merge semantics.</strong> <code>content merge /data</code> 404s as a DA folder path; merging the cloned workspace root succeeds. Merge workspace contents, not folder URLs.</li>
+        <li><strong>Dry-run is the boundary.</strong> <code>put-tree</code> was proven dry-run only — the bulk write path exercised without a single live overwrite.</li>
+        <li>Early findings from this ground: <a href="/learnings/f001-site-info-target">f001</a> (site info target), <a href="/learnings/f008-content-merge-path">f008</a> (merge path), <a href="/learnings/f009-content-put-outside-worktree">f009</a> (put outside worktree).</li>
+      </ul>
+      <p>Machine ledger: <code>dogfood/evidence/wave-1/</code> in the repo, including a re-run script for the whole pack.</p>
+    </div>
+
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>proof</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>1</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>status, resolve, content, preview, publish, site, pipeline</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>cut</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>Wave 1 — Foundation and core loop (cut certificate)</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Wave 1 cut proof: target resolution, content loop, preview activation, site diagnosis, and workspace round-trip, with the full evidence pack.</div>
+        </div>
+        <div>
+          <div>last-updated</div>
+          <div>2026-07-14T01:35:00Z</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

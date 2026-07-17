@@ -1,0 +1,45 @@
+{
+  "ok": false,
+  "operation": "pipeline.run",
+  "target": "content-staging/d3-step-failure.yaml",
+  "data": {
+    "runId": "b2f49a7c",
+    "name": "d3-step-failure",
+    "status": "failed",
+    "startedAt": "2026-07-17T01:21:24.760Z",
+    "completedAt": "2026-07-17T01:21:25.949Z",
+    "steps": {
+      "healthy": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-17T01:21:25.531Z"
+      },
+      "doomed": {
+        "status": "failed",
+        "error": "Step \"doomed\" failed (exit 1)",
+        "completedAt": "2026-07-17T01:21:25.949Z"
+      },
+      "never-runs": {
+        "status": "pending"
+      }
+    }
+  },
+  "warnings": [
+    "Step \"doomed\" failed (exit 1)"
+  ],
+  "errors": [
+    {
+      "message": "Step \"doomed\" failed (exit 1)"
+    }
+  ],
+  "next": [
+    "da --format json pipeline status b2f49a7c"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/b2f49a7c/result.json"
+    }
+  ]
+}

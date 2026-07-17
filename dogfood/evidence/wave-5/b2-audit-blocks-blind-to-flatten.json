@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "path": "/drafts/b2-drill",
+  "summary": {
+    "errors": 0,
+    "warnings": 1,
+    "total": 1
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "check": "blocks",
+      "detail": "Block \"raw-table-outside-any-block\" has no rows"
+    }
+  ]
+}

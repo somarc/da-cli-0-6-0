@@ -1,0 +1,19 @@
+{
+  "drill": "B1 \u2014 DA source drift after clone (conflict guard)",
+  "date": "2026-07-17",
+  "sequence": [
+    "put v1 \u2192 clone /drafts (base hash recorded)",
+    "inject: direct put v2 (another author) \u2014 remote drift",
+    "local edit v3 on the stale v1 base",
+    "recognize: content status=modified; content diff shows local v3 vs CURRENT remote v2 (drift visible)",
+    "contain: content push REFUSED exit 1 \u2014 'Remote DA source drifted since clone \u2014 pushing would overwrite newer content: /drafts/b1-drill.html \u2014 modified remotely since clone'; remote v2 untouched",
+    "recover: merge converged local to v2, local v3 re-applied, push ok; remote = v2+v3 composed"
+  ],
+  "finding_f034": "merge CLOBBERED the local v3 the guard was protecting \u2014 the tool's own recovery instruction ('merge \u2026 and re-apply') is destructive; no local-side copy is preserved anywhere (commits store paths, not content). Recovery succeeded only because the operator manually saved the file first.",
+  "json_specimens": [
+    "content status --format json: prose when clean, bare array when dirty",
+    "content put ownership refusal (f009 path): exit 1, EMPTY stdout under json",
+    "content clone --path <document>: 'Cloned 0 files' exit 0 \u2014 silent no-op success",
+    "content push drift refusal: stdout bare planned-paths array, refusal only in stderr prose"
+  ]
+}

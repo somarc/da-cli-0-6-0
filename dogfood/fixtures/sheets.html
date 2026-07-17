@@ -1,0 +1,92 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <div class="painterly-hero">
+        <div>
+          <div>
+            <p>MACHINE LEDGER · SHEETS · INDEXES</p>
+            <h1>The site, machine-readable</h1>
+            <p>The public HTML pages are the human-readable ledger of this test suite; these endpoints are the <strong>machine-readable</strong> one. Agents query them, coverage aggregates from them, and two Wave 5 findings (f028, f029) came from taking their honesty seriously.</p>
+            <p>Related: <a href="/coverage">coverage</a> · <a href="/route-matrix">Wave 3 — routes &amp; index</a> · <code>dogfood/evidence/</code> in the repo</p>
+          </div>
+          <div>
+            <p>
+              <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/cli-surface-ledger.webp" alt="Painterly ledger of CLI surfaces — machine sheets and index cards">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Live endpoints</h2>
+      <div class="table">
+        <div>
+          <div><p>Endpoint</p></div>
+          <div><p>What it is</p></div>
+          <div><p>Exercised by</p></div>
+        </div>
+        <div>
+          <div><p><a href="/query-index.json">/query-index.json</a></p></div>
+          <div><p>The published query index: every content page's <code>wave</code>, <code>surface</code>, and <code>status</code> metadata, aggregated. The structured spine a future coverage block renders from — and the fossil that Wave 5's C3 drill caught frozen (<a href="/learnings/f028-config-read-gated-build">f028</a>, <a href="/learnings/f029-index-config-false-migration">f029</a>).</p></div>
+          <div><p><code>da index show / validate / query / build</code></p></div>
+        </div>
+        <div>
+          <div><p><a href="/data/coverage.json">/data/coverage.json</a></p></div>
+          <div><p>Authored DA sheet classifying every command family by wave and required/optional class — the command sheet behind the <a href="/coverage">coverage catalog</a>.</p></div>
+          <div><p><code>da content sheets</code></p></div>
+        </div>
+        <div>
+          <div><p><a href="/data/wave-2-cli-surface.json">/data/wave-2-cli-surface.json</a></p></div>
+          <div><p>Machine sheet of the <a href="/cli-surface">Wave 2 CLI surface ledger</a>: every command journey that proved Wave 2, with targets, evidence, and status.</p></div>
+          <div><p><code>da content sheets</code></p></div>
+        </div>
+        <div>
+          <div><p><a href="/tools/wave-2-cli-surface.html">/tools/wave-2-cli-surface.html</a></p></div>
+          <div><p>The human view of the same sheet: an interactive command-surface map (codebus tool, dogfood-scoped).</p></div>
+          <div><p>codebus route — see <a href="/route-matrix">route ownership</a></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Why these live outside the git repo's evidence packs</h2>
+      <p>Evidence packs under <code>dogfood/evidence/wave-N/</code> capture what a command said <em>at a moment in time</em>; these endpoints are what the platform says <em>now</em>. The gap between the two is exactly where Wave 5 findings live: a claimed migration that was never on the platform (f029), an index that froze while pages kept publishing (C3). When this page and the evidence disagree, that disagreement is a drill waiting to run.</p>
+    </div>
+
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>narrative</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div></div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>index, content sheets</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>living</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>Sheets &amp; indexes — the machine-readable ledger</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>The query index, coverage sheet, and CLI surface sheets that make the da-cli dogfood site machine-readable.</div>
+        </div>
+        <div>
+          <div>last-updated</div>
+          <div>2026-07-17T12:00:00Z</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

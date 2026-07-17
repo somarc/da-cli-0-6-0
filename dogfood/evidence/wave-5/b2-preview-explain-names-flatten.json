@@ -1,0 +1,34 @@
+{
+  "path": "/drafts/b2-drill.html",
+  "plainUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b2-drill.plain.html",
+  "plainStatus": 200,
+  "classes": {
+    "source": [
+      "cards"
+    ],
+    "plain": [
+      "raw-table-outside-any-block"
+    ],
+    "removed": [
+      "cards"
+    ]
+  },
+  "classification": {
+    "expected": [],
+    "problematic": [
+      "cards"
+    ],
+    "trimmed": []
+  },
+  "hints": [],
+  "diagnostics": [
+    {
+      "class": "cards",
+      "severity": "error",
+      "likelyCause": "Block class is a direct <main> child and was flattened by DA preview.",
+      "remediation": "Wrap the block table inside a parent section div, upload, preview, and re-run preview explain.",
+      "contract": null
+    }
+  ],
+  "status": "classes-removed-in-preview"
+}

@@ -1,0 +1,15 @@
+{
+  "drill": "D3 \u2014 pipeline step failure / approval (abort banked f025)",
+  "date": "2026-07-17",
+  "step_failure_rep": [
+    "inject: middle step content-get on a nonexistent doc, with a dependent step",
+    "recognize+contain: one ok:false pipeline.run envelope, exit 1 \u2014 failed step NAMED with exit code, dependent step held at 'pending', healthy step completed; f014 routing held (child stdout on stderr)",
+    "recover: corrected step target, re-run \u2192 completed 3/3, exit 0"
+  ],
+  "approval_reps": [
+    "denial (echo n |): contained \u2014 gated step stayed pending, ok:false envelope names 'approval denied', exit 1. STAIN: the readline prompt printed to STDOUT, prefixing the json envelope (parse fails until stripped)",
+    "stdin EOF (</dev/null): FINDING \u2014 process exits 0 MID-RUN with no envelope (event loop drains, promise never settles); run state stranded status:'running' with zero steps (zombie). Orchestrator sees success; pipeline status says still running. Double lie.",
+    "containment: pipeline abort 9f98d66c \u2192 status aborted (f025-fixed marker held)"
+  ],
+  "finding": "non-TTY approval gate: EOF\u2192false-success+zombie state; prompt on stdout corrupts json. f020's lesson unlearned at this gate: non-interactive contexts need an explicit approval flag and a fail-fast structured refusal, prompt belongs on stderr."
+}
