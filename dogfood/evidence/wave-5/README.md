@@ -185,3 +185,35 @@ findings, all fixed + locked + field-re-proven same-session (618/618).
 **Banked pointers:** D1 = wave-4 f022 SIGKILL/resume evidence; D2 = wave-4
 `job-cancel-show.json`; D3-abort = f025 field drill on the 74-step regen;
 D4-collision = f024 refusal evidence.
+
+## f037 — put blind to missing DA media references (2026-07-17) — **FIXED**
+
+Natural injection while shipping the Prove nav restructure: a wave certificate
+page referenced a media asset that existed only on the codebus, never in DA
+media. `content put --commit` accepted it silently; the page rendered
+`<img src="about:error">`; a human found it, not the CLI.
+
+- `f037-symptom-about-error.txt` — the served src, vs a healthy media_hash page.
+- `f037-media-list-before.txt` — ground truth: 14 DA media assets, target absent.
+- `f037-recovery-binary-put.txt` — binary upload lane + re-put + re-preview.
+- `f037-recovered-src.txt` — fresh capture: `./media_1096636e….jpg`, asset 200.
+- `f037-drill-note.json` — structured recognize/contain/recover note.
+
+Gap (f010's sibling): put preflighted host-less `/media` URLs but never
+existence-checked absolute same-project `content.da.live` references.
+**Fixed same-day in da-cli:** `sourceExists` HEAD probe per unique reference
+(404 definitive; transport/auth unknown never blocks); warn by default on
+envelope `warnings[]` + stderr with the executable upload command;
+`--strict-media-urls` extends to fail with one `ok:false` envelope + per-asset
+`next[]`. Field proof at the fixed CLI:
+
+- `f037-fix-field-warn.json` — reference-to-nothing draft: dry-run `ok:true`
+  with exactly one f037 envelope warning naming path + consequence.
+- `f037-fix-field-strict.json` — same put `--strict-media-urls`: `ok:false`,
+  exit 1, upload recovery in `next[]`.
+- `f037-fix-field-control.json` — the recovered Wave 4 page: zero f037 noise,
+  `changed: false`.
+
+Locks: `content-put-media.test.js` (3 hermetic, verified failing on old code)
++ collector units; suite 625/625. Learning:
+`/learnings/f037-put-blind-missing-media`.

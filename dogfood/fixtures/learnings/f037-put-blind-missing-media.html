@@ -1,0 +1,61 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f037 · content, media · fixed</p>
+      <h1>content put committed a page pointing at DA media that did not exist — the broken image was found by a human, not the CLI</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Shipping the wave certificate pages: a page fixture referenced <code>https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/parthenon-frame-study.jpg</code>. That asset existed only on the <strong>codebus</strong> (the git repo's <code>media/</code> folder) — DA's media store held 14 assets, none of them this file. <code>da --commit content put</code> accepted the page with <strong>zero warnings</strong>; preview succeeded; the rendered page served <code>&lt;img src="about:error"&gt;</code>. The failure surfaced when a human looked at the page.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>f010 taught put to guard <em>host-less</em> <code>/media</code> URLs — warn, rewrite, or fail. This is f010's sibling: an <strong>absolute</strong> <code>content.da.live</code> URL, pointing into the very org/repo the CLI is authenticated against, referencing nothing. The command with the authority and the credentials to check its own project's media chose not to look. The result is the worst failure class in this suite's vocabulary: <strong>a wrong outcome committed as success</strong> — same family as f023 ("imported" unservable content) and f029 (claimed migration never on the platform). Agents cannot recover from failures that report as clean.</p>
+      <p>The distinction that makes this checkable: codebus media (<code>/media/…</code> served from git) and DA media (ingested at put, rewritten to <code>./media_&lt;hash&gt;</code>) are different stores with different existence semantics — and the CLI knows which is which at put time.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Field recovery same-session</strong> via the binary upload lane: <code>da --commit content put /media/renderaissance/parthenon-frame-study.jpg …</code>, then re-put + re-preview. Verified: src rewritten to <code>./media_1096636e….jpg</code>, optimized asset serves 200.</p>
+      <p><strong>Fixed in da-cli:</strong> put's media preflight now extends to absolute same-project DA media references — one authenticated HEAD per unique reference (<code>sourceExists</code>, a new client probe where 404 is definitive and transport/auth failures return unknown, so a flaky probe can never block a put). Missing references <strong>warn by default</strong> on both channels: envelope <code>warnings[]</code> and stderr, naming the paths, the <code>about:error</code> consequence, and the exact upload command. <code>--strict-media-urls</code> extends to fail the put with one <code>ok:false</code> envelope carrying the per-asset upload recovery in <code>next[]</code>, exit 1. Cross-project and external URLs are untouched — not this command's authority. Field-proven against the live project: warn envelope on a reference-to-nothing draft, strict refusal with executable recovery, and zero noise on the recovered Wave 4 page (<code>dogfood/evidence/wave-5/f037-fix-field-*.json</code>).</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Hermetic CLI locks via the <code>DA_ADMIN_URL</code> seam (<code>content-put-media.test.js</code>): missing reference → dry-run envelope carries exactly one f037 warning naming path + consequence, stderr carries the upload recovery; strict mode → one <code>ok:false</code> envelope, non-zero exit, <code>next[]</code> executable; existing / cross-project / external references → zero f037 noise. Unit locks for the collector (dedupe, srcset, query-string stripping, authority boundaries). Verified failing on old code (2/3 fail, control passes); suite 625/625.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>content, media</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f037</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f037 — put was blind to missing DA media references; a broken image shipped as success</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>content put accepted an absolute content.da.live media URL referencing a nonexistent asset in its own project — no warning, page rendered about:error. Fixed: authenticated existence preflight warns with executable upload recovery; --strict-media-urls fails the put. Locked, 625/625.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

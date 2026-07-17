@@ -1,0 +1,27 @@
+{
+  "finding": "f037",
+  "slug": "put-blind-missing-media",
+  "date": "2026-07-17",
+  "status": "fixed",
+  "injection": "natural — not a synthetic drill",
+  "context": "Shipping the Prove nav restructure (wave certificate pages). The Wave 4 page fixture referenced https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/parthenon-frame-study.jpg — an asset that existed only on the codebus (git repo), never in DA media.",
+  "symptom": "da --commit content put of the page succeeded with zero warnings. The rendered preview page served <img src=\"about:error\"> — the pipeline could not ingest the missing DA asset and silently rewrote the src. Failure was discovered by a human looking at the page.",
+  "recognize": "NOT achieved by the CLI. content put validated sections and host-less /media URLs (f010 guards) but never checked that absolute content.da.live media references resolve. The one asset class it claims authority over (its own org/repo media) was unverified.",
+  "contain": "n/a — the write itself was the intended mutation; the damage was a broken public render committed as success.",
+  "recover": "da --commit content put /media/renderaissance/parthenon-frame-study.jpg media/renderaissance/parthenon-frame-study.jpg (binary upload lane, image/jpeg, 246.5 KB, one committed envelope) then re-put + re-preview the page. Verified: src rewritten to ./media_1096636e….jpg and optimized asset serves 200.",
+  "evidence": [
+    "f037-symptom-about-error.txt (session capture)",
+    "f037-media-list-before.txt (session capture)",
+    "f037-recovery-binary-put.txt (session capture)",
+    "f037-recovered-src.txt (fresh capture)",
+    "f037-fix-field-warn.json (fresh)",
+    "f037-fix-field-strict.json (fresh)",
+    "f037-fix-field-control.json (fresh)"
+  ],
+  "gap": "f010's sibling: put warns on host-less /media URLs but is blind to absolute content.da.live media URLs that reference nonexistent assets in the SAME org/repo it is authenticated against. Proposed: preflight authenticated existence check (HEAD per unique same-project media reference) — warn by default, --strict-media-urls extends to fail.",
+  "relatedFindings": [
+    "f010"
+  ],
+  "learning": "/learnings/f037-put-blind-missing-media",
+  "fix": "da-cli: put media preflight extended to absolute same-project references — client sourceExists HEAD probe (404 definitive, transport/auth unknown → never blocks); warn by default on envelope warnings[] + stderr with executable upload recovery; --strict-media-urls fails with one ok:false envelope + per-asset next[]. Locks: content-put-media.test.js (3, failing on old code) + collector units; 625/625."
+}

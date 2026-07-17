@@ -1,0 +1,31 @@
+# f037 ground truth — session capture, 2026-07-17 ~01:47 UTC, BEFORE recovery
+# DA media store contained 14 assets — all .webp/.svg; none of the repo's .jpg files.
+
+$ da --org somarc --repo da-cli-0-6-0 content list /media/renderaissance --format json
+{
+  "ok": true,
+  "operation": "content.list",
+  "target": "somarc/da-cli-0-6-0/media/renderaissance",
+  "data": {
+    "path": "/media/renderaissance",
+    "count": 14,
+    "items": [
+      { "name": "cli-surface-ledger.webp" },
+      { "name": "coverage-catalog.webp" },
+      { "name": "findings-flywheel.webp" },
+      { "name": "hero-bg.webp" },
+      { "name": "hero-figure.webp" },
+      { "name": "hero-object.webp" },
+      { "name": "hero-plate.webp" },
+      { "name": "hero-plate-height.webp" },
+      { "name": "hero-plate-normal.webp" },
+      { "name": "hero-plate-roughness.webp" },
+      { "name": "mascot-cupid.webp" },
+      { "name": "sprig.svg" },
+      { "name": "test-plan-waves.webp" },
+      { "name": "why-operator.webp" }
+    ]
+  }
+}
+# (items abridged to names; full envelope shape as emitted by content.list)
+# parthenon-frame-study.jpg absent — the authored reference pointed at nothing.

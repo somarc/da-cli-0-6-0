@@ -342,6 +342,12 @@ steps:
   - id: preview-f036
     command: preview page /learnings/f036-approval-gate-zombie --format json
     depends_on: [put-f036]
+  - id: put-f037
+    command: content put /learnings/f037-put-blind-missing-media.html dogfood/fixtures/learnings/f037-put-blind-missing-media.html --format json
+    depends_on: [preview-f036]
+  - id: preview-f037
+    command: preview page /learnings/f037-put-blind-missing-media --format json
+    depends_on: [put-f037]
   - id: put-wave-1
     command: content put /waves/1-foundation.html dogfood/fixtures/waves/1-foundation.html --format json
     depends_on: [preview-f033]

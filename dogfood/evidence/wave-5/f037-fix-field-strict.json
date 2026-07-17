@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/drafts/f037-drill.html",
+  "warnings": [],
+  "errors": [
+    "f037: 1 content.da.live media reference(s) missing from somarc/da-cli-0-6-0: /media/renderaissance/does-not-exist-f037.jpg"
+  ],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit content put /media/renderaissance/does-not-exist-f037.jpg <local-file>"
+  ]
+}
