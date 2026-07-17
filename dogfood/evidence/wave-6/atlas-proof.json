@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-07-17T11:53:00Z",
+  "status": "in-progress",
+  "slices": {
+    "secondSite": "proved",
+    "credentialedIntegration": "proved",
+    "remainingLifecycleSkills": "open"
+  },
+  "repository": "somarc/da-lifecycle-atlas",
+  "branch": "feature-wave-6-full-da-site",
+  "pullRequest": "https://github.com/somarc/da-lifecycle-atlas/pull/2",
+  "preview": "https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.page/",
+  "live": "https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.live/",
+  "explainer": "https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.live/explainers/helix-5-to-helix-6",
+  "evidenceRoot": "somarc/da-lifecycle-atlas:atlas/evidence/wave-6/",
+  "observations": {
+    "daDocuments": 7,
+    "constructStepsCompleted": 17,
+    "constructStepsTotal": 17,
+    "contractMissing": [],
+    "auditErrors": 0,
+    "auditWarnings": 0,
+    "freshRoutes": 7,
+    "liveRoutes": 7,
+    "riverboatShellSteps": 1,
+    "riverboatUngatedShellSteps": 0,
+    "grokImageDimensions": "1280x720",
+    "renderedImageDimensions": "750x422",
+    "renderedAboutError": false
+  }
+}

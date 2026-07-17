@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-16 23:55 UTC)
+## Wave status (2026-07-17 11:53 UTC)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
 (always update that page’s progress log when this table moves)
@@ -23,7 +23,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
 | **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
 | **5** Failure & recovery injection | **cut (C2 unpublish leg deferred)** | **Cut 2026-07-17** — full drill matrix run: A1–A3, B1–B3, C1, C3, D3, D4 ✅; D1/D2 banked; C2 recognition+containment+recovery done, final orphan-removal rep alone deferred on the Helix-admin delete permission (operator action, tracked). Ten findings from the wave (f027–f036), every one fixed/recovered same-session; evidence `dogfood/evidence/wave-5/` |
-| **6** Lifecycle | not started | auth flows, skills bootstrap, site create, conditional integrations |
+| **6** Lifecycle | **in progress** | Opened 2026-07-17: second-site + credentialed integration slices proved through `somarc/da-lifecycle-atlas` — seven DA documents, 17/17 constrained construct, clean audits/contracts, 7/7 fresh feature live, explicitly approved Riverboat/Grok Imagine plate captured and then uploaded by normal da-cli. Evidence `dogfood/evidence/wave-6/`; remaining lifecycle/skills classification stays open. |
 
 ### Riverboat Gambler wave — trusted local automation
 
@@ -286,7 +286,8 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 10. **2026-07-16 hardening pass** (4 subagent audits): **f015 Critical fixed** (job run --commit bypass), f016 fixed (code job URL + terminal states), f013 **fixed** (literal-path probe + 403-as-unknown, clean gate closed), f017 seams landed (envelopes: content put / preview page / publish page), f018 fixed (workspace path traversal), f019 fixed (publish/deploy/index safety tiers). 553/553 tests. See `FRICTION-GATE-0.6.0.md`.
 11. ~~Wave 4 remaining~~ — **cut 2026-07-16**: durable jobs (f022 SIGKILL/resume), migrate (f023 path normalization, f024 collision refusal), pipeline abort (f025 marker clobber) — every completion drill found and fixed a real friction. 575/575 tests.
 12. ~~Wave 5 opened~~ — **2026-07-16**: opening rep A2 (expired auth) recognized/contained/recovered; the recovery verification itself surfaced **f027** (content read-listing success paths were bare arrays — fixed+locked same-session, 600/600). Drill matrix on this board; evidence `dogfood/evidence/wave-5/`.
-13. **Wave 5 remaining drills** (A1, A3, B1–B3, C1–C3, D3/D4 fresh reps) + banked-pointer README rows; then Wave 6; then 0.6.0 version/branch when site proves
+13. ~~Wave 5 remaining drills~~ — **cut 2026-07-17** (see matrix + evidence)
+14. **Wave 6 in progress** — second-site and credentialed integration publicly proved through `da-lifecycle-atlas`; classify/close remaining lifecycle + skills conditions, then 0.6.0 version/branch when the site proves
 
 ---
 
