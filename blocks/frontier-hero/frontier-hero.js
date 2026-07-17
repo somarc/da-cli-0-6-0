@@ -65,13 +65,16 @@ void main() {
       map(p + e.yyx) - map(p - e.yyx)));
     float dif = max(dot(n, normalize(vec3(0.5, 0.8, 0.6))), 0.0);
     float fre = pow(1.0 - max(dot(-rd, n), 0.0), 3.0);
-    // slow band walks the brand ramp along the lattice
+    // surfaces live in the ink -> cobalt family (the site's ground)…
     float band = 0.5 + 0.5 * sin(p.z * 0.9 + td * 0.35 + uTime * 0.12);
-    vec3 base = ramp(0.18 + 0.62 * band - tilt);
-    col = base * (0.10 + 0.85 * dif) + CREAM * pow(dif, 6.0) * 0.18;
-    // rim: peach glow with a chartreuse edge — the site's accent pair
+    vec3 base = ramp(clamp(0.06 + 0.30 * band - tilt, 0.0, 0.42));
+    // …with narrow terracotta seams as the accent, not the field
+    float seam = smoothstep(0.86, 0.97, 0.5 + 0.5 * sin(p.z * 2.6 + p.x * 1.1 + uTime * 0.1));
+    base = mix(base, TERRA, seam * 0.8);
+    col = base * (0.10 + 0.85 * dif) + CREAM * pow(dif, 6.0) * 0.22;
+    // rim: peach glow breaking to a chartreuse edge — the site's accent pair
     vec3 rim = mix(PEACH, CHART, smoothstep(0.55, 0.95, fre));
-    col += fre * rim * 0.55;
+    col += fre * rim * 0.45;
     col = mix(col, fog, 1.0 - exp(-0.012 * td * td));
   }
   col *= 0.9;

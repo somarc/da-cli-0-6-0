@@ -19,17 +19,35 @@ const FONTS = {
     css: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap',
     family: '"Fraunces", "Cormorant Garamond", georgia, serif',
     axes: [
-      { tag: 'wght', label: 'weight', min: 100, max: 900, step: 1 },
-      { tag: 'opsz', label: 'optical size', min: 9, max: 144, step: 1 },
-      { tag: 'SOFT', label: 'softness', min: 0, max: 100, step: 1 },
-      { tag: 'WONK', label: 'wonk', min: 0, max: 1, step: 1 },
+      {
+        tag: 'wght', label: 'weight', min: 100, max: 900, step: 1,
+      },
+      {
+        tag: 'opsz', label: 'optical size', min: 9, max: 144, step: 1,
+      },
+      {
+        tag: 'SOFT', label: 'softness', min: 0, max: 100, step: 1,
+      },
+      {
+        tag: 'WONK', label: 'wonk', min: 0, max: 1, step: 1,
+      },
     ],
     voices: {
-      Display: { wght: 620, opsz: 144, SOFT: 0, WONK: 0 },
-      'Old style': { wght: 470, opsz: 26, SOFT: 45, WONK: 1 },
-      Poster: { wght: 900, opsz: 144, SOFT: 100, WONK: 0 },
-      Wonky: { wght: 560, opsz: 144, SOFT: 20, WONK: 1 },
-      Text: { wght: 380, opsz: 12, SOFT: 0, WONK: 0 },
+      Display: {
+        wght: 620, opsz: 144, SOFT: 0, WONK: 0,
+      },
+      'Old style': {
+        wght: 470, opsz: 26, SOFT: 45, WONK: 1,
+      },
+      Poster: {
+        wght: 900, opsz: 144, SOFT: 100, WONK: 0,
+      },
+      Wonky: {
+        wght: 560, opsz: 144, SOFT: 20, WONK: 1,
+      },
+      Text: {
+        wght: 380, opsz: 12, SOFT: 0, WONK: 0,
+      },
     },
   },
 };
