@@ -44,6 +44,7 @@ the spine.
   …
 
 /labs/dualform            Dualform PE lab (optional; not Wave 2 gate)
+/frontier                 Frontier lab — living platform proof (dogfood/LAB-FRONTIER.md)
 
 /tests/orphan-demo        Deliberate demo artifact for route ownership
 /data/coverage.json       Sheet: command family × wave × class
@@ -106,7 +107,7 @@ Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropd
 | **Story** | Why · Test plan · Coverage catalog |
 | **Prove** | Kitchen sink · CLI surface ledger · Wave 2 CLI map · Blocks · Coverage · sheets · index |
 | **Learnings** | **Direct link to hub only** — never enumerate fNNN here |
-| **Labs** | Dualform · home hero · Modal sample |
+| **Labs** | Dualform · Frontier · home hero · Modal sample |
 
 Growth rule: add new proof routes as **Prove submenu** items when they are cut
 gates; add learnings only under `/learnings` hub table + construct.yaml — **not**

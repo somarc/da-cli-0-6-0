@@ -1,0 +1,139 @@
+/*
+ * Scroll rail — vertical scroll drives a horizontal card rail via a named
+ * CSS view timeline. Compositor-run; no scroll listeners. Falls back to a
+ * static card stack (.sr-static) without scroll-driven animation support.
+ * Lab: Frontier (dogfood/LAB-FRONTIER.md).
+ */
+
+.scroll-rail .sr-card {
+  --frontier-hue: 265;
+
+  background: linear-gradient(
+    165deg,
+    oklch(19% 0.032 var(--frontier-hue)),
+    oklch(15% 0.028 var(--frontier-hue))
+  );
+  border: 1px solid oklch(100% 0 0deg / 10%);
+  border-radius: var(--rr-radius-card, 6px);
+  box-shadow: 0 16px 40px rgb(34 49 95 / 18%);
+  color: oklch(93% 0.015 var(--frontier-hue));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(20px, 3vw, 34px);
+}
+
+.scroll-rail .sr-index {
+  color: oklch(86% 0.15 calc(var(--frontier-hue) - 100));
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.scroll-rail .sr-title {
+  color: oklch(94% 0.014 var(--frontier-hue));
+  font-family: var(--heading-font-family, serif);
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.scroll-rail .sr-body {
+  color: oklch(74% 0.02 var(--frontier-hue));
+  font-size: var(--body-font-size-xs, 15px);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.scroll-rail .sr-body code,
+.scroll-rail .sr-index code {
+  background: oklch(100% 0 0deg / 8%);
+  border-radius: 4px;
+  font-size: 0.92em;
+  padding: 1px 5px;
+}
+
+/* ---- static fallback: readable stack, no theatrics ---- */
+
+.scroll-rail.sr-static .sr-track {
+  display: grid;
+  gap: 16px;
+}
+
+@media (width >= 900px) {
+  .scroll-rail.sr-static .sr-track {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---- rail mode: tall wrapper + sticky stage + timeline-driven track ---- */
+
+.scroll-rail.sr-rail {
+  height: 340vh;
+  position: relative;
+  view-timeline-name: --sr-scroll;
+}
+
+.scroll-rail.sr-rail .sr-sticky {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  min-height: 60vh;
+  overflow: clip;
+  position: sticky;
+  top: calc(var(--nav-height, 72px) + 4vh);
+}
+
+.scroll-rail.sr-rail .sr-track {
+  animation: sr-slide linear both;
+  animation-timeline: --sr-scroll;
+  animation-range: contain 0% contain 100%;
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.scroll-rail.sr-rail .sr-card {
+  width: min(430px, 82vw);
+}
+
+.scroll-rail.sr-rail .sr-progress {
+  background: oklch(30% 0.02 265deg / 25%);
+  border-radius: 999px;
+  height: 3px;
+  overflow: clip;
+  width: min(430px, 82vw);
+}
+
+.scroll-rail.sr-rail .sr-progress i {
+  animation: sr-fill linear both;
+  animation-timeline: --sr-scroll;
+  animation-range: contain 0% contain 100%;
+  background: linear-gradient(
+    90deg,
+    oklch(74% 0.19 265deg),
+    oklch(86% 0.15 165deg)
+  );
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  scale: 0 1;
+  transform-origin: left;
+  width: 100%;
+}
+
+@keyframes sr-slide {
+  to {
+    translate: calc(-100% + 100vw - 2 * clamp(16px, 4vw, 48px)) 0;
+  }
+}
+
+@keyframes sr-fill {
+  to {
+    scale: 1 1;
+  }
+}

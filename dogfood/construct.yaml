@@ -135,10 +135,16 @@ steps:
   - id: preview-dualform
     command: preview page /dualform --format json
     depends_on: [put-dualform]
+  - id: put-frontier
+    command: content put /frontier.html dogfood/fixtures/frontier.html --format json
+    depends_on: [preview-dualform]
+  - id: preview-frontier
+    command: preview page /frontier --format json
+    depends_on: [put-frontier]
   # Wave 2 — form sheet + modal fragment for kitchen-sink spectrum
   - id: put-contact-form
     command: content put /data/contact-form.json dogfood/fixtures/data/contact-form.json --format json
-    depends_on: [preview-dualform]
+    depends_on: [preview-frontier]
   - id: preview-contact-form
     command: preview page /data/contact-form.json --format json
     depends_on: [put-contact-form]

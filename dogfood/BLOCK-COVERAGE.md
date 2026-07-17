@@ -53,6 +53,7 @@ copying heavy third-party deps.
 | Dynamic section loader | `dynamic` | fragment later | Bridge | deferred |
 | Quiz / journey / calculators | vertical demos | — | Vertical | out of scope core cut |
 | Painterly / dualform / widget | — | PE labs | Dogfood-extra | lab pages |
+| Frontier lab (shader hero, scroll rail, live probes) | — | `frontier-hero` · `scroll-rail` · `feature-matrix` | Dogfood-extra | `/frontier` |
 
 ### Worker-backed surfaces (stub + document wrangler)
 

@@ -15,3 +15,6 @@ helix-importer-ui
 # da-cli local workspace and pipeline run artifacts
 .da/
 .da/jobs/
+
+# local dev drafts (aem up --html-folder drafts)
+drafts/
