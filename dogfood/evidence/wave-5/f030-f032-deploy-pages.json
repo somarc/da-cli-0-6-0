@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "operation": "deploy.pages",
+  "target": "/tmp/w5-paths.txt",
+  "data": {
+    "total": 5,
+    "previewed": 5,
+    "published": 5,
+    "failedPreview": 0,
+    "failedPublish": 0,
+    "preview": [
+      {
+        "path": "/learnings/f030-silent-global-target",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f030-silent-global-target",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f031-freshness-blind-to-staleness",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f031-freshness-blind-to-staleness",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f032-silent-refusals",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f032-silent-refusals",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+        "status": "ok"
+      }
+    ],
+    "publish": [
+      {
+        "path": "/learnings/f030-silent-global-target",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f030-silent-global-target",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f031-freshness-blind-to-staleness",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f031-freshness-blind-to-staleness",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings/f032-silent-refusals",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f032-silent-refusals",
+        "status": "ok"
+      },
+      {
+        "path": "/learnings",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/learnings",
+        "status": "ok"
+      },
+      {
+        "path": "/test-plan",
+        "url": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+        "status": "ok"
+      }
+    ]
+  },
+  "changes": [
+    "/learnings/f030-silent-global-target",
+    "/learnings/f031-freshness-blind-to-staleness",
+    "/learnings/f032-silent-refusals",
+    "/learnings",
+    "/test-plan"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --wait --yes"
+  ]
+}

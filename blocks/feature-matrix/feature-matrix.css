@@ -4,14 +4,15 @@
  */
 
 .feature-matrix {
-  --frontier-hue: 265;
-  --fm-plate: oklch(17% 0.03 var(--frontier-hue));
-  --fm-plate-2: oklch(21% 0.035 var(--frontier-hue));
-  --fm-ink: oklch(93% 0.015 var(--frontier-hue));
-  --fm-ink-dim: oklch(70% 0.02 var(--frontier-hue));
+  --frontier-hue: 40;
+  --fm-cobalt: calc(var(--frontier-hue) + 225);
+  --fm-plate: oklch(17% 0.03 var(--fm-cobalt));
+  --fm-plate-2: oklch(21% 0.035 var(--fm-cobalt));
+  --fm-ink: oklch(93% 0.015 var(--fm-cobalt));
+  --fm-ink-dim: oklch(70% 0.02 var(--fm-cobalt));
   --fm-line: oklch(100% 0 0deg / 10%);
-  --fm-pass: oklch(85% 0.19 calc(var(--frontier-hue) - 130));
-  --fm-fail: oklch(68% 0.16 40deg);
+  --fm-pass: oklch(88% 0.18 calc(var(--frontier-hue) + 80));
+  --fm-fail: oklch(66% 0.15 var(--frontier-hue));
 
   background: linear-gradient(160deg, var(--fm-plate), var(--fm-plate-2));
   border: 1px solid var(--rr-line, #d8ccb4);

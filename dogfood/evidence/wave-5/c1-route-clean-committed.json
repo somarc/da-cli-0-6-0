@@ -1,0 +1,39 @@
+{
+  "ok": false,
+  "path": "/drafts/c1-drill",
+  "action": "permission-refused",
+  "ownership": "contentbus",
+  "sourcePath": "/drafts/c1-drill.html",
+  "steps": [
+    {
+      "step": "source-delete",
+      "ok": true,
+      "path": "/drafts/c1-drill.html"
+    },
+    {
+      "step": "unpreview",
+      "ok": false,
+      "path": "/drafts/c1-drill",
+      "permissionDenied": true,
+      "status": 403,
+      "error": "DA API 403 at https://admin.hlx.page/preview/somarc/da-cli-0-6-0/main/drafts/c1-drill",
+      "message": "unpreview refused with HTTP 403 for /drafts/c1-drill. This token cannot delete preview for this site.",
+      "recovery": [
+        "Use an operator identity with Helix admin write on this org/repo.",
+        "Ask a site admin to grant admin.hlx.page write, then re-run clean.",
+        "da --commit route clean /drafts/c1-drill --yes",
+        "da route classify /drafts/c1-drill --format json"
+      ]
+    }
+  ],
+  "permissionDenied": true,
+  "message": "unpreview refused with HTTP 403 for /drafts/c1-drill. This token cannot delete preview for this site.",
+  "recovery": [
+    "Use an operator identity with Helix admin write on this org/repo.",
+    "Ask a site admin to grant admin.hlx.page write, then re-run clean.",
+    "da --commit route clean /drafts/c1-drill --yes",
+    "da route classify /drafts/c1-drill --format json"
+  ],
+  "failedStep": "unpreview",
+  "exitCode": 3
+}

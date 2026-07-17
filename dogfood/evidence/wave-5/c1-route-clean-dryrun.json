@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "path": "/drafts/c1-drill",
+  "action": "dry-run",
+  "ownership": "contentbus",
+  "sourcePath": "/drafts/c1-drill.html",
+  "planned": {
+    "deleteSource": true,
+    "unpreview": true,
+    "unpublish": true
+  }
+}

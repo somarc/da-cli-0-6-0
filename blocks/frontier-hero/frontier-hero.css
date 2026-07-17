@@ -6,17 +6,23 @@
 
 @property --frontier-hue {
   syntax: '<number>';
-  initial-value: 265;
+  initial-value: 40;
   inherits: true;
 }
 
+/*
+ * One knob, brand triad: hue 40 = terracotta, +80 = chartreuse, +225 = cobalt.
+ * Defaults land exactly on the Renderaissance accents.
+ */
 .frontier-hero .fh-stage {
-  --fr-acc-1: oklch(74% 0.19 var(--frontier-hue, 265));
-  --fr-acc-2: oklch(86% 0.15 calc(var(--frontier-hue, 265) - 100));
-  --fr-ink: oklch(94% 0.014 var(--frontier-hue, 265));
-  --fr-ink-dim: oklch(74% 0.02 var(--frontier-hue, 265));
+  --fr-peach: oklch(78% 0.11 var(--frontier-hue, 40));
+  --fr-chart: oklch(88% 0.18 calc(var(--frontier-hue, 40) + 80));
+  --fr-cobalt: calc(var(--frontier-hue, 40) + 225);
+  --fr-ink: oklch(94% 0.014 var(--fr-cobalt));
+  --fr-ink-dim: oklch(76% 0.02 var(--fr-cobalt));
 
-  background: oklch(15% 0.028 var(--frontier-hue, 265));
+  align-content: end;
+  background: oklch(15% 0.028 var(--fr-cobalt));
   border: 1px solid var(--rr-line, #d8ccb4);
   border-radius: var(--rr-radius-card, 6px);
   box-shadow: 0 24px 60px rgb(34 49 95 / 22%);
@@ -53,17 +59,16 @@
 }
 
 .frontier-hero .fh-copy {
-  align-self: end;
   max-width: 46ch;
   padding: clamp(24px, 5vw, 56px);
   position: relative;
-  text-shadow: 0 1px 18px oklch(10% 0.02 var(--frontier-hue, 265) / 80%);
+  text-shadow: 0 1px 18px oklch(10% 0.02 var(--fr-cobalt) / 80%);
   text-wrap: pretty;
   z-index: 2;
 }
 
 .frontier-hero .fh-eyebrow {
-  color: var(--fr-acc-2);
+  color: var(--fr-chart);
   font-family: var(--label-font-family, sans-serif);
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -83,7 +88,7 @@
 
 .frontier-hero .fh-copy h1 em,
 .frontier-hero .fh-copy h2 em {
-  color: var(--fr-acc-1);
+  color: var(--fr-peach);
   font-style: italic;
 }
 
@@ -95,6 +100,7 @@
 }
 
 .frontier-hero .fh-hud {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

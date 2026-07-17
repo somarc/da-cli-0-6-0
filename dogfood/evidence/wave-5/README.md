@@ -81,6 +81,62 @@ Recognized (triangulation: frozen maxLastModified + `#simple`-only + config
 **f029** (recovered; discipline stated — platform claims need live-response
 proof).
 
+## A1 — unresolved target (2026-07-17)
+
+- `a1-global-fallback-warned.json` — the sneaky case: empty directory, no
+  project config → the CLI silently resolved to the GLOBAL default target and
+  listed a *different project*. Post-f030: the envelope now carries the
+  orientation warning (`resolved from GLOBAL config … pin-target`).
+- `a1-unresolved-refusal.json` — truly unresolved (no config anywhere): one
+  `ok:false` envelope, exit 1, and post-f030 the recovery is executable
+  (`next: ["da --org <org> --repo <repo> <command>", "da config set org <org>"]`),
+  not just prose.
+
+## A3 — mutation without --commit (2026-07-17)
+
+- `a3-put-no-commit.json` — `content put` with no `--commit`: one `ok:true,
+  mode:dry-run, changed:true` envelope with the exact `--commit` promotion in
+  `next[]`.
+- `a3-verify-absent.json` — containment proof: the target path 404s on DA —
+  nothing was written.
+- `a3-publish-no-commit.json` — publish lane: `publish.page` dry-run envelope
+  with the promotion command. Job lane banked (f015).
+
+## C1 — stale preview / stale live (2026-07-17) — caught f031
+
+- `c1-freshness-source-only.json` — `preview-missing` verdict + recovery for a
+  fresh source. (Also visible: `sourceLastModified: ""` — the f031 symptom.)
+- `c1-freshness-preview-stale.json` — post-f031-fix: source re-put minutes
+  after preview → `verdict: preview-stale`, source/preview timestamps honest,
+  recovery `preview page`. Before the fix this exact state reported `fresh` —
+  DA ms-epoch timestamps normalized to '' and the row fell back to the
+  preview-time snapshot (the tool compared the preview against itself).
+- `c1-freshness-live-stale.json` — re-put + re-preview → `verdict: live-stale`,
+  recovery `publish page`.
+- `c1-freshness-recovered.json` — after promotion: `fresh / fresh / fresh`.
+- `c1-route-clean-dryrun.json` / `c1-route-clean-committed.json` — cleanup via
+  `route clean`: dry-run plan, then committed run that deleted source and hit
+  the token's unpublish **403** — `action: permission-refused`, per-step
+  results, structured recovery, exit 3. The right failure, cleanly reported.
+
+## C2 — orphan route: recognition + containment (2026-07-17)
+
+The route-clean 403 left a REAL orphan (source deleted, preview/live 200):
+
+- `c2-orphan-classify.json` — `ownership: orphan, daSource: false,
+  staleDaLocation: true`, exit 2. Recognition against live state.
+- `c2-orphan-recovered-classify.json` — containment/recovery within today's
+  permissions: source restored (rev 5 notes the pending cleanup), re-preview +
+  re-publish → `ownership: contentbus`. Final orphan-removal (unpublish leg)
+  deferred until Helix admin delete permission lands; `/drafts/c1-drill`
+  carries its own removal instructions.
+
+## f032 field proof
+
+- `f032-refusal-envelope.json` — the exact `preview page` refusal that was
+  empty-stdout during the C1 drill, now one `ok:false` envelope with the
+  config-derived-target reason and the executable explicit-flags retry.
+
 ## Banked drills (Wave 4 / hardening-pass field evidence)
 
 | Drill | Banked evidence | Pointer |

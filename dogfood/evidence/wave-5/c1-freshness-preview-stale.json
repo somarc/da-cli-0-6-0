@@ -1,0 +1,87 @@
+[
+  {
+    "path": "/drafts/c1-drill.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T00:14:29.984Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-17T00:10:18.000Z",
+    "previewFreshness": "stale",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-stale",
+    "next": [
+      "da --commit preview page /drafts/c1-drill.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/c1-drill",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/c1-drill"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.818Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-16T15:09:36.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-com.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-com",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-com"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.892Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-16T15:09:36.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-net.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-net",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-net"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.907Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-16T15:09:36.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-org.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-org",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-org"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:01:14.011Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-16T15:01:16.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/example-com.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/example-com",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/example-com"
+  }
+]

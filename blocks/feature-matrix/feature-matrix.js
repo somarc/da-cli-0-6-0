@@ -29,6 +29,7 @@ const PROBES = [
   ['calc-size()', 'css', () => CSS.supports('width', 'calc-size(auto, size)')],
   ['::details-content', 'css', () => CSS.supports('selector(::details-content)')],
   ['field-sizing', 'css', () => CSS.supports('field-sizing', 'content')],
+  ['Variable font axes', 'css', () => CSS.supports('font-variation-settings', '"wght" 400')],
   ['text-wrap: balance', 'css', () => CSS.supports('text-wrap', 'balance')],
   ['text-wrap: pretty', 'css', () => CSS.supports('text-wrap', 'pretty')],
   ['Individual transforms', 'css', () => CSS.supports('scale', '1') && CSS.supports('rotate', '1deg')],

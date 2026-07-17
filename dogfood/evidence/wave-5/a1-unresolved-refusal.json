@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "operation": "content.list",
+  "warnings": [],
+  "errors": [
+    "org is required — run `da config set org <org>` or pass --org"
+  ],
+  "next": [
+    "da --org <org> --repo <repo> <command>",
+    "da config set org <org>"
+  ]
+}

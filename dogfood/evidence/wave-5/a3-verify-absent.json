@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "operation": "content.get",
+  "warnings": [],
+  "errors": [
+    "Not found: https://admin.da.live/source/somarc/da-cli-0-6-0/drafts/a3-drill.html"
+  ],
+  "next": []
+}

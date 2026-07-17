@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f030 · resolve, safety · fixed</p>
+      <h1>the wrong-directory agent read the wrong site — and the CLI said nothing</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 5 drill A1 (unresolved target), first probe: from an empty directory with <em>no project config at all</em>, <code>content list /</code> didn't refuse — it silently resolved to the GLOBAL default target and listed a <strong>different project's</strong> content with <code>warnings: []</code>. An agent in the wrong cwd reads, reasons about, and plans against the wrong site with zero signal. Second probe, truly unresolved (no config anywhere): the refusal envelope was correct — but <code>next: []</code> was empty, with the recovery buried in error prose.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>f019 protects <em>mutations</em> against config-derived targets; reads had no equivalent orientation signal, and reads are what agents act on. Silent cross-project fallback is the read-side twin of f001's original drift. And <code>next: []</code> on a refusal breaks the contract's promise: executable recovery lives in <code>next[]</code>, not inside prose an agent must parse.</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> when org AND repo both resolve from global config (no flags, no project <code>.da.json</code>), the client warns on stderr and the read-listing envelopes carry the warning: <em>"Target …/… resolved from GLOBAL config — pass explicit flags or run <code>da site pin-target</code>"</em>. Unresolved-target errors now attach executable <code>err.next</code> (<code>da --org &lt;org&gt; --repo &lt;repo&gt; &lt;command&gt;</code>, <code>da config set org &lt;org&gt;</code>), honored by the envelope seam. Explicit flags stay silent — no noise for correct usage.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Three CLI-level locks in <code>content-envelope.test.js</code>: global-fallback carries the orientation warning; explicit flags carry none; truly-unresolved refuses with populated <code>next[]</code>. Verified failing on old code; 609/609.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>resolve, safety</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f030</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f030 — silent global-config fallback read the wrong site; unresolved refusals had empty next[]</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Reads had no orientation signal against cross-project drift, and unresolved-target refusals buried recovery in prose. Global-fallback targets now warn in the envelope; refusals carry executable next[].</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/drafts/a3-drill.html",
+  "data": {
+    "mode": "dry-run",
+    "path": "/drafts/a3-drill.html",
+    "source": "a3-drill-tmp.html",
+    "changed": true
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit content put /drafts/a3-drill.html a3-drill-tmp.html"
+  ]
+}

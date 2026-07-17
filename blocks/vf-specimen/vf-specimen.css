@@ -1,0 +1,153 @@
+/*
+ * VF specimen — dark instrument plate; the letterforms are the exhibit.
+ * font-variation-settings transitions make voice jumps feel like morphs.
+ * Lab: Frontier (dogfood/LAB-FRONTIER.md).
+ */
+
+.vf-specimen:empty {
+  display: none;
+}
+
+.vf-specimen .vf-stage {
+  --frontier-hue: 40;
+  --vf-cobalt: calc(var(--frontier-hue) + 225);
+  --vf-chart: oklch(88% 0.18 calc(var(--frontier-hue) + 80));
+  --vf-peach: oklch(78% 0.11 var(--frontier-hue));
+  --vf-ink: oklch(94% 0.014 var(--vf-cobalt));
+  --vf-ink-dim: oklch(72% 0.02 var(--vf-cobalt));
+  --vf-line: oklch(100% 0 0deg / 10%);
+
+  background: linear-gradient(
+    170deg,
+    oklch(19% 0.032 var(--vf-cobalt)),
+    oklch(14% 0.026 var(--vf-cobalt))
+  );
+  border: 1px solid var(--rr-line, #d8ccb4);
+  border-radius: var(--rr-radius-card, 6px);
+  box-shadow: 0 18px 44px rgb(34 49 95 / 18%);
+  color: var(--vf-ink);
+  padding: clamp(22px, 4vw, 48px);
+}
+
+.vf-specimen .vf-text {
+  border-radius: 8px;
+  caret-color: var(--vf-chart);
+  color: oklch(93% 0.02 var(--frontier-hue));
+  font-size: clamp(2.2rem, 6.5vw, 4.4rem);
+  line-height: 1.04;
+  margin: 0 0 6px;
+  min-height: 1.1em;
+  outline: none;
+  text-wrap: balance;
+  transition: font-variation-settings 0.45s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.vf-specimen .vf-text:focus-visible {
+  box-shadow: 0 0 0 2px oklch(88% 0.18 120deg / 45%);
+}
+
+.vf-specimen .vf-hint {
+  color: var(--vf-ink-dim);
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  margin: 0 0 18px;
+}
+
+.vf-specimen .vf-voices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.vf-specimen .vf-voices button {
+  background: oklch(100% 0 0deg / 5%);
+  border: 1px solid var(--vf-line);
+  border-radius: 999px;
+  color: var(--vf-ink-dim);
+  cursor: pointer;
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.vf-specimen .vf-voices button:hover {
+  color: var(--vf-ink);
+}
+
+.vf-specimen .vf-voices button[aria-pressed='true'] {
+  border-color: var(--vf-chart);
+  color: var(--vf-chart);
+}
+
+.vf-specimen .vf-axes {
+  display: grid;
+  gap: 12px 28px;
+  grid-template-columns: 1fr;
+}
+
+@media (width >= 700px) {
+  .vf-specimen .vf-axes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vf-specimen .vf-axis {
+  align-items: center;
+  display: grid;
+  gap: 4px 12px;
+  grid-template-columns: 1fr auto;
+}
+
+.vf-specimen .vf-axis-name {
+  color: var(--vf-ink-dim);
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vf-specimen .vf-axis-name code {
+  color: var(--vf-peach);
+  text-transform: none;
+}
+
+.vf-specimen .vf-axis output {
+  color: var(--vf-chart);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  justify-self: end;
+  min-width: 3ch;
+  text-align: right;
+}
+
+.vf-specimen .vf-axis input[type='range'] {
+  accent-color: oklch(66% 0.15 var(--frontier-hue));
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.vf-specimen .vf-spec {
+  border-top: 1px solid var(--vf-line);
+  color: var(--vf-ink-dim);
+  font-family: var(--label-font-family, sans-serif);
+  font-size: 13px;
+  margin: 22px 0 0;
+  padding-top: 14px;
+}
+
+.vf-specimen .vf-spec code {
+  background: oklch(100% 0 0deg / 8%);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-specimen .vf-text {
+    transition: none;
+  }
+}

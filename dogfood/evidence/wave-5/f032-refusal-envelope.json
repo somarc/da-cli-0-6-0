@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "operation": "preview page /drafts/c1-drill",
+  "target": "somarc/da-cli-0-6-0",
+  "warnings": [],
+  "errors": [
+    "preview page /drafts/c1-drill mutates the preview/code pipeline, but target came from config (org=project, repo=project). Re-run the same command with explicit target flags before the subcommand, for example: `da --org somarc --repo da-cli-0-6-0 --commit preview page ...`. Or keep the config-derived target and pass --yes after reviewing the preflight."
+  ],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit preview page /drafts/c1-drill"
+  ]
+}

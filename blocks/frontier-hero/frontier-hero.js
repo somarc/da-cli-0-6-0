@@ -17,9 +17,20 @@ precision highp float;
 out vec4 outColor;
 uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uHue;
 
-vec3 pal(float t, float h) {
-  vec3 d = vec3(0.0, 0.11, 0.21) + h;
-  return 0.5 + 0.5 * cos(6.28318 * (t + d));
+// Renderaissance brand ramp (linear-light values of the site palette).
+const vec3 INK = vec3(0.012, 0.027, 0.114);    // #22315f cobalt ink
+const vec3 COBALT = vec3(0.013, 0.048, 0.205); // #23407c navy fill
+const vec3 TERRA = vec3(0.536, 0.087, 0.029);  // #c05433 terracotta
+const vec3 PEACH = vec3(0.891, 0.592, 0.405);  // #f2c9a9 peach
+const vec3 CHART = vec3(0.586, 0.797, 0.024);  // #c8e62f chartreuse
+const vec3 CREAM = vec3(0.916, 0.859, 0.745);  // #f5eedf paper
+
+// t in [0,1] walks ink -> cobalt -> terracotta -> peach.
+vec3 ramp(float t) {
+  t = clamp(t, 0.0, 1.0);
+  vec3 a = mix(INK, COBALT, smoothstep(0.0, 0.35, t));
+  vec3 b = mix(a, TERRA, smoothstep(0.35, 0.72, t));
+  return mix(b, PEACH, smoothstep(0.72, 1.0, t));
 }
 float map(vec3 p) {
   float t = uTime * 0.2;
@@ -31,7 +42,8 @@ float map(vec3 p) {
 }
 void main() {
   vec2 uv = (gl_FragCoord.xy * 2.0 - uRes) / min(uRes.x, uRes.y);
-  float h = uHue / 360.0;
+  // uHue tilts the ramp warm (terracotta) or cool (cobalt) around the default.
+  float tilt = (uHue - 40.0) / 360.0;
   vec3 ro = vec3(0.0, 0.0, 2.35);
   vec3 rd = normalize(vec3(uv, -1.45));
   float td = 0.0;
@@ -42,7 +54,8 @@ void main() {
     td += d * 0.85;
     if (td > 9.0) break;
   }
-  vec3 col = vec3(0.03, 0.024, 0.055) + pal(h + 0.6, h) * 0.028;
+  vec3 fog = INK * 0.55;
+  vec3 col = fog;
   if (hit) {
     vec3 p = ro + rd * td;
     vec2 e = vec2(0.002, 0.0);
@@ -52,11 +65,16 @@ void main() {
       map(p + e.yyx) - map(p - e.yyx)));
     float dif = max(dot(n, normalize(vec3(0.5, 0.8, 0.6))), 0.0);
     float fre = pow(1.0 - max(dot(-rd, n), 0.0), 3.0);
-    vec3 base = pal(p.z * 0.12 + td * 0.07 + uTime * 0.02 + h, h);
-    col = base * (0.12 + 0.72 * dif) + fre * pal(fre + h * 0.5, h + 0.18) * 0.85;
-    col = mix(col, vec3(0.03, 0.024, 0.055), 1.0 - exp(-0.012 * td * td));
+    // slow band walks the brand ramp along the lattice
+    float band = 0.5 + 0.5 * sin(p.z * 0.9 + td * 0.35 + uTime * 0.12);
+    vec3 base = ramp(0.18 + 0.62 * band - tilt);
+    col = base * (0.10 + 0.85 * dif) + CREAM * pow(dif, 6.0) * 0.18;
+    // rim: peach glow with a chartreuse edge — the site's accent pair
+    vec3 rim = mix(PEACH, CHART, smoothstep(0.55, 0.95, fre));
+    col += fre * rim * 0.55;
+    col = mix(col, fog, 1.0 - exp(-0.012 * td * td));
   }
-  col *= 0.85;
+  col *= 0.9;
   col *= 1.0 - 0.5 * dot(uv * 0.7, uv * 0.7);
   col = pow(max(col, vec3(0.0)), vec3(0.4545));
   outColor = vec4(col, 1.0);
@@ -86,7 +104,7 @@ function classifyCopy(copy) {
 }
 
 function readConfig(rows) {
-  const config = { hue: 265, preset: 'gyroid' };
+  const config = { hue: 40, preset: 'gyroid' };
   rows.forEach((row) => {
     const cells = [...row.children];
     if (cells.length < 2) return;

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "operation": "publish.page",
+  "target": "somarc/da-cli-0-6-0/test-plan",
+  "data": {
+    "mode": "dry-run",
+    "path": "/test-plan"
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit publish page /test-plan"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "operation": "content.list",
+  "target": "somarc/da-cli-eds/",
+  "data": {
+    "path": "/",
+    "count": 14,
+    "items": [
+      {
+        "name": "agentic-workflow.html",
+        "type": "file",
+        "lastModified": "2026-06-08 17:04:56"
+      },
+      {
+        "name": "api.html",
+        "type": "file",
+        "lastModified": "2026-06-06 01:16:07"
+      },
+      {
+        "name": "commands.html",
+        "type": "file",
+        "lastModified": "2026-06-09 03:18:05"
+      },
+      {
+        "name": "drafts/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "footer.html",
+        "type": "file",
+        "lastModified": "2026-05-12 13:38:51"
+      },
+      {
+        "name": "index.html",
+        "type": "file",
+        "lastModified": "2026-06-11 03:26:48"
+      },
+      {
+        "name": "media/",
+        "type": "dir",
+        "lastModified": ""
+      },
+      {
+        "name": "nav.html",
+        "type": "file",
+        "lastModified": "2026-07-02 03:09:39"
+      },
+      {
+        "name": "pipeline.html",
+        "type": "file",
+        "lastModified": "2026-06-09 02:55:19"
+      },
+      {
+        "name": "primitives.html",
+        "type": "file",
+        "lastModified": "2026-06-10 02:37:12"
+      },
+      {
+        "name": "quickref.html",
+        "type": "file",
+        "lastModified": "2026-06-11 03:20:24"
+      },
+      {
+        "name": "readme.html",
+        "type": "file",
+        "lastModified": "2026-06-06 01:16:08"
+      },
+      {
+        "name": "skills.html",
+        "type": "file",
+        "lastModified": "2026-06-06 00:32:46"
+      },
+      {
+        "name": "x402.html",
+        "type": "file",
+        "lastModified": "2026-06-06 01:16:10"
+      }
+    ]
+  },
+  "warnings": [
+    "Target somarc/da-cli-eds resolved from GLOBAL config — no project .da.json here and no --org/--repo flags. If this is not the intended site, pass explicit flags or run `da site pin-target` in the project directory."
+  ],
+  "next": []
+}

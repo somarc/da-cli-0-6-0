@@ -8,7 +8,7 @@
             <p>WAVES · CHECKPOINTS · GATE</p>
             <h1>The test plan</h1>
             <p>Every command family da-cli ships is classified and exercised against this site. Nothing escapes coverage: adding a command without a place in this plan is itself a failure. The plan runs in waves, each building on the proven foundation of the last.</p>
-            <p><strong>Last updated:</strong> 2026-07-17 00:25 UTC · keep this stamp current whenever the plan or progress log changes.</p>
+            <p><strong>Last updated:</strong> 2026-07-17 01:05 UTC · keep this stamp current whenever the plan or progress log changes.</p>
           </div>
           <div>
             <p>
@@ -57,7 +57,7 @@
         <div>
           <div><p>5 — Failure &amp; recovery</p></div>
           <div><p>in progress</p></div>
-          <div><p><strong>Opened 2026-07-16.</strong> Standard: each injected failure recognized + contained + recovered — never retried-until-green. Two drills closed on day one, and both surfaced real findings: A2 (expired auth) → <a href="/learnings/f027-list-success-bare-array">f027</a>; C3 (frozen index) → <a href="/learnings/f028-config-read-gated-build">f028</a> + <a href="/learnings/f029-index-config-false-migration">f029</a>. All fixed/recovered same-session. Drill matrix: <code>dogfood/WAVES.md</code>; evidence: <code>dogfood/evidence/wave-5/</code>.</p></div>
+          <div><p><strong>Opened 2026-07-16.</strong> Standard: each injected failure recognized + contained + recovered — never retried-until-green. Five drills closed so far and every one surfaced a real finding: A2 → <a href="/learnings/f027-list-success-bare-array">f027</a>; C3 → <a href="/learnings/f028-config-read-gated-build">f028</a> + <a href="/learnings/f029-index-config-false-migration">f029</a>; A1 → <a href="/learnings/f030-silent-global-target">f030</a>; C1 → <a href="/learnings/f031-freshness-blind-to-staleness">f031</a>; and the day's refusals → <a href="/learnings/f032-silent-refusals">f032</a>. A3 clean; C2 recognition+containment done (unpublish leg pending permission). Drill matrix: <code>dogfood/WAVES.md</code>; evidence: <code>dogfood/evidence/wave-5/</code>.</p></div>
         </div>
         <div>
           <div><p>6 — Lifecycle &amp; conditional</p></div>
@@ -103,6 +103,10 @@
         <div>
           <div><p>When (UTC)</p></div>
           <div><p>What landed</p></div>
+        </div>
+        <div>
+          <div><p>2026-07-17 01:05</p></div>
+          <div><p><strong>Three more drills, three more findings — the wave keeps eating primitives.</strong> A1 (unresolved target): the truly-unresolved refusal was correct but carried recovery only in prose (<code>next: []</code>) — and the sneakier case, silent GLOBAL-config fallback, listed a <em>different project</em> with zero warnings (<a href="/learnings/f030-silent-global-target">f030</a> — reads now warn, refusals carry executable recovery). A3 (mutation without <code>--commit</code>): clean across content and publish lanes — dry-run envelopes with exact promotion commands, remote 404 proves containment. C1 (stale preview/live): the drill's first honest result was the finding — <code>site freshness</code> could <em>never</em> say preview-stale because DA's ms-epoch timestamps normalized to empty and the row compared the preview against its own snapshot (<a href="/learnings/f031-freshness-blind-to-staleness">f031</a> — fixed, full ladder field-proven: preview-missing → preview-only → preview-stale → live-stale → fresh). The cleanup leg hit the token's unpublish 403 and left a REAL orphan — C2's injection for free: <code>route classify</code> recognized it (exit 2, <code>staleDaLocation</code>), source restore recovered it; final removal waits on permissions. And the day's three empty-stdout refusals became <a href="/learnings/f032-silent-refusals">f032</a>: the <code>prepareWrite</code> seam now envelopes every safety refusal. da-cli suite 609/609. Wave 5: A1 A2 A3 C1 C3 closed, C2 ◐, B1–B3 + D3/D4 fresh reps remain.</p></div>
         </div>
         <div>
           <div><p>2026-07-17 00:25</p></div>
@@ -215,7 +219,7 @@
         <li><strong>Frictions:</strong> every Critical/High agentic friction closed — see git <code>dogfood/FRICTION-GATE-0.6.0.md</code> and <a href="/learnings">/learnings</a> (f001–f012 fixed; f013 open at Medium, tracked).</li>
       </ol>
       <p>Waves without friction fixes are not enough. Friction fixes without wave evidence are not enough.</p>
-      <p>As of <strong>2026-07-17 00:25 UTC</strong>: <strong>friction column clear</strong> (f001–f029 fixed/recovered; f017 partial with seams landed and migration tracked); Waves 1–4 <strong>cut</strong>; Wave 5 <strong>in progress</strong> (A2 + C3 closed, drill matrix open); Wave 6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
+      <p>As of <strong>2026-07-17 01:05 UTC</strong>: <strong>friction column clear</strong> (f001–f032 fixed/recovered; f017 partial with seams landed and migration tracked); Waves 1–4 <strong>cut</strong>; Wave 5 <strong>in progress</strong> (A1 A2 A3 C1 C3 closed, C2 recognition+containment, B1–B3 + D3/D4 remain); Wave 6 not started; stay on <strong>0.5.x</strong> / local <code>da</code>. Gate for <strong>0.6.0 cut is not open</strong>.</p>
     </div>
 
     <div>

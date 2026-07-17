@@ -6,17 +6,18 @@
  */
 
 .scroll-rail .sr-card {
-  --frontier-hue: 265;
+  --frontier-hue: 40;
+  --sr-cobalt: calc(var(--frontier-hue) + 225);
 
   background: linear-gradient(
     165deg,
-    oklch(19% 0.032 var(--frontier-hue)),
-    oklch(15% 0.028 var(--frontier-hue))
+    oklch(19% 0.032 var(--sr-cobalt)),
+    oklch(15% 0.028 var(--sr-cobalt))
   );
   border: 1px solid oklch(100% 0 0deg / 10%);
   border-radius: var(--rr-radius-card, 6px);
   box-shadow: 0 16px 40px rgb(34 49 95 / 18%);
-  color: oklch(93% 0.015 var(--frontier-hue));
+  color: oklch(93% 0.015 var(--sr-cobalt));
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -24,7 +25,7 @@
 }
 
 .scroll-rail .sr-index {
-  color: oklch(86% 0.15 calc(var(--frontier-hue) - 100));
+  color: oklch(88% 0.18 calc(var(--frontier-hue) + 80));
   font-family: var(--label-font-family, sans-serif);
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -33,7 +34,7 @@
 }
 
 .scroll-rail .sr-title {
-  color: oklch(94% 0.014 var(--frontier-hue));
+  color: oklch(94% 0.014 var(--sr-cobalt));
   font-family: var(--heading-font-family, serif);
   font-size: clamp(22px, 2.6vw, 30px);
   line-height: 1.1;
@@ -42,7 +43,7 @@
 }
 
 .scroll-rail .sr-body {
-  color: oklch(74% 0.02 var(--frontier-hue));
+  color: oklch(76% 0.02 var(--sr-cobalt));
   font-size: var(--body-font-size-xs, 15px);
   line-height: 1.55;
   margin: 0;
@@ -115,8 +116,8 @@
   animation-range: contain 0% contain 100%;
   background: linear-gradient(
     90deg,
-    oklch(74% 0.19 265deg),
-    oklch(86% 0.15 165deg)
+    oklch(66% 0.15 40deg),
+    oklch(88% 0.18 120deg)
   );
   border-radius: inherit;
   display: block;

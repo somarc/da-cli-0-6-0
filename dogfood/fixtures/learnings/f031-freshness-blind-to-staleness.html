@@ -1,0 +1,59 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <p><a href="/learnings">← Learnings</a></p>
+      <p>f031 · site, freshness · fixed</p>
+      <h1>site freshness compared the preview against itself — staleness was undetectable by construction</h1>
+    </div>
+    <div>
+      <h2>Symptom</h2>
+      <p>Wave 5 drill C1 (stale preview/live): source re-put minutes after its preview, and <code>site freshness</code> said <code>previewFreshness: fresh</code> — repeatedly, with the source provably newer. The row's <code>sourceLastModified</code> was a timestamp from <em>preview time</em>, not the current source. Two independent ground-truth probes (CLI <code>content list</code> and raw DA <code>/list</code>) both showed the newer timestamp the freshness report refused to see.</p>
+    </div>
+    <div>
+      <h2>Why it matters</h2>
+      <p>Chain of two silent failures: DA <code>/list</code> reports <code>lastModified</code> as <strong>epoch milliseconds</strong> (a number); <code>Date.parse(number)</code> is <code>NaN</code>, so every DA source timestamp normalized to <code>''</code> — and the row builder then silently substituted the helix-admin status's <code>sourceLastModified</code>, which is the source <em>as of the last preview</em>. Net effect: the tool compared the preview against itself and could never say <code>preview-stale</code> — the one verdict it exists to produce. The unit fixture modeled DA timestamps as strings, so the lock asserted the wrong platform shape (f021's lesson: ground truth is a live response, not an assumption).</p>
+    </div>
+    <div>
+      <h2>Resolution</h2>
+      <p><strong>Fixed in da-cli:</strong> timestamp normalization handles numeric epochs (ms, tolerating seconds). Field-proven on the full ladder same-session: <code>preview-missing</code> → <code>preview-only</code> → <code>preview-stale</code> (source newer beyond the 60s skew tolerance) → recovery via the row's own <code>next[]</code> → <code>live-stale</code> → publish → <code>fresh</code>. Every verdict carried its executable recovery.</p>
+    </div>
+    <div>
+      <h2>Lock</h2>
+      <p>Locks in <code>site-freshness.test.js</code> now use the REAL <code>/list</code> shape (epoch-ms numbers): numeric normalization, and an end-to-end row proving <code>preview-stale</code> is detected when the numeric source timestamp beats the preview — with the admin snapshot present as the trap it used to fall into. Verified failing on old code; 609/609.</p>
+    </div>
+    <div>
+      <div class="metadata">
+        <div>
+          <div>kind</div>
+          <div>learning</div>
+        </div>
+        <div>
+          <div>wave</div>
+          <div>5</div>
+        </div>
+        <div>
+          <div>surface</div>
+          <div>site, freshness</div>
+        </div>
+        <div>
+          <div>status</div>
+          <div>fixed</div>
+        </div>
+        <div>
+          <div>finding</div>
+          <div>f031</div>
+        </div>
+        <div>
+          <div>Title</div>
+          <div>f031 — DA epoch-ms timestamps normalized to empty; freshness fell back to the preview-time snapshot and could never detect staleness</div>
+        </div>
+        <div>
+          <div>Description</div>
+          <div>Date.parse(number) is NaN, so DA source timestamps vanished and the tool compared the preview against itself. Fixed numeric normalization; locks use the real platform shape; full staleness ladder field-proven.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

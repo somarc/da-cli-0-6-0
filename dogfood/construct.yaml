@@ -300,3 +300,21 @@ steps:
   - id: preview-f029
     command: preview page /learnings/f029-index-config-false-migration --format json
     depends_on: [put-f029]
+  - id: put-f030
+    command: content put /learnings/f030-silent-global-target.html dogfood/fixtures/learnings/f030-silent-global-target.html --format json
+    depends_on: [preview-f029]
+  - id: preview-f030
+    command: preview page /learnings/f030-silent-global-target --format json
+    depends_on: [put-f030]
+  - id: put-f031
+    command: content put /learnings/f031-freshness-blind-to-staleness.html dogfood/fixtures/learnings/f031-freshness-blind-to-staleness.html --format json
+    depends_on: [preview-f030]
+  - id: preview-f031
+    command: preview page /learnings/f031-freshness-blind-to-staleness --format json
+    depends_on: [put-f031]
+  - id: put-f032
+    command: content put /learnings/f032-silent-refusals.html dogfood/fixtures/learnings/f032-silent-refusals.html --format json
+    depends_on: [preview-f031]
+  - id: preview-f032
+    command: preview page /learnings/f032-silent-refusals --format json
+    depends_on: [put-f032]

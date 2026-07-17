@@ -40,14 +40,14 @@ triple.
 
 | # | Injection (ADR 0002 D5) | Status | Notes |
 |---|--------------------------|--------|-------|
-| A1 | unresolved target (no org/repo resolvable) | ⬜ | expect structured refusal + pin-target recovery |
+| A1 | unresolved target (no org/repo resolvable) | ✅ **2026-07-17** | two cases: truly-unresolved refused correctly but with `next:[]` (recovery only in prose), and the sneaky one — silent GLOBAL-config fallback listed a *different project* with zero warnings. Both fixed as **f030**. Evidence `a1-*` |
 | A2 | missing / expired auth | ✅ **opening rep 2026-07-16** | natural token expiry: one `ok:false` envelope + `da auth login` recovery, exit 1; explicit login from non-TTY shell (f020 path); verification read surfaced **f027** — fixed+locked. Evidence `a2-*` |
-| A3 | mutation attempted without `--commit` | ⬜ | banked f015 (job/pipeline gate); fresh rep on content/preview lanes |
+| A3 | mutation attempted without `--commit` | ✅ **2026-07-17** | content lane: dry-run envelope (`mode:dry-run, changed:true`) + remote 404 proves containment; publish lane: dry-run envelope with exact `--commit` promotion; job lane banked (f015). Evidence `a3-*` |
 | B1 | DA source drift after clone (conflict guard) | ⬜ | clone → remote change → merge must recognize drift |
 | B2 | invalid section shape | ⬜ | audit must name the shape violation |
 | B3 | missing block assets | ⬜ | audit contracts `--verify-code` must name the missing asset |
-| C1 | stale preview / stale live | ⬜ | site freshness must recognize both tiers |
-| C2 | orphan + protected hybrid routes | ⬜ | banked f007/f013 (clean gate, probe-failed); fresh containment rep |
+| C1 | stale preview / stale live | ✅ **2026-07-17** | the drill caught **f031**: freshness could NEVER say preview-stale (DA ms-epoch timestamps normalized to '' → silent fallback to the preview-time snapshot — the tool compared the preview against itself). Fixed+locked with the real platform shape; full ladder field-proven: preview-missing → preview-only → preview-stale → live-stale → fresh, each verdict with executable recovery. Evidence `c1-*` |
+| C2 | orphan + protected hybrid routes | ◐ **recognition + containment 2026-07-17** | a REAL orphan arrived naturally (route clean deleted source, then hit the token's unpublish 403 — clean `permission-refused` envelope, per-step results, exit 3): `route classify` → `ownership:orphan, staleDaLocation:true`, exit 2; recovered by restoring source → contentbus. Final orphan-removal rep deferred until Helix admin delete permission lands (tracked); gate behavior banked f007/f013 |
 | C3 | index absent / configured-unpopulated / queryable | ✅ **2026-07-16** | the live site WAS the injection: frozen index (fossil serving, updates dead) + blocked reindex lane. Recognized via `#simple`-only match + frozen `maxLastModified` + config 403 triangulation; recovered via config restore + reindex → `total 39→40, changed:true`. Produced **f028** (config read gated authorized build — fixed+locked) and **f029** (false-claimed migration — recovered, discipline stated). Evidence `c3-*` |
 | D1 | interrupted job → resume | 🏦 banked | f022 drill (SIGKILL at 7/21 → resume 21/21, attempts all 1) — wave-4 evidence pointer |
 | D2 | cancelled job | 🏦 banked | wave-4 `job-cancel-show.json` — workers stop between tasks |
@@ -57,13 +57,16 @@ triple.
 **Wave 5 residue watch:**
 - `status` reports `ok:false` (expired auth) but exits 0 — classify
   (diagnosis-command semantics vs contract violation) before cut.
-- `code sync` pre-dispatch safety refusal prints to stderr with **empty stdout
-  under json** (f017 class) — seen during the C3 recovery; fold into the
-  envelope march.
+- ~~`code sync` refusal empty stdout under json~~ — **fixed as f032** (the
+  prepareWrite seam now envelopes all safety refusals; content put validation
+  too). Remaining march items: `--strict-sections` exit path, `site freshness`
+  bare-array output (rows carry per-row `next[]` but no envelope).
 - `da index show/validate` cannot observe config truth for identities without
   Configuration Service access (both 403 with clean envelopes) — recorded as a
   CLI fitness gap per ADR 0002 D6; raw-API single-path reindex is the
-  documented state probe.
+  documented state probe. **Operator action pending: grant Helix admin
+  write/delete + Configuration Service read to the working identity** (also
+  unblocks the C2 unpublish leg and `/drafts/c1-drill` final cleanup).
 
 ### Wave 4 — pass criteria — **CUT 2026-07-16**
 

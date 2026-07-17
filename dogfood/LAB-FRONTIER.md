@@ -1,6 +1,6 @@
 # Lab: Frontier — living platform proof
 
-**Route:** `/frontier` · **Kind:** Lab (CONTENT-IA) · **Blocks:** `frontier-hero`, `scroll-rail`, `feature-matrix`
+**Route:** `/frontier` · **Kind:** Lab (CONTENT-IA) · **Blocks:** `frontier-hero`, `scroll-rail`, `vf-specimen`, `feature-matrix`
 
 ## Provenance
 
@@ -39,10 +39,11 @@ We do **not** clone the void. The remap: each frontier demo becomes a
 field, like a lab specimen under glass. Copy stays in site type
 (Cormorant/Alegreya/Jost); the plates carry the OKLCH accent system.
 
-One shared knob: `--frontier-hue` (registered `@property`, default `265` —
-the cobalt end of the site's ink). Accents derive:
-`--fr-acc-1: oklch(0.74 0.19 var(--frontier-hue))`,
-`--fr-acc-2` at `hue − 100`, `--fr-acc-3` at `hue + 70`.
+One shared knob maps the **brand triad** onto a single number:
+`--frontier-hue` (registered `@property`, default `40` = terracotta).
+Chartreuse = `hue + 80` (≈120), cobalt ink = `hue + 225` (≈265). The shader
+uses the same anchors: a linear-light ramp ink → cobalt → terracotta → peach,
+with a peach/chartreuse fresnel rim — the raymarcher is lit in Renderaissance.
 
 Thesis line: **the page proves its own claims** — the same ethos as this
 site's "living documentation that certifies the CLI surface." A lab page
@@ -82,6 +83,14 @@ a progress hairline fills on the same timeline. Engines without
 `animation-timeline: view()` (or reduced motion) get class `sr-static`:
 plain vertical cards.
 
+### `vf-specimen`
+Author shape: row 1 = specimen text; optional rows `voice | <name>`,
+`font | fraunces`. Axis registry, named voices, and font-CSS injection live
+in block JS — the font stylesheet loads only when the block decorates, so
+the global LCP path never pays for it. Specimen is contenteditable; sliders
+drive `font-variation-settings`; voice jumps morph via CSS transition
+(disabled under reduced motion). JS off = specimen in the site serif.
+
 ### `feature-matrix`
 Author shape: zero rows = full curated probe registry; optional rows filter
 by kind (`css` / `js`). Registry lives in block JS (authors never write
@@ -102,7 +111,6 @@ shows its authored caption text only.
 
 - Site-wide OKLCH tokenization study (one `--hue` for the whole site) — charter
   only; Renderaissance palette stays authoritative.
-- `vf-specimen` variable-font playground block.
 - View-transition PE for the existing `tabs` block; `::details-content` +
   `interpolate-size` animation for `accordion`.
 - Capture as `eds-frontier` skill once the lab survives field use.
