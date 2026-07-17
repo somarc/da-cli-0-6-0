@@ -9,9 +9,9 @@ remaining lifecycle/skills classification stays open.
 - Repository: `somarc/da-lifecycle-atlas`
 - Code branch: `feature-wave-6-full-da-site`
 - Pull request: https://github.com/somarc/da-lifecycle-atlas/pull/2
-- Preview: https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.page/
-- Feature live: https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.live/
-- Canonical explainer: https://feature-wave-6-full-da-site--da-lifecycle-atlas--somarc.aem.live/explainers/helix-5-to-helix-6
+- Preview: https://main--da-lifecycle-atlas--somarc.aem.page/
+- Feature live: https://main--da-lifecycle-atlas--somarc.aem.live/
+- Canonical explainer: https://main--da-lifecycle-atlas--somarc.aem.live/explainers/helix-5-to-helix-6
 - Full evidence pack: `somarc/da-lifecycle-atlas:atlas/evidence/wave-6/`
 
 ## Proven transitions
