@@ -86,7 +86,7 @@ Proof line: pipelines green; durable job resumes after interruption; migration v
 | `migrate batch/status` | ✅ | **f024**: colliding derived paths silently overwrote. Fixed: up-front refusal + `<url> <daPath>` resolution; mapped batch 3/3 validated |
 | `deploy` | ✅ | f022–f025 pages shipped via `deploy pages` — which surfaced **f026** (two bare arrays on json stdout; fixed+locked same-session, re-deploy 6/6 one envelope) |
 
-**Residue (tracked, not blockers):** `pipeline run --job` (durable pipeline runs) unbuilt; f017 envelope migration march (3 field specimens); `publish pages` variadic asymmetry.
+**Residue (tracked, not blockers):** `pipeline run --job` (durable pipeline runs) unbuilt; f017 envelope migration march (committed preview/publish pages success arrays; `--strict-sections` exit; `site freshness` rows). ~~`publish pages` variadic asymmetry~~ — closed with f033 (preview-parity source grammar + dry-run envelope).
 
 ### Wave 3 — what it is (plain language)
 

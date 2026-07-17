@@ -318,3 +318,9 @@ steps:
   - id: preview-f032
     command: preview page /learnings/f032-silent-refusals --format json
     depends_on: [put-f032]
+  - id: put-f033
+    command: content put /learnings/f033-version-blind-binary-skew.html dogfood/fixtures/learnings/f033-version-blind-binary-skew.html --format json
+    depends_on: [preview-f032]
+  - id: preview-f033
+    command: preview page /learnings/f033-version-blind-binary-skew --format json
+    depends_on: [put-f033]
