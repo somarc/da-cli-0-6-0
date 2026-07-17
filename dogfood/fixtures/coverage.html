@@ -50,9 +50,38 @@
       </ul>
     </div>
     <div>
+      <h2>Wave 4 — Coordination, durability, migration</h2>
+      <ul>
+        <li><a href="/test-plan">Test plan progress log</a> — primary Wave 4 record; no dedicated proof page, the site itself is the proof. <strong>Wave 4 cut 2026-07-16.</strong></li>
+        <li>Construction pipeline — the full committed <code>construct.yaml</code> regenerated this site twice, all public routes byte-identical: the site is provably regenerable and the pipeline is idempotent. <code>pipeline abort</code> field-drilled on the real 74-step regen.</li>
+        <li>Durable jobs — SIGKILL mid-run, then resume to completion with every task <code>attempts: 1</code>; cancellation observed between tasks.</li>
+        <li>Migration — explicit-path normalization, batch collision refusal with the url→path table, validation against a known source.</li>
+        <li>Surfaces exercised: pipeline run/abort/scaffold/status, job run/resume/cancel/show, migrate import/batch/validate, deploy pages.</li>
+        <li>Learnings surfaced: <a href="/learnings/f021-bulk-silent-noop">f021</a>, <a href="/learnings/f022-stale-job-lock">f022</a>, <a href="/learnings/f023-migrate-path-normalization">f023</a>, <a href="/learnings/f024-batch-collision-overwrite">f024</a>, <a href="/learnings/f025-abort-marker-clobbered">f025</a>, <a href="/learnings/f026-deploy-double-envelope">f026</a> — every completion drill broke something real first; all fixed + locked same-session.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Wave 5 — Failure and recovery (in progress)</h2>
+      <ul>
+        <li><a href="/test-plan">Test plan</a> + drill matrix in <code>dogfood/WAVES.md</code> — each injected failure must be recognized + contained + recovered, never retried-until-green. <strong>Opened 2026-07-16.</strong></li>
+        <li>Drills closed: A1 unresolved target (<a href="/learnings/f030-silent-global-target">f030</a>), A2 expired auth (<a href="/learnings/f027-list-success-bare-array">f027</a>), A3 mutation without <code>--commit</code>, C1 stale preview/live (<a href="/learnings/f031-freshness-blind-to-staleness">f031</a>), C3 frozen index (<a href="/learnings/f028-config-read-gated-build">f028</a>, <a href="/learnings/f029-index-config-false-migration">f029</a>). C2 orphan/protected routes: recognition + containment done, final unpublish leg pending permission.</li>
+        <li>Alongside the drills: <a href="/learnings/f032-silent-refusals">f032</a> — safety refusals and put validation now emit envelopes instead of empty stdout under json.</li>
+        <li>Surfaces exercised: site freshness verdict ladder, route classify/clean containment, index build --wait, non-TTY auth login, dry-run refusal envelopes.</li>
+        <li>Remaining: B1–B3 (source drift, invalid section shape, missing block assets), D3/D4 fresh reps, C2 unpublish leg. Wave 6 (lifecycle) not started.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Labs</h2>
+      <ul>
+        <li><a href="/dualform">Dualform</a> — paired silhouette cutouts; progressive-enhancement lab on the same authoring rails (not a wave cut by itself).</li>
+        <li><a href="/frontier">Frontier</a> — living platform proof: poster-first shader, scroll-driven animations, live feature matrix auditing its own claims.</li>
+        <li>Labs exercise the content + media + codebus surfaces at full craft; they prove the tool can operate a site worth looking at, not only a correct one.</li>
+      </ul>
+    </div>
+    <div>
       <h2>Learnings (history)</h2>
       <ul>
-        <li><a href="/learnings">Learnings hub</a> — flywheel + index of f001–f013 (and growing; f001–f012 fixed, f013 open).</li>
+        <li><a href="/learnings">Learnings hub</a> — flywheel + index of f001–f032 (and growing). Friction column clear: f001–f032 fixed/recovered; f017 partial with seams landed and migration tracked.</li>
         <li>Each finding is its own route under <code>/learnings/fNNN-…</code> so the history scales without bloating the spine. See <code>dogfood/CONTENT-IA.md</code>.</li>
       </ul>
     </div>

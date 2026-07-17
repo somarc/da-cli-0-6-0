@@ -148,6 +148,7 @@ da route clean /tests/orphan-demo
     <div>
       <h2>Documented partial — tools static probe gap</h2>
       <p><code>route classify /tools/wave-2-cli-surface.html</code> returned ownership <strong>orphan</strong> with preview/live/code all <strong>404</strong>, while browser <code>curl</code> of the live host returns <strong>200</strong> for the same path (codebus static HTML under git <code>tools/</code>). Treat this as a <strong>classify probe gap</strong>, not an orphan clean candidate. Prefer curl/live proof when class is orphan but the path is known codebus static. Product follow-up: align codebus probes for <code>/tools/*</code> (and similar extensioned static routes) with how the edge actually serves them.</p>
+      <p><strong>Postscript (2026-07-17):</strong> this gap became <a href="/learnings/f013-tools-classify-probe-gap">f013</a>, was upgraded to High by the release-review audit (misclassified orphans skip <code>route clean</code>'s force gate; 403s conflated with 404s), and is <strong>fixed</strong> — extensioned routes get a literal-path re-probe before any orphan verdict, and any 403 now classifies <code>probe-failed</code> (unknown ≠ absent). The route above now classifies <strong>codebus</strong>. The table stays as cut evidence of the drill that surfaced it.</p>
     </div>
 
     <div>
