@@ -1,0 +1,6 @@
+command: node ../da-cli/bin/da.js --org somarc --repo da-cli-0-6-0 --format json pipeline run dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml --dry-run
+exit: 1
+stdout: (empty)
+stderr: Pipeline validation failed: Step "repo-state" uses unsupported command "git". Pipeline steps may only invoke da subcommands.
+
+Assertion: the ordinary constrained runner rejects the arbitrary command before execution.

@@ -36,6 +36,7 @@ the spine.
 /kitchen-sink             Wave 2 block/audit/design proof (spectrum) — Wave 2's nav landing
 /route-matrix             Wave 3 proof — Wave 3's nav landing
 /waves/4-durability       Wave 4 cut certificate (pipelines, durable jobs, migration)
+/waves/4-riverboat-trusted-loop  Wave 4 advanced proof — trusted local shell/agent orchestration
 /waves/5-failure-recovery Wave 5 live drill board (in progress → cut certificate)
 /sheets                   Machine ledger hub: query index + DA sheets + CLI map
 /cli-surface              Wave 2 CLI command ledger (addendum for formal cut)
@@ -96,6 +97,11 @@ future coverage blocks) can aggregate:
    because a lab looks good.
 4. **Coverage** → prefer index-driven list; until then hand-curate
    `coverage.html` from the same metadata fields.
+
+Advanced proofs may sit behind their parent wave page rather than adding a
+second nav item for the same wave. Riverboat follows this rule: the durable
+Wave 4 certificate links to its dedicated trust-boundary proof, while the Prove
+submenu remains one-link-per-wave.
 
 Primary **nav stays short at the top level**; detail lives in **submenus**.
 

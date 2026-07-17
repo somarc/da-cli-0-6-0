@@ -69,6 +69,13 @@ exactly this if it happens.)
 - Content: migration source + expected result; enough pages for tree/batch/durable-job behavior.
 - Surfaces: `pipeline scaffold/run/status/abort`, `job init/run/watch/cancel/tasks`, `migrate import/batch/status/validate`, `preview tree`, `publish tree`, `deploy`.
 - Proof: pipelines green; durable job resumes after interruption; migration validated.
+- **Riverboat Gambler certification slice:** keep the flag hidden but supported;
+  prove trusted local Git/npm/outside-agent composition without making unsafe
+  execution part of normal construction. Public proof:
+  `/waves/4-riverboat-trusted-loop`; executable fixture:
+  `dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`; evidence remains
+  in-progress until default refusal, unsafe plan/result provenance, approval
+  preflight, descendant cleanup, and packed-install behavior are captured.
 
 **Wave 5 — Failure & recovery injection** (ADR 0002 D5)
 - Trigger and recover from: unresolved target, missing/expired auth, mutation without `--commit`, source drift after clone (conflict guard), invalid section shape, missing block assets, stale preview/live, orphan + protected-hybrid routes, index absent/unpopulated, interrupted/cancelled job, pipeline step failure/approval/abort, partial batch-migration failure.

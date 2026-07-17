@@ -372,3 +372,11 @@ steps:
   - id: preview-sheets
     command: preview page /sheets --format json
     depends_on: [put-sheets]
+  # Riverboat proof page only. The arbitrary-command proof fixture is executed
+  # separately and never becomes a dependency of constrained site construction.
+  - id: put-wave-4-riverboat
+    command: content put /waves/4-riverboat-trusted-loop.html dogfood/fixtures/waves/4-riverboat-trusted-loop.html --format json
+    depends_on: [preview-sheets]
+  - id: preview-wave-4-riverboat
+    command: preview page /waves/4-riverboat-trusted-loop --format json
+    depends_on: [put-wave-4-riverboat]

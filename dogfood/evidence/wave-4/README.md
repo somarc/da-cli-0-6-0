@@ -71,3 +71,25 @@ first — f022, f023, f024, f025. That is the point of drills.
 
 Residue tracked on the friction gate: `pipeline run --job` (durable pipeline
 runs) still unbuilt; f017 envelope migration march now has four field specimens.
+
+## Riverboat Gambler trusted-local wave (feature branch; public promotion pending)
+
+The content and executable fixture for the advanced Riverboat proof are cut:
+
+- Public fixture: `dogfood/fixtures/waves/4-riverboat-trusted-loop.html`
+- Trusted executable fixture: `dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`
+- CLI branch: `feature/riverboat-gambler-wave`
+
+The local field run and deterministic validation have landed:
+
+- `riverboat-refused-without-flag.txt` — normal runner rejects arbitrary steps;
+- `riverboat-plan.json` — unsafe provenance, shell-step inventory, runnable continuation;
+- `riverboat-run.json` and `riverboat-run.stderr-summary.txt` — one clean result envelope plus explicit unsafe diagnostics; Git/npm + DA freshness/code proof all completed;
+- `riverboat-feature-validation.json` — 624-test suite, whole-batch approval preflight, timeout descendant cleanup, repo health, dogfood lint/quality gate, construct plan, and packed release smoke.
+
+The public page remains `status: in-progress` only until the normal constrained
+construct uploads and previews it. No Riverboat run is required for that
+promotion.
+
+The normal `dogfood/construct.yaml` uploads the explanatory page only. It does
+not execute Riverboat; reproducible site construction remains constrained.

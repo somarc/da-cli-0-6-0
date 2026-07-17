@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "operation": "pipeline.run",
+  "target": "dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml",
+  "data": {
+    "runId": "146e8e83",
+    "name": "riverboat-local-super-loop-proof",
+    "status": "completed",
+    "startedAt": "2026-07-17T02:22:06.219Z",
+    "completedAt": "2026-07-17T02:22:15.045Z",
+    "riverboat": { "unsafeExecution": true },
+    "steps": {
+      "repo-state": { "status": "completed", "exitCode": 0, "attempts": 1, "retries": 0 },
+      "local-lint": { "status": "completed", "exitCode": 0, "attempts": 1, "retries": 0 },
+      "freshness-report": { "status": "completed", "exitCode": 0, "attempts": 1, "retries": 0 },
+      "code-proof": { "status": "completed", "exitCode": 0, "attempts": 1, "retries": 0 }
+    }
+  },
+  "warnings": [
+    "Riverboat Gambler enables arbitrary local shell execution, bypasses normal pipeline command/environment/target validation, and is not gated by root --commit. Run only trusted YAML in a trusted repository."
+  ],
+  "next": ["da --format json pipeline status 146e8e83"]
+}

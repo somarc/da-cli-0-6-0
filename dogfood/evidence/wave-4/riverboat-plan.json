@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "operation": "pipeline.plan",
+  "target": "dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml",
+  "data": {
+    "name": "riverboat-local-super-loop-proof",
+    "context": {},
+    "steps": [
+      {
+        "id": "repo-state",
+        "command": "git status --short",
+        "depends_on": [],
+        "requires_approval": false,
+        "executionMode": "shell-executable"
+      },
+      {
+        "id": "local-lint",
+        "command": "npm run lint",
+        "depends_on": ["repo-state"],
+        "requires_approval": true,
+        "timeout": "5m",
+        "executionMode": "shell-executable"
+      },
+      {
+        "id": "freshness-report",
+        "command": "site freshness --format json",
+        "depends_on": ["local-lint"],
+        "requires_approval": false,
+        "executionMode": "da-subcommand"
+      },
+      {
+        "id": "code-proof",
+        "command": "code verify /styles/styles.css --contains body --format json",
+        "depends_on": ["freshness-report"],
+        "requires_approval": false,
+        "executionMode": "da-subcommand"
+      }
+    ],
+    "batches": [["repo-state"], ["local-lint"], ["freshness-report"], ["code-proof"]],
+    "riverboat": {
+      "unsafeExecution": true,
+      "shellSteps": ["repo-state", "local-lint"],
+      "shellStepsWithoutApproval": ["repo-state"]
+    }
+  },
+  "warnings": [
+    "Riverboat Gambler enables arbitrary local shell execution, bypasses normal pipeline command/environment/target validation, and is not gated by root --commit. Run only trusted YAML in a trusted repository.",
+    "Arbitrary shell steps without requires_approval: repo-state"
+  ],
+  "next": [
+    "da --riverboat-gambler --org somarc --repo da-cli-0-6-0 --format json pipeline run dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml"
+  ]
+}

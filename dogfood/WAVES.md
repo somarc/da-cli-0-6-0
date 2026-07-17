@@ -25,6 +25,28 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **5** Failure & recovery injection | **cut (C2 unpublish leg deferred)** | **Cut 2026-07-17** — full drill matrix run: A1–A3, B1–B3, C1, C3, D3, D4 ✅; D1/D2 banked; C2 recognition+containment+recovery done, final orphan-removal rep alone deferred on the Helix-admin delete permission (operator action, tracked). Ten findings from the wave (f027–f036), every one fixed/recovered same-session; evidence `dogfood/evidence/wave-5/` |
 | **6** Lifecycle | not started | auth flows, skills bootstrap, site create, conditional integrations |
 
+### Riverboat Gambler wave — trusted local automation
+
+This is an advanced Wave 4 certification slice, opened on
+`feature/riverboat-gambler-wave`. It does not reopen the existing durability
+certificate and does not make Riverboat part of normal construction.
+
+| Contract | Status | Cut bar |
+|----------|--------|---------|
+| Hidden but supported | ✅ code/docs | absent from standard help; advanced trust contract is explicit |
+| Default refusal | ✅ test-bound | arbitrary fixture rejected without the hidden opt-in |
+| Honest plan/result | ✅ test-bound | `unsafeExecution`, shell-step inventory, warnings, runnable continuation |
+| Explicit target discipline | ✅ test-bound | built-in DA steps retain root org/repo/branch propagation |
+| Approval preflight | ✅ test-bound | no sibling starts while one batch gate is unresolved; recovery is executable |
+| Process containment | ✅ test-bound | timeout terminates shell descendants, not only the immediate shell |
+| Packed CLI | ✅ | release smoke proves rejection + opt-in execution on installed tarball |
+| Public proof | ◐ content + field evidence cut | `/waves/4-riverboat-trusted-loop`; constrained construct/preview promotion pending |
+
+Canonical proof fixture:
+`dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`. It deliberately
+mixes Git/npm shell steps with built-in DA freshness/code verification. The
+site construct uploads the proof page but never executes this unsafe fixture.
+
 ### Wave 5 — pass criteria — **IN PROGRESS (opened 2026-07-16)**
 
 Proof line (ADR 0002 D5): each injected failure **recognized + contained +
