@@ -15,8 +15,8 @@
   "evidenceRoot": "somarc/da-lifecycle-atlas:atlas/evidence/wave-6/",
   "observations": {
     "daDocuments": 7,
-    "constructStepsCompleted": 17,
-    "constructStepsTotal": 17,
+    "constructStepsCompleted": 18,
+    "constructStepsTotal": 18,
     "contractMissing": [],
     "auditErrors": 0,
     "auditWarnings": 0,

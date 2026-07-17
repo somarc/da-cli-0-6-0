@@ -21,7 +21,7 @@ remaining lifecycle/skills classification stays open.
    the branch was renamed before construction.
 3. Seven ordinary DA documents installed: home, nav, footer, explainer, plans,
    learnings, provenance.
-4. The checked-in constrained construct completed 17/17 steps and stops at
+4. The checked-in constrained construct completed 18/18 steps and stops at
    preview by design.
 5. Contracts reported `missing=[]`; semantic audit returned 0 errors/0 warnings;
    design audit had 0 error-severity findings.
