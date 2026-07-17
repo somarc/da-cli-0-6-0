@@ -77,6 +77,7 @@ runs) still unbuilt; f017 envelope migration march now has four field specimens.
 The content and executable fixture for the advanced Riverboat proof are cut:
 
 - Public fixture: `dogfood/fixtures/waves/4-riverboat-trusted-loop.html`
+- Hero construction input: `media/renderaissance/riverboat-gambler.jpg` (uploaded to DA before the page)
 - Trusted executable fixture: `dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`
 - CLI branch: `feature/riverboat-gambler-wave`
 

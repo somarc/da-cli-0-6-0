@@ -76,11 +76,20 @@
       "status": "cut-out-of-band"
     },
     {
+      "path": "/media/renderaissance/riverboat-gambler.jpg",
+      "source": "media/renderaissance/riverboat-gambler.jpg",
+      "builtBy": "construct.yaml: put-wave-4-riverboat-media",
+      "verify": "https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/riverboat-gambler.jpg",
+      "kind": "da-media",
+      "status": "in-progress"
+    },
+    {
       "path": "/waves/4-riverboat-trusted-loop.html",
       "source": "dogfood/fixtures/waves/4-riverboat-trusted-loop.html",
       "builtBy": "construct.yaml: put-wave-4-riverboat → preview-wave-4-riverboat",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-riverboat-trusted-loop.plain.html",
       "executionFixture": "dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml",
+      "media": "/media/renderaissance/riverboat-gambler.jpg",
       "status": "in-progress"
     }
   ]
