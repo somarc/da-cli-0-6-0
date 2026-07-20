@@ -35,6 +35,22 @@ remaining lifecycle/skills classification stays open.
    the frozen input in DA. The rendered page serves an optimized 750×422
    derivative with no `about:error` and all block states loaded.
 
+## f038 — effective source versus legacy fstab
+
+A separate product-shaped greenfield run on `somarc/throughline` surfaced f038 and expanded this wave's lifecycle proof into a Configuration Service contract correction.
+
+- `f038-before-site-info.txt` — old CLI calls fstab missing while its own Helix/plain checks are green, then prescribes the file.
+- `f038-before-site-list.txt` — fstab-only discovery omits Throughline and the Lifecycle Atlas.
+- `f038-before-content-policy.json` — no fstab means `daBacked:false`, `strictSections:false`, and malformed DA HTML is warning-only.
+- `f038-after-site-info.json` — effective DA source is observed and all checks agree.
+- `f038-after-site-list.json` — versioned discovery includes modern no-fstab sites.
+- `f038-after-site-model.json` — v2 separates expected from effective source/provenance.
+- `f038-after-site-doctor.json` — seven checks green against Throughline.
+- `f038-after-content-guard.*` — invalid section shape refuses before any write, exit 1.
+- `f038-deploy-*` — committed put, preview, and publish envelopes for the learning page, hub, and coverage catalog; every envelope is `ok:true` with the effective source attached to content writes. Final classify is `contentbus` with preview/live 200; freshness is `fresh` on both tiers.
+
+Product proof: da-cli PR #44 (containment) + PR #45 / merge `18877d6` (systemic source contract), 652/652 tests, Node 22/24 CI, release smoke, and repo health.
+
 ## Honest residue
 
 - This does **not** cut Wave 6 by itself. Remaining lifecycle/skills conditions

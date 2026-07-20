@@ -1,0 +1,10 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: publish page /learnings/f038-fstab-shadowed-effective-config.html
+  Paths: 1
+    /learnings/f038-fstab-shadowed-effective-config.html
+  Note: Publish mutates the live CDN (*.aem.live).
+Publishing: /learnings/f038-fstab-shadowed-effective-config.html
+Published to live. Query index is live-only; run `da --commit index build` if indexed metadata must update.

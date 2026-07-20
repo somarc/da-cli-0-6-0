@@ -348,6 +348,12 @@ steps:
   - id: preview-f037
     command: preview page /learnings/f037-put-blind-missing-media --format json
     depends_on: [put-f037]
+  - id: put-f038
+    command: content put /learnings/f038-fstab-shadowed-effective-config.html dogfood/fixtures/learnings/f038-fstab-shadowed-effective-config.html --format json
+    depends_on: [preview-f037]
+  - id: preview-f038
+    command: preview page /learnings/f038-fstab-shadowed-effective-config --format json
+    depends_on: [put-f038]
   - id: put-wave-1
     command: content put /waves/1-foundation.html dogfood/fixtures/waves/1-foundation.html --format json
     depends_on: [preview-f033]

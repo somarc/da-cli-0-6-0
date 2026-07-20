@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "check": "Sidekick registration",
+      "status": "ok",
+      "detail": "main--throughline--somarc.aem.page / main--throughline--somarc.aem.live"
+    },
+    {
+      "check": "Effective DA content source",
+      "status": "ok",
+      "detail": "https://content.da.live/somarc/throughline/"
+    },
+    {
+      "check": "code-bus styles.css",
+      "status": "ok",
+      "detail": "200 https://raw.githubusercontent.com/somarc/throughline/main/styles/styles.css"
+    },
+    {
+      "check": "DA shared docs",
+      "status": "ok",
+      "detail": "found: /footer.html, /index.html, /nav.html"
+    },
+    {
+      "check": "route /index",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/throughline/"
+    },
+    {
+      "check": "route /nav",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/throughline/nav"
+    },
+    {
+      "check": "route /footer",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/throughline/footer"
+    }
+  ],
+  "recommendations": []
+}

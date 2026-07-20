@@ -1,0 +1,19 @@
+{
+  "baselineCommit": "cae3e54",
+  "cwd": "/Users/mhess/marc_projects/throughline",
+  "daBacked": false,
+  "strictSections": false,
+  "bodyOnly": {
+    "content": "<main><h1>unsafe</h1></main>",
+    "wrapped": false,
+    "summary": {
+      "sections": 0,
+      "blocks": 0
+    },
+    "error": null,
+    "notes": [
+      "Warning: /index.html is missing DA body/header/main/footer structure. Pass --wrap to wrap body-only HTML before upload.",
+      "Render preflight: 0 section(s), 0 block(s)."
+    ]
+  }
+}
