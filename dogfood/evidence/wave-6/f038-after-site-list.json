@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "da-cli.site-list.v2",
+  "sites": [
+    {
+      "name": "throughline",
+      "url": "https://github.com/somarc/throughline",
+      "private": false,
+      "pushed": "2026-07-20",
+      "branch": "main",
+      "discovery": "helix-effective",
+      "contentSource": "https://content.da.live/somarc/throughline/",
+      "preview": "https://main--throughline--somarc.aem.page"
+    },
+    {
+      "name": "continuity-of-intent",
+      "url": "https://github.com/somarc/continuity-of-intent",
+      "private": false,
+      "pushed": "2026-07-18",
+      "branch": "main",
+      "discovery": "helix-effective",
+      "contentSource": "https://content.da.live/somarc/continuity-of-intent/",
+      "preview": "https://main--continuity-of-intent--somarc.aem.page"
+    },
+    {
+      "name": "da-cli-0-6-0",
+      "url": "https://github.com/somarc/da-cli-0-6-0",
+      "private": false,
+      "pushed": "2026-07-17",
+      "branch": "main",
+      "discovery": "helix-effective",
+      "contentSource": "https://content.da.live/somarc/da-cli-0-6-0/",
+      "preview": "https://main--da-cli-0-6-0--somarc.aem.page"
+    },
+    {
+      "name": "da-lifecycle-atlas",
+      "url": "https://github.com/somarc/da-lifecycle-atlas",
+      "private": false,
+      "pushed": "2026-07-17",
+      "branch": "main",
+      "discovery": "helix-effective",
+      "contentSource": "https://content.da.live/somarc/da-lifecycle-atlas/",
+      "preview": "https://main--da-lifecycle-atlas--somarc.aem.page"
+    },
+    {
+      "name": "da-deep",
+      "url": "https://github.com/somarc/da-deep",
+      "private": false,
+      "pushed": "2026-07-13",
+      "branch": "main",
+      "discovery": "helix-effective",
+      "contentSource": "https://content.da.live/somarc/da-deep/",
+      "preview": "https://main--da-deep--somarc.aem.page"
+    }
+  ],
+  "inconclusive": []
+}

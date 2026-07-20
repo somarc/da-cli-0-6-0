@@ -1,0 +1,12 @@
+New document: /learnings/f038-fstab-shadowed-effective-config.html
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: content put /learnings/f038-fstab-shadowed-effective-config.html
+  Source: dogfood/fixtures/learnings/f038-fstab-shadowed-effective-config.html
+  Paths: 1
+    /learnings/f038-fstab-shadowed-effective-config.html
+  Note: Render preflight: 6 section(s), 1 block(s).
+  Note: New DA source; canonical live route /learnings/f038-fstab-shadowed-effective-config currently returns 404.
+Uploaded /learnings/f038-fstab-shadowed-effective-config.html

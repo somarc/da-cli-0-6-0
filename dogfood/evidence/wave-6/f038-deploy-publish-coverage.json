@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "publish.page",
+  "target": "somarc/da-cli-0-6-0/coverage.html",
+  "data": {
+    "mode": "committed",
+    "path": "/coverage.html",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/coverage"
+  },
+  "changes": [
+    "/coverage.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --yes"
+  ]
+}

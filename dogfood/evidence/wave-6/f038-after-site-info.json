@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "check": "DA content source config",
+      "status": "ok",
+      "detail": "Helix effective DA markup source: https://content.da.live/somarc/throughline/"
+    },
+    {
+      "check": "Helix content pipeline",
+      "status": "ok",
+      "detail": "200 (source: markup:https://content.da.live/somarc/throughline/)"
+    },
+    {
+      "check": "Content non-empty",
+      "status": "ok",
+      "detail": "<div> <p> <picture> <source type=\"image/webp\" srcset=\"./media_17442c"
+    }
+  ],
+  "recommendations": [],
+  "preview": "https://main--throughline--somarc.aem.page",
+  "live": "https://main--throughline--somarc.aem.live",
+  "effectiveContentSource": {
+    "state": "configured",
+    "active": true,
+    "selectedBy": "helix-sidekick",
+    "source": {
+      "kind": "da-markup",
+      "type": "markup",
+      "url": "https://content.da.live/somarc/throughline/",
+      "daOrg": "somarc",
+      "daRepo": "throughline",
+      "pathPrefix": "/",
+      "matchesSite": true
+    },
+    "warnings": []
+  }
+}

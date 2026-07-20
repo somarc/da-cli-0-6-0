@@ -1,0 +1,4 @@
+Warning: /drafts/f038-invalid-shape.html has block class(es) on direct <main> child divs: cards
+  Wrap each block table in a section <div>; otherwise preview may flatten the block class into plain content.
+  Upload blocked: section shape is strict by default on DA-backed repos.
+  Fix: da content fix-sections <file> --write · or bypass: --allow-top-level-blocks
