@@ -104,12 +104,12 @@ const SURFACE = {
         {
           id: 'put-ks',
           label: 'content put kitchen-sink',
-          syntax: 'da --commit content put /kitchen-sink.html dogfood/fixtures/kitchen-sink.html',
+          syntax: 'da audit full /kitchen-sink --format json',
           target: '/kitchen-sink',
-          evidence: 'dogfood/fixtures/kitchen-sink.html · construct.yaml',
+          evidence: 'DA /kitchen-sink.html · dogfood/certify.yaml',
           status: 'ok',
-          flow: ['fixtures', 'content put', 'DA source', 'preview', 'live'],
-          note: 'Authoring input for the full module spectrum (hero, cards, form, modal link, embed, …).',
+          flow: ['DA source', 'audit', 'preview', 'live'],
+          note: 'DA-authored proof for the full module spectrum (hero, cards, form, modal link, embed, …).',
         },
         {
           id: 'preview-ks',
@@ -195,13 +195,13 @@ const SURFACE = {
       items: [
         {
           id: 'construct-put',
-          label: 'construct put/preview loop',
-          syntax: 'da pipeline run dogfood/construct.yaml --dry-run\n# --commit for regen',
-          target: 'all fixtures',
-          evidence: 'dogfood/construct.yaml',
+          label: 'DA-native certification loop',
+          syntax: 'da pipeline run dogfood/certify.yaml --dry-run\n# root --commit activates DA source on preview',
+          target: 'authoritative DA source',
+          evidence: 'dogfood/certify.yaml · dogfood/promote.yaml',
           status: 'ok',
-          flow: ['git fixtures', 'content put', 'preview page'],
-          note: 'Site is regenerable (ADR 0003).',
+          flow: ['DA source', 'preview tree', 'audits', 'freshness'],
+          note: 'Certification activates and verifies DA source without a Git content mirror.',
         },
         {
           id: 'merge-data',

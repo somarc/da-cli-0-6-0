@@ -8,6 +8,24 @@ This project is based on the https://github.com/adobe/aem-boilerplate/ project a
 
 The repository provides the basic structure, blocks, and configuration needed to run a complete site with `*.aem.live` as the backend.
 
+## Certification-site content contract
+
+DA is the single source of truth for authored HTML, JSON sheets, navigation,
+footer, and media references. Never add or edit authored-content fixtures in
+Git. This repository owns EDS code, `dogfood/certify.yaml`,
+`dogfood/promote.yaml`, and immutable historical evidence only.
+
+Perform content inspection, preview, promotion, and audit through the local
+da-cli:
+
+```sh
+node /Users/mhess/aem/aem-code/da/da-cli/bin/da.js --org somarc --repo da-cli-0-6-0 --branch main <command>
+```
+
+Do not call DA or Helix admin endpoints directly. Do not restore
+`dogfood/fixtures/`, `content-staging/`, `drafts/`, or
+`dogfood/construct.yaml`.
+
 ### Key Technologies
 - Edge Delivery Services for AEM Sites (documentation at https://www.aem.live/ – search with `site:www.aem.live` to restrict web search results)
 - Vanilla JavaScript (ES6+), no transpiling, no build steps
@@ -74,7 +92,8 @@ The repository provides the basic structure, blocks, and configuration needed to
 
 CMS authored content is a key part of every AEM Website. The content of a page is broken into sections. Sections can have default content (text, headings, links, etc.) as well as content in blocks.
 
-If no authored content exists to test against, you can create static HTML files in a `drafts/` folder at the project root. Pass `--html-folder drafts` when starting the dev server. Follow the aem markup structure and save files with `.html` or `.plain.html` extensions.
+For this certification site, obtain or change authored content only in DA via
+da-cli. Do not create static authored HTML under the repository as a fallback.
 
 Background on content and markup structure can be found at https://www.aem.live/developer/markup-sections-blocks and https://www.aem.live/developer/markup-reference respectively.
 

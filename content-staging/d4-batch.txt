@@ -1,3 +1,0 @@
-https://example.com/ /drafts/migrate/d4/alpha.html
-https://example.com/this-page-definitely-does-not-exist-d4-drill /drafts/migrate/d4/doomed.html
-https://example.net/ /drafts/migrate/d4/gamma.html

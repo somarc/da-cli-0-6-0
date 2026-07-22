@@ -4,28 +4,25 @@ This site is the certifying dogfood run for the **da-cli 0.6.0** release. Per
 ADR 0002 (dogfood rubric) and ADR 0003 (versioned demonstration sites), **0.6.0
 ships only when this site is provably cut**: every `required-core` +
 `required-destructive` CLI surface exercised with passing, provable evidence,
-each artifact built by a `da` command captured in `dogfood/construct.yaml`, and
+each artifact activated and verified by checked-in DA-native pipelines, and
 each finding turned into a primitive fix + locking test (the flywheel).
 
-## Fixture model — git is upstream of DA
+## Source model — DA is authoritative
 
-The source documents under `dogfood/fixtures/` are **construction inputs, not
-authored content.** Think test seed data, not a content bus. The direction of
-truth is **git → DA**: `construct.yaml` uploads each fixture to DA
-(`da content put`), activates it (`da preview page`), and verifies the public
-result. DA holds the delivered copy; the fixtures hold the canonical source; the
-public URL is the proof.
+DA is the sole source of truth for authored HTML, JSON sheets, navigation,
+footer, and media references. Git owns code, declarative certification and
+promotion pipelines, and immutable historical evidence. It does not carry an
+authored-content mirror.
 
-This is deliberately the *opposite* of the normal EDS rule (content lives only
-in the content bus, never in git — which is why `.da/workspace/` is gitignored).
-For this site the product *is* provable construction, so the inputs must be
-version-controlled or there is nothing to regenerate from and no provenance.
-Hence `fixtures/`, not `content/`.
+`dogfood/certify.yaml` activates existing DA source on preview and proves site
+model, doctor, block contracts, key-page audits, freshness, sitemap, and code.
+`dogfood/promote.yaml` is the separate human-approved live promotion and index
+verification boundary. Neither pipeline uploads authored content from Git.
 
-**Drift discipline:** because git is upstream, edit the fixture in git and re-run
-the pipeline — never author directly in DA. A direct DA edit makes the fixtures
-stale and a regeneration would overwrite it. (The content-conflict guard catches
-exactly this if it happens.)
+All content and preview operations use the local da-cli. Raw DA/Helix admin API
+calls and repository-authored content fixtures are outside the certification
+contract. Historical evidence may mention the retired fixture-fed construct;
+those immutable observations are retained as history, not as current guidance.
 
 ## Coverage spine (ADR 0002 D3 — no unclassified surface)
 
@@ -46,7 +43,7 @@ exactly this if it happens.)
 ## Waves
 
 **Wave 1 — Foundation & core loop**
-- Content: index control panel (✅ cut), CLI-authored `nav`/`footer` replacing scaffold defaults; `dogfood/construct.yaml` + provenance for index/nav/footer.
+- Content: index control panel (✅ cut), CLI-authored DA `nav`/`footer`, plus certification provenance for index/nav/footer.
 - Surfaces: `config`, `status`, `resolve`, `content put/get/list/tree`, `preview page`, `publish page`, `site info`, `site freshness`, `up`.
 - Proof: preview + live URLs, `.plain.html` verified, freshness gate green.
 
@@ -72,8 +69,8 @@ exactly this if it happens.)
 - **Riverboat Gambler certification slice:** keep the flag hidden but supported;
   prove trusted local Git/npm/outside-agent composition without making unsafe
   execution part of normal construction. Public proof:
-  `/waves/4-riverboat-trusted-loop`; executable fixture:
-  `dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`; evidence remains
+  `/waves/4-riverboat-trusted-loop`; historical execution evidence lives under
+  `dogfood/evidence/wave-4/`. Evidence remains
   in-progress until default refusal, unsafe plan/result provenance, approval
   preflight, descendant cleanup, and packed-install behavior are captured.
 
@@ -85,7 +82,7 @@ exactly this if it happens.)
 - Surfaces: `auth` flows, `skills bootstrap/install` (dogfoods the ADR-0001 embedded bootstrap), `site create` (2nd disposable site), `code sidekick`, `commerce`, `stardust` (external-conditional).
 
 ## Cross-cutting
-- Construction pipeline (`dogfood/construct.yaml`) captures every write → site is regenerable (ADR 0003).
+- DA-native pipelines (`dogfood/certify.yaml`, `dogfood/promote.yaml`) activate, validate, and promote authoritative DA source.
 - Provenance (`dogfood/provenance.json`): artifact → command → verified live URL.
 - Flywheel: findings → primitive fix + locking test, each a 0.6.0 code change.
 
@@ -128,7 +125,7 @@ Two columns — both required. **Hang the hat on agentic operability, not
 command count.**
 
 1. **Waves:** 1–5 green with stored evidence; Wave 6 classified (run or
-   precondition-recorded); construction pipeline regenerates the site;
+   precondition-recorded); DA-native certification/promotion verifies the site;
    provenance verifies.
 2. **Frictions:** every Critical/High finding fixed + locked. As of
    **2026-07-14** the friction column is **clear** (f001–f012).

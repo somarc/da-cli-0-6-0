@@ -1,0 +1,30 @@
+name: da-cli-0-6-0-da-native-promotion
+# Promotion is an explicit human-approved operation over DA-authored source.
+# Run dogfood/certify.yaml first and inspect its evidence before executing this
+# pipeline. Root --commit is the only mutation approval boundary.
+#
+# Plan:
+#   da --org somarc --repo da-cli-0-6-0 --branch main pipeline run dogfood/promote.yaml --dry-run --format json
+# Execute after review:
+#   da --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood/promote.yaml --format json
+steps:
+  - id: preview-readiness
+    command: site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json
+  - id: contract-codebus
+    command: audit contracts --prefix / --verify-code --format json
+    depends_on: [preview-readiness]
+  - id: publish-da-tree
+    command: publish tree / --verify-live --yes --format json
+    depends_on: [contract-codebus]
+  - id: rebuild-index
+    command: index build --wait --yes --format json
+    depends_on: [publish-da-tree]
+  - id: live-freshness
+    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [rebuild-index]
+  - id: live-sitemap
+    command: sitemap verify --target live --require-path /test-plan --format json
+    depends_on: [live-freshness]
+  - id: final-doctor
+    command: site doctor --agent --deep --format json
+    depends_on: [live-sitemap]

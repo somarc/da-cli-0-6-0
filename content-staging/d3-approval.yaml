@@ -1,8 +1,0 @@
-name: d3-approval
-steps:
-  - id: probe
-    command: content get /drafts/b1-drill.html --format json
-  - id: gated
-    command: content get /drafts/b2-drill.html --format json
-    requires_approval: true
-    depends_on: [probe]

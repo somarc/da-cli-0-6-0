@@ -1,96 +1,101 @@
 {
   "site": "somarc/da-cli-0-6-0",
-  "constructedBy": "dogfood/construct.yaml",
-  "regeneratedWith": "da --org somarc --repo da-cli-0-6-0 --commit pipeline run dogfood/construct.yaml",
+  "contentAuthority": {
+    "system": "DA",
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "policy": "Authored HTML and JSON exist only in DA and are operated through the local da-cli."
+  },
+  "certifiedBy": "dogfood/certify.yaml",
+  "promotedBy": "dogfood/promote.yaml",
+  "certifyCommand": "da --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood/certify.yaml --format json",
+  "promoteCommand": "da --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood/promote.yaml --format json",
   "gates": "da-cli 0.6.0 release",
   "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
   "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
   "artifacts": [
     {
       "path": "/index.html",
-      "source": "dogfood/fixtures/index.html",
-      "builtBy": "construct.yaml: put-index → preview-index",
+      "source": "da://somarc/da-cli-0-6-0/index.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → audit-home → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html",
       "status": "cut"
     },
     {
       "path": "/nav.html",
-      "source": "dogfood/fixtures/nav.html",
-      "builtBy": "construct.yaml: put-nav → preview-nav",
+      "source": "da://somarc/da-cli-0-6-0/nav.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/nav.plain.html",
       "status": "cut"
     },
     {
       "path": "/footer.html",
-      "source": "dogfood/fixtures/footer.html",
-      "builtBy": "construct.yaml: put-footer → preview-footer",
+      "source": "da://somarc/da-cli-0-6-0/footer.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/footer.plain.html",
       "status": "cut"
     },
     {
       "path": "/why.html",
-      "source": "dogfood/fixtures/why.html",
-      "builtBy": "construct.yaml: put-why → preview-why",
+      "source": "da://somarc/da-cli-0-6-0/why.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/why.plain.html",
       "status": "cut"
     },
     {
       "path": "/test-plan.html",
-      "source": "dogfood/fixtures/test-plan.html",
-      "builtBy": "construct.yaml: put-test-plan → preview-test-plan",
+      "source": "da://somarc/da-cli-0-6-0/test-plan.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → audit-test-plan → preview-sitemap",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan.plain.html",
       "status": "cut"
     },
     {
       "path": "/blocks.html",
-      "source": "dogfood/fixtures/blocks.html",
-      "builtBy": "construct.yaml: put-blocks → preview-blocks",
+      "source": "da://somarc/da-cli-0-6-0/blocks.html",
+      "certifiedBy": "certify.yaml: contract-codebus → preview-da-tree",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/blocks.plain.html",
       "blocks": ["columns", "cards"],
-      "codeVerified": "audit contracts --verify-code: cards js/css 200, columns js/css 200",
       "status": "cut"
     },
     {
       "path": "/coverage.html",
-      "source": "dogfood/fixtures/coverage.html",
-      "builtBy": "construct.yaml: put-coverage → preview-coverage",
+      "source": "da://somarc/da-cli-0-6-0/coverage.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/coverage.plain.html",
       "status": "cut"
     },
     {
       "path": "/data/coverage.json",
-      "source": "dogfood/fixtures/coverage-data.json",
-      "builtBy": "construct.yaml: put-coverage-data → preview-coverage-data",
+      "source": "da://somarc/da-cli-0-6-0/data/coverage.json",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/data/coverage.json",
       "kind": "da-sheet",
-      "discoveredBy": "da content sheets → /data/coverage.json (11 rows: family, class, wave)",
       "status": "cut"
     },
     {
       "path": "/query-index.json",
-      "source": "helix-query.yaml (active legacy mode — observed via named-index match, f029) + page metadata (wave/surface/status)",
-      "builtBy": "publish pages → POST admin.hlx.page/index/somarc/da-cli-0-6-0/main/* (NOT buildable via da yet — finding #3)",
+      "source": "EDS index configuration plus published DA page metadata",
+      "promotedBy": "promote.yaml: publish-da-tree → rebuild-index → live-freshness",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.live/query-index.json",
       "kind": "query-index",
-      "readBy": "da index show / validate / query",
-      "status": "cut-out-of-band"
+      "status": "cut"
     },
     {
       "path": "/media/renderaissance/riverboat-gambler.jpg",
-      "source": "media/renderaissance/riverboat-gambler.jpg",
-      "builtBy": "construct.yaml: put-wave-4-riverboat-media",
-      "verify": "https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/riverboat-gambler.jpg",
+      "source": "da://somarc/da-cli-0-6-0/media/renderaissance/riverboat-gambler.jpg",
+      "certifiedBy": "certify.yaml: preview-da-tree",
+      "verify": "https://main--da-cli-0-6-0--somarc.aem.page/media/renderaissance/riverboat-gambler.jpg",
       "kind": "da-media",
       "status": "in-progress"
     },
     {
       "path": "/waves/4-riverboat-trusted-loop.html",
-      "source": "dogfood/fixtures/waves/4-riverboat-trusted-loop.html",
-      "builtBy": "construct.yaml: put-wave-4-riverboat → preview-wave-4-riverboat",
+      "source": "da://somarc/da-cli-0-6-0/waves/4-riverboat-trusted-loop.html",
+      "certifiedBy": "certify.yaml: preview-da-tree → freshness-gate",
       "verify": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-riverboat-trusted-loop.plain.html",
-      "executionFixture": "dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml",
-      "media": "/media/renderaissance/riverboat-gambler.jpg",
+      "executionEvidence": "dogfood/evidence/wave-4/riverboat-run.json",
       "status": "in-progress"
     }
-  ]
+  ],
+  "historicalEvidencePolicy": "Evidence captured before the DA-native migration remains immutable and may name retired fixture paths; it is not current operating guidance."
 }
