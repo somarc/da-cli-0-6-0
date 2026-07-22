@@ -32,7 +32,8 @@ steps:
     command: site freshness /route-matrix --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
     depends_on: [live-freshness]
   - id: live-sitemap
-    command: sitemap verify --target live --require-path /test-plan --format json
+    # Shared nav/footer routes are an accepted documentation-site characteristic.
+    command: sitemap verify --target live --allow-content-paths --require-path /test-plan --format json
     depends_on: [live-test-plan, live-kitchen-sink, live-route-matrix]
   - id: final-doctor
     command: site doctor --agent --deep --format json

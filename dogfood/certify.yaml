@@ -50,7 +50,9 @@ steps:
     command: site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json
     depends_on: [audit-home, audit-test-plan, audit-kitchen-sink, audit-route-matrix, audit-wave-4, audit-wave-5, audit-learnings]
   - id: preview-sitemap
-    command: sitemap verify --target preview --require-path /test-plan --format json
+    # This documentation site intentionally exposes shared nav/footer routes in
+    # its generated sitemap; still fail on undefined hosts or a missing proof path.
+    command: sitemap verify --target preview --allow-content-paths --require-path /test-plan --format json
     depends_on: [freshness-gate]
   - id: code-proof
     command: code verify /styles/styles.css --contains body --format json
