@@ -12,6 +12,8 @@ const requiredPipelines = [
   'dogfood/promote.yaml',
 ];
 
+const canonicalManifest = 'dogfood/canonical-pages.txt';
+
 const violations = [];
 
 for (const path of forbiddenPaths) {
@@ -32,6 +34,21 @@ for (const path of requiredPipelines) {
   } catch {
     violations.push(`${path} is required`);
   }
+}
+
+try {
+  const paths = (await readFile(canonicalManifest, 'utf8'))
+    .split('\n')
+    .map((path) => path.trim())
+    .filter(Boolean);
+  if (!paths.length) violations.push(`${canonicalManifest} must list canonical DA pages`);
+  for (const path of paths) {
+    if (!path.startsWith('/') || !path.endsWith('.html') || path.startsWith('/drafts/')) {
+      violations.push(`${canonicalManifest} contains unsafe promotion path: ${path}`);
+    }
+  }
+} catch {
+  violations.push(`${canonicalManifest} is required`);
 }
 
 if (violations.length) {

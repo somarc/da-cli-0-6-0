@@ -10,6 +10,7 @@ This evidence closes release-site issue #6 by replacing the retired Git-authored
 - Removed `dogfood/fixtures/**`, `content-staging/**`, `drafts/**`, and `dogfood/construct.yaml`.
 - Removed the orphaned Git media mirror for the Riverboat proof; DA remains authoritative for that asset.
 - Added `dogfood/certify.yaml` and `dogfood/promote.yaml`; neither uploads authored content from Git.
+- Added `dogfood/canonical-pages.txt` so promotion cannot recursively publish DA drafts or failure-injection paths.
 - Added `npm run check:da-source-truth` and wired it into CI.
 - Preserved earlier wave evidence unchanged as historical observations.
 

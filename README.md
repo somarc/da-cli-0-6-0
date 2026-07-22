@@ -34,6 +34,8 @@ $DA --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood
 ```
 
 Neither pipeline uploads authored content from Git.
+`dogfood/canonical-pages.txt` is the reviewed promotion manifest; it excludes
+DA draft and failure-injection paths.
 
 ## Repository checks
 

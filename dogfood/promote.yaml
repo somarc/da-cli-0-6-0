@@ -13,14 +13,17 @@ steps:
   - id: contract-codebus
     command: audit contracts --prefix / --verify-code --format json
     depends_on: [preview-readiness]
-  - id: publish-da-tree
-    command: publish tree / --verify-live --yes --format json
+  - id: publish-canonical-pages
+    # The explicit manifest excludes /drafts and other failure-injection source.
+    command: publish pages dogfood/canonical-pages.txt --bulk --yes --format json
     depends_on: [contract-codebus]
   - id: rebuild-index
     command: index build --wait --yes --format json
-    depends_on: [publish-da-tree]
+    depends_on: [publish-canonical-pages]
   - id: live-freshness
-    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    # / includes intentional preview-only drafts; exact-path checks below fail
+    # on preview-only for the release-critical public routes.
+    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
     depends_on: [rebuild-index]
   - id: live-test-plan
     command: site freshness /test-plan --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
