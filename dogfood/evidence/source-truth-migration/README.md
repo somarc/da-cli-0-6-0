@@ -49,4 +49,6 @@ node /Users/mhess/aem/aem-code/da/da-cli/bin/da.js \
   pipeline run dogfood/certify.yaml --format json
 ```
 
+Successful certification run: `1777f604` — 17/17 steps completed, no warnings.
+
 The first run is retained as `certify-run.failed.json`; it proved every source/preview/audit/freshness step and exposed the site's intentional shared-route sitemap characteristic. The corrected successful result is stored in `certify-run.json`; child-step diagnostics are stored beside each result.

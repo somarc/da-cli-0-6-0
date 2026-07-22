@@ -1,0 +1,142 @@
+{
+  "ok": true,
+  "operation": "pipeline.run",
+  "target": "dogfood/certify.yaml",
+  "data": {
+    "runId": "1777f604",
+    "name": "da-cli-0-6-0-da-native-certification",
+    "status": "completed",
+    "startedAt": "2026-07-22T01:39:26.314Z",
+    "completedAt": "2026-07-22T01:40:18.011Z",
+    "steps": {
+      "status": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:39:26.522Z"
+      },
+      "site-model": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:39:28.457Z"
+      },
+      "agent-briefing": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:39:37.380Z"
+      },
+      "contract-codebus": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:39:39.690Z"
+      },
+      "preview-da-tree": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:01.261Z"
+      },
+      "explain-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:01.884Z"
+      },
+      "audit-home": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.219Z"
+      },
+      "audit-test-plan": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.459Z"
+      },
+      "audit-kitchen-sink": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.329Z"
+      },
+      "audit-route-matrix": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.244Z"
+      },
+      "audit-wave-4": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.302Z"
+      },
+      "audit-wave-5": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.303Z"
+      },
+      "audit-learnings": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:02.384Z"
+      },
+      "freshness-gate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:09.128Z"
+      },
+      "preview-sitemap": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:09.366Z"
+      },
+      "code-proof": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:09.579Z"
+      },
+      "final-doctor": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:40:17.999Z"
+      }
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --format json pipeline status 1777f604"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/1777f604/result.json"
+    }
+  ]
+}
