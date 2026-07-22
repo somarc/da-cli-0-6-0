@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/waves/4-durability.html",
+  "data": {
+    "mode": "dry-run",
+    "path": "/waves/4-durability.html",
+    "source": "dogfood/fixtures/waves/4-durability.html",
+    "changed": false
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit content put /waves/4-durability.html dogfood/fixtures/waves/4-durability.html"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "ok": false,
+  "operation": "content.put",
+  "target": "/drafts/f038-invalid-shape.html",
+  "warnings": [],
+  "errors": [
+    "section shape: block class(es) on direct <main> child divs: cards — DA preview may flatten these blocks into plain content"
+  ],
+  "next": [
+    "da content fix-sections <file> --write  # wrap blocks in section divs",
+    "da content put <path> <file> --allow-top-level-blocks --commit  # deliberate bypass"
+  ]
+}

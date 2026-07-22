@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-0-6-0/drafts/f037-drill.html",
+  "data": {
+    "mode": "dry-run",
+    "path": "/drafts/f037-drill.html",
+    "source": "f037-drill-tmp.html",
+    "changed": true
+  },
+  "warnings": [
+    "f037: missing DA media reference(s): /media/renderaissance/does-not-exist-f037.jpg — page will render about:error until uploaded"
+  ],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit content put /drafts/f037-drill.html f037-drill-tmp.html"
+  ]
+}

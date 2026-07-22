@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "preview.page",
+  "target": "somarc/da-cli-0-6-0/coverage.html",
+  "data": {
+    "mode": "committed",
+    "path": "/coverage.html",
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/coverage"
+  },
+  "changes": [
+    "/coverage.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit publish page /coverage.html"
+  ]
+}

@@ -1,0 +1,13 @@
+Diff for /coverage.html:
+-         <li><a href="/learnings">Learnings hub</a> — flywheel + index of f001–f036 (and growing). Friction column clear: f001–f036 fixed/recovered; f017 partial with seams landed and migration tracked.</li>
++         <li><a href="/learnings">Learnings hub</a> — flywheel + index of f001–f038 (and growing). Friction column clear: f001–f038 fixed/recovered; f017 partial with seams landed and migration tracked. f038 is the Configuration Service effective-source correction found by the Throughline greenfield run.</li>
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: content put /coverage.html
+  Source: dogfood/fixtures/coverage.html
+  Paths: 1
+    /coverage.html
+  Note: Render preflight: 9 section(s), 2 block(s).
+Uploaded /coverage.html

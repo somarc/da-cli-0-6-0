@@ -1,0 +1,23 @@
+Riverboat diagnostic summary from run 146e8e83 (exit 0):
+
+[riverboat-gambler] step=repo-state mode=shell-executable
+[riverboat-gambler] cwd=/Users/mhess/aem/aem-code/da/da-cli-0-6-0
+[riverboat-gambler] command=git status --short
+
+[riverboat-gambler] step=local-lint mode=shell-executable
+[riverboat-gambler] cwd=/Users/mhess/aem/aem-code/da/da-cli-0-6-0
+[riverboat-gambler] command=npm run lint
+
+[riverboat-gambler] step=freshness-report mode=da-subcommand
+[riverboat-gambler] cwd=/Users/mhess/aem/aem-code/da/da-cli-0-6-0
+[riverboat-gambler] command=site freshness --format json
+
+[riverboat-gambler] step=code-proof mode=da-subcommand
+[riverboat-gambler] cwd=/Users/mhess/aem/aem-code/da/da-cli-0-6-0
+[riverboat-gambler] command=code verify /styles/styles.css --contains body --format json
+
+Assertions:
+- child output stayed on stderr; stdout was one parseable pipeline.run envelope;
+- both shell steps and both built-in DA steps completed;
+- code proof fetched preview /styles/styles.css (HTTP 200, 11689 bytes) and found "body";
+- freshness reported current platform state without mutating it.

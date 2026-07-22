@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "publish.page",
+  "target": "somarc/da-cli-0-6-0/test-plan",
+  "data": {
+    "mode": "committed",
+    "path": "/test-plan",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan"
+  },
+  "changes": [
+    "/test-plan"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --commit index build --yes"
+  ]
+}

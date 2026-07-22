@@ -1,0 +1,27 @@
+BASELINE_COMMIT=cae3e54
+COMMAND=node /tmp/da-cli-f038-old.iWuzEc/bin/da.js site info
+
+Checking pipeline health for somarc/throughline (branch: main)…
+gh: Not Found (HTTP 404)
+[
+  {
+    "check": "fstab.yaml on main",
+    "status": "MISSING",
+    "detail": "not found"
+  },
+  {
+    "check": "Helix content pipeline",
+    "status": "ok",
+    "detail": "200 (source: markup:https://content.da.live/somarc/throughline/)"
+  },
+  {
+    "check": "Content non-empty",
+    "status": "ok",
+    "detail": "<div> <p> <picture> <source type=\"image/webp\" srcset=\"./media_17442c"
+  }
+]
+
+Preview: https://main--throughline--somarc.aem.page
+Live:    https://main--throughline--somarc.aem.live
+
+  fstab.yaml missing — push one mapping / to https://content.da.live/{org}/{repo}/

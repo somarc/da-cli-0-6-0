@@ -1,0 +1,16 @@
+{
+  "branch": "feature/riverboat-gambler-wave",
+  "cliVersionBeforeReleaseCut": "0.5.1",
+  "validationDate": "2026-07-17",
+  "checks": [
+    { "command": "npm run lint", "repo": "da-cli", "status": "passed" },
+    { "command": "npm test", "repo": "da-cli", "status": "passed", "tests": 624 },
+    { "command": "npm run repo:health", "repo": "da-cli", "status": "passed" },
+    { "command": "npm run release:smoke", "repo": "da-cli", "status": "passed", "notes": "packed-and-installed CLI rejection, hidden help, Riverboat plan, execution, warning, continuation" },
+    { "command": "npm run lint", "repo": "da-cli-0-6-0", "status": "passed" },
+    { "command": "pipeline quality-gate dogfood/fixtures/waves/4-riverboat-trusted-loop.html --min-score 85", "repo": "da-cli-0-6-0", "status": "passed", "score": 90 },
+    { "command": "pipeline run dogfood/construct.yaml --dry-run", "repo": "da-cli-0-6-0", "status": "passed", "steps": 119 },
+    { "test": "whole-batch approval preflight", "status": "passed", "assertion": "ungated sibling did not execute when a gate was refused" },
+    { "test": "Riverboat timeout process tree", "status": "passed", "assertion": "SIGTERM-ignoring descendant reached ESRCH after process-group escalation" }
+  ]
+}

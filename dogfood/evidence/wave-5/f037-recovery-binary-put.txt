@@ -1,0 +1,25 @@
+# f037 recovery — session capture, 2026-07-17 ~01:49 UTC
+# Binary upload lane closed the gap; then re-put + re-preview of the page.
+
+$ da --org somarc --repo da-cli-0-6-0 --commit content put /media/renderaissance/parthenon-frame-study.jpg media/renderaissance/parthenon-frame-study.jpg --format json
+Binary upload: /media/renderaissance/parthenon-frame-study.jpg (image/jpeg, 246.5 KB)
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Operation: content put /media/renderaissance/parthenon-frame-study.jpg
+  Paths: 1
+    /media/renderaissance/parthenon-frame-study.jpg
+  Note: Binary asset upload; text diff and HTML fragment checks are skipped.
+Uploaded /media/renderaissance/parthenon-frame-study.jpg
+{
+  "ok": true,
+  "operation": "content.put",
+  "data": { "mode": "committed", "path": "/media/renderaissance/parthenon-frame-study.jpg" }
+}
+
+$ da --org somarc --repo da-cli-0-6-0 --commit content put /waves/4-durability.html dogfood/fixtures/waves/4-durability.html --format json
+  → "ok": true, "mode": "committed"
+$ da --org somarc --repo da-cli-0-6-0 --commit preview page /waves/4-durability --format json
+  → "ok": true
+
+# Verification: see f037-recovered-src.txt (src → ./media_<hash>.jpg, asset 200).

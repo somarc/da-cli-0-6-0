@@ -1,0 +1,9 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: preview page /learnings.html
+  Paths: 1
+    /learnings.html
+  Note: Preview mutates aem.page/code pipeline state but does not publish to live.
+Triggering preview: /learnings.html

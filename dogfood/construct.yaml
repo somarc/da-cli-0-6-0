@@ -342,6 +342,18 @@ steps:
   - id: preview-f036
     command: preview page /learnings/f036-approval-gate-zombie --format json
     depends_on: [put-f036]
+  - id: put-f037
+    command: content put /learnings/f037-put-blind-missing-media.html dogfood/fixtures/learnings/f037-put-blind-missing-media.html --format json
+    depends_on: [preview-f036]
+  - id: preview-f037
+    command: preview page /learnings/f037-put-blind-missing-media --format json
+    depends_on: [put-f037]
+  - id: put-f038
+    command: content put /learnings/f038-fstab-shadowed-effective-config.html dogfood/fixtures/learnings/f038-fstab-shadowed-effective-config.html --format json
+    depends_on: [preview-f037]
+  - id: preview-f038
+    command: preview page /learnings/f038-fstab-shadowed-effective-config --format json
+    depends_on: [put-f038]
   - id: put-wave-1
     command: content put /waves/1-foundation.html dogfood/fixtures/waves/1-foundation.html --format json
     depends_on: [preview-f033]
@@ -366,3 +378,14 @@ steps:
   - id: preview-sheets
     command: preview page /sheets --format json
     depends_on: [put-sheets]
+  # Riverboat proof page only. The arbitrary-command proof fixture is executed
+  # separately and never becomes a dependency of constrained site construction.
+  - id: put-wave-4-riverboat-media
+    command: content put /media/renderaissance/riverboat-gambler.jpg media/renderaissance/riverboat-gambler.jpg --format json
+    depends_on: [preview-sheets]
+  - id: put-wave-4-riverboat
+    command: content put /waves/4-riverboat-trusted-loop.html dogfood/fixtures/waves/4-riverboat-trusted-loop.html --format json
+    depends_on: [put-wave-4-riverboat-media]
+  - id: preview-wave-4-riverboat
+    command: preview page /waves/4-riverboat-trusted-loop --format json
+    depends_on: [put-wave-4-riverboat]

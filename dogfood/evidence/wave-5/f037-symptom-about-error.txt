@@ -1,0 +1,18 @@
+# f037 symptom — session capture, 2026-07-17 ~01:45 UTC
+# (captured during the nav-restructure shipping session, before recovery;
+#  page had been committed via `da --commit content put` + `preview page`
+#  with NO warnings about the media reference)
+
+$ curl -s https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability.plain.html | grep -o 'src="[^"]*"' | head -3
+src="about:error"
+
+# The fixture's authored reference (what put accepted silently):
+#   <img src="https://content.da.live/somarc/da-cli-0-6-0/media/renderaissance/parthenon-frame-study.jpg" …>
+
+# Compare: a healthy page on the same site (asset exists in DA media):
+$ curl -s https://main--da-cli-0-6-0--somarc.aem.page/route-matrix.plain.html | grep -o 'src="[^"]*"' | head -1
+src="./media_1b18df1d51d0747ed75b7bce07fa2d45aed837ed6.webp?width=750&format=webp&optimize=medium"
+
+# The asset DID exist on the codebus (git repo), just not in DA media:
+$ curl -s -o /dev/null -w '%{http_code}' https://main--da-cli-0-6-0--somarc.aem.page/media/renderaissance/parthenon-frame-study.jpg
+200

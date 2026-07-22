@@ -1,0 +1,32 @@
+# RIVERBOAT PROOF FIXTURE — NOT A SITE-CONSTRUCTION PIPELINE.
+#
+# This file contains arbitrary local commands. Review every command and run it
+# only in this trusted checkout. Root --commit does not gate shell side effects.
+# Do not add secrets to YAML or command strings.
+#
+# Refusal proof (must fail before execution):
+#   da --org somarc --repo da-cli-0-6-0 pipeline run dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml --dry-run --format json
+#
+# Trusted plan / execution:
+#   da --riverboat-gambler --org somarc --repo da-cli-0-6-0 pipeline run dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml --dry-run --format json
+#   da --riverboat-gambler --org somarc --repo da-cli-0-6-0 pipeline run dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml --approve local-lint --format json
+name: riverboat-local-super-loop-proof
+steps:
+  - id: repo-state
+    command: git status --short
+
+  - id: local-lint
+    command: npm run lint
+    depends_on: [repo-state]
+    requires_approval: true
+    timeout: 5m
+
+  # These are deliberately built-in DA commands rather than `da ...` shell
+  # invocations, so the runner propagates the explicit root org/repo target.
+  - id: freshness-report
+    command: site freshness --format json
+    depends_on: [local-lint]
+
+  - id: code-proof
+    command: code verify /styles/styles.css --contains body --format json
+    depends_on: [freshness-report]

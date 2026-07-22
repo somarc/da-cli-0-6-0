@@ -1,26 +1,28 @@
 {
-  "name": "@adobe/aem-boilerplate",
+  "name": "@somarc/da-cli-0-6-0-site",
   "private": true,
   "version": "1.3.0",
-  "description": "Starter project for Adobe Helix",
+  "description": "Release certification and dogfood site for @somarc/da-cli 0.6.0",
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
+    "audit:release": "node scripts/release-audit.mjs",
+    "audit:dependencies": "npm audit --audit-level=high",
     "worker:form-submit": "npx wrangler dev --config ./workers/form-submit/wrangler.toml",
     "worker:auth-session": "npx wrangler dev --config ./workers/auth-session/wrangler.toml"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/aem-boilerplate.git"
+    "url": "git+https://github.com/somarc/da-cli-0-6-0.git"
   },
-  "author": "Adobe",
+  "author": "Somarc",
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/adobe/aem-boilerplate/issues"
+    "url": "https://github.com/somarc/da-cli-0-6-0/issues"
   },
-  "homepage": "https://github.com/adobe/aem-boilerplate#readme",
+  "homepage": "https://main--da-cli-0-6-0--somarc.aem.live/",
   "devDependencies": {
     "@babel/eslint-parser": "7.29.7",
     "eslint": "8.57.1",

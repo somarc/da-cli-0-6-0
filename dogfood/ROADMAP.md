@@ -69,6 +69,13 @@ exactly this if it happens.)
 - Content: migration source + expected result; enough pages for tree/batch/durable-job behavior.
 - Surfaces: `pipeline scaffold/run/status/abort`, `job init/run/watch/cancel/tasks`, `migrate import/batch/status/validate`, `preview tree`, `publish tree`, `deploy`.
 - Proof: pipelines green; durable job resumes after interruption; migration validated.
+- **Riverboat Gambler certification slice:** keep the flag hidden but supported;
+  prove trusted local Git/npm/outside-agent composition without making unsafe
+  execution part of normal construction. Public proof:
+  `/waves/4-riverboat-trusted-loop`; executable fixture:
+  `dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`; evidence remains
+  in-progress until default refusal, unsafe plan/result provenance, approval
+  preflight, descendant cleanup, and packed-install behavior are captured.
 
 **Wave 5 — Failure & recovery injection** (ADR 0002 D5)
 - Trigger and recover from: unresolved target, missing/expired auth, mutation without `--commit`, source drift after clone (conflict guard), invalid section shape, missing block assets, stale preview/live, orphan + protected-hybrid routes, index absent/unpopulated, interrupted/cancelled job, pipeline step failure/approval/abort, partial batch-migration failure.
@@ -112,6 +119,8 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f030** (fixed, High): [`/learnings/f030-silent-global-target`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f030-silent-global-target) — silent global-config fallback read a different project with zero warnings; unresolved-target refusals had empty `next[]`. Reads now carry orientation warnings; refusals carry executable recovery.
 - **f031** (fixed, High): [`/learnings/f031-freshness-blind-to-staleness`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f031-freshness-blind-to-staleness) — DA ms-epoch timestamps normalized to empty and freshness compared the preview against itself; `preview-stale` was undetectable by construction. Fixed + field-proven on the full staleness ladder.
 - **f032** (fixed, High): [`/learnings/f032-silent-refusals`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f032-silent-refusals) — safety and validation refusals were silent on stdout under json. One `prepareWrite` seam + content put validation sites now emit `ok:false` envelopes with executable recovery.
+- **f037** (fixed, High): [`/learnings/f037-put-blind-missing-media`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f037-put-blind-missing-media) — `content put` committed a page referencing a nonexistent same-project DA media asset with zero warnings; the page rendered `about:error` (f010's sibling; f023/f029 false-success class). Fixed: authenticated existence preflight (`sourceExists` HEAD probe) warns on both channels with the executable upload recovery; `--strict-media-urls` extends to fail the put. 3 hermetic locks failing on old code + collector units; field-proven warn/strict/control; 625/625.
+- **f038** (fixed, High/systemic): [`/learnings/f038-fstab-shadowed-effective-config`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f038-fstab-shadowed-effective-config) — a healthy Configuration Service site without fstab was called broken and omitted from discovery, while the same fstab-only predicate disabled DA upload guardrails and drove legacy scaffolding/model claims. Fixed in PRs #44/#45: one Helix-effective source resolver now owns create/list/info/model/doctor/preview/content; exact DA URL validation, private-auth fallback, YAML legacy fallback only after 404, decoupled/unknown write containment, site-list/model v2. Old/new field pack in `evidence/wave-6/f038-*`; 652/652 + Node 22/24 CI + smoke/health.
 
 ## Release gate for 0.6.0
 

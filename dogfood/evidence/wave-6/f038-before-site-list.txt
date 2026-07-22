@@ -1,0 +1,20 @@
+BASELINE_COMMIT=cae3e54
+COMMAND=node /tmp/da-cli-f038-old.iWuzEc/bin/da.js site list --org somarc --limit 12
+
+Listing EDS repos for somarc…
+[
+  {
+    "name": "da-cli-0-6-0",
+    "url": "https://github.com/somarc/da-cli-0-6-0",
+    "private": false,
+    "pushed": "2026-07-17",
+    "preview": "https://main--da-cli-0-6-0--somarc.aem.page"
+  },
+  {
+    "name": "da-deep",
+    "url": "https://github.com/somarc/da-deep",
+    "private": false,
+    "pushed": "2026-07-13",
+    "preview": "https://main--da-deep--somarc.aem.page"
+  }
+]
