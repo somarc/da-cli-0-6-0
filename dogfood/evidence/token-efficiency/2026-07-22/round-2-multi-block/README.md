@@ -37,3 +37,5 @@ This remains one matched pair. It is evidence, not a confidence interval. The pu
 - Adobe public skills/APIs: <https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-adobe-skills>
 
 No credentials or authorization headers are retained.
+
+Validation after the per-round page split: overview mobile performance 90; Round 2 result 92 mobile / 99 desktop; Adobe specimen 92 / 100; da-cli specimen 92 / 99; builds, semantic/design audits, and responsive overflow checks passed. Feature-preview SEO remains 69 by design because preview is not indexable.
