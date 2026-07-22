@@ -1,0 +1,14 @@
+{
+  "arm": "da-cli",
+  "actions": [
+    { "operation": "auth.status", "result": "valid" },
+    { "operation": "content.put", "mode": "dry-run", "result": "passed" },
+    { "operation": "content.put", "mode": "committed", "result": "passed" },
+    { "operation": "preview.page", "mode": "dry-run", "result": "passed" },
+    { "operation": "preview.page", "mode": "committed", "result": "passed", "plainHttpStatus": 200 },
+    { "operation": "content.get-and-byte-compare", "result": "exact-match" },
+    { "operation": "browser-verification", "result": "passed-after-three-tool-errors" }
+  ],
+  "liveOperationAttempted": false,
+  "credentialsExposed": false
+}

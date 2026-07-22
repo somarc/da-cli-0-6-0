@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "da-cli.token-efficiency-pilot.v1",
+  "capturedAt": "2026-07-22T16:13:29Z",
+  "sampleSizePairs": 1,
+  "model": "gpt-5.6-terra",
+  "effort": "high",
+  "branch": "feature-token-efficiency-benchmark",
+  "runMarker": "TOKEN-BENCH-2026-07-22",
+  "arms": {
+    "daCli": {
+      "conversationId": "p_mrw9u7ou4e",
+      "path": "/benchmarks/token-efficiency/da-cli.html",
+      "previewUrl": "https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/da-cli",
+      "usage": {
+        "inputTokens": 393819,
+        "cachedInputTokens": 355328,
+        "uncachedInputTokens": 38491,
+        "outputTokens": 7464,
+        "reasoningTokens": 3192,
+        "logicalTokenLoad": 401283,
+        "rounds": 26,
+        "durationMs": 326925,
+        "estimatedCostUsd": 0.2970195
+      },
+      "acceptance": {
+        "sourceWritten": true,
+        "previewHttp200": true,
+        "markerPresent": true,
+        "h1Count": 1,
+        "plainScriptCount": 0,
+        "aboutErrorMediaCount": 0,
+        "liveOperationAttempted": false
+      },
+      "qualified": true
+    },
+    "adobeSkills": {
+      "conversationId": "p_mrw9u7qy4g",
+      "path": "/benchmarks/token-efficiency/adobe-skills.html",
+      "previewUrl": "https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/adobe-skills",
+      "loadedSkillFiles": [
+        "plugins/aem/edge-delivery-services/skills/da-auth/SKILL.md",
+        "plugins/aem/edge-delivery-services/skills/da-content/SKILL.md",
+        "plugins/aem/edge-delivery-services/skills/da-content/references/html-content.md",
+        "plugins/aem/edge-delivery-services/skills/da-content/references/platform.md"
+      ],
+      "usage": {
+        "inputTokens": 536743,
+        "cachedInputTokens": 462848,
+        "uncachedInputTokens": 73895,
+        "outputTokens": 7821,
+        "reasoningTokens": 3318,
+        "logicalTokenLoad": 544564,
+        "rounds": 18,
+        "durationMs": 328409,
+        "estimatedCostUsd": 0.4177645
+      },
+      "acceptance": {
+        "sourceWritten": true,
+        "previewHttp200": true,
+        "markerPresent": true,
+        "h1Count": 1,
+        "plainScriptCount": 0,
+        "aboutErrorMediaCount": 0,
+        "liveOperationAttempted": false
+      },
+      "qualified": true
+    }
+  },
+  "daCliReductionVersusAdobeSkillsPct": {
+    "logicalTokenLoad": 26.3,
+    "inputTokens": 26.6,
+    "cachedInputTokens": 23.2,
+    "uncachedInputTokens": 47.9,
+    "outputTokens": 4.6,
+    "reasoningTokens": 3.8,
+    "estimatedCostUsd": 28.9,
+    "durationMs": 0.5
+  },
+  "limitations": [
+    "One matched pair only; descriptive, not inferential.",
+    "Provider prompt cache state was observed but not experimentally controlled.",
+    "The supplied HTML fixed content-generation work and isolates operating-surface cost.",
+    "The da-cli arm had three browser-verification tool failures and more model rounds.",
+    "The Adobe-skills arm loaded only the task-directed public skill files and references.",
+    "No live publication, bulk operation, custom block development, or recovery scenario was measured.",
+    "The JSON result sheet returned HTTP 200, while preview verification probed .json.plain.html and freshness probed .json.html; sheet-aware verification remains a follow-up candidate."
+  ]
+}

@@ -40,6 +40,8 @@ the spine.
 /waves/4-durability       Wave 4 cut certificate (pipelines, durable jobs, migration)
 /waves/4-riverboat-trusted-loop  Wave 4 advanced proof — trusted local shell/agent orchestration
 /waves/5-failure-recovery Wave 5 live drill board (in progress → cut certificate)
+/waves/6-lifecycle        Wave 6 hub — second-site lifecycle, skills, credentialed integrations, agent economics
+/benchmarks/token-efficiency  Measured benchmark cluster; Round 1/2, methodology, specimens, machine sheet
 /sheets                   Machine ledger hub: query index + DA sheets + CLI map
 /cli-surface              Wave 2 CLI command ledger (addendum for formal cut)
 /tools/wave-2-cli-surface.html  Interactive command map (codebus; flows-inspired)

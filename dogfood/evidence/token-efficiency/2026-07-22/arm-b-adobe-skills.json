@@ -1,0 +1,22 @@
+{
+  "arm": "adobe-public-skills-and-documented-apis",
+  "actions": [
+    {
+      "operation": "source-put",
+      "method": "PUT",
+      "endpoint": "/source/somarc/da-cli-0-6-0/benchmarks/token-efficiency/adobe-skills.html",
+      "attempt": 1,
+      "httpStatus": 201
+    },
+    {
+      "operation": "preview-post",
+      "method": "POST",
+      "endpoint": "/preview/somarc/da-cli-0-6-0/feature-token-efficiency-benchmark/benchmarks/token-efficiency/adobe-skills",
+      "attempt": 1,
+      "httpStatus": 200
+    },
+    { "operation": "browser-verification", "result": "passed" }
+  ],
+  "liveOperationAttempted": false,
+  "credentialsExposed": false
+}

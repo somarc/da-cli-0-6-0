@@ -1,0 +1,14 @@
+{
+  "arm": "adobe-public-skills-and-documented-apis",
+  "actions": [
+    { "operation": "local-payload-validation", "result": "passed" },
+    { "operation": "source-put", "method": "PUT", "httpStatus": 201, "attempt": 1 },
+    { "operation": "source-get-byte-compare", "method": "GET", "httpStatus": 200, "attempt": 1, "result": "exact-match" },
+    { "operation": "preview-post", "method": "POST", "httpStatus": 200, "attempt": 1 },
+    { "operation": "browser-dom-verification", "result": "passed-after-one-local-syntax-error" },
+    { "operation": "public-block-assets", "result": "16-of-16-http-200" }
+  ],
+  "providerStreamRecoveryAttempts": 3,
+  "liveOperationAttempted": false,
+  "credentialsExposed": false
+}
