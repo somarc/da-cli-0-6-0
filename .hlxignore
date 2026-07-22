@@ -5,3 +5,9 @@ LICENSE
 package.json
 package-lock.json
 test/*
+
+# Release evidence and local authoring inputs are not runtime codebus assets.
+content-staging/**
+dogfood/**
+drafts/**
+workers/**
