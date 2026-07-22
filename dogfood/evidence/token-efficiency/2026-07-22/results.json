@@ -82,6 +82,7 @@
     "The supplied HTML fixed content-generation work and isolates operating-surface cost.",
     "The da-cli arm had three browser-verification tool failures and more model rounds.",
     "The Adobe-skills arm loaded only the task-directed public skill files and references.",
-    "No live publication, bulk operation, custom block development, or recovery scenario was measured."
+    "No live publication, bulk operation, custom block development, or recovery scenario was measured.",
+    "The JSON result sheet returned HTTP 200, while preview verification probed .json.plain.html and freshness probed .json.html; sheet-aware verification remains a follow-up candidate."
   ]
 }

@@ -26,6 +26,12 @@ Wall time was effectively tied: 326.9 seconds versus 328.4 seconds. The
 failed before direct navigation succeeded. Those failures are retained rather
 than edited out.
 
+The act of publishing the result sheet surfaced a follow-up candidate: the
+sheet preview succeeded and its public JSON returned HTTP 200, but the CLI's
+document-oriented preview verifier probed `.json.plain.html`, while
+`site freshness` probed `.json.html`. Both reported missing. This evidence pack
+records that behavior without assigning a finding number before product triage.
+
 This is a measured **N=1 pilot**, not a universal performance claim. See
 `protocol.md` and `results.json` for denominators and limitations.
 
