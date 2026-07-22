@@ -63,4 +63,4 @@ stored in this evidence pack.
 
 ## Navigation
 
-The public cluster is reached through one bounded Prove-menu entry: `Wave 6 — Lifecycle & agent economics` → `/waves/6-lifecycle`. The Wave 6 hub links the overview, per-round results, methodology, specimens, and machine sheet without enumerating artifacts in primary navigation.
+The public cluster is reached through one bounded Prove-menu entry: `Wave 6 — Lifecycle & agent economics` → `/waves/6-lifecycle`. The concise Wave 6 hub links lifecycle proofs, the benchmark overview, per-round results, methodology, specimens, and machine sheet without enumerating artifacts in primary navigation.
