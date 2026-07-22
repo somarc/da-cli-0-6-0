@@ -1,0 +1,297 @@
+---
+name: da-cli-agent
+description: Use this skill when an agent is working in an AEM Edge Delivery Services project with @somarc/da-cli, especially when first entering a repo, validating DA content, authoring blocks, preparing preview/live releases, or deciding which da-cli primitive to use next.
+license: Apache-2.0
+metadata:
+  version: 0.1.1
+---
+
+# da-cli Agent Operating Skill
+
+This skill teaches a coding agent how to operate `@somarc/da-cli` safely and fluently in DA-backed AEM Edge Delivery Services projects.
+
+The useful mental model is **EDS operational loop runtime**: use `da-cli` primitives to resolve, classify, observe, plan, mutate only with approval, verify public outcomes, and report durable next actions.
+
+## Core Model
+
+`da-cli` talks to three different surfaces:
+
+- DA Admin API: source documents, folders, versions, route management, and DA editor cache.
+- Helix Admin API: preview, publish, code sync, status, and CDN cache operations.
+- Public EDS hosts: `*.aem.page` for preview/pre-production and `*.aem.live` for live production.
+
+Root `--env` is a DA Admin API host selector. For normal work, leave it unset or use `prod`. It is not the EDS preview/live selector.
+
+EDS preview/live is host-based:
+
+- Preview/pre-production: `https://{branch}--{repo}--{org}.aem.page`
+- Live production: `https://{branch}--{repo}--{org}.aem.live`
+
+Branch hosts select the code branch. They do not isolate DA source documents. Treat DA content as repo-scoped unless the path itself is draft-scoped.
+
+## Non-Negotiable Rules
+
+1. Start with diagnostics, not manual guessing.
+2. Treat write operations as dry-run until the user explicitly approves `--commit`.
+3. Content Driven Development means content may lead design and implementation, but a shared preview or release candidate is not healthy until authored blocks resolve on the served codebus branch.
+4. Before claiming a block-based page is valid, run `da audit contracts --verify-code` or `da site doctor --agent --deep`.
+5. Prefer structured output for automation: `--format json`.
+6. Use `da up` to inspect local-source/fallback provenance; use official `aem up` or a feature preview for decorated local UI QA.
+7. Never publish to `aem.live` as a side effect of preview validation. Publishing requires explicit user intent.
+8. Treat authentication as human-gated. Before long work, agents may run `da auth status --min-validity 30m --format json`. If the window is insufficient, `da auth login --refresh` is best-effort; verify `expiryAdvanced` and involve the human only when browser password, passkey, or 2FA interaction is required. When `DA_TOKEN` is active, rotate that environment credential outside da-cli instead.
+9. For established sites, use branches for code-side changes and draft paths for content-side changes. Prefer `--draft` for experimental content so canonical paths on main stay clean.
+
+## First-Contact Proof Path
+
+When dropped into a repo, run this path before editing content or code:
+
+```bash
+da --version
+da --help
+da auth status --format json
+da config show --format json
+git status --short --branch
+da status --format json
+da site freshness --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
+da audit contracts --prefix / --verify-code --format json
+da pipeline scaffold site-readiness --format json
+```
+
+Interpretation:
+
+- If config is missing, set or request `org`, `repo`, and usually `branch`; do not set `env` unless there is a specific DA-internal reason.
+- If auth is invalid or does not cover the planned window, try one explicit `da auth login --refresh`, verify that expiry advanced, and ask the human to complete login only when the browser flow requires interaction.
+- If block assets are missing on preview, inspect local `blocks/<block>/` and git upstream state before authoring more block-dependent content.
+- If local block code is ahead of upstream, push the branch, wait for the AEM Code Sync app, then prove the public asset with `da code verify`. Use approved `da --commit code sync --wait` only as an explicit repair path.
+- If `site-readiness` is appropriate, write it to `.da/site-readiness.yaml` and run it.
+
+```bash
+mkdir -p .da
+da pipeline scaffold site-readiness > .da/site-readiness.yaml
+da --org <org> --repo <repo> pipeline run .da/site-readiness.yaml
+```
+
+## Common Decision Table
+
+| Need | Use |
+|---|---|
+| Understand project health | `da site doctor --agent --deep --format json` |
+| List DA source content | `da content tree / --format json` |
+| Fetch or edit DA source locally | `da content clone`, `status`, `diff`, `add`, `commit`, `push` (push is conflict-guarded — if the remote drifted since clone it fails closed; resolve with `da content merge <path>` or override with `--force`) |
+| Upload authored local content | `da content put-tree .da/workspace` first as dry-run, then `da --commit content put-tree .da/workspace` |
+| Upload branch-only experimental content | `da content put <path> <file> --draft`, then `da preview page <path> --branch <branch> --draft` |
+| Preview DA content to `aem.page` | `da preview page`, `da preview pages`, or `da preview tree --verify` |
+| Publish already-previewed content to `aem.live` | `da --commit publish ...` only after approval |
+| Verify preview/live freshness | `da site freshness --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json` |
+| Diagnose source vs preview extraction | `da preview explain <path> --format json` |
+| Inventory authored blocks | `da audit contracts --prefix / --format json` |
+| Verify block JS/CSS exists on codebus | `da audit contracts --prefix / --verify-code --format json` |
+| Prove a public CSS/JS asset contains expected bytes | `da code verify <path> --contains <text> --format json` |
+| Inspect expected DA shape for known blocks | `da block list`, then `da block inspect <name> --format json` |
+| Run repeatable validation | `da pipeline scaffold site-readiness` |
+| Run block CDD loop | `da pipeline scaffold block-cdd --path <page>` |
+| Prepare release candidate | `da pipeline scaffold release-candidate` |
+| Run trusted local shell + DA loop | `da pipeline scaffold local-super-loop`, then run with hidden `--riverboat-gambler` only for trusted YAML |
+| Inspect local code/source versus preview/live fallback | `da up --format json` |
+| Validate or query EDS indexes | `da index validate --target preview`, `da index query <name> --target live` |
+
+## Branch And Draft Guardrail
+
+Use `--branch` for code isolation and `--draft` for content isolation. Prefer hyphenated branch names such as `feature-foo`; da-cli normalizes slashy Git branch names for Helix Admin calls but hyphenated names are the safer contract.
+
+```bash
+da --commit content put /products/foo.html .da/workspace/products/foo.html --draft
+da --commit preview page /products/foo.html --branch feature-foo --draft --yes
+da audit full /products/foo --branch feature-foo --draft --format json
+```
+
+`--draft` maps canonical-looking paths under `/drafts`, so `/products/foo.html` becomes `/drafts/products/foo.html`. If draft pages need experimental navigation, author `/drafts/nav.html` and set page metadata `Nav` to `/drafts/nav`. Do not edit `/nav.html` or canonical product paths until the experiment is intended to appear on main.
+
+## Content-Codebus Guardrail
+
+It is valid to author content before the final block code exists when exploring a site shape. It is not valid to ship or sign off a shared preview while authored blocks reference missing codebus assets.
+
+Before handoff or release:
+
+```bash
+da audit contracts --prefix / --verify-code --format json
+da site doctor --agent --deep --format json
+```
+
+If either command reports missing block assets:
+
+1. Check whether the block exists locally under `blocks/<block>/<block>.js` and `.css`.
+2. Check whether those files are committed and pushed to the branch used by EDS preview.
+3. Push the code branch and wait for the AEM Code Sync app to update codebus.
+4. Prove the public asset with `da code verify /blocks/<block>/<block>.js --contains <expected> --format json` or `da code verify /blocks/<block>/<block>.css --contains <expected> --format json`.
+5. Use approved `da --commit code sync <path> --yes --wait` only as a repair path when the app-driven sync is insufficient.
+6. Re-run contract verification.
+
+## Index Guardrail
+
+Many EDS sites expose `/query-index.json`, but agents must verify the active
+Configuration Service index model. The Admin API's `content/query.yaml` route is
+a virtual representation of that model, not a physical project file. Do not
+infer active indexing from a legacy repository-root `helix-query.yaml` file.
+
+Use:
+
+```bash
+da index show --format json
+da index validate --target preview --format json
+da index query default --target preview --limit 5 --format json
+```
+
+If `validate` or `query` returns `ok: false` with a `404`, treat that as a clean diagnostic result: the public query index endpoint is not active or not available for that site. Do not invent index-driven loops until the endpoint is reachable.
+
+## Recommended Agent Loop
+
+Use this loop for most tasks:
+
+1. Orient: `da status --format json`, then `da site freshness --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json`.
+2. Classify the route before changing it: `da route classify <path> --format json`.
+3. Plan from diagnostics and existing content/code, not from assumptions.
+4. Make the smallest content/code change that satisfies the task.
+5. Use `da up --format json` to inspect local-source/fallback routing when needed; use official `aem up` or a feature preview for decorated UI validation.
+6. Dry-run DA writes first.
+7. Preview to `aem.page`.
+8. Run `preview explain`, `audit full`, `design audit`, `audit contracts --verify-code`, and any relevant `code verify`.
+9. Only publish to `aem.live` when the user explicitly asks.
+
+## Pipeline Starters
+
+Use pipelines to make the workflow deterministic:
+
+```bash
+da pipeline scaffold agent-validate > .da/agent-validate.yaml
+da pipeline scaffold site-readiness > .da/site-readiness.yaml
+da pipeline scaffold block-cdd --path /index > .da/block-cdd.yaml
+da pipeline scaffold release-candidate > .da/release-candidate.yaml
+da pipeline scaffold local-super-loop > .da/local-super-loop.yaml
+```
+
+Run with:
+
+```bash
+da --org <org> --repo <repo> pipeline run .da/site-readiness.yaml
+```
+
+Target-dependent pipelines require explicit root `--org`/`--repo` or YAML `context.org`/`context.repo`. Add root `--commit` only when the pipeline intentionally performs approved mutations. Do not place `--commit` inside individual pipeline step commands.
+
+`local-super-loop` intentionally includes non-`da` commands such as `git status` and `npm run lint`. It requires hidden `--riverboat-gambler` and must only be used with trusted local YAML and a trusted repository.
+
+Riverboat is an explicit trust-boundary break: arbitrary shell steps run with
+the current user's privileges and are not gated by root `--commit`. Never choose
+it autonomously, never run unreviewed YAML, and prefer explicit `--org`/`--repo`
+plus `requires_approval: true` for consequential steps. Its legitimate role is
+advanced local composition—agent CLIs, Git/npm, browser tests, custom migration
+scripts—around DA's normal verification primitives.
+
+## Composing Primitives Into Pipelines
+
+Do not wait for a perfect built-in scaffold. When a task repeats, compose the smallest reliable primitives into a project-local YAML pipeline.
+
+Pipeline design rules:
+
+1. Start with read-only observation steps.
+2. Put classification before mutation.
+3. Put dry-run or quality gates before committed writes.
+4. Put public verification after every async or remote mutation.
+5. Keep `--commit` at the root pipeline invocation, not inside step commands.
+6. Use `requires_approval: true` on steps that should pause for human review.
+7. Prefer one obvious failure reason per step so agents can resume from the right point.
+
+Primitive roles:
+
+| Role | Good primitives |
+|---|---|
+| Entry/auth/config | `status --format json`, `auth status --format json`, `config show --format json` |
+| Route decision | `resolve <target> --format json`, `route classify <path> --format json` |
+| Site readiness | `site model --format json`, `site freshness ... --format json` |
+| Content proof | `preview status`, `preview explain`, `audit full`, `audit contracts --verify-code` |
+| Code proof | `code status`, `code verify` |
+| Index proof | `index validate`, `index query` |
+| Mutation | `content put`, `content put-tree`, `preview page/tree`, `publish page/tree`, `code sync` |
+| Final gate | `site freshness --fail-on ...`, `design audit`, `pipeline quality-gate` |
+
+Safe DA-only example:
+
+```yaml
+name: page-readiness
+steps:
+  - id: status
+    command: status --format json
+  - id: classify
+    command: route classify /index --format json
+    depends_on: [status]
+  - id: preview-status
+    command: preview status /index.html --format json
+    depends_on: [classify]
+  - id: explain
+    command: preview explain /index --format json
+    depends_on: [preview-status]
+  - id: audit
+    command: audit full /index.html --format json
+    depends_on: [explain]
+  - id: contracts
+    command: audit contracts --prefix / --verify-code --format json
+    depends_on: [audit]
+  - id: freshness
+    command: site freshness /index.html --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [contracts]
+```
+
+Run it:
+
+```bash
+da --org <org> --repo <repo> pipeline run .da/page-readiness.yaml --format json
+```
+
+Mutation example with explicit approval:
+
+```yaml
+name: content-preview-loop
+steps:
+  - id: classify
+    command: route classify /index --format json
+  - id: upload-dry-run
+    command: content put /index.html .da/workspace/index.html --format json
+    depends_on: [classify]
+  - id: upload
+    command: content put /index.html .da/workspace/index.html --format json
+    depends_on: [upload-dry-run]
+    requires_approval: true
+  - id: preview
+    command: preview page /index.html --format json
+    depends_on: [upload]
+  - id: explain
+    command: preview explain /index --format json
+    depends_on: [preview]
+  - id: audit
+    command: audit full /index.html --format json
+    depends_on: [explain]
+```
+
+Run dry first:
+
+```bash
+da --org <org> --repo <repo> pipeline run .da/content-preview-loop.yaml --dry-run --format json
+```
+
+Run committed only after the user approves the whole loop:
+
+```bash
+da --org <org> --repo <repo> --commit pipeline run .da/content-preview-loop.yaml --format json
+```
+
+Use `local-super-loop` or hand-authored non-`da` steps only when the YAML is trusted. That is the place for `git status`, `npm run lint`, Playwright, curl probes, or other shell commands.
+
+## Output Contract
+
+When reporting back to a user, include:
+
+- Which DA/EDS surface was touched or checked.
+- Whether commands were dry-run or committed.
+- Preview URL or local server URL when relevant.
+- Validation commands run and whether they passed.
+- Any remaining content-codebus mismatch, auth gap, or publish approval needed.

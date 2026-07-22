@@ -1,0 +1,5 @@
+Local:   not installed
+Remote:  (unavailable)
+
+Install: da skills add stardust
+Source:  https://github.com/adobe/skills/tree/main/plugins/stardust

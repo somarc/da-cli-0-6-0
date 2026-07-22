@@ -1,0 +1,10 @@
+{
+  "outputDir": "catalog",
+  "categoryIndex": "catalog/products/comfort-devices/index.json",
+  "categoryPage": "catalog/products/comfort-devices/index.html",
+  "productPages": [
+    "catalog/products/comfort-devices/hug-recovery-wrap.html",
+    "catalog/products/diagnostic-tools/comfort-monitor.html",
+    "catalog/products/recovery-kits/nap-recovery-kit.html"
+  ]
+}

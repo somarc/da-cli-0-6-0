@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-17 11:53 UTC)
+## Wave status (2026-07-22)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 (always update that page’s progress log when this table moves)
@@ -23,7 +23,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
 | **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
 | **5** Failure & recovery injection | **cut (C2 unpublish leg deferred)** | **Cut 2026-07-17** — full drill matrix run: A1–A3, B1–B3, C1, C3, D3, D4 ✅; D1/D2 banked; C2 recognition+containment+recovery done, final orphan-removal rep alone deferred on the Helix-admin delete permission (operator action, tracked). Ten findings from the wave (f027–f036), every one fixed/recovered same-session; evidence `dogfood/evidence/wave-5/` |
-| **6** Lifecycle | **in progress** | Opened 2026-07-17: second-site + credentialed integration slices proved through `somarc/da-lifecycle-atlas` — seven DA documents, 18/18 constrained construct, clean audits/contracts, 7/7 fresh feature live, explicitly approved Riverboat/Grok Imagine plate captured and then uploaded by normal da-cli. Evidence `dogfood/evidence/wave-6/`; remaining lifecycle/skills classification stays open. |
+| **6** Lifecycle | **blocked: `config:write`** | Auth lifecycle and skills bootstrap/install are retained; f040–f042 were found, fixed, and locked in product main; direct Sidekick read is proven; commerce and Stardust are explicitly external-conditional with safe plan/dry-run evidence. Required `site create` created `somarc/da-cli-wave6-site-create`, then Configuration Service registration refused with 403. Grant `config:write`, run the retained `site register` recovery, and prove preview readiness before cut. Evidence: `dogfood/evidence/wave-6/closeout-status.json`. |
 
 ### Riverboat Gambler wave — trusted local automation
 

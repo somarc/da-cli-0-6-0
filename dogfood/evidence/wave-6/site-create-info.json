@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "check": "DA content source config",
+      "status": "WARN",
+      "detail": "No effective DA markup source is configured."
+    },
+    {
+      "check": "Helix content pipeline",
+      "status": "FAIL",
+      "detail": "HTTP 404"
+    },
+    {
+      "check": "Content non-empty",
+      "status": "FAIL",
+      "detail": "HTTP 404"
+    }
+  ],
+  "recommendations": [
+    "DA content source unconfirmed — configure a content.da.live markup source in AEM Configuration Service, or add a legacy fstab.yaml mount."
+  ],
+  "preview": "https://main--da-cli-wave6-site-create--somarc.aem.page",
+  "live": "https://main--da-cli-wave6-site-create--somarc.aem.live",
+  "effectiveContentSource": {
+    "state": "unconfigured",
+    "active": false,
+    "selectedBy": null,
+    "source": null,
+    "warnings": []
+  }
+}

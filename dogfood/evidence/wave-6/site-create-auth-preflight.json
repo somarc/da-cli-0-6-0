@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "operation": "auth.status",
+  "data": {
+    "valid": true,
+    "reason": null,
+    "expiresAt": 1784763817686,
+    "remainingMs": 4890942,
+    "minimumValidityMs": 2700000,
+    "summary": "valid, expires 7/22/2026, 7:43:37 PM (~82 min remaining)"
+  },
+  "warnings": [],
+  "next": []
+}

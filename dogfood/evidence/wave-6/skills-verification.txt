@@ -1,0 +1,7 @@
+candidateSha=49ce109
+bootstrapEvidence=skills-bootstrap.*
+installScope=isolated-project-local
+installedSkill=.agents/skills/da-cli-agent/SKILL.md
+.agents/skills/da-cli-agent/SKILL.md
+.agents/skills/da-cli-agent/package.json
+57dbce81bab5b2664f71f53e60905ba96df05c552cfc1423ae94ed26f7c84603  .agents/skills/da-cli-agent/SKILL.md

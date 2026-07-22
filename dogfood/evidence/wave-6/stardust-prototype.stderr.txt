@@ -1,0 +1,4 @@
+  prototype: .stardust/prototypes/index.html
+
+1 prototype(s) written → .stardust/prototypes/
+Open in browser, review, then: da stardust migrate [page-path] --commit

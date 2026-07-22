@@ -1,0 +1,9 @@
+Resolving intent: "documentation proof, restrained and legible"
+  register: product
+  tone:     serious
+  density:  balanced
+  expressive axis: restrained
+  palette:  slate-authority (inline fallback — install skill for full 127-palette library)
+
+Direction written → PRODUCT.md, DESIGN.md, DESIGN.json, .stardust/direction.md
+Next: da stardust prototype [page-path]

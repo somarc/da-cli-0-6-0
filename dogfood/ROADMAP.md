@@ -118,6 +118,9 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 - **f032** (fixed, High): [`/learnings/f032-silent-refusals`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f032-silent-refusals) — safety and validation refusals were silent on stdout under json. One `prepareWrite` seam + content put validation sites now emit `ok:false` envelopes with executable recovery.
 - **f037** (fixed, High): [`/learnings/f037-put-blind-missing-media`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f037-put-blind-missing-media) — `content put` committed a page referencing a nonexistent same-project DA media asset with zero warnings; the page rendered `about:error` (f010's sibling; f023/f029 false-success class). Fixed: authenticated existence preflight (`sourceExists` HEAD probe) warns on both channels with the executable upload recovery; `--strict-media-urls` extends to fail the put. 3 hermetic locks failing on old code + collector units; field-proven warn/strict/control; 625/625.
 - **f038** (fixed, High/systemic): [`/learnings/f038-fstab-shadowed-effective-config`](https://main--da-cli-0-6-0--somarc.aem.live/learnings/f038-fstab-shadowed-effective-config) — a healthy Configuration Service site without fstab was called broken and omitted from discovery, while the same fstab-only predicate disabled DA upload guardrails and drove legacy scaffolding/model claims. Fixed in PRs #44/#45: one Helix-effective source resolver now owns create/list/info/model/doctor/preview/content; exact DA URL validation, private-auth fallback, YAML legacy fallback only after 404, decoupled/unknown write containment, site-list/model v2. Old/new field pack in `evidence/wave-6/f038-*`; 652/652 + Node 22/24 CI + smoke/health.
+- **f040** (fixed, High): Wave 6 first-party skill install discovered the skill but could not install it because known path shorthands omitted current upskill's required `--skill` selector. Fixed in da-cli PR #78 for both `da-cli-agent` and Stardust; command-level argv locks; isolated add/list/info/read replay green.
+- **f041** (fixed, High orientation): explicit `site model --org/--repo` consumed an unrelated cwd `fstab.yaml` and modeled the requested site as a decoupled legacy mount. Fixed in da-cli PR #80: model and doctor probe the requested repo's committed legacy config; before/after Wave 6 evidence retained.
+- **f042** (fixed, High false capability): `code sidekick set` invented a POST against a canonical GET-only endpoint and always returned 405. Fixed in da-cli PR #82 by removing the unsupported command/client method and documenting Configuration Service / `site register` ownership; direct GET proof retained.
 
 ## Release gate for 0.6.0
 
@@ -127,8 +130,9 @@ command count.**
 1. **Waves:** 1–5 green with stored evidence; Wave 6 classified (run or
    precondition-recorded); DA-native certification/promotion verifies the site;
    provenance verifies.
-2. **Frictions:** every Critical/High finding fixed + locked. As of
-   **2026-07-14** the friction column is **clear** (f001–f012).
+2. **Frictions:** every Critical/High finding fixed + locked. The Wave 6 haul
+   f040–f042 is fixed and locked on product main; the friction column remains
+   clear.
    Checklist + honest residual notes: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 
 **Until the site proves itself:** package stays **0.5.x**, run **local**

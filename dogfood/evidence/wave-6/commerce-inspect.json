@@ -1,0 +1,37 @@
+{
+  "source": "<isolated-commerce-root>/catalog/products/comfort-devices/index.json",
+  "categoryFiles": 1,
+  "productCount": 3,
+  "search": {
+    "fields": [
+      "sku",
+      "title",
+      "category",
+      "summary"
+    ],
+    "searchableProducts": 3,
+    "categoryCount": 3,
+    "categories": [
+      {
+        "category": "Comfort Devices",
+        "count": 1
+      },
+      {
+        "category": "Diagnostic Tools",
+        "count": 1
+      },
+      {
+        "category": "Recovery Kits",
+        "count": 1
+      }
+    ]
+  },
+  "categories": [
+    {
+      "file": "<isolated-commerce-root>/catalog/products/comfort-devices/index.json",
+      "products": 3,
+      "columns": "sku, url, title, price, image, category, summary"
+    }
+  ],
+  "errors": []
+}

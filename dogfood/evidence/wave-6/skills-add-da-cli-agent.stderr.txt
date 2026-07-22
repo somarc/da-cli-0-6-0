@@ -1,0 +1,11 @@
+Adding da-cli-agent from somarc/da-cli…
+Created temp dir: <upskill-temp>
+Downloading somarc/da-cli as ZIP ...
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/refs/heads/main
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/refs/tags/main
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/main
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/refs/heads/master
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/refs/tags/master
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/master
+ZIP download failed, falling back to gh repo clone ...
+Error: Required command not found: gh

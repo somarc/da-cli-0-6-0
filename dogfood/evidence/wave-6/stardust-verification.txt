@@ -1,0 +1,11 @@
+candidateSha=49ce109
+.stardust/current/DESIGN.md
+.stardust/current/PRODUCT.md
+.stardust/current/_brand-surface.json
+.stardust/current/index.html
+.stardust/direction.md
+.stardust/prototypes/index.after.html
+.stardust/prototypes/index.html
+.stardust/state.json
+2fbd68d97782a9a8acf7c99c9c1c4f285ecea8a8b47c3f3f8c00bd3bf2cb2653  .stardust/state.json
+93ccfe5689ed35fbec321406bc3c8f5387720ee546441736d79fcab5b510470b  DESIGN.json

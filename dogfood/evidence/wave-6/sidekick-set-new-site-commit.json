@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "operation": "code.sidekick.set",
+  "target": "sidekick config",
+  "warnings": [],
+  "errors": [
+    "DA API 405 at https://admin.hlx.page/sidekick/somarc/da-cli-wave6-site-create/main/config.json: method not allowed"
+  ],
+  "next": []
+}

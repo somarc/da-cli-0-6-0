@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "operation": "auth.status",
+  "data": {
+    "valid": false,
+    "reason": "minimum validity not met",
+    "expiresAt": 1784763817686,
+    "remainingMs": 5399136,
+    "minimumValidityMs": 10800000,
+    "summary": "cached token has ~90 min remaining; ~180 min required"
+  },
+  "warnings": [],
+  "errors": [
+    "DA authentication is invalid: minimum validity not met"
+  ],
+  "next": [
+    "da auth login --refresh"
+  ]
+}

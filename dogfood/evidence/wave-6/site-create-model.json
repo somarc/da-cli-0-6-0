@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "da-cli.site-model.v2",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-wave6-site-create",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "expectedDa": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+    "effectiveContent": {
+      "state": "legacy",
+      "active": null,
+      "selectedBy": "fstab",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-0-6-0/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-0-6-0",
+        "pathPrefix": "/",
+        "matchesSite": false
+      },
+      "warnings": [
+        "Legacy fstab declares DA markup, but Helix did not expose an effective Sidekick configuration."
+      ]
+    },
+    "codebus": "https://github.com/somarc/da-cli-wave6-site-create"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-wave6-site-create--somarc.aem.page",
+    "liveHost": "https://main--da-cli-wave6-site-create--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-wave6-site-create--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "<release-site-workspace>",
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "flag"
+    }
+  },
+  "recommendations": [
+    {
+      "severity": "info",
+      "code": "pin-project-target",
+      "detail": "Pin org/repo in project .da.json before repeated writes or durable jobs.",
+      "next": "da --org somarc --repo da-cli-wave6-site-create site pin-target --branch main"
+    },
+    {
+      "severity": "warning",
+      "code": "decoupled-da-source",
+      "detail": "Effective DA source somarc/da-cli-0-6-0 differs from delivery site somarc/da-cli-wave6-site-create.",
+      "next": "da --org somarc --repo da-cli-wave6-site-create site info"
+    }
+  ],
+  "routes": [],
+  "notes": [
+    "Route ownership was not probed because the effective DA source identity or path prefix differs from the delivery site write model."
+  ]
+}

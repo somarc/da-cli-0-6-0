@@ -1,0 +1,13 @@
+Adding da-cli-agent from somarc/da-cli…
+Created temp dir: <upskill-temp>
+Downloading somarc/da-cli as ZIP ...
+Resolved default branch: main
+Downloading ZIP: https://codeload.github.com/somarc/da-cli/zip/refs/heads/main
+Restricting skill discovery to: skills/da-cli-agent
+Scanning for SKILL.md files...
+Found 1 skill(s)
+Installing 1 selected skill(s)...
+Installing skill: da-cli-agent
+Installed skill: da-cli-agent
+Installed 1 skill(s)
+Done.

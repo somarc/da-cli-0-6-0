@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "operation": "auth.login",
+  "data": {
+    "cached": true,
+    "source": "helper",
+    "refreshRequested": true,
+    "tokenAcquired": true,
+    "tokenRefreshed": false,
+    "beforeExpiresAt": 1784763817686,
+    "expiresAt": 1784763817686,
+    "expiryAdvanced": false,
+    "expirySource": "helper-cache",
+    "credentialChanged": false,
+    "lockRecovery": {
+      "reclaimed": false
+    }
+  },
+  "warnings": [
+    "Refresh was requested, but helper-provided token expiry did not advance. Log out, then complete a fresh browser login."
+  ],
+  "next": [
+    "da auth logout",
+    "da auth login"
+  ]
+}

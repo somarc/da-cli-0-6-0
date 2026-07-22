@@ -1,8 +1,10 @@
 # Wave 6 — lifecycle and conditional
 
 Opened: 2026-07-17 11:53 UTC  
-Status: **in progress** — second-site and credentialed-integration slices proved;
-remaining lifecycle/skills classification stays open.
+Status: **blocked on one external grant** — auth, skills, direct Sidekick read,
+and conditional integration classification are retained; the required live
+`site create` rep created its disposable GitHub repo but cannot finish
+Configuration Service registration without `config:write` for `somarc`.
 
 ## Second-site specimen
 
@@ -51,10 +53,89 @@ A separate product-shaped greenfield run on `somarc/throughline` surfaced f038 a
 
 Product proof: da-cli PR #44 (containment) + PR #45 / merge `18877d6` (systemic source contract), 652/652 tests, Node 22/24 CI, release smoke, and repo health.
 
+## 2026-07-22 lifecycle closeout attempt
+
+The closeout used local source-tree da-cli through candidate `dc5499a`. Package
+version remains `0.5.1` by release policy; `cli-status.json` retains the source
+SHA and install kind so that version hold cannot hide binary skew.
+
+### Auth — executed, refresh did not advance
+
+- `auth status --min-validity 15m` passed.
+- A deliberately oversized `3h` window refused with one `auth.status`
+  envelope and executable refresh recovery.
+- One best-effort `auth login --refresh` reused the helper cache and truthfully
+  reported `tokenRefreshed:false`, `expiryAdvanced:false`, and
+  `credentialChanged:false`.
+- Post-refresh status remained valid. No token bytes, hashes, cookies, or auth
+  headers are retained.
+
+### Skills — executed after f040
+
+An isolated lifecycle retained missing-tool refusal, successful bootstrap, and
+the initial first-party install failure. That rep discovered **f040**: known
+path shorthands supplied `--path` but not the explicit `--skill` selection
+required by current upskill. Product PR
+[`somarc/da-cli#78`](https://github.com/somarc/da-cli/pull/78) fixed and locked
+both `da-cli-agent` and Stardust shorthands. The replay then passed
+add → list → info → read in a disposable project and retained the installed
+`SKILL.md` checksum.
+
+### Site create — required rep blocked on `config:write`
+
+`da --commit site create da-cli-wave6-site-create` created the public,
+disposable code repository:
+
+https://github.com/somarc/da-cli-wave6-site-create
+
+The subsequent Configuration Service `PUT` was refused with 403. The CLI
+contained the partial lifecycle and emitted the exact recovery:
+
+```sh
+da --org somarc --repo da-cli-wave6-site-create --commit site register \
+  --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc
+```
+
+The canonical API contract identifies the missing authority as
+`config:write`. Re-authentication is not presented as a fix for authorization.
+The repo is retained unmodified through the 0.6 verification window; no live
+publish occurred.
+
+The blocked replay also found **f041**: `site model` consumed the current
+checkout's unrelated fstab for an explicit target. Product PR
+[`somarc/da-cli#80`](https://github.com/somarc/da-cli/pull/80) made model and
+doctor probe the requested repo. The after replay now agrees with `site info`:
+the partially created site is `unconfigured`, not a legacy mount to the
+certification site.
+
+### Code Sidekick — read-only contract proven
+
+Direct `code sidekick get` succeeded against the certification site. A reviewed
+mutation attempt on the disposable repo returned 405 without changing state and
+exposed **f042**: the canonical Sidekick endpoint is GET-only. Product PR
+[`somarc/da-cli#82`](https://github.com/somarc/da-cli/pull/82) removed the dead
+`code sidekick set` command and transport. Configuration changes remain owned
+by AEM Configuration Service / `site register`.
+
+### Conditional integrations
+
+- **Commerce:** fixture scaffold/inspect plus Product Bus plan and ingest
+  dry-run passed. Committed ingest is `external-conditional` under stable reason
+  `product-bus-site-token-and-cleanup-authority-unavailable`.
+- **Stardust:** version check, public extract, local direct/prototype, and DA
+  migration dry-run passed. Committed migration is `external-conditional`
+  under stable reason `approved-disposable-da-target-and-cleanup-unavailable`.
+
+`closeout-status.json` is the machine summary and points to each retained
+artifact. Wave 6 is **not cut** until `config:write` is granted, the recorded
+site-registration recovery succeeds, minimal DA content is previewed and
+verified on the disposable site, and the DA-backed Wave 6/test-plan pages are
+updated through da-cli.
+
 ## Honest residue
 
-- This does **not** cut Wave 6 by itself. Remaining lifecycle/skills conditions
-  must be classified and closed or explicitly deferred.
+- This does **not** cut Wave 6 by itself. One required-destructive lifecycle
+  transition remains blocked on external Configuration Service `config:write`.
 - Success output for `preview pages`, `publish pages`, `audit contracts`, and
   `site freshness` still carries legacy bare array/object shapes in this proof;
   this is retained as f017 migration evidence rather than rewritten.

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "da-cli.wave6-closeout.v1",
+  "issue": "https://github.com/somarc/da-cli/issues/67",
+  "status": "blocked-external-permission",
+  "candidate": {
+    "version": "0.5.1",
+    "installKind": "source-tree",
+    "sha": "dc5499a",
+    "note": "The package version intentionally remains 0.5.1 until the 0.6.0 gate opens."
+  },
+  "surfaces": {
+    "auth": {
+      "classification": "executed-refresh-not-advanced",
+      "result": "15m minimum-validity passed; 3h window refused; refresh reused helper cache and truthfully reported expiryAdvanced=false; post-status remained valid.",
+      "evidence": [
+        "auth-status-15m.json",
+        "auth-status-3h.json",
+        "auth-login-refresh.json",
+        "auth-status-after.json"
+      ]
+    },
+    "skills": {
+      "classification": "executed",
+      "result": "Missing-tool refusal, isolated bootstrap, f040 discovery, fixed first-party install, list, info, and read all retained.",
+      "productFix": "https://github.com/somarc/da-cli/pull/78",
+      "evidence": [
+        "skills-before-bootstrap.stderr.txt",
+        "skills-bootstrap.txt",
+        "skills-add-da-cli-agent.stderr.txt",
+        "skills-add-da-cli-agent-recovered.stderr.txt",
+        "skills-list-recovered.txt",
+        "skills-info-recovered.txt",
+        "skills-read-recovered.txt",
+        "skills-verification.txt"
+      ]
+    },
+    "siteCreate": {
+      "classification": "blocked-external-permission",
+      "result": "The public disposable GitHub repo was created, but Configuration Service registration was refused with 403. f041 corrected unrelated-cwd fstab contamination; replay now reports the site as unconfigured.",
+      "target": "https://github.com/somarc/da-cli-wave6-site-create",
+      "requiredGrant": "AEM Configuration Service config:write for org somarc",
+      "recovery": "da --org somarc --repo da-cli-wave6-site-create --commit site register --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc",
+      "retention": "Retain unmodified through the 0.6.0 verification window; archive or delete through an authorized operator afterward.",
+      "productFix": "https://github.com/somarc/da-cli/pull/80",
+      "evidence": [
+        "site-create-dry-run.stderr.txt",
+        "site-create-commit.stdout.txt",
+        "site-create-info.json",
+        "site-create-model.json",
+        "site-create-model-after-f041.json",
+        "site-create-disposition.txt"
+      ]
+    },
+    "codeSidekick": {
+      "classification": "executed-read-only",
+      "result": "Direct GET succeeded on the certification site. Disposable mutation exposed f042: the canonical Sidekick endpoint is GET-only, so the unsupported set command was removed.",
+      "productFix": "https://github.com/somarc/da-cli/pull/82",
+      "evidence": [
+        "sidekick-get-cert-site.json",
+        "sidekick-set-new-site-dry-run.stderr.txt",
+        "sidekick-set-new-site-commit.json",
+        "sidekick-get-new-site-after.json",
+        "sidekick-get-cert-site-after-f042.json",
+        "sidekick-set-rejected-after-f042.stderr.txt"
+      ]
+    },
+    "commerce": {
+      "classification": "external-conditional",
+      "result": "Fixture scaffold/inspect and Product Bus plan/dry-run passed; committed ingest is conditioned on approved Product Bus tenancy, credential, and cleanup authority.",
+      "reasonCode": "product-bus-site-token-and-cleanup-authority-unavailable",
+      "evidence": [
+        "commerce-classification.json",
+        "commerce-scaffold.json",
+        "commerce-inspect.json",
+        "commerce-product-bus-plan.json",
+        "commerce-product-bus-ingest-dry-run.stderr.txt"
+      ]
+    },
+    "stardust": {
+      "classification": "external-conditional",
+      "result": "Version check, extract, direct, prototype, and migrate dry-run passed locally; committed migration requires a registered disposable DA target, human design approval, and cleanup authority.",
+      "reasonCode": "approved-disposable-da-target-and-cleanup-unavailable",
+      "evidence": [
+        "stardust-classification.json",
+        "stardust-version.txt",
+        "stardust-extract.stderr.txt",
+        "stardust-direct.stderr.txt",
+        "stardust-prototype.stderr.txt",
+        "stardust-migrate-dry-run.stderr.txt",
+        "stardust-verification.txt"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "f040",
+      "status": "fixed",
+      "issue": "https://github.com/somarc/da-cli/issues/77",
+      "merge": "49ce109"
+    },
+    {
+      "id": "f041",
+      "status": "fixed",
+      "issue": "https://github.com/somarc/da-cli/issues/79",
+      "merge": "45d0be3"
+    },
+    {
+      "id": "f042",
+      "status": "fixed",
+      "issue": "https://github.com/somarc/da-cli/issues/81",
+      "merge": "dc5499a"
+    }
+  ],
+  "remainingGate": {
+    "code": "configuration-service-config-write-required",
+    "detail": "Grant config:write for somarc, run the recorded site register recovery, author minimal DA content through da-cli, preview and verify the disposable site, then update the DA-backed Wave 6/test-plan pages and stamp the wave cut."
+  },
+  "livePublishPerformed": false
+}

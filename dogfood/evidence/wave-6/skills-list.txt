@@ -1,0 +1,9 @@
+No local skills found.
+
+Skills can be installed to:
+  .agents/skills/   Project skills (tracked in repo)
+  ~/.agents/skills/ Personal skills (global)
+  .skills/          Legacy project skills
+  .claude/skills/   Legacy project skills
+
+Install skills with: upskill <owner/repo> --all
