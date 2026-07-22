@@ -29,7 +29,7 @@ one local browser-expression syntax failure and three provider stream recovery
 attempts. All remote Source/Preview operations in both arms succeeded first
 attempt.
 
-This remains one matched pair. It is evidence, not a confidence interval.
+This remains one matched pair. It is evidence, not a confidence interval. The public methodology page is intentionally concise for delivery performance; the complete protocol and machine denominators remain in this evidence tree.
 
 ## Public specimens
 
