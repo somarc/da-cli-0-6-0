@@ -38,4 +38,4 @@ This remains one matched pair. It is evidence, not a confidence interval. The pu
 
 No credentials or authorization headers are retained.
 
-Validation after the per-round page split: overview mobile performance 90; Round 2 result 92 mobile / 99 desktop; Adobe specimen 92 / 100; da-cli specimen 92 / 99; builds, semantic/design audits, and responsive overflow checks passed. Feature-preview SEO remains 69 by design because preview is not indexable.
+Validation after the per-round page split: overview mobile performance 90; Round 2 result 91–92 mobile / 99 desktop; Adobe specimen 92 / 100; da-cli specimen 92 / 100; builds, semantic/design audits, and responsive overflow checks passed. Methodology passed semantic/design/responsive checks and desktop PSI 99; its mobile PSI returned an external Lighthouse error/timeout on repeated aggregate runs after previously returning 90, so it is retained as supporting evidence rather than a representative PR PSI target. Feature-preview SEO remains 69 by design because preview is not indexable.
