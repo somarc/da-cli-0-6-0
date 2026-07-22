@@ -5,7 +5,9 @@ certifies the `da` CLI surface**: each public page is either a narrative of
 why we dogfood, a **proof surface** that exercises commands, a **learning**
 from the field, or a **lab** specimen.
 
-Git fixtures under `dogfood/fixtures/` remain upstream of DA (`construct.yaml`).
+DA is the sole source of truth for every authored page and sheet. Git retains
+code, certification pipelines, and immutable evidence; it does not mirror DA
+source documents.
 
 ---
 
@@ -89,14 +91,15 @@ future coverage blocks) can aggregate:
 ## How the history grows
 
 1. **New CLI surface to certify** → add/extend a **proof** page (or kitchen-sink
-   section), wire `construct.yaml`, capture `dogfood/evidence/wave-N/`.
+   section), author it in DA through da-cli, extend the certification checks,
+   and capture `dogfood/evidence/wave-N/`.
 2. **Bug found while operating** → open a **learning** page
    `/learnings/fNNN-slug` with: symptom, command, wrong behavior, resolution,
    lock (test/PR). Link from `/learnings` index. Update ROADMAP findings log.
 3. **Aesthetic PE** → **lab** page under `/labs/…`; do not mark Wave N cut
    because a lab looks good.
-4. **Coverage** → prefer index-driven list; until then hand-curate
-   `coverage.html` from the same metadata fields.
+4. **Coverage** → prefer an index-driven list; until then maintain DA
+   `/coverage.html` through da-cli from the same metadata fields.
 
 Advanced proofs may sit behind their parent wave page rather than adding a
 second nav item for the same wave. Riverboat follows this rule: the durable
@@ -109,7 +112,7 @@ Primary **nav stays short at the top level**; detail lives in **submenus**.
 
 ## Primary nav (spine + submenus)
 
-Authored nested lists in `dogfood/fixtures/nav.html` → header `nav-drop` dropdowns
+Authored nested lists in DA `/nav.html` → header `nav-drop` dropdowns
 (desktop) / nested stacks (mobile).
 
 | Top level | Children |
@@ -129,9 +132,9 @@ machine surfaces are grouped behind the single `Sheets & indexes` link
 (`/sheets`). The header renders exactly two levels; never nest deeper.
 
 Growth rule: a wave **opens** → add its `/waves/N-slug` page (status
-in-progress) + one Prove link + construct.yaml steps; a wave **cuts** → stamp
+in-progress) + one Prove link + certification checks; a wave **cuts** → stamp
 the page (status cut, timestamp, evidence pointers). Learnings go only under
-the `/learnings` hub table + construct.yaml — **not** nav. Top-level stays
+the `/learnings` hub table through da-cli — **not** nav. Top-level stays
 short; Prove is bounded at waves + 2 forever.
 
 ### Nav freshness (avoid content debt)
@@ -141,9 +144,9 @@ short; Prove is bounded at waves + 2 forever.
 | **Learnings = hub link only** | fNNN list grows forever; the hub table is the index of record |
 | **Prove submenu = one link per wave** | the nav mirrors the test plan; artifacts live on wave pages, never as nav peers |
 | **JSON endpoints never in nav** | operator surfaces belong on `/sheets`, annotated, not as raw dropdown links |
-| **Source of truth** | `dogfood/fixtures/nav.html` → construct put/preview; never hand-edit DA nav alone |
-| **When adding a learning** | fixture + construct + hub table row; **do not** edit nav |
-| **When a wave opens** | `/waves/N-slug` page (in-progress) + one Prove link + construct steps |
+| **Source of truth** | DA `/nav.html`; inspect/change/preview it through da-cli only |
+| **When adding a learning** | author the page and hub row in DA through da-cli; **do not** edit nav |
+| **When a wave opens** | DA `/waves/N-slug` page (in-progress) + one Prove link + certification checks |
 | **When a wave cuts** | stamp the wave page: status cut, timestamp, evidence pointers, findings list |
 | **Optional later** | query-index-driven nav for Prove only; Learnings stay hub-only forever |
 
@@ -167,8 +170,8 @@ is the **machine-readable ledger**. Both are part of the documentation.
 
 ## Anti-patterns
 
-- One mega-page that mixes thesis, all waves, and all findings  
-- Renaming or deleting learning URLs after the fact  
-- Calling a lab page a wave cut  
-- Hand-only DA edits that drift fixtures  
-- Nav that grows one link per finding (use the learnings index)  
+- One mega-page that mixes thesis, all waves, and all findings
+- Renaming or deleting learning URLs after the fact
+- Calling a lab page a wave cut
+- Authored-content mirrors in Git or out-of-band DA admin writes
+- Nav that grows one link per finding (use the learnings index)

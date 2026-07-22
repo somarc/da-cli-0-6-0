@@ -1,0 +1,43 @@
+name: da-cli-0-6-0-da-native-promotion
+# Promotion is an explicit human-approved operation over DA-authored source.
+# Run dogfood/certify.yaml first and inspect its evidence before executing this
+# pipeline. Root --commit is the only mutation approval boundary.
+#
+# Plan:
+#   da --org somarc --repo da-cli-0-6-0 --branch main pipeline run dogfood/promote.yaml --dry-run --format json
+# Execute after review:
+#   da --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood/promote.yaml --format json
+steps:
+  - id: preview-readiness
+    command: site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json
+  - id: contract-codebus
+    command: audit contracts --prefix / --verify-code --format json
+    depends_on: [preview-readiness]
+  - id: publish-canonical-pages
+    # The explicit manifest excludes /drafts and other failure-injection source.
+    command: publish pages dogfood/canonical-pages.txt --bulk --yes --format json
+    depends_on: [contract-codebus]
+  - id: rebuild-index
+    command: index build --wait --yes --format json
+    depends_on: [publish-canonical-pages]
+  - id: live-freshness
+    # / includes intentional preview-only drafts; exact-path checks below fail
+    # on preview-only for the release-critical public routes.
+    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [rebuild-index]
+  - id: live-test-plan
+    command: site freshness /test-plan --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
+  - id: live-kitchen-sink
+    command: site freshness /kitchen-sink --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
+  - id: live-route-matrix
+    command: site freshness /route-matrix --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
+  - id: live-sitemap
+    # Shared nav/footer routes are an accepted documentation-site characteristic.
+    command: sitemap verify --target live --allow-content-paths --require-path /test-plan --format json
+    depends_on: [live-test-plan, live-kitchen-sink, live-route-matrix]
+  - id: final-doctor
+    command: site doctor --agent --deep --format json
+    depends_on: [live-sitemap]

@@ -1,0 +1,139 @@
+{
+  "ok": false,
+  "operation": "pipeline.run",
+  "target": "dogfood/certify.yaml",
+  "data": {
+    "runId": "dd890c4d",
+    "name": "da-cli-0-6-0-da-native-certification",
+    "status": "failed",
+    "startedAt": "2026-07-22T01:37:24.631Z",
+    "completedAt": "2026-07-22T01:38:09.425Z",
+    "steps": {
+      "status": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:37:24.883Z"
+      },
+      "site-model": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:37:26.880Z"
+      },
+      "agent-briefing": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:37:37.250Z"
+      },
+      "contract-codebus": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:37:40.277Z"
+      },
+      "preview-da-tree": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:01.617Z"
+      },
+      "explain-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.038Z"
+      },
+      "audit-home": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.389Z"
+      },
+      "audit-test-plan": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.519Z"
+      },
+      "audit-kitchen-sink": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.432Z"
+      },
+      "audit-route-matrix": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.396Z"
+      },
+      "audit-wave-4": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.428Z"
+      },
+      "audit-wave-5": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.442Z"
+      },
+      "audit-learnings": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:02.492Z"
+      },
+      "freshness-gate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:38:09.064Z"
+      },
+      "preview-sitemap": {
+        "status": "failed",
+        "error": "Step \"preview-sitemap\" failed (exit 1)",
+        "completedAt": "2026-07-22T01:38:09.425Z"
+      },
+      "code-proof": {
+        "status": "pending"
+      },
+      "final-doctor": {
+        "status": "pending"
+      }
+    }
+  },
+  "warnings": [
+    "Step \"preview-sitemap\" failed (exit 1)"
+  ],
+  "errors": [
+    {
+      "message": "Step \"preview-sitemap\" failed (exit 1)"
+    }
+  ],
+  "next": [
+    "da --format json pipeline status dd890c4d"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/dd890c4d/result.json"
+    }
+  ]
+}

@@ -3,17 +3,17 @@
 Companion to `ROADMAP.md`. This file is the **execution board**: what is
 proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
-**Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
-**Rule:** git fixtures → `construct.yaml` → DA put/preview → public proof.  
-**CLI runtime:** local `da/da-cli` tree (0.5.x line) until site proves 0.6.0 — no early version bump or `0.6.0` release branch.  
-**Content IA:** `dogfood/CONTENT-IA.md` — narrative / proof / learning / lab.  
+**Site:** https://main--da-cli-0-6-0--somarc.aem.live/
+**Rule:** DA source → `certify.yaml` preview validation → explicit `promote.yaml` → public proof.
+**CLI runtime:** local `da/da-cli` tree (0.5.x line) until site proves 0.6.0 — no early version bump or `0.6.0` release branch.
+**Content IA:** `dogfood/CONTENT-IA.md` — narrative / proof / learning / lab.
 **Learnings hub:** https://main--da-cli-0-6-0--somarc.aem.live/learnings
 
 ---
 
 ## Wave status (2026-07-17 11:53 UTC)
 
-Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan  
+Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 (always update that page’s progress log when this table moves)
 
 | Wave | Claimed in index metadata | Operational truth |
@@ -42,10 +42,9 @@ certificate and does not make Riverboat part of normal construction.
 | Packed CLI | ✅ | release smoke proves rejection + opt-in execution on installed tarball |
 | Public proof | ◐ content + field evidence cut | `/waves/4-riverboat-trusted-loop`; constrained construct/preview promotion pending |
 
-Canonical proof fixture:
-`dogfood/fixtures/pipelines/riverboat-local-super-loop.yaml`. It deliberately
-mixes Git/npm shell steps with built-in DA freshness/code verification. The
-site construct uploads the proof page but never executes this unsafe fixture.
+The historical Riverboat execution specimen and outputs are retained under
+`dogfood/evidence/wave-4/`. Normal DA-native certification never executes an
+arbitrary shell step.
 
 ### Wave 5 — pass criteria — **IN PROGRESS (opened 2026-07-16)**
 
@@ -85,8 +84,10 @@ triple.
   bare-array output (rows carry per-row `next[]` but no envelope).
 - `da index show/validate` cannot observe config truth for identities without
   Configuration Service access (both 403 with clean envelopes) — recorded as a
-  CLI fitness gap per ADR 0002 D6; raw-API single-path reindex is the
-  documented state probe. **Operator action pending: grant Helix admin
+  CLI fitness gap per ADR 0002 D6. Use `da index build --wait` and the
+  packaged index inspection commands; if Configuration Service remains 403,
+  permission escalation is required rather than an out-of-band API fallback.
+  **Operator action pending: grant Helix admin
   write/delete + Configuration Service read to the working identity** (also
   unblocks the C2 unpublish leg and `/drafts/c1-drill` final cleanup).
 
@@ -114,7 +115,7 @@ Proof line: pipelines green; durable job resumes after interruption; migration v
 
 **Not blocks.** Prove the **map** of the site:
 
-1. **Sheets** — `da content sheets` finds strict DA sheet JSON (`:type: sheet` + `data[]`) — coverage, forms, CLI surface sheet.  
+1. **Sheets** — `da content sheets` finds strict DA sheet JSON (`:type: sheet` + `data[]`) — coverage, forms, CLI surface sheet.
 2. **Query index** — published pages → `/query-index.json` via repo-local `helix-query.yaml` (**observed active mode** — the claimed Configuration Service migration was false, see f029; a real migration is a future onboarding step with live proof); `index show / validate / query / build`.
 3. **Route ownership** — for each path: contentbus / codebus / hybrid / orphan; `route classify / audit / clean`.
 
@@ -145,7 +146,7 @@ A surface is cut when we have: (1) CLI run, (2) observable outcome, (3) evidence
 | `status` | ✅ | `status.json` |
 | `resolve` | ✅ | `resolve-index.json` |
 | `content list` / `tree` | ✅ | `content-list.json`, `content-tree.json` |
-| `content get` / `put` | ✅ | construct + fixtures; get during pack |
+| `content get` / `put` | ✅ | historical construction evidence; get during pack |
 | `preview` / `publish` | ✅ | live site + construct history |
 | `site freshness` | ✅ | `freshness.json` |
 | `site info` / `doctor` | ✅ | `site-info.json`, `site-doctor.json` |
@@ -163,8 +164,8 @@ positional args no longer drifts to another project.
 
 ### Wave 2 — pass criteria — **CUT 2026-07-14 02:51 UTC**
 
-**Spectrum:** field-scale EDS block types → `dogfood/BLOCK-COVERAGE.md`.  
-**Ledger:** `/cli-surface` + `tools/wave-2-cli-surface.html` + `data/wave-2-cli-surface.json`.  
+**Spectrum:** field-scale EDS block types → `dogfood/BLOCK-COVERAGE.md`.
+**Ledger:** `/cli-surface` + `tools/wave-2-cli-surface.html` + `data/wave-2-cli-surface.json`.
 **Evidence:** `dogfood/evidence/wave-2/` (README cut stamp).
 
 | Surface | Status | Notes |
@@ -181,8 +182,8 @@ positional args no longer drifts to another project.
 
 ## Wave 2 kitchen-sink (primary content work)
 
-**Route:** `/kitchen-sink`  
-**Fixture:** `dogfood/fixtures/kitchen-sink.html`  
+**Route:** `/kitchen-sink`
+**Source:** DA `/kitchen-sink.html`
 **Purpose:** one page that forces `block` / `audit` / `design` / `code` to see a
 **modern site module spectrum**, not two boilerplate layouts.
 
@@ -213,22 +214,22 @@ See also `~/.grok/skills/design-industry-language/references/site-modules.md`.
 | 19 | Page metadata | SEO head | `metadata` | every page |
 | 20 | Video / cinematic hero | kinetic splash | optional `video-hero` port | later |
 
-**Wave 2 MVP kitchen-sink** ships rows **1–11 + 16–19** with audits green.  
+**Wave 2 MVP kitchen-sink** ships rows **1–11 + 16–19** with audits green.
 Form/embed/table can land in the same page as stretch if code ports cleanly.
 
 ### Construction steps (Wave 2)
 
-1. Port missing block folders from Block Collection / boilerplate (accordion, tabs, carousel, …)  
-2. Style lightly to Renderaissance tokens (paper/ink) — no second brand system  
-3. Author `kitchen-sink.html` fixture with every block present once  
-4. Extend `construct.yaml` put+preview for `/kitchen-sink`  
-5. Run and store:  
-   - `da audit full /kitchen-sink --format json`  
-   - `da audit contracts --prefix / --verify-code --format json`  
-   - `da design audit https://main--…/kitchen-sink --format json`  
-   - `da block inspect <each new block>` where contracts exist  
-6. Update `/blocks` narrative to point at kitchen-sink as the proof surface  
-7. Mark Wave 2 cut only when contracts verify **all** kitchen-sink block assets  
+1. Port missing block folders from Block Collection / boilerplate (accordion, tabs, carousel, …)
+2. Style lightly to Renderaissance tokens (paper/ink) — no second brand system
+3. Author `/kitchen-sink.html` in DA with every block present once
+4. Extend `certify.yaml` validation for `/kitchen-sink`
+5. Run and store:
+   - `da audit full /kitchen-sink --format json`
+   - `da audit contracts --prefix / --verify-code --format json`
+   - `da design audit https://main--…/kitchen-sink --format json`
+   - `da block inspect <each new block>` where contracts exist
+6. Update `/blocks` narrative to point at kitchen-sink as the proof surface
+7. Mark Wave 2 cut only when contracts verify **all** kitchen-sink block assets
 
 ---
 
@@ -274,14 +275,14 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 
 ## Immediate next actions (ordered)
 
-1. ~~Close Wave 1 formally~~ — **done 2026-07-14** (evidence pack)  
-2. ~~f008 Critical~~ — **fixed** (subtree merge)  
-3. ~~f009 High~~ — **fixed** (ownership flag messaging)  
-4. ~~f002 High~~ — **fixed** (design envelopes)  
-5. ~~f010 High~~ — **fixed** (media URL policy)  
-6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**  
-7. ~~Finish Wave 2 formal cut~~ — **done 2026-07-14 02:51 UTC**  
-8. ~~Wave 3~~ — **cut 2026-07-14 03:05 UTC** (route matrix + index + ownership)  
+1. ~~Close Wave 1 formally~~ — **done 2026-07-14** (evidence pack)
+2. ~~f008 Critical~~ — **fixed** (subtree merge)
+3. ~~f009 High~~ — **fixed** (ownership flag messaging)
+4. ~~f002 High~~ — **fixed** (design envelopes)
+5. ~~f010 High~~ — **fixed** (media URL policy)
+6. ~~f011~~ — **fixed** (contracts autoblocks); **friction column clear 2026-07-14 02:31 UTC**
+7. ~~Finish Wave 2 formal cut~~ — **done 2026-07-14 02:51 UTC**
+8. ~~Wave 3~~ — **cut 2026-07-14 03:05 UTC** (route matrix + index + ownership)
 9. ~~Wave 4 opened~~ — **2026-07-16** (construct idempotence 2×, f014 fixed+locked, evidence `dogfood/evidence/wave-4/`)
 10. **2026-07-16 hardening pass** (4 subagent audits): **f015 Critical fixed** (job run --commit bypass), f016 fixed (code job URL + terminal states), f013 **fixed** (literal-path probe + 403-as-unknown, clean gate closed), f017 seams landed (envelopes: content put / preview page / publish page), f018 fixed (workspace path traversal), f019 fixed (publish/deploy/index safety tiers). 553/553 tests. See `FRICTION-GATE-0.6.0.md`.
 11. ~~Wave 4 remaining~~ — **cut 2026-07-16**: durable jobs (f022 SIGKILL/resume), migrate (f023 path normalization, f024 collision refusal), pipeline abort (f025 marker clobber) — every completion drill found and fixed a real friction. 575/575 tests.
@@ -293,8 +294,8 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 
 ## Anti-patterns for this release track
 
-- Calling Wave 2 “cut” because `/blocks` has two blocks  
-- Aesthetic lab pages (`/dualform`) counting as block-surface proof without audits  
-- Hand-authoring only in DA (fixtures go stale)  
-- Adding blocks without `audit contracts --verify-code`  
-- Expanding scope to Wave 4–6 before kitchen-sink is green  
+- Calling Wave 2 “cut” because `/blocks` has two blocks
+- Aesthetic lab pages (`/dualform`) counting as block-surface proof without audits
+- Mirroring DA-authored content back into Git
+- Adding blocks without `audit contracts --verify-code`
+- Expanding scope to Wave 4–6 before kitchen-sink is green

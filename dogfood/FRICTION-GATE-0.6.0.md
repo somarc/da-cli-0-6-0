@@ -1,8 +1,8 @@
 # 0.6.0 friction gate — hang our hat here
 
 **Status:** **friction column clear** (f015 Critical–f038 fixed/recovered + locked; f013 upgraded + fixed; f017 partial with seams landed and migration tracked; f022–f026 are the Wave 4 completion haul; **f027–f037 are Wave 5's haul**; f033 is the ops-turn catch; **f034–f036 are the drill-matrix completion haul**; **f037 is the shipping-the-site catch**; **f038 is the product-shaped greenfield catch** — fstab remained a system-wide hidden predicate after Configuration Service made it legacy, splitting runtime truth from creation, discovery, modeling, diagnostics, and content safety) — wave column: **Wave 4 cut 2026-07-16**, **Wave 5 cut 2026-07-17** (C2 orphan-removal rep alone deferred on the Helix-admin delete permission), Wave 6 in progress
-**Site:** https://main--da-cli-0-6-0--somarc.aem.live/  
-**Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`  
+**Site:** https://main--da-cli-0-6-0--somarc.aem.live/
+**Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
 document proves agentic operability.** Both must pass.
 
@@ -28,8 +28,8 @@ trip on, media rewrite traps, contracts that miss autoblocks.
 
 **0.6.0 ships only when:**
 
-1. Waves 1–5 are green with stored evidence (and Wave 6 classified).  
-2. The construction pipeline regenerates this site and provenance verifies.  
+1. Waves 1–5 are green with stored evidence (and Wave 6 classified).
+2. DA-native certification and promotion pipelines verify the site and provenance.
 3. **Every Critical/High friction is fixed or explicitly reclassified** with
    evidence (primitive fix + lock, or accepted-risk ADR with operator workaround
    that is structured and discoverable — not “agents just know”).
@@ -89,7 +89,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 - ~~put/preview/publish envelope gaps~~ — **closed** under f017 seams (success envelopes) + `handleApiError` now emits `ok:false` envelopes with `next[]` recovery on every API failure path (least-friction pass, 2026-07-16).
 - ~~`index build` fire-and-forget~~ — **closed**: `index build --wait` does pre-build snapshot → job poll attempt (transient index jobs are not persisted; honest fallback warning) → bounded cache-busted public convergence (`changed | stable | timedOut`). Field: 9.3s single parseable `built-and-verified`. `--force-async` plumbs ground-truth body.
 - ~~2×N page loops~~ — **closed**: `preview pages --bulk` / `publish pages --bulk` ride the platform bulk job (1 request + 1 pollable job), with `/.helix/*` batch-poison filtering and auto `forceAsync` >100 paths.
-- Publish boundary in construct pipelines is now a **stated** product position (BOUNDARIES.md "Pipelines Stop At Preview By Design" + construct.yaml recipe).
+- Preview certification and live promotion are separate checked-in pipelines with distinct approval boundaries.
 - `pipeline run` has no `--job` mode — long regenerations cannot checkpoint/survive interruption yet (Wave 4 board).
 - f017 remainder: migrate config/auth/site create and the rest of the command surface onto the envelope seams (deploy pages closed by f026; content read-listing closed by f027; publish pages dry-run closed by f033's pass; content status/merge/push-refusal + migrate batch + strict-sections + out-of-worktree refusal closed by the f034–f036 pass — committed preview/publish pages success arrays still on the march).
 - `status` reports `ok:false` (expired auth) but exits **0** — caught during the Wave 5 A2 opening rep. Classify before Wave 5 cuts: diagnosis-command semantics (command succeeded at reporting an unhealthy state) vs agent-contract violation (`ok` must track exit). Whichever way it lands, the position must be stated, not implicit.
@@ -117,9 +117,9 @@ public learning pages. Nothing Critical/High remains open on this list.
 
 - **Friction hat:** we can hang the agentic-operability story for this cycle —
   the logged Critical/High landmines, including f012, are closed in product
-  code with locks on main.  
+  code with locks on main.
 - **Release hat:** **do not cut 0.6.0** yet. Wave proof + construct regen +
-  provenance + 0.5.x→0.6.0 branch/version discipline remain.  
+  provenance + 0.5.x→0.6.0 branch/version discipline remain.
 - **Residual risks (not open fNNN, but real):** Helix unpublish 403 on orphans
   (`/findings` ghost CDN); skill docs may lag local CLI; media still needs
   absolute or rewrite discipline at authoring time.
@@ -156,21 +156,21 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 ## Cut checklist
 
 ### Friction column
-- [x] f002 fixed + lock  
-- [x] f008 fixed + lock  
-- [x] f009 fixed + lock  
-- [x] f010 fixed + lock  
-- [x] f011 fixed + lock  
-- [x] f012 fixed + lock (merged to main)  
-- [x] Clone/merge notes in COMMANDS/AGENTS  
-- [x] Public learnings show fixed for f002, f008–f012  
+- [x] f002 fixed + lock
+- [x] f008 fixed + lock
+- [x] f009 fixed + lock
+- [x] f010 fixed + lock
+- [x] f011 fixed + lock
+- [x] f012 fixed + lock (merged to main)
+- [x] Clone/merge notes in COMMANDS/AGENTS
+- [x] Public learnings show fixed for f002, f008–f012
 
 ### Wave / release column (still required)
-- [x] Wave 2 formal cut with evidence (2026-07-14 02:51 UTC)  
-- [ ] Waves 3–5 green + Wave 6 classified  
-- [ ] construct regen + provenance verify  
-- [ ] `test-plan` records full gate clear  
-- [ ] Version bump + release branch **after** site proves  
+- [x] Wave 2 formal cut with evidence (2026-07-14 02:51 UTC)
+- [ ] Waves 3–5 green + Wave 6 classified
+- [ ] construct regen + provenance verify
+- [ ] `test-plan` records full gate clear
+- [ ] Version bump + release branch **after** site proves
 
 When **both** columns are checked: **cut 0.6.0**.
 

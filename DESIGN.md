@@ -48,7 +48,7 @@ See `:root` in `styles/styles.css` (`--rr-*` and boilerplate aliases).
 
 **Cupid** — quiet neoclassical marble putto as the cert-site logo mark. Academic plate
 mood (cream paper, cobalt shadow, soft terracotta blush), not baroque gold kitsch.
-Authored in nav brand (`dogfood/fixtures/nav.html`) with absolute content.da.live media URL.
+Authored in the DA `/nav.html` source with an absolute content.da.live media URL.
 
 ### Dualform lab (`/dualform`)
 
@@ -88,7 +88,7 @@ any agent with image generation can regenerate layers from the same briefs.
 ### Media delivery note
 
 Homepage collage assets live in git (`media/renderaissance/`) and on the DA
-content bus. Fixtures currently reference **absolute same-site URLs** so Helix
+content bus. DA source uses **absolute same-site URLs** so Helix
 media rewrite can register them (relative `/media/...` was rewriting to
 `about:error` in preview). After rewrite, delivery uses `media_<hash>.webp`.
 

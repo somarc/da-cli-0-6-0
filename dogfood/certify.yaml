@@ -1,0 +1,62 @@
+name: da-cli-0-6-0-da-native-certification
+# DA is the sole source of truth for authored HTML and JSON. This pipeline
+# activates the existing DA source on preview and verifies the resulting site;
+# it never uploads authored content from Git.
+#
+# Plan:
+#   da --org somarc --repo da-cli-0-6-0 --branch main pipeline run dogfood/certify.yaml --dry-run --format json
+# Execute after review:
+#   da --org somarc --repo da-cli-0-6-0 --branch main --commit pipeline run dogfood/certify.yaml --format json
+steps:
+  - id: status
+    command: status --format json
+  - id: site-model
+    command: site model --format json
+    depends_on: [status]
+  - id: agent-briefing
+    command: site doctor --agent --deep --format json
+    depends_on: [site-model]
+  - id: contract-codebus
+    command: audit contracts --prefix / --verify-code --format json
+    depends_on: [agent-briefing]
+  - id: preview-da-tree
+    command: preview tree / --verify --yes --format json
+    depends_on: [contract-codebus]
+  - id: explain-index
+    command: preview explain /index --format json
+    depends_on: [preview-da-tree]
+  - id: audit-home
+    command: audit full / --format json
+    depends_on: [explain-index]
+  - id: audit-test-plan
+    command: audit full /test-plan --format json
+    depends_on: [explain-index]
+  - id: audit-kitchen-sink
+    command: audit full /kitchen-sink --format json
+    depends_on: [explain-index]
+  - id: audit-route-matrix
+    command: audit full /route-matrix --format json
+    depends_on: [explain-index]
+  - id: audit-wave-4
+    command: audit full /waves/4-durability --format json
+    depends_on: [explain-index]
+  - id: audit-wave-5
+    command: audit full /waves/5-failure-recovery --format json
+    depends_on: [explain-index]
+  - id: audit-learnings
+    command: audit full /learnings --format json
+    depends_on: [explain-index]
+  - id: freshness-gate
+    command: site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [audit-home, audit-test-plan, audit-kitchen-sink, audit-route-matrix, audit-wave-4, audit-wave-5, audit-learnings]
+  - id: preview-sitemap
+    # This documentation site intentionally exposes shared nav/footer routes in
+    # its generated sitemap; still fail on undefined hosts or a missing proof path.
+    command: sitemap verify --target preview --allow-content-paths --require-path /test-plan --format json
+    depends_on: [freshness-gate]
+  - id: code-proof
+    command: code verify /styles/styles.css --contains body --format json
+    depends_on: [preview-sitemap]
+  - id: final-doctor
+    command: site doctor --agent --deep --format json
+    depends_on: [code-proof]

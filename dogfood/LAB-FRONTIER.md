@@ -63,7 +63,7 @@ where every capability statement is executable evidence.
    plain config rows (`hue`, `preset`). Shaders live in block code.
 6. **No scroll-jacking** — the rail is honest scroll (sticky + timeline),
    capped in height, skippable.
-7. **CDD** — fixture first (`dogfood/fixtures/frontier.html`), lint,
+7. **CDD** — author in DA, then validate the source/render/code contract,
    preview URL before any publish. No live publish without explicit ask.
 
 ## Block contracts
@@ -105,7 +105,7 @@ shows its authored caption text only.
 - [ ] Chromium: rail slides via scroll timeline; Safari/Firefox path degrades soft
 - [ ] Lint clean (`npm run lint`)
 - [ ] plain.html renders, no `about:error`
-- [ ] Preview via `da … pipeline run dogfood/construct.yaml` — stops at preview
+- [ ] Preview via `da … pipeline run dogfood/certify.yaml` — stops at preview
 
 ## Follow-ups (not v1)
 
