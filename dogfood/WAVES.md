@@ -84,8 +84,10 @@ triple.
   bare-array output (rows carry per-row `next[]` but no envelope).
 - `da index show/validate` cannot observe config truth for identities without
   Configuration Service access (both 403 with clean envelopes) — recorded as a
-  CLI fitness gap per ADR 0002 D6; raw-API single-path reindex is the
-  documented state probe. **Operator action pending: grant Helix admin
+  CLI fitness gap per ADR 0002 D6. Use `da index build --wait` and the
+  packaged index inspection commands; if Configuration Service remains 403,
+  permission escalation is required rather than an out-of-band API fallback.
+  **Operator action pending: grant Helix admin
   write/delete + Configuration Service read to the working identity** (also
   unblocks the C2 unpublish leg and `/drafts/c1-drill` final cleanup).
 

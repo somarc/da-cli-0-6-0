@@ -20,11 +20,20 @@ steps:
     command: index build --wait --yes --format json
     depends_on: [publish-da-tree]
   - id: live-freshness
-    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json
+    command: site freshness / --include-shared --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
     depends_on: [rebuild-index]
+  - id: live-test-plan
+    command: site freshness /test-plan --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
+  - id: live-kitchen-sink
+    command: site freshness /kitchen-sink --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
+  - id: live-route-matrix
+    command: site freshness /route-matrix --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json
+    depends_on: [live-freshness]
   - id: live-sitemap
     command: sitemap verify --target live --require-path /test-plan --format json
-    depends_on: [live-freshness]
+    depends_on: [live-test-plan, live-kitchen-sink, live-route-matrix]
   - id: final-doctor
     command: site doctor --agent --deep --format json
     depends_on: [live-sitemap]
