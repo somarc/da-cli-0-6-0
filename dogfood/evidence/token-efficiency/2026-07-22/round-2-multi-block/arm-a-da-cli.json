@@ -1,0 +1,18 @@
+{
+  "arm": "da-cli",
+  "actions": [
+    { "operation": "local-payload-validation", "result": "passed" },
+    { "operation": "content.put", "mode": "outside-worktree-refusal", "result": "expected-safety-refusal" },
+    { "operation": "content.put", "mode": "dry-run", "result": "passed" },
+    { "operation": "content.put", "mode": "committed", "result": "passed" },
+    { "operation": "content.get-byte-compare", "result": "exact-match" },
+    { "operation": "preview.page", "mode": "dry-run", "result": "passed" },
+    { "operation": "preview.page", "mode": "committed", "result": "passed" },
+    { "operation": "browser-dom-verification", "result": "passed" },
+    { "operation": "audit.semantics", "result": "0-errors-0-warnings" },
+    { "operation": "audit.blocks", "result": "8-of-8-pass" },
+    { "operation": "audit.contracts.verify-code", "result": "16-of-16-assets-http-200" }
+  ],
+  "liveOperationAttempted": false,
+  "credentialsExposed": false
+}

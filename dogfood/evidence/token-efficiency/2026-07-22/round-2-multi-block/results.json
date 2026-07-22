@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "da-cli.token-efficiency-pilot.v1",
+  "round": 2,
+  "task": "multi-block-page-create-preview-verify",
+  "capturedAt": "2026-07-22T17:12:57Z",
+  "sampleSizePairs": 1,
+  "model": "gpt-5.6-terra",
+  "effort": "high",
+  "executionOrder": ["adobeSkills", "daCli"],
+  "executionMode": "sequential-shared-browser-confound-removed",
+  "branch": "feature-token-efficiency-benchmark",
+  "runMarker": "TOKEN-BENCH-R2-2026-07-22",
+  "blockTypes": ["hero", "cards", "columns", "quote", "accordion", "tabs", "table", "teaser"],
+  "arms": {
+    "daCli": {
+      "conversationId": "p_mrwc1pl14m",
+      "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+      "previewUrl": "https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-da-cli",
+      "usage": {
+        "inputTokens": 398584,
+        "cachedInputTokens": 372224,
+        "uncachedInputTokens": 26360,
+        "outputTokens": 9358,
+        "reasoningTokens": 3389,
+        "logicalTokenLoad": 407942,
+        "rounds": 23,
+        "durationMs": 282866,
+        "estimatedCostUsd": 0.299326
+      },
+      "operationalNotes": [
+        "Initial out-of-worktree content put was safely refused.",
+        "Dry-run and commit were separate for source and preview.",
+        "No browser evaluation failure occurred.",
+        "Semantic, block, and contract audits passed."
+      ],
+      "qualified": true
+    },
+    "adobeSkills": {
+      "conversationId": "p_mrwbrc4y4k",
+      "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+      "previewUrl": "https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-adobe-skills",
+      "loadedSkillFiles": [
+        "plugins/aem/edge-delivery-services/skills/da-content/SKILL.md",
+        "plugins/aem/edge-delivery-services/skills/da-content/references/platform.md"
+      ],
+      "usage": {
+        "inputTokens": 597629,
+        "cachedInputTokens": 537600,
+        "uncachedInputTokens": 60029,
+        "outputTokens": 11564,
+        "reasoningTokens": 4698,
+        "logicalTokenLoad": 609193,
+        "rounds": 26,
+        "durationMs": 443834,
+        "estimatedCostUsd": 0.4579325
+      },
+      "operationalNotes": [
+        "Source PUT, source GET, and preview POST succeeded first attempt.",
+        "One browser evaluation had a local syntax error and was retried.",
+        "Three provider stream recovery attempts occurred before a browser evaluation.",
+        "Only da-content and its platform reference were loaded."
+      ],
+      "qualified": true
+    }
+  },
+  "sharedAcceptance": {
+    "sourceByteEquality": true,
+    "previewHttp200": true,
+    "plainHttp200": true,
+    "markerCount": 1,
+    "h1Count": 1,
+    "plainScriptCount": 0,
+    "aboutErrorMediaCount": 0,
+    "authoredBlockClasses": "8/8",
+    "loadedBlocks": "8/8",
+    "blockStatusErrors": 0,
+    "consoleErrors": 0,
+    "domTransformations": "12/12 exact",
+    "blockAssetsHttp200": "16/16",
+    "liveOperationAttempted": false
+  },
+  "daCliReductionVersusAdobeSkillsPct": {
+    "logicalTokenLoad": 33.0,
+    "inputTokens": 33.3,
+    "cachedInputTokens": 30.8,
+    "uncachedInputTokens": 56.1,
+    "outputTokens": 19.1,
+    "reasoningTokens": 27.9,
+    "rounds": 11.5,
+    "durationMs": 36.3,
+    "estimatedCostUsd": 34.6
+  },
+  "limitations": [
+    "One matched pair only; descriptive, not inferential.",
+    "Prompt cache use was observed but cold/warm strata were not controlled.",
+    "Sequential execution removed browser contention but introduced an order effect.",
+    "Provider stream recovery affected the Adobe-public arm's time and usage.",
+    "The content payload was supplied, isolating operating-surface cost from content generation.",
+    "No external media, workers, authentication recovery, or live release was measured."
+  ]
+}

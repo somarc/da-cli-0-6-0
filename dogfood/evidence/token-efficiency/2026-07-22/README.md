@@ -35,6 +35,14 @@ records that behavior without assigning a finding number before product triage.
 This is a measured **N=1 pilot**, not a universal performance claim. See
 `protocol.md` and `results.json` for denominators and limitations.
 
+## Round 2
+
+[`round-2-multi-block/`](./round-2-multi-block/) repeats the comparison with
+eight deterministic EDS blocks and exact runtime DOM checks. Both arms passed;
+da-cli used 33.0% fewer logical tokens, 34.6% lower estimated provider cost,
+and 11.5% fewer rounds. The arms ran sequentially to remove the shared-browser
+contention present in Round 1.
+
 ## Public specimens
 
 - da-cli arm: <https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/da-cli>
