@@ -39,6 +39,7 @@ This is a measured **N=1 pilot**, not a universal performance claim. See
 
 - da-cli arm: <https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/da-cli>
 - Adobe-skills arm: <https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/adobe-skills>
+- methodology: <https://feature-token-efficiency-benchmark--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/methodology>
 
 ## Files
 
