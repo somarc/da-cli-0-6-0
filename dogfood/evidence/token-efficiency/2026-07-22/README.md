@@ -60,3 +60,7 @@ contention present in Round 1.
 
 No credentials, access tokens, raw authorization headers, or live mutations are
 stored in this evidence pack.
+
+## Navigation
+
+The public cluster is reached through one bounded Prove-menu entry: `Wave 6 — Lifecycle & agent economics` → `/waves/6-lifecycle`. The Wave 6 hub links the overview, per-round results, methodology, specimens, and machine sheet without enumerating artifacts in primary navigation.
