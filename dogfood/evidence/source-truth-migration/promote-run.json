@@ -1,0 +1,93 @@
+{
+  "ok": true,
+  "operation": "pipeline.run",
+  "target": "dogfood/promote.yaml",
+  "data": {
+    "runId": "94802516",
+    "name": "da-cli-0-6-0-da-native-promotion",
+    "status": "completed",
+    "startedAt": "2026-07-22T01:43:19.701Z",
+    "completedAt": "2026-07-22T01:44:03.129Z",
+    "steps": {
+      "preview-readiness": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:26.601Z"
+      },
+      "contract-codebus": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:29.000Z"
+      },
+      "publish-canonical-pages": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:34.611Z"
+      },
+      "rebuild-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:46.715Z"
+      },
+      "live-freshness": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:53.201Z"
+      },
+      "live-test-plan": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:54.232Z"
+      },
+      "live-kitchen-sink": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:54.179Z"
+      },
+      "live-route-matrix": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:54.446Z"
+      },
+      "live-sitemap": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:43:54.779Z"
+      },
+      "final-doctor": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-22T01:44:03.128Z"
+      }
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --format json pipeline status 94802516"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/94802516/result.json"
+    }
+  ]
+}
