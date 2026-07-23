@@ -12,6 +12,13 @@ const requiredPipelines = [
   'dogfood/promote.yaml',
 ];
 
+const requiredProofContracts = [
+  'dogfood/provenance-config.json',
+  'dogfood/provenance.schema.json',
+  'dogfood/provenance.json',
+  'scripts/verify-provenance.mjs',
+];
+
 const canonicalManifest = 'dogfood/canonical-pages.txt';
 
 const violations = [];
@@ -33,6 +40,14 @@ for (const path of requiredPipelines) {
     }
   } catch {
     violations.push(`${path} is required`);
+  }
+}
+
+for (const path of requiredProofContracts) {
+  try {
+    await access(path);
+  } catch {
+    violations.push(`${path} is required for DA-native release provenance`);
   }
 }
 

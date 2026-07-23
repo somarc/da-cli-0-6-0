@@ -1,0 +1,4 @@
+strict freeze requires freeze.status=frozen
+strict freeze requires the CLI release tag
+strict freeze requires the proof-site tag
+strict freeze requires a DA snapshot digest

@@ -171,7 +171,8 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 ### Wave / release column (still required)
 - [x] Wave 2 formal cut with evidence (2026-07-14 02:51 UTC)
 - [ ] Waves 3–5 green + Wave 6 classified
-- [ ] construct regen + provenance verify
+- [x] Candidate provenance covers 58/58 canonical paths and 125/125 declared public URLs
+- [ ] DA snapshot + isolated replay + strict frozen provenance verify
 - [ ] `test-plan` records full gate clear
 - [ ] Version bump + release branch **after** site proves
 
