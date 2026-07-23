@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "operation": "content.list",
+  "target": "somarc/da-cli-wave6-site-create/",
+  "data": {
+    "path": "/",
+    "count": 4,
+    "items": [
+      {
+        "name": "footer.html",
+        "type": "file",
+        "lastModified": "2026-07-23 01:09:02"
+      },
+      {
+        "name": "index.html",
+        "type": "file",
+        "lastModified": "2026-07-23 01:09:02"
+      },
+      {
+        "name": "nav.html",
+        "type": "file",
+        "lastModified": "2026-07-23 01:09:02"
+      },
+      {
+        "name": "wave-6-proof.html",
+        "type": "file",
+        "lastModified": "2026-07-23 13:38:55"
+      }
+    ]
+  },
+  "warnings": [],
+  "next": []
+}

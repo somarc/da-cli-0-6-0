@@ -78,8 +78,9 @@ those immutable observations are retained as history, not as current guidance.
 - Trigger and recover from: unresolved target, missing/expired auth, mutation without `--commit`, source drift after clone (conflict guard), invalid section shape, missing block assets, stale preview/live, orphan + protected-hybrid routes, index absent/unpopulated, interrupted/cancelled job, pipeline step failure/approval/abort, partial batch-migration failure.
 - Proof: each failure recognized + contained + recovered — not retried-until-green.
 
-**Wave 6 — Lifecycle & conditional**
+**Wave 6 — Lifecycle & conditional** — **cut 2026-07-23 13:42 UTC**
 - Surfaces: `auth` flows, `skills bootstrap/install` (dogfoods the ADR-0001 embedded bootstrap), `site create` (2nd disposable site), `code sidekick`, `commerce`, `stardust` (external-conditional).
+- Final rep: Configuration Service recovery adopted the retained site; da-cli committed and previewed `/wave-6-proof.html`; rendered verification, contentbus classification, audit, and public cut-board/index evidence are retained. The proof route remains preview-only.
 
 ## Cross-cutting
 - DA-native pipelines (`dogfood/certify.yaml`, `dogfood/promote.yaml`) activate, validate, and promote authoritative DA source.
@@ -130,8 +131,7 @@ https://main--da-cli-0-6-0--somarc.aem.live/learnings
 Two columns — both required. **Hang the hat on agentic operability, not
 command count.**
 
-1. **Waves:** 1–5 green with stored evidence; Wave 6 classified (run or
-   precondition-recorded); DA-native certification/promotion verifies the site;
+1. **Waves:** 1–6 green with stored evidence; DA-native certification/promotion verifies the site;
    candidate provenance coverage/liveness verifies; strict freeze is required
    before release publication.
 2. **Frictions:** every Critical/High finding fixed + locked. The Wave 6 haul
@@ -144,6 +144,4 @@ command count.**
 Product fixes land on 0.5.x; the **0.6.0 label is earned by dogfood proof**,
 then version bump + release branch follow.
 
-**Honest cut state:** friction hat earned for this cycle; **wave/release hat not**
-— candidate provenance covers 58/58 canonical paths and 125/125 public URLs,
-but Wave 6, DA snapshot/replay, and immutable CLI/proof tags remain open.
+**Honest cut state:** friction and wave columns are clear. The release hat is not yet earned: candidate provenance covers 58/58 canonical paths and 125/125 public URLs, but DA snapshot/replay, the C2 operator decision, final docs-site signoff, and immutable CLI/proof tags remain open.

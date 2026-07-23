@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "index": "default",
+  "target": "live",
+  "url": "https://main--da-cli-0-6-0--somarc.aem.live/query-index.json?limit=100&offset=0",
+  "total": 67,
+  "offset": 0,
+  "limit": 67,
+  "rows": [
+    {
+      "path": "/",
+      "title": "Trust demonstrated. Not asserted.",
+      "description": "This site is not a template. Every page you are reading is authored in DA and certified by checked-in da pipelines that activate, audit, and ...",
+      "wave": "1",
+      "surface": "config, content, preview, site, pipeline",
+      "status": "cut",
+      "lastModified": 1784684384
+    },
+    {
+      "path": "/why",
+      "title": "Why build the proof this way",
+      "description": "An agent-first CLI is only useful if an agent returns to it for the next decision instead of reaching for raw APIs. That happens when ...",
+      "wave": "1",
+      "surface": "narrative",
+      "status": "cut",
+      "lastModified": 1783651675
+    },
+    {
+      "path": "/blocks",
+      "title": "Blocks and the proof surface",
+      "description": "Default content proves the author → preview → verify loop, but it never touches the block, contract, and design surfaces. Those only have something to ...",
+      "wave": "2",
+      "surface": "block, audit, design, code",
+      "status": "cut",
+      "lastModified": 1784171080
+    },
+    {
+      "path": "/coverage",
+      "title": "Coverage",
+      "description": "This is the living table of contents for the test suite. The top navigation stays deliberately small — the narrative spine of the site — ...",
+      "wave": "3",
+      "surface": "index, content sheets, route",
+      "status": "cut",
+      "lastModified": 1784171081
+    },
+    {
+      "path": "/kitchen-sink",
+      "title": "Kitchen sink — Wave 2 module spectrum",
+      "description": "Full-spectrum EDS block page for da-cli 0.6.0 Wave 2 audits and contract verification.",
+      "wave": "2",
+      "surface": "block, audit, design, code",
+      "status": "cut",
+      "lastModified": 1784171084
+    },
+    {
+      "path": "/cli-surface",
+      "title": "CLI surface — Wave 2 command ledger",
+      "description": "Addendum mapping da-cli commands run against this dogfood site for Wave 2 formal cut.",
+      "wave": "2",
+      "surface": "block, audit, design, content, code",
+      "status": "cut",
+      "lastModified": 1783997588
+    },
+    {
+      "path": "/route-matrix",
+      "title": "Route matrix — Wave 3 structured data & ownership",
+      "description": "Wave 3 cut proof: sheets, query index, and route ownership matrix for da-cli dogfood.",
+      "wave": "3",
+      "surface": "index, route, content sheets",
+      "status": "cut",
+      "lastModified": 1783998345
+    },
+    {
+      "path": "/waves/1-foundation",
+      "title": "Wave 1 — Foundation and core loop (cut certificate)",
+      "description": "Wave 1 cut proof: target resolution, content loop, preview activation, site diagnosis, and workspace round-trip, with the full evidence pack.",
+      "wave": "1",
+      "surface": "status, resolve, content, preview, publish, site, pipeline",
+      "status": "cut",
+      "lastModified": 1784252383
+    },
+    {
+      "path": "/waves/4-durability",
+      "title": "Wave 4 — Coordination, durability, migration (cut certificate)",
+      "description": "Wave 4 cut proof: historically demonstrated construction idempotence, SIGKILL-surviving durable jobs, collision-safe migration, and abort that aborts — with findings f022–f026 fixed and locked.",
+      "wave": "4",
+      "surface": "pipeline, job, migrate, deploy",
+      "status": "cut",
+      "lastModified": 1784684398
+    },
+    {
+      "path": "/waves/6-lifecycle",
+      "title": "Wave 6 — Lifecycle and agent economics",
+      "description": "Wave 6 cut proof for auth, skills, Configuration Service site lifecycle, conditional integrations, and measured agent economics.",
+      "wave": "6",
+      "surface": "auth, skills, lifecycle, content, preview, benchmark",
+      "status": "cut",
+      "lastModified": 1784814283
+    }
+  ],
+  "caveats": [
+    "The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up."
+  ]
+}

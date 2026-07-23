@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "da-cli.site-model.v2",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-wave6-site-create",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "expectedDa": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+    "effectiveContent": {
+      "state": "configured",
+      "active": true,
+      "selectedBy": "helix-sidekick",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-wave6-site-create",
+        "pathPrefix": "/",
+        "matchesSite": true
+      },
+      "warnings": []
+    },
+    "codebus": "https://github.com/somarc/da-cli-wave6-site-create"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-wave6-site-create--somarc.aem.page",
+    "liveHost": "https://main--da-cli-wave6-site-create--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-wave6-site-create--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "/Users/mhess/aem/aem-code/da/da-cli-wave6-site-create",
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "default"
+    }
+  },
+  "recommendations": [
+    {
+      "severity": "info",
+      "code": "pin-project-target",
+      "detail": "Pin org/repo in project .da.json before repeated writes or durable jobs.",
+      "next": "da --org somarc --repo da-cli-wave6-site-create site pin-target --branch main"
+    }
+  ],
+  "routes": []
+}

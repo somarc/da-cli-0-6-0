@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "site": "somarc/da-cli-wave6-site-create",
+  "action": "adopted-existing",
+  "config": {
+    "code": {
+      "owner": "somarc",
+      "repo": "da-cli-wave6-site-create"
+    },
+    "content": {
+      "source": {
+        "url": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+        "type": "markup"
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ proven, what is still open, and what Wave 2 kitchen-sink must cover.
 
 ---
 
-## Wave status (2026-07-22)
+## Wave status (2026-07-23)
 
 Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 (always update that page’s progress log when this table moves)
@@ -23,7 +23,7 @@ Public board: https://main--da-cli-0-6-0--somarc.aem.live/test-plan
 | **3** Index/routes | **cut** | **Cut 2026-07-14 03:05 UTC** — `/route-matrix` + sheets/index/route evidence (`dogfood/evidence/wave-3/`) |
 | **4** Coordination/durability/migration | **cut** | **Cut 2026-07-16** — every drill broke something real first (f022–f025), all fixed+locked same-session; evidence `dogfood/evidence/wave-4/` |
 | **5** Failure & recovery injection | **cut (C2 unpublish leg deferred)** | **Cut 2026-07-17** — full drill matrix run: A1–A3, B1–B3, C1, C3, D3, D4 ✅; D1/D2 banked; C2 recognition+containment+recovery done, final orphan-removal rep alone deferred on the Helix-admin delete permission (operator action, tracked). Ten findings from the wave (f027–f036), every one fixed/recovered same-session; evidence `dogfood/evidence/wave-5/` |
-| **6** Lifecycle | **blocked: `config:write`** | Auth lifecycle and skills bootstrap/install are retained; f040–f042 were found, fixed, and locked in product main; direct Sidekick read is proven; commerce and Stardust are explicitly external-conditional with safe plan/dry-run evidence. Required `site create` created `somarc/da-cli-wave6-site-create`, then Configuration Service registration refused with 403. Grant `config:write`, run the retained `site register` recovery, and prove preview readiness before cut. Evidence: `dogfood/evidence/wave-6/closeout-status.json`. |
+| **6** Lifecycle | **cut** | **Cut 2026-07-23 13:42 UTC.** The grant cleared the final external block: retained `site register` returned `adopted-existing`; the matching DA source was observed; `/wave-6-proof.html` was committed through da-cli, activated and verified on preview, classified contentbus, and audited clean. Auth, skills, and Sidekick read are executed; commerce/Stardust remain explicit external-conditionals. The disposable proof route remains preview-only. Evidence: `dogfood/evidence/wave-6/closeout-status.json`. |
 
 ### Riverboat Gambler wave — trusted local automation
 
@@ -82,14 +82,7 @@ triple.
   prepareWrite seam now envelopes all safety refusals; content put validation
   too). Remaining march items: `--strict-sections` exit path, `site freshness`
   bare-array output (rows carry per-row `next[]` but no envelope).
-- `da index show/validate` cannot observe config truth for identities without
-  Configuration Service access (both 403 with clean envelopes) — recorded as a
-  CLI fitness gap per ADR 0002 D6. Use `da index build --wait` and the
-  packaged index inspection commands; if Configuration Service remains 403,
-  permission escalation is required rather than an out-of-band API fallback.
-  **Operator action pending: grant Helix admin
-  write/delete + Configuration Service read to the working identity** (also
-  unblocks the C2 unpublish leg and `/drafts/c1-drill` final cleanup).
+- Configuration Service access was restored on 2026-07-23. The packaged index inspection commands now observe the live config, and the certification index rebuild/validate/query path is green. The separate C2 destructive unpublish decision remains tracked under issue #70.
 
 ### Wave 4 — pass criteria — **CUT 2026-07-16**
 
@@ -288,7 +281,7 @@ doc: **`dogfood/FRICTION-GATE-0.6.0.md`**.
 11. ~~Wave 4 remaining~~ — **cut 2026-07-16**: durable jobs (f022 SIGKILL/resume), migrate (f023 path normalization, f024 collision refusal), pipeline abort (f025 marker clobber) — every completion drill found and fixed a real friction. 575/575 tests.
 12. ~~Wave 5 opened~~ — **2026-07-16**: opening rep A2 (expired auth) recognized/contained/recovered; the recovery verification itself surfaced **f027** (content read-listing success paths were bare arrays — fixed+locked same-session, 600/600). Drill matrix on this board; evidence `dogfood/evidence/wave-5/`.
 13. ~~Wave 5 remaining drills~~ — **cut 2026-07-17** (see matrix + evidence)
-14. **Wave 6 in progress** — second-site and credentialed integration publicly proved through `da-lifecycle-atlas`; classify/close remaining lifecycle + skills conditions, then 0.6.0 version/branch when the site proves
+14. ~~Wave 6 lifecycle~~ — **cut 2026-07-23** after Configuration Service grant recovery, disposable DA write/preview proof, public board update, and index verification. Proceed to strict provenance replay/freeze; do not cut npm/GitHub before the remaining release gates.
 
 ---
 

@@ -1,12 +1,12 @@
 {
   "schemaVersion": "da-cli.wave6-closeout.v1",
   "issue": "https://github.com/somarc/da-cli/issues/67",
-  "status": "blocked-external-permission",
+  "status": "cut",
   "candidate": {
     "version": "0.5.1",
     "installKind": "source-tree",
-    "sha": "dc5499a",
-    "note": "The package version intentionally remains 0.5.1 until the 0.6.0 gate opens."
+    "sha": "42af3d0",
+    "note": "Package version intentionally remains 0.5.1 until the 0.6.0 release workflow."
   },
   "surfaces": {
     "auth": {
@@ -35,21 +35,33 @@
       ]
     },
     "siteCreate": {
-      "classification": "blocked-external-permission",
-      "result": "The public disposable GitHub repo was created, but Configuration Service registration was refused with 403. f041 corrected unrelated-cwd fstab contamination; replay now reports the site as unconfigured.",
+      "classification": "executed-preview-only",
+      "result": "The config:write grant resolved the external block. The retained site register recovery adopted the existing Configuration Service record; explicit diagnostics confirmed the matching DA source. da-cli committed /wave-6-proof.html to DA, activated preview, verified non-empty rendered HTML, classified contentbus, and audited 0 errors/0 warnings. The proof route remains intentionally live 404.",
       "target": "https://github.com/somarc/da-cli-wave6-site-create",
-      "requiredGrant": "AEM Configuration Service config:write for org somarc",
       "recovery": "da --org somarc --repo da-cli-wave6-site-create --commit site register --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc",
       "retention": "Retain unmodified through the 0.6.0 verification window; archive or delete through an authorized operator afterward.",
       "productFix": "https://github.com/somarc/da-cli/pull/80",
       "evidence": [
         "site-create-dry-run.stderr.txt",
         "site-create-commit.stdout.txt",
-        "site-create-info.json",
-        "site-create-model.json",
-        "site-create-model-after-f041.json",
-        "site-create-disposition.txt"
-      ]
+        "site-create-commit.stderr.txt",
+        "site-create-disposition.txt",
+        "grant-recovery-run.json",
+        "site-register-after-grant.json",
+        "site-create-model-after-grant.json",
+        "site-create-content-list-after-grant.json",
+        "site-create-proof-source.sha256.txt",
+        "site-create-proof-put.json",
+        "site-create-proof-preview.json",
+        "site-create-proof-status.json",
+        "site-create-proof-classify.json",
+        "site-create-proof-audit.json",
+        "site-create-doctor-after-grant.json",
+        "site-create-auth-after-grant.json",
+        "site-create-cli-status-after-grant.json"
+      ],
+      "resolvedGrant": "AEM Configuration Service config:write for org somarc, verified 2026-07-23",
+      "proofRoute": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof"
     },
     "codeSidekick": {
       "classification": "executed-read-only",
@@ -78,8 +90,8 @@
     },
     "stardust": {
       "classification": "external-conditional",
-      "result": "Version check, extract, direct, prototype, and migrate dry-run passed locally; committed migration requires a registered disposable DA target, human design approval, and cleanup authority.",
-      "reasonCode": "approved-disposable-da-target-and-cleanup-unavailable",
+      "result": "Version check, extract, direct, prototype, and migrate dry-run passed locally; committed migration remains conditioned on human design approval plus an explicit cleanup or retention disposition.",
+      "reasonCode": "human-design-approval-and-cleanup-disposition-pending",
       "evidence": [
         "stardust-classification.json",
         "stardust-version.txt",
@@ -111,9 +123,36 @@
       "merge": "dc5499a"
     }
   ],
-  "remainingGate": {
-    "code": "configuration-service-config-write-required",
-    "detail": "Grant config:write for somarc, run the recorded site register recovery, author minimal DA content through da-cli, preview and verify the disposable site, then update the DA-backed Wave 6/test-plan pages and stamp the wave cut."
+  "remainingGate": null,
+  "livePublishPerformed": false,
+  "cut": {
+    "status": "cut",
+    "timestamp": "2026-07-23T13:42:50Z",
+    "publicPages": [
+      "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+      "https://main--da-cli-0-6-0--somarc.aem.live/waves/6-lifecycle"
+    ],
+    "evidence": [
+      "wave6-cut-content-push.json",
+      "wave6-cut-preview-test-plan.json",
+      "wave6-cut-preview-hub.json",
+      "wave6-cut-audit-test-plan.json",
+      "wave6-cut-audit-hub.json",
+      "wave6-cut-publish-test-plan.json",
+      "wave6-cut-publish-hub.json",
+      "wave6-cut-live-freshness.json",
+      "wave6-cut-live-test-plan.json",
+      "wave6-cut-index-build.json",
+      "wave6-cut-index-validate.json",
+      "wave6-cut-index-query.json"
+    ]
   },
-  "livePublishPerformed": false
+  "certificationBoardPublish": {
+    "performed": true,
+    "paths": [
+      "/test-plan.html",
+      "/waves/6-lifecycle.html"
+    ],
+    "boundary": "Only the reviewed certification board paths were published. The disposable /wave-6-proof.html route remains preview-only and live 404."
+  }
 }

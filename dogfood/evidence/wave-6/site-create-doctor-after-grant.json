@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "check": "Sidekick registration",
+      "status": "ok",
+      "detail": "main--da-cli-wave6-site-create--somarc.aem.page / main--da-cli-wave6-site-create--somarc.aem.live"
+    },
+    {
+      "check": "Effective DA content source",
+      "status": "ok",
+      "detail": "https://content.da.live/somarc/da-cli-wave6-site-create/"
+    },
+    {
+      "check": "code-bus styles.css",
+      "status": "ok",
+      "detail": "200 https://raw.githubusercontent.com/somarc/da-cli-wave6-site-create/main/styles/styles.css"
+    },
+    {
+      "check": "DA shared docs",
+      "status": "ok",
+      "detail": "found: /footer.html, /index.html, /nav.html"
+    },
+    {
+      "check": "route /index",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-wave6-site-create/"
+    },
+    {
+      "check": "route /nav",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-wave6-site-create/nav"
+    },
+    {
+      "check": "route /footer",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-wave6-site-create/footer"
+    },
+    {
+      "check": "deep route sample",
+      "status": "ok",
+      "detail": "4/4 checked; previewMissing=0; liveMissing=1; failed=0"
+    }
+  ],
+  "recommendations": [
+    "Some deep routes are missing live. Run `da --commit publish tree / --verify-live` when ready."
+  ]
+}

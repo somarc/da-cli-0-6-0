@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "path": "/waves/6-lifecycle",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/6-lifecycle",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/6-lifecycle",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 4
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "5 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Wave 6 — Lifecycle and agent economics\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "12 link(s): 11 internal, 1 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "No blocks found (content-only page)"
+    }
+  ]
+}

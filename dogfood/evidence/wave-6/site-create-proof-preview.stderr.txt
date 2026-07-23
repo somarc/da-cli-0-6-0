@@ -1,0 +1,9 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: preview page /wave-6-proof.html
+  Paths: 1
+    /wave-6-proof.html
+  Note: Preview mutates aem.page/code pipeline state but does not publish to live.
+Triggering preview: /wave-6-proof.html

@@ -1,10 +1,7 @@
 # Wave 6 — lifecycle and conditional
 
 Opened: 2026-07-17 11:53 UTC  
-Status: **blocked on one external grant** — auth, skills, direct Sidekick read,
-and conditional integration classification are retained; the required live
-`site create` rep created its disposable GitHub repo but cannot finish
-Configuration Service registration without `config:write` for `somarc`.
+Status: **cut 2026-07-23 13:42 UTC** — auth, skills, direct Sidekick read, conditional integrations, and the required Configuration Service-first site lifecycle all have retained evidence. The disposable proof route remains preview-only.
 
 ## Second-site specimen
 
@@ -81,32 +78,18 @@ both `da-cli-agent` and Stardust shorthands. The replay then passed
 add → list → info → read in a disposable project and retained the installed
 `SKILL.md` checksum.
 
-### Site create — required rep blocked on `config:write`
+### Site create — grant recovered and preview proven
 
-`da --commit site create da-cli-wave6-site-create` created the public,
-disposable code repository:
-
-https://github.com/somarc/da-cli-wave6-site-create
-
-The subsequent Configuration Service `PUT` was refused with 403. The CLI
-contained the partial lifecycle and emitted the exact recovery:
+The retained recovery was replayed through candidate `42af3d0` after the `config:write` grant. `grant-recovery-run.json` binds every new command to timestamp, target, exit status, stdout/stderr evidence, and the source-tree CLI provenance in `site-create-cli-status-after-grant.json`:
 
 ```sh
 da --org somarc --repo da-cli-wave6-site-create --commit site register \
   --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc
 ```
 
-The canonical API contract identifies the missing authority as
-`config:write`. Re-authentication is not presented as a fix for authorization.
-The repo is retained unmodified through the 0.6 verification window; no live
-publish occurred.
+It returned `action: adopted-existing` and the model resolved an active, matching Configuration Service DA source. The local candidate then committed `/wave-6-proof.html` through `content put`, activated it through `preview page`, verified non-empty rendered HTML, classified it `contentbus`, and audited it with 0 errors/0 warnings. Preview is public at https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof. The proof route remains live 404 by design; this lifecycle rep did not publish it.
 
-The blocked replay also found **f041**: `site model` consumed the current
-checkout's unrelated fstab for an explicit target. Product PR
-[`somarc/da-cli#80`](https://github.com/somarc/da-cli/pull/80) made model and
-doctor probe the requested repo. The after replay now agrees with `site info`:
-the partially created site is `unconfigured`, not a legacy mount to the
-certification site.
+The deep doctor retained the site's existing shared-document health and reported 4/4 preview routes with one live-missing path. The separate preview-status and route-classification artifacts identify that path as `/wave-6-proof.html`.
 
 ### Code Sidekick — read-only contract proven
 
@@ -124,18 +107,12 @@ by AEM Configuration Service / `site register`.
   `product-bus-site-token-and-cleanup-authority-unavailable`.
 - **Stardust:** version check, public extract, local direct/prototype, and DA
   migration dry-run passed. Committed migration is `external-conditional`
-  under stable reason `approved-disposable-da-target-and-cleanup-unavailable`.
+  under stable reason `human-design-approval-and-cleanup-disposition-pending`; the disposable Configuration Service target is now available.
 
-`closeout-status.json` is the machine summary and points to each retained
-artifact. Wave 6 is **not cut** until `config:write` is granted, the recorded
-site-registration recovery succeeds, minimal DA content is previewed and
-verified on the disposable site, and the DA-backed Wave 6/test-plan pages are
-updated through da-cli.
+`closeout-status.json` is the machine summary and points to each retained artifact. The DA-backed `/test-plan` and `/waves/6-lifecycle` pages were updated through managed da-cli workspace push, previewed, audited, published as the reviewed two-path set, and indexed. Wave 6 is cut.
 
 ## Honest residue
 
-- This does **not** cut Wave 6 by itself. One required-destructive lifecycle
-  transition remains blocked on external Configuration Service `config:write`.
 - Success output for `preview pages`, `publish pages`, `audit contracts`, and
   `site freshness` still carries legacy bare array/object shapes in this proof;
   this is retained as f017 migration evidence rather than rewritten.

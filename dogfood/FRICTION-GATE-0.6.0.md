@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column clear** (f015 Critical–f042 fixed/recovered + locked; f017 remains explicitly partial; **f040–f042 are the Wave 6 lifecycle haul**: known skill selection, explicit-target fstab contamination, and an invented Sidekick mutator) — wave column: Waves 1–5 cut with the documented C2 permission defer; Wave 6 is blocked on external Configuration Service `config:write` after a contained partial `site create`.
+**Status:** **friction column clear** (f015 Critical–f042 fixed/recovered + locked; f017 remains explicitly partial; **f040–f042 are the Wave 6 lifecycle haul**: known skill selection, explicit-target fstab contamination, and an invented Sidekick mutator) — wave column: **Waves 1–6 cut**; the Configuration Service grant recovery, disposable DA write/preview proof, public board update, and index verification closed Wave 6 on 2026-07-23. The Wave 5 C2 operator decision remains a separate release gate.
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -28,7 +28,7 @@ trip on, media rewrite traps, contracts that miss autoblocks.
 
 **0.6.0 ships only when:**
 
-1. Waves 1–5 are green with stored evidence (and Wave 6 classified).
+1. Waves 1–6 are green with stored evidence.
 2. DA-native certification and promotion pipelines verify the site and provenance.
 3. **Every Critical/High friction is fixed or explicitly reclassified** with
    evidence (primitive fix + lock, or accepted-risk ADR with operator workaround
@@ -105,16 +105,18 @@ public learning pages. Nothing Critical/High remains open on this list.
 | Platform Helix media rewrite | **Not** fully fixed at platform; CLI warn/rewrite is the contract until Helix resolves host-less `/media` |
 | helix-cli parity | **Contract** parity for merge paths, not nested-git 3-way merge |
 | Published npm | Still **0.5.x**; run **local** `da` — not on npm 0.6.0 |
-| Full 0.6.0 release | **Not cut** — waves 2–6 incomplete |
+| Full 0.6.0 release | **Not cut** — strict provenance, C2 operator decision, final docs-site signoff, and release verification remain |
 
-### Wave column: **NOT CLEAR**
+### Wave column: **CLEAR 2026-07-23**
 
 | Wave | Status | Honest note |
 |------|--------|-------------|
 | 1 Foundation | **Cut** | Evidence pack in `dogfood/evidence/wave-1/` |
 | 2 Blocks/audits/design | **Cut 2026-07-14 02:51 UTC** | kitchen-sink + CLI surface + evidence re-run (`dogfood/evidence/wave-2/`) |
-| 3 Index/routes | **Partial** | Sheet/index/orphan exist; full matrix incomplete |
-| 4–6 | **Not started** | Pipeline/job/migrate, failure injection, lifecycle |
+| 3 Index/routes | **Cut** | Sheet/index/route matrix evidence retained |
+| 4 Coordination/durability/migration | **Cut** | Durable jobs, migration, and pipeline recovery evidence retained |
+| 5 Failure/recovery | **Cut** | C2 final destructive rep remains an explicit operator decision |
+| 6 Lifecycle/conditional | **Cut 2026-07-23** | Configuration Service recovery and preview-only disposable-site proof retained |
 
 ### Bottom line
 
@@ -170,12 +172,12 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
 ### Wave / release column (still required)
 - [x] Wave 2 formal cut with evidence (2026-07-14 02:51 UTC)
-- [ ] Waves 3–5 green + Wave 6 classified
+- [x] Waves 3–6 green with retained evidence
 - [x] Candidate provenance covers 58/58 canonical paths and 125/125 declared public URLs
 - [ ] DA snapshot + isolated replay + strict frozen provenance verify
-- [ ] `test-plan` records full gate clear
+- [x] `test-plan` records wave-column clear; remaining release gates are explicit
 - [ ] Version bump + release branch **after** site proves
 
 When **both** columns are checked: **cut 0.6.0**.
 
-Last updated: **2026-07-16** — Wave 5 opened. Opening rep A2 (expired auth, naturally injected) recognized/contained/recovered; the recovery verification surfaced **f027** (content read-listing success paths were bare arrays under json) — fixed + locked same-session, 600/600, pushed to da-cli main. Friction column stays clear; residue watch: `status` ok:false with exit 0.
+Last updated: **2026-07-23** — Wave 6 cut after the Configuration Service grant recovery, disposable DA source write/preview proof, public board publication, and certification index rebuild/validation. Friction and wave columns are clear; strict provenance, C2 operator decision, final docs-site signoff, and release verification remain.

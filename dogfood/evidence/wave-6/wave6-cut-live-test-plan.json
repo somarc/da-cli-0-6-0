@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/test-plan.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T13:44:38.000Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T13:44:42.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T13:45:51.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan"
+  }
+]

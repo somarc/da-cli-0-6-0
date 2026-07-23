@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "da-cli.wave6-grant-recovery-run.v1",
+  "issue": "https://github.com/somarc/da-cli/issues/67",
+  "candidate": {
+    "version": "0.5.1",
+    "sha": "42af3d0",
+    "installKind": "source-tree",
+    "provenanceEvidence": "site-create-cli-status-after-grant.json"
+  },
+  "authEvidence": "site-create-auth-after-grant.json",
+  "secretRetention": "No token bytes, hashes, cookies, authorization headers, or refresh credentials are retained.",
+  "commands": [
+    {
+      "id": "site-register-after-grant",
+      "timestamp": "2026-07-23T13:38:54.768365Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create --commit site register --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc --format json",
+      "exitStatus": 0,
+      "stdout": "site-register-after-grant.json",
+      "stderr": "site-register-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-proof-put",
+      "timestamp": "2026-07-23T13:38:56.163899Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create --commit content put /wave-6-proof.html ./wave-6-proof.html --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-proof-put.json",
+      "stderr": "site-create-proof-put.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-proof-preview",
+      "timestamp": "2026-07-23T13:38:57.857173Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create --commit preview page /wave-6-proof.html --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-proof-preview.json",
+      "stderr": "site-create-proof-preview.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-proof-status",
+      "timestamp": "2026-07-23T13:38:58.509783Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create preview status /wave-6-proof.html --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-proof-status.json",
+      "stderr": "site-create-proof-status.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-proof-audit",
+      "timestamp": "2026-07-23T13:38:58.832983Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create audit full /wave-6-proof --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-proof-audit.json",
+      "stderr": "site-create-proof-audit.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-proof-classify",
+      "timestamp": "2026-07-23T13:38:59.348145Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create route classify /wave-6-proof.html --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-proof-classify.json",
+      "stderr": "site-create-proof-classify.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-model-after-grant",
+      "timestamp": "2026-07-23T13:38:59.689017Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create site model --no-routes --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-model-after-grant.json",
+      "stderr": "site-create-model-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-content-list-after-grant",
+      "timestamp": "2026-07-23T13:39:00.001033Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create content list / --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-content-list-after-grant.json",
+      "stderr": "site-create-content-list-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-doctor-after-grant",
+      "timestamp": "2026-07-23T13:39:01.424783Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create site doctor --deep --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-doctor-after-grant.json",
+      "stderr": "site-create-doctor-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-auth-after-grant",
+      "timestamp": "2026-07-23T13:39:01.561193Z",
+      "command": "da auth status --min-validity 45m --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-auth-after-grant.json",
+      "stderr": "site-create-auth-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "site-create-cli-status-after-grant",
+      "timestamp": "2026-07-23T13:55:00.492095Z",
+      "command": "da --org somarc --repo da-cli-wave6-site-create status --format json",
+      "exitStatus": 0,
+      "stdout": "site-create-cli-status-after-grant.json",
+      "stderr": "site-create-cli-status-after-grant.stderr.txt",
+      "target": "somarc/da-cli-wave6-site-create"
+    },
+    {
+      "id": "wave6-cut-content-push",
+      "timestamp": "2026-07-23T13:44:39.824668Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit content push --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-content-push.json",
+      "stderr": "wave6-cut-content-push.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-preview-test-plan",
+      "timestamp": "2026-07-23T13:44:42.582808Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit preview page /test-plan.html --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-preview-test-plan.json",
+      "stderr": "wave6-cut-preview-test-plan.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-preview-hub",
+      "timestamp": "2026-07-23T13:44:44.118367Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit preview page /waves/6-lifecycle.html --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-preview-hub.json",
+      "stderr": "wave6-cut-preview-hub.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-audit-test-plan",
+      "timestamp": "2026-07-23T13:44:44.628534Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 audit full /test-plan --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-audit-test-plan.json",
+      "stderr": "wave6-cut-audit-test-plan.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-audit-hub",
+      "timestamp": "2026-07-23T13:44:44.936236Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 audit full /waves/6-lifecycle --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-audit-hub.json",
+      "stderr": "wave6-cut-audit-hub.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-publish-test-plan",
+      "timestamp": "2026-07-23T13:45:51.530857Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit publish page /test-plan.html --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-publish-test-plan.json",
+      "stderr": "wave6-cut-publish-test-plan.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-publish-hub",
+      "timestamp": "2026-07-23T13:45:53.231191Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit publish page /waves/6-lifecycle.html --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-publish-hub.json",
+      "stderr": "wave6-cut-publish-hub.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-live-freshness",
+      "timestamp": "2026-07-23T13:45:54.403002Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 site freshness /waves --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-live-freshness.json",
+      "stderr": "wave6-cut-live-freshness.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-index-build",
+      "timestamp": "2026-07-23T13:46:03.640221Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 --commit index build --wait --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-index-build.json",
+      "stderr": "wave6-cut-index-build.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-index-validate",
+      "timestamp": "2026-07-23T13:46:04.247520Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 index validate --target live --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-index-validate.json",
+      "stderr": "wave6-cut-index-validate.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    },
+    {
+      "id": "wave6-cut-index-query",
+      "timestamp": "2026-07-23T13:46:04.872459Z",
+      "command": "da --org somarc --repo da-cli-0-6-0 index query default --target live --filter status=cut --limit 100 --format json",
+      "exitStatus": 0,
+      "stdout": "wave6-cut-index-query.json",
+      "stderr": "wave6-cut-index-query.stderr.txt",
+      "target": "somarc/da-cli-0-6-0"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "operation": "preview.page",
+  "target": "somarc/da-cli-wave6-site-create/wave-6-proof.html",
+  "data": {
+    "mode": "committed",
+    "path": "/wave-6-proof.html",
+    "previewUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof",
+    "verification": {
+      "kind": "rendered-document",
+      "status": "ok",
+      "url": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof.plain.html",
+      "effectiveUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof.plain.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": 194,
+      "nonEmpty": true,
+      "evidence": "rendered-body"
+    }
+  },
+  "changes": [
+    "/wave-6-proof.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-wave6-site-create --branch main --env prod --commit publish page /wave-6-proof.html"
+  ]
+}
