@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "path": "/test-plan",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 6
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "8 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"The test plan\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "66 link(s): 65 internal, 1 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 7 row(s), 3 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 33 row(s), 2 col(s)"
+    }
+  ]
+}

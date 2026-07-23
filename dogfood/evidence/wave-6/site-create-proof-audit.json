@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "path": "/wave-6-proof",
+  "requestedUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof",
+  "finalUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/wave-6-proof",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 4
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "1 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Wave 6 Configuration Service lifecycle proof\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "0 link(s): 0 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "No blocks found (content-only page)"
+    }
+  ]
+}

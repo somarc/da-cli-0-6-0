@@ -9,9 +9,8 @@
     "DA migration dry-run"
   ],
   "blocked": "human-approved committed DA migration and rendered preview verification",
-  "reasonCode": "approved-disposable-da-target-and-cleanup-unavailable",
+  "reasonCode": "human-design-approval-and-cleanup-disposition-pending",
   "preconditions": [
-    "successful Configuration Service registration for a disposable DA target",
     "human approval of the generated design/prototype",
     "explicit cleanup or retention disposition because Stardust has no remote cleanup command"
   ],

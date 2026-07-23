@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "publish.page",
+  "target": "somarc/da-cli-0-6-0/waves/6-lifecycle.html",
+  "data": {
+    "mode": "committed",
+    "path": "/waves/6-lifecycle.html",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/6-lifecycle"
+  },
+  "changes": [
+    "/waves/6-lifecycle.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --branch main --env prod --commit index build --yes"
+  ]
+}

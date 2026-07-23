@@ -1,0 +1,9 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: content push
+  Paths: 2
+    /test-plan.html
+    /waves/6-lifecycle.html
+Pushed 2 file(s)

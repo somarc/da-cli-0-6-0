@@ -1,0 +1,13 @@
+New document: /wave-6-proof.html
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: content put /wave-6-proof.html
+  Source: ./wave-6-proof.html
+  Paths: 1
+    /wave-6-proof.html
+  Note: EDS head projection: title, description, html-lang will become one generated Metadata block.
+  Note: Render preflight: 1 section(s), 0 block(s).
+  Note: New DA source; canonical live route /wave-6-proof currently returns 404.
+Uploaded /wave-6-proof.html

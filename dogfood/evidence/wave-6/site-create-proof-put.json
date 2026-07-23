@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-wave6-site-create/wave-6-proof.html",
+  "data": {
+    "mode": "committed",
+    "path": "/wave-6-proof.html",
+    "source": "./wave-6-proof.html",
+    "effectiveContentSource": {
+      "state": "configured",
+      "active": true,
+      "selectedBy": "helix-sidekick",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-wave6-site-create",
+        "pathPrefix": "/",
+        "matchesSite": true
+      },
+      "warnings": []
+    }
+  },
+  "changes": [
+    "/wave-6-proof.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-wave6-site-create --branch main --env prod --commit preview page /wave-6-proof.html"
+  ]
+}

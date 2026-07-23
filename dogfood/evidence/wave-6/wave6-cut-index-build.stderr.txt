@@ -1,0 +1,13 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=default
+  Operation: index build *
+  Paths: 1
+    /*
+  Note: The public query index reflects published (live) content only. Previewing a page does not update the index; re-authoring a published page does not either until it is published again. Use `da --commit index build` after publish when the index must catch up.
+  Note: POSTs admin.hlx.page/index/{org}/{repo}/{ref}/{path} to rebuild the query index.
+  Note: Only published (live) content is indexed; preview-only pages will not appear.
+Verifying configured index default at /query-index.json
+Waiting on index job index/job-2026-07-23-13-45-56-30fab1b1…
+Index rebuild verified (state: stopped) for * on somarc/da-cli-0-6-0@main

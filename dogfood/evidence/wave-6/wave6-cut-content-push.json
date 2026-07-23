@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "operation": "content.push",
+  "target": "somarc/da-cli-0-6-0",
+  "data": {
+    "mode": "committed",
+    "status": "completed",
+    "count": 2,
+    "planned": [
+      "/test-plan.html",
+      "/waves/6-lifecycle.html"
+    ],
+    "operations": [
+      {
+        "path": "/test-plan.html",
+        "action": "put",
+        "contentType": "text/html"
+      },
+      {
+        "path": "/waves/6-lifecycle.html",
+        "action": "put",
+        "contentType": "text/html"
+      }
+    ],
+    "changed": [
+      {
+        "path": "/test-plan.html",
+        "action": "put",
+        "contentType": "text/html"
+      },
+      {
+        "path": "/waves/6-lifecycle.html",
+        "action": "put",
+        "contentType": "text/html"
+      }
+    ],
+    "failed": [],
+    "untouched": [],
+    "conflicts": []
+  },
+  "changes": [
+    {
+      "path": "/test-plan.html",
+      "action": "put",
+      "contentType": "text/html"
+    },
+    {
+      "path": "/waves/6-lifecycle.html",
+      "action": "put",
+      "contentType": "text/html"
+    }
+  ],
+  "warnings": [],
+  "next": []
+}

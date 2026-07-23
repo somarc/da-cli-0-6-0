@@ -35,15 +35,14 @@ exist:
 - CLI tag `v0.6.0` does not exist;
 - proof-site tag `proof-v0.6.0` does not exist;
 - an authenticated DA source snapshot/digest has not been captured;
-- isolated replay remains coupled to the unresolved Configuration Service
-  `config:write` boundary tracked by issue #67.
+- isolated replay has not yet been executed; the Configuration Service grant and registered disposable target are now available, so this step is unblocked and moves next under issue #69.
 
 The exact refusal is retained in `strict-freeze.stderr.txt`. A mutable `main`
 branch or a future expected tag is not described as immutable proof.
 
 ## Final freeze procedure
 
-After the external grant and final release candidate are ready:
+With the external grant verified and the registered isolated target ready:
 
 1. Refresh DA authentication interactively if required.
 2. Through local da-cli only, fence DA inventory before/after an ignored

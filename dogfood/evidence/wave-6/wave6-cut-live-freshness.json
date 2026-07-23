@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/waves/1-foundation.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:41.260Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-22T01:39:59.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/1-foundation",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/1-foundation"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:09.745Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-22T01:39:59.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/4-durability"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:48.645Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-22T01:40:00.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/5-failure-recovery"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T13:44:39.681Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T13:44:44.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T13:45:53.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/6-lifecycle",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/6-lifecycle"
+  }
+]
