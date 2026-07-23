@@ -1,0 +1,10 @@
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=flag
+  Operation: publish page /test-plan.html
+  Paths: 1
+    /test-plan.html
+  Note: Publish mutates the live CDN (*.aem.live).
+Publishing: /test-plan.html
+Published to live. Query index is live-only; run `da --commit index build` if indexed metadata must update.

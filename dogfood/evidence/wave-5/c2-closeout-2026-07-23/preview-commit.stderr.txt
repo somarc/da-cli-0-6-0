@@ -1,0 +1,10 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: proof-v0-6-0-replay
+  Config: org=flag, repo=flag, branch=flag
+  Warning: local git remote somarc/da-cli-0-6-0 differs from DA target somarc/da-cli-wave6-site-create
+  Operation: preview page /drafts/c2-orphan-unpublish-proof.html
+  Paths: 1
+    /drafts/c2-orphan-unpublish-proof.html
+  Note: Preview mutates aem.page/code pipeline state but does not publish to live.
+Triggering preview: /drafts/c2-orphan-unpublish-proof.html

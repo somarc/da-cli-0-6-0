@@ -144,4 +144,4 @@ command count.**
 Product fixes land on 0.5.x; the **0.6.0 label is earned by dogfood proof**,
 then version bump + release branch follow.
 
-**Honest cut state:** friction and wave columns are clear. The release hat is not yet earned: candidate provenance covers 58/58 canonical paths and 125/125 public URLs, but DA snapshot/replay, the C2 operator decision, final docs-site signoff, and immutable CLI/proof tags remain open.
+**Honest cut state:** friction and wave columns are clear. The release hat is not yet earned: candidate provenance covers 58/58 canonical paths and 125/125 public URLs, authenticated DA snapshot/replay and the C2 orphan-removal rep are complete; final provenance bindings/tags and docs-site signoff remain open.

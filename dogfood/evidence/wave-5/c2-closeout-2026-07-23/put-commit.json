@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "operation": "content.put",
+  "target": "somarc/da-cli-wave6-site-create/drafts/c2-orphan-unpublish-proof.html",
+  "data": {
+    "mode": "committed",
+    "path": "/drafts/c2-orphan-unpublish-proof.html",
+    "source": "/tmp/da-cli-issue70-c2/c2-orphan-unpublish-proof.html",
+    "effectiveContentSource": {
+      "state": "configured",
+      "active": true,
+      "selectedBy": "helix-sidekick",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-wave6-site-create",
+        "pathPrefix": "/",
+        "matchesSite": true
+      },
+      "warnings": []
+    }
+  },
+  "changes": [
+    "/drafts/c2-orphan-unpublish-proof.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-wave6-site-create --branch proof-v0-6-0-replay --env prod --commit preview page /drafts/c2-orphan-unpublish-proof.html"
+  ]
+}

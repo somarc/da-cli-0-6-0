@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "operation": "preview.page",
+  "target": "somarc/da-cli-0-6-0/test-plan.html",
+  "data": {
+    "mode": "committed",
+    "path": "/test-plan.html",
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+    "verification": {
+      "kind": "rendered-document",
+      "status": "ok",
+      "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan.plain.html",
+      "effectiveUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan.plain.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": 12035,
+      "nonEmpty": true,
+      "evidence": "rendered-body"
+    }
+  },
+  "changes": [
+    "/test-plan.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --branch main --env prod --commit publish page /test-plan.html"
+  ]
+}

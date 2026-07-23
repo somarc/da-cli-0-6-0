@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "da-cli.wave5-c2-closeout.v1",
+  "completedAt": "2026-07-23T16:41:19.331Z",
+  "decision": {
+    "selected": "execute-isolated-rep",
+    "selectedBy": "maintainer",
+    "issue": "https://github.com/somarc/da-cli/issues/70"
+  },
+  "target": {
+    "org": "somarc",
+    "repo": "da-cli-wave6-site-create",
+    "branch": "proof-v0-6-0-replay",
+    "path": "/drafts/c2-orphan-unpublish-proof.html",
+    "classification": "disposable noncanonical route"
+  },
+  "established": {
+    "ownership": "contentbus",
+    "daSource": true,
+    "preview": 200,
+    "live": 200,
+    "code": 404
+  },
+  "orphan": {
+    "ownership": "orphan",
+    "daSource": false,
+    "preview": 200,
+    "live": 200,
+    "staleDaLocation": true
+  },
+  "clean": {
+    "ok": true,
+    "action": "cleaned",
+    "exitCode": 0,
+    "steps": [
+      {
+        "step": "source-delete",
+        "ok": true,
+        "path": "/drafts/c2-orphan-unpublish-proof.html",
+        "note": "skipped-no-da-source"
+      },
+      {
+        "step": "unpreview",
+        "ok": true,
+        "path": "/drafts/c2-orphan-unpublish-proof.html"
+      },
+      {
+        "step": "unpublish",
+        "ok": true,
+        "path": "/drafts/c2-orphan-unpublish-proof.html"
+      }
+    ]
+  },
+  "finalAbsence": {
+    "daSource": false,
+    "preview": 404,
+    "live": 404,
+    "code": 404,
+    "staleDaLocation": false
+  },
+  "permissionScope": {
+    "observed": "Effective Helix DELETE authority for preview and live on somarc/da-cli-wave6-site-create branch proof-v0-6-0-replay",
+    "credentialsRetained": false
+  },
+  "productionOrCanonicalRouteUsed": false,
+  "authoredBodiesRetainedInGit": false,
+  "publicTestPlan": {
+    "sourceUpdatedThroughDaCli": true,
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+    "previewStatus": 200,
+    "renderedCloseoutTextObserved": true,
+    "livePublished": true,
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+    "liveStatus": 200,
+    "freshness": "fresh",
+    "liveCloseoutTextObserved": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "operation": "publish.page",
+  "target": "somarc/da-cli-wave6-site-create/drafts/c2-orphan-unpublish-proof.html",
+  "data": {
+    "mode": "committed",
+    "path": "/drafts/c2-orphan-unpublish-proof.html",
+    "liveUrl": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.live/drafts/c2-orphan-unpublish-proof"
+  },
+  "changes": [
+    "/drafts/c2-orphan-unpublish-proof.html"
+  ],
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-wave6-site-create --branch proof-v0-6-0-replay --env prod --commit index build --yes"
+  ]
+}

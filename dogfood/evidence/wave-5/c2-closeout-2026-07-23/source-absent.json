@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "operation": "content.get",
+  "warnings": [],
+  "errors": [
+    "Not found: https://admin.da.live/source/somarc/da-cli-wave6-site-create/drafts/c2-orphan-unpublish-proof.html"
+  ],
+  "next": []
+}
