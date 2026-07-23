@@ -1,0 +1,5 @@
+Creating EDS site: somarc/da-cli-wave6-site-create
+Template: adobe/aem-boilerplate
+Content config: Configuration Service somarc/da-cli-wave6-site-create
+[dry-run] Create GitHub repo somarc/da-cli-wave6-site-create from adobe/aem-boilerplate
+  Pass --commit to execute.

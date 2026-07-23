@@ -1,0 +1,13 @@
+https://github.com/somarc/da-cli-wave6-site-create
+{
+  "ok": false,
+  "operation": "site.create",
+  "target": "somarc/da-cli-wave6-site-create",
+  "warnings": [],
+  "errors": [
+    "GitHub repo somarc/da-cli-wave6-site-create was created, but Configuration Service registration failed: DA API 403 at https://admin.hlx.page/config/somarc/sites/da-cli-wave6-site-create.json"
+  ],
+  "next": [
+    "da --org somarc --repo da-cli-wave6-site-create --commit site register --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc"
+  ]
+}

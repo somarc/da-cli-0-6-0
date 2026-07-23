@@ -1,0 +1,8 @@
+Discoverable local skills:
+
+  NAME                                    SOURCE                       PATH
+  ------------------------------------------------------------------------------------------------------------------------------
+  da-cli-agent                            project (.agents/skills)     .agents/skills/da-cli-agent
+  [76 non-target skills omitted from retained evidence]
+
+Found 77 skill(s)

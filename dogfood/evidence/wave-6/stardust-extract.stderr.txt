@@ -1,0 +1,4 @@
+Crawling https://main--da-cli-0-6-0--somarc.aem.page/ (max 1 pages)…
+
+Extracted 1 page(s) → .stardust/current/
+Next: da stardust direct "<redesign intent>"

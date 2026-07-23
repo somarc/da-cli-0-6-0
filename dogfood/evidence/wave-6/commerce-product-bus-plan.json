@@ -1,0 +1,19 @@
+{
+  "mode": "product-bus",
+  "org": "somarc",
+  "site": "da-cli-wave6-site-create",
+  "namespace": "wave6-proof",
+  "productCount": 3,
+  "batchSize": 50,
+  "batchCount": 1,
+  "catalogEndpoint": "https://api.adobecommerce.live/somarc/sites/da-cli-wave6-site-create/catalog/*",
+  "indexEndpoint": "https://api.adobecommerce.live/somarc/sites/da-cli-wave6-site-create/index/wave6-proof/products/index.json",
+  "validation": {
+    "valid": true,
+    "errors": []
+  },
+  "notes": [
+    "Product Bus ingestion writes structured catalog records; DA pages are optional editorial overlays at matching paths.",
+    "Product Bus indexing is asynchronous. Generated index/feed surfaces may lag ingestion."
+  ]
+}

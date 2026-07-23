@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "da-cli.site-model.v2",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-wave6-site-create",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "expectedDa": "https://content.da.live/somarc/da-cli-wave6-site-create/",
+    "effectiveContent": {
+      "state": "unconfigured",
+      "active": false,
+      "selectedBy": null,
+      "source": null,
+      "warnings": []
+    },
+    "codebus": "https://github.com/somarc/da-cli-wave6-site-create"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-wave6-site-create--somarc.aem.page",
+    "liveHost": "https://main--da-cli-wave6-site-create--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-wave6-site-create--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-wave6-site-create--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "<release-site-workspace>",
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "flag"
+    }
+  },
+  "recommendations": [
+    {
+      "severity": "info",
+      "code": "pin-project-target",
+      "detail": "Pin org/repo in project .da.json before repeated writes or durable jobs.",
+      "next": "da --org somarc --repo da-cli-wave6-site-create site pin-target --branch main"
+    },
+    {
+      "severity": "warning",
+      "code": "content-source-unconfigured",
+      "detail": "No effective DA markup content source is registered for this delivery site.",
+      "next": "da --org somarc --repo da-cli-wave6-site-create site info"
+    }
+  ],
+  "routes": []
+}

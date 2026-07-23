@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "operation": "code.sidekick.get",
+  "target": "sidekick config",
+  "warnings": [],
+  "errors": [
+    "Not found: sidekick config"
+  ],
+  "next": []
+}

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "operation": "status",
+  "data": {
+    "cwd": "<release-site-workspace>",
+    "cli": {
+      "version": "0.5.1",
+      "packageRoot": "<da-cli-workspace>",
+      "installKind": "source-tree",
+      "git": {
+        "sha": "dc5499a",
+        "dirty": false
+      }
+    },
+    "config": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "env": "prod",
+      "branch": "main",
+      "sources": {
+        "org": "project",
+        "repo": "project",
+        "env": "default",
+        "branch": "default"
+      },
+      "projectConfigPath": "<release-site-workspace>/.da.json",
+      "globalConfigPath": "<home>/.da/config.json"
+    },
+    "auth": {
+      "valid": true,
+      "reason": null,
+      "expiresAt": 1784763817686,
+      "remainingMs": 3800013
+    },
+    "git": {
+      "available": true,
+      "root": "<release-site-workspace>",
+      "branch": "release/67-wave6-closeout",
+      "upstream": null,
+      "dirty": true
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --format json content list /"
+  ]
+}

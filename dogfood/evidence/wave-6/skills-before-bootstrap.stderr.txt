@@ -1,0 +1,2 @@
+upskill CLI not found. Run: da skills bootstrap
+Or manually: curl -fsSL https://raw.githubusercontent.com/ai-ecoverse/gh-upskill/main/install.sh | bash

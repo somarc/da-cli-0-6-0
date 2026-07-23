@@ -1,0 +1,23 @@
+{
+  "surface": "commerce",
+  "classification": "external-conditional",
+  "executed": [
+    "fixture scaffold",
+    "fixture inspect",
+    "Product Bus plan",
+    "Product Bus ingest dry-run"
+  ],
+  "blocked": "committed Product Bus ingest and public index verification",
+  "reasonCode": "product-bus-site-token-and-cleanup-authority-unavailable",
+  "preconditions": [
+    "approved Product Bus-provisioned disposable site and namespace",
+    "Product Bus-authorized credential supplied through an approved secret channel",
+    "external deletion or retention protocol because da-cli has no Product Bus cleanup command"
+  ],
+  "futureEvidence": [
+    "redacted reviewed plan",
+    "committed per-batch ingest statuses",
+    "public index inspect with expected product count",
+    "cleanup or retention disposition"
+  ]
+}

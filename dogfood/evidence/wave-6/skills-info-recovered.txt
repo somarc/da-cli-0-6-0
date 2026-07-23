@@ -1,0 +1,8 @@
+Skill: da-cli-agent
+Path: .agents/skills/da-cli-agent/SKILL.md
+Source: project (.agents/skills)
+Description: Use this skill when an agent is working in an AEM Edge Delivery Services project with @somarc/da-cli, especially when first entering a repo, validating DA content, authoring blocks, preparing preview/live releases, or deciding which da-cli primitive to use next.
+
+Contents:
+SKILL.md
+package.json

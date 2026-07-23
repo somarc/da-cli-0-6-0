@@ -1,0 +1,11 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: main
+  Config: org=flag, repo=flag, branch=flag
+  Warning: local git remote somarc/da-cli-0-6-0 differs from DA target somarc/da-cli-wave6-site-create
+  Operation: code sidekick set
+  Paths: 1
+    sidekick-config
+  Note: Sidekick config update mutates Helix admin configuration.
+[dry-run] Update sidekick config
+  Pass --commit to execute.

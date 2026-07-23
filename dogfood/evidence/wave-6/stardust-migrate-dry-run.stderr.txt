@@ -1,0 +1,10 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: main
+  Config: org=flag, repo=flag, branch=flag
+  Operation: stardust migrate --all
+  Paths: 1
+    /index.html
+  Note: Stardust migration uploads DA source and triggers preview for migrated pages.
+[dry-run] Migrate / to DA
+  Pass --commit to execute.

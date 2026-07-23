@@ -1,0 +1,14 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: wave6-proof
+  Config: org=flag, repo=flag, branch=flag
+  Operation: Product Bus catalog ingest
+  Source: <isolated-commerce-root>/catalog/products/comfort-devices/index.json
+  Paths: 3
+    /products/comfort-devices/hug-recovery-wrap
+    /products/diagnostic-tools/comfort-monitor
+    /products/recovery-kits/nap-recovery-kit
+  Note: Product Bus ingestion writes structured catalog records; DA pages are optional editorial overlays at matching paths.
+  Note: Product Bus indexing is asynchronous. Generated index/feed surfaces may lag ingestion.
+[dry-run] Ingest 3 Product Bus catalog record(s) into somarc/da-cli-wave6-site-create
+  Pass --commit to execute.

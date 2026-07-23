@@ -1,0 +1,4 @@
+Installing to <isolated-home>/.local/bin ...
+Installed <isolated-home>/.local/bin/upskill
+Installed <isolated-home>/.local/bin/gh-upskill
+Done. Ensure <isolated-home>/.local/bin is on your PATH.

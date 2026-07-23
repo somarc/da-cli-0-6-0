@@ -1,0 +1,1 @@
+Scaffolded local commerce fixture content. Review before using content put-tree.

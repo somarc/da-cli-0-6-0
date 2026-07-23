@@ -1,0 +1,5 @@
+site=somarc/da-cli-wave6-site-create
+classification=required-destructive disposable lifecycle proof
+retention=retain unmodified through the @somarc/da-cli 0.6.0 release verification window
+cleanup=archive or delete through an explicitly authorized GitHub/Configuration Service operator after release; da-cli 0.5.1 has no site delete/unregister primitive
+livePublish=not authorized by this Wave 6 rep

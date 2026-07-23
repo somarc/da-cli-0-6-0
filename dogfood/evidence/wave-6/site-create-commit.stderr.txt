@@ -1,0 +1,6 @@
+Creating EDS site: somarc/da-cli-wave6-site-create
+Template: adobe/aem-boilerplate
+Content config: Configuration Service somarc/da-cli-wave6-site-create
+Cloning into 'da-cli-wave6-site-create'...
+GitHub repo somarc/da-cli-wave6-site-create was created, but Configuration Service registration failed: DA API 403 at https://admin.hlx.page/config/somarc/sites/da-cli-wave6-site-create.json
+Retry safely: da --org somarc --repo da-cli-wave6-site-create --commit site register --code-owner somarc --code-repo da-cli-wave6-site-create --da-org somarc
