@@ -131,6 +131,25 @@ The route-clean 403 left a REAL orphan (source deleted, preview/live 200):
   deferred until Helix admin delete permission lands; `/drafts/c1-drill`
   carries its own removal instructions.
 
+## C2 — final orphan-removal closeout (2026-07-23)
+
+The maintainer selected the executed isolated rep under issue #70. On the
+registered disposable site and branch `proof-v0-6-0-replay`, da-cli:
+
+1. established noncanonical `/drafts/c2-orphan-unpublish-proof.html` as
+   contentbus with DA source, preview 200, and live 200;
+2. deleted only DA source, then classified a real orphan with source absent and
+   preview/live still 200;
+3. dry-ran `route clean`, which planned no source delete and exactly unpreview +
+   unpublish;
+4. committed `route clean`; both Helix DELETE steps succeeded with exit 0;
+5. verified DA source absent and preview/live/code all 404.
+
+This proves effective Helix delete authority for the isolated target without
+using a production or canonical route. Credentials and the temporary authored
+body are not retained. Redacted command and public-absence evidence is in
+`c2-closeout-2026-07-23/`.
+
 ## f032 field proof
 
 - `f032-refusal-envelope.json` — the exact `preview page` refusal that was
@@ -176,11 +195,11 @@ findings, all fixed + locked + field-re-proven same-session (618/618).
 - **D4** (`d4-*`) — mid-batch 404: per-row honesty held (f023/f024 fixes
   visible), but exit 0 + bare array; now one `migrate.batch` envelope, exit 1
   on any failed line. Failed line recovered to the same path, validate clean.
-- **C2** (`c2-unpublish-still-403-clean-envelope.json`) — permission re-probed
-  at cut time: live-unpublish still 403 for this identity (clean envelope with
-  `denied at` — f028's improvement visible). Final orphan-removal rep stays
-  deferred on the operator grant; recognition/containment/recovery banked from
-  the natural rep.
+- **C2** (`c2-unpublish-still-403-clean-envelope.json`) — historical cut-time
+  permission refusal remains retained as recognition/containment evidence. The
+  final authorized isolated rep completed on 2026-07-23 with successful
+  unpreview/unpublish and source/preview/live absence; see
+  `c2-closeout-2026-07-23/`.
 
 **Banked pointers:** D1 = wave-4 f022 SIGKILL/resume evidence; D2 = wave-4
 `job-cancel-show.json`; D3-abort = f025 field drill on the 74-step regen;

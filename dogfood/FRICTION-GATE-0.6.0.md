@@ -1,6 +1,6 @@
 # 0.6.0 friction gate — hang our hat here
 
-**Status:** **friction column clear** (f015 Critical–f042 fixed/recovered + locked; f017 remains explicitly partial; **f040–f042 are the Wave 6 lifecycle haul**: known skill selection, explicit-target fstab contamination, and an invented Sidekick mutator) — wave column: **Waves 1–6 cut**; the Configuration Service grant recovery, disposable DA write/preview proof, public board update, and index verification closed Wave 6 on 2026-07-23. The Wave 5 C2 operator decision remains a separate release gate.
+**Status:** **friction column clear** (f015 Critical–f042 fixed/recovered + locked; f017 remains explicitly partial; **f040–f042 are the Wave 6 lifecycle haul**: known skill selection, explicit-target fstab contamination, and an invented Sidekick mutator) — wave column: **Waves 1–6 cut**; the Configuration Service grant recovery, disposable DA write/preview proof, public board update, and index verification closed Wave 6 on 2026-07-23. The Wave 5 C2 destructive rep is closed with isolated unpreview/unpublish and full public-absence proof.
 **Site:** https://main--da-cli-0-6-0--somarc.aem.live/
 **Companion boards:** `ROADMAP.md`, `WAVES.md`, public `/test-plan`, public `/learnings`
 **Rule:** 0.6.0 is a **substantial** release. Waves prove surface coverage. **This
@@ -105,7 +105,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | Platform Helix media rewrite | **Not** fully fixed at platform; CLI warn/rewrite is the contract until Helix resolves host-less `/media` |
 | helix-cli parity | **Contract** parity for merge paths, not nested-git 3-way merge |
 | Published npm | Still **0.5.x**; run **local** `da` — not on npm 0.6.0 |
-| Full 0.6.0 release | **Not cut** — strict provenance, C2 operator decision, final docs-site signoff, and release verification remain |
+| Full 0.6.0 release | **Not cut** — final strict provenance bindings/tags, final docs-site signoff, and release verification remain |
 
 ### Wave column: **CLEAR 2026-07-23**
 
@@ -115,7 +115,7 @@ public learning pages. Nothing Critical/High remains open on this list.
 | 2 Blocks/audits/design | **Cut 2026-07-14 02:51 UTC** | kitchen-sink + CLI surface + evidence re-run (`dogfood/evidence/wave-2/`) |
 | 3 Index/routes | **Cut** | Sheet/index/route matrix evidence retained |
 | 4 Coordination/durability/migration | **Cut** | Durable jobs, migration, and pipeline recovery evidence retained |
-| 5 Failure/recovery | **Cut** | C2 final destructive rep remains an explicit operator decision |
+| 5 Failure/recovery | **Cut; C2 closed 2026-07-23** | Isolated contentbus → orphan → route-clean rep proved successful unpreview/unpublish and source/preview/live absence |
 | 6 Lifecycle/conditional | **Cut 2026-07-23** | Configuration Service recovery and preview-only disposable-site proof retained |
 
 ### Bottom line
@@ -125,9 +125,10 @@ public learning pages. Nothing Critical/High remains open on this list.
   code with locks on main.
 - **Release hat:** **do not cut 0.6.0** yet. Wave proof + construct regen +
   provenance + 0.5.x→0.6.0 branch/version discipline remain.
-- **Residual risks (not open fNNN, but real):** Helix unpublish 403 on orphans
-  (`/findings` ghost CDN); skill docs may lag local CLI; media still needs
-  absolute or rewrite discipline at authoring time.
+- **Residual risks (not open fNNN, but real):** the historical `/findings`
+  ghost remains historical evidence rather than the destructive specimen;
+  skill docs may lag local CLI; media still needs absolute or rewrite
+  discipline at authoring time.
 
 ---
 
@@ -180,4 +181,4 @@ New dogfood pain → new `fNNN` learning; do not reopen closed ids.
 
 When **both** columns are checked: **cut 0.6.0**.
 
-Last updated: **2026-07-23** — Wave 6 cut after the Configuration Service grant recovery, disposable DA source write/preview proof, public board publication, and certification index rebuild/validation. Friction and wave columns are clear; strict provenance, C2 operator decision, final docs-site signoff, and release verification remain.
+Last updated: **2026-07-23** — Wave 6 cut after the Configuration Service grant recovery, disposable DA source write/preview proof, public board publication, and certification index rebuild/validation. Friction and wave columns are clear; C2 is closed; final strict provenance bindings/tags, docs-site signoff, and release verification remain.

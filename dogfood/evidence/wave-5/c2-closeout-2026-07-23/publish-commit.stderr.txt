@@ -1,0 +1,11 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: proof-v0-6-0-replay
+  Config: org=flag, repo=flag, branch=flag
+  Warning: local git remote somarc/da-cli-0-6-0 differs from DA target somarc/da-cli-wave6-site-create
+  Operation: publish page /drafts/c2-orphan-unpublish-proof.html
+  Paths: 1
+    /drafts/c2-orphan-unpublish-proof.html
+  Note: Publish mutates the live CDN (*.aem.live).
+Publishing: /drafts/c2-orphan-unpublish-proof.html
+Published to live. Query index is live-only; run `da --commit index build` if indexed metadata must update.

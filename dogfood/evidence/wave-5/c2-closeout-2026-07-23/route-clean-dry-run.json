@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "path": "/drafts/c2-orphan-unpublish-proof.html",
+  "action": "dry-run",
+  "ownership": "orphan",
+  "sourcePath": "/drafts/c2-orphan-unpublish-proof.html",
+  "planned": {
+    "deleteSource": false,
+    "unpreview": true,
+    "unpublish": true
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "path": "/drafts/c2-orphan-unpublish-proof.html",
+  "action": "cleaned",
+  "ownership": "orphan",
+  "sourcePath": "/drafts/c2-orphan-unpublish-proof.html",
+  "steps": [
+    {
+      "step": "source-delete",
+      "ok": true,
+      "path": "/drafts/c2-orphan-unpublish-proof.html",
+      "note": "skipped-no-da-source"
+    },
+    {
+      "step": "unpreview",
+      "ok": true,
+      "path": "/drafts/c2-orphan-unpublish-proof.html"
+    },
+    {
+      "step": "unpublish",
+      "ok": true,
+      "path": "/drafts/c2-orphan-unpublish-proof.html"
+    }
+  ],
+  "exitCode": 0
+}
