@@ -68,6 +68,10 @@
     "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
     "previewStatus": 200,
     "renderedCloseoutTextObserved": true,
-    "livePublished": false
+    "livePublished": true,
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan",
+    "liveStatus": 200,
+    "freshness": "fresh",
+    "liveCloseoutTextObserved": true
   }
 }
