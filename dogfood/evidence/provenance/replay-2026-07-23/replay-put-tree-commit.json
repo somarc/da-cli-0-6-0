@@ -1,0 +1,1247 @@
+[
+  {
+    "path": "/benchmarks/token-efficiency.html",
+    "file": ".da/workspace/benchmarks/token-efficiency.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/adobe-skills.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/adobe-skills.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/da-cli.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/da-cli.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/methodology.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/methodology.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-1.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-1.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2-da-cli.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/blocks.html",
+    "file": ".da/workspace/blocks.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/cli-surface.html",
+    "file": ".da/workspace/cli-surface.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/coverage.html",
+    "file": ".da/workspace/coverage.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/data/contact-form.json",
+    "file": ".da/workspace/data/contact-form.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/data/coverage.json",
+    "file": ".da/workspace/data/coverage.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/data/token-efficiency.json",
+    "file": ".da/workspace/data/token-efficiency.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/data/wave-2-cli-surface.json",
+    "file": ".da/workspace/data/wave-2-cli-surface.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/dogfood-sites.html",
+    "file": ".da/workspace/dogfood-sites.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/b1-drill.html",
+    "file": ".da/workspace/drafts/b1-drill.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/b2-drill.html",
+    "file": ".da/workspace/drafts/b2-drill.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/b3-drill.html",
+    "file": ".da/workspace/drafts/b3-drill.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/c1-drill.html",
+    "file": ".da/workspace/drafts/c1-drill.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/f039-head-metadata-conflict.html",
+    "file": ".da/workspace/drafts/f039-head-metadata-conflict.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-com.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-net.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-org.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/d4/alpha.html",
+    "file": ".da/workspace/drafts/migrate/d4/alpha.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/d4/doomed.html",
+    "file": ".da/workspace/drafts/migrate/d4/doomed.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/d4/gamma.html",
+    "file": ".da/workspace/drafts/migrate/d4/gamma.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "file": ".da/workspace/drafts/migrate/example-com.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/dualform.html",
+    "file": ".da/workspace/dualform.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/footer.html",
+    "file": ".da/workspace/footer.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/frontier.html",
+    "file": ".da/workspace/frontier.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/index.html",
+    "file": ".da/workspace/index.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "file": ".da/workspace/kitchen-sink.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings.html",
+    "file": ".da/workspace/learnings.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "file": ".da/workspace/learnings/f001-site-info-target.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "file": ".da/workspace/learnings/f002-design-detect-envelope.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "file": ".da/workspace/learnings/f003-index-build.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "file": ".da/workspace/learnings/f004-index-env-preview.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "file": ".da/workspace/learnings/f005-route-codebus.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "file": ".da/workspace/learnings/f006-stale-contentbus.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "file": ".da/workspace/learnings/f007-route-clean-orphan.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "file": ".da/workspace/learnings/f008-content-merge-path.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "file": ".da/workspace/learnings/f009-content-put-outside-worktree.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "file": ".da/workspace/learnings/f010-media-absolute-url-rewrite.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "file": ".da/workspace/learnings/f011-audit-contracts-autoblock.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f012-da-permission-headers.html",
+    "file": ".da/workspace/learnings/f012-da-permission-headers.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "file": ".da/workspace/learnings/f013-tools-classify-probe-gap.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "file": ".da/workspace/learnings/f014-pipeline-json-stdout.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "file": ".da/workspace/learnings/f015-job-run-commit-bypass.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "file": ".da/workspace/learnings/f016-code-job-broken-route.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f017-envelope-coverage.html",
+    "file": ".da/workspace/learnings/f017-envelope-coverage.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "file": ".da/workspace/learnings/f018-content-diff-traversal.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "file": ".da/workspace/learnings/f019-inverted-safety-tiers.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "file": ".da/workspace/learnings/f020-non-tty-auth-hang.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "file": ".da/workspace/learnings/f021-bulk-silent-noop.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f022-stale-job-lock.html",
+    "file": ".da/workspace/learnings/f022-stale-job-lock.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f023-migrate-path-normalization.html",
+    "file": ".da/workspace/learnings/f023-migrate-path-normalization.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f024-batch-collision-overwrite.html",
+    "file": ".da/workspace/learnings/f024-batch-collision-overwrite.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f025-abort-marker-clobbered.html",
+    "file": ".da/workspace/learnings/f025-abort-marker-clobbered.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f026-deploy-double-envelope.html",
+    "file": ".da/workspace/learnings/f026-deploy-double-envelope.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "file": ".da/workspace/learnings/f027-list-success-bare-array.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f028-config-read-gated-build.html",
+    "file": ".da/workspace/learnings/f028-config-read-gated-build.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f029-index-config-false-migration.html",
+    "file": ".da/workspace/learnings/f029-index-config-false-migration.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f030-silent-global-target.html",
+    "file": ".da/workspace/learnings/f030-silent-global-target.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f031-freshness-blind-to-staleness.html",
+    "file": ".da/workspace/learnings/f031-freshness-blind-to-staleness.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f032-silent-refusals.html",
+    "file": ".da/workspace/learnings/f032-silent-refusals.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f033-version-blind-binary-skew.html",
+    "file": ".da/workspace/learnings/f033-version-blind-binary-skew.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f034-merge-destroys-local-side.html",
+    "file": ".da/workspace/learnings/f034-merge-destroys-local-side.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f035-broken-off-switch.html",
+    "file": ".da/workspace/learnings/f035-broken-off-switch.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f036-approval-gate-zombie.html",
+    "file": ".da/workspace/learnings/f036-approval-gate-zombie.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f037-put-blind-missing-media.html",
+    "file": ".da/workspace/learnings/f037-put-blind-missing-media.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+    "file": ".da/workspace/learnings/f038-fstab-shadowed-effective-config.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/learnings/f039-duplicate-metadata-channels.html",
+    "file": ".da/workspace/learnings/f039-duplicate-metadata-channels.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/media/dualform/column-a.webp",
+    "file": ".da/workspace/media/dualform/column-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/column-b.webp",
+    "file": ".da/workspace/media/dualform/column-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/compass-a.webp",
+    "file": ".da/workspace/media/dualform/compass-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/compass-b.webp",
+    "file": ".da/workspace/media/dualform/compass-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/form-a.webp",
+    "file": ".da/workspace/media/dualform/form-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/form-b.webp",
+    "file": ".da/workspace/media/dualform/form-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/lock-a.webp",
+    "file": ".da/workspace/media/dualform/lock-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/lock-b.webp",
+    "file": ".da/workspace/media/dualform/lock-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/mic-a.webp",
+    "file": ".da/workspace/media/dualform/mic-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/mic-b.webp",
+    "file": ".da/workspace/media/dualform/mic-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/orrery-a.webp",
+    "file": ".da/workspace/media/dualform/orrery-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/orrery-b.webp",
+    "file": ".da/workspace/media/dualform/orrery-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/vessel-a.webp",
+    "file": ".da/workspace/media/dualform/vessel-a.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/dualform/vessel-b.webp",
+    "file": ".da/workspace/media/dualform/vessel-b.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/cli-surface-ledger.webp",
+    "file": ".da/workspace/media/renderaissance/cli-surface-ledger.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/coverage-catalog.webp",
+    "file": ".da/workspace/media/renderaissance/coverage-catalog.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/findings-flywheel.webp",
+    "file": ".da/workspace/media/renderaissance/findings-flywheel.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-bg.webp",
+    "file": ".da/workspace/media/renderaissance/hero-bg.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-figure.webp",
+    "file": ".da/workspace/media/renderaissance/hero-figure.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-object.webp",
+    "file": ".da/workspace/media/renderaissance/hero-object.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-height.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-height.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-normal.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-normal.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-roughness.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-roughness.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/mascot-cupid.webp",
+    "file": ".da/workspace/media/renderaissance/mascot-cupid.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/parthenon-frame-study.jpg",
+    "file": ".da/workspace/media/renderaissance/parthenon-frame-study.jpg",
+    "kind": "binary",
+    "mimeType": "image/jpeg"
+  },
+  {
+    "path": "/media/renderaissance/sprig.svg",
+    "file": ".da/workspace/media/renderaissance/sprig.svg",
+    "kind": "binary",
+    "mimeType": "image/svg+xml"
+  },
+  {
+    "path": "/media/renderaissance/test-plan-waves.webp",
+    "file": ".da/workspace/media/renderaissance/test-plan-waves.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/media/renderaissance/why-operator.webp",
+    "file": ".da/workspace/media/renderaissance/why-operator.webp",
+    "kind": "binary",
+    "mimeType": "image/webp"
+  },
+  {
+    "path": "/modals/sample.html",
+    "file": ".da/workspace/modals/sample.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/nav.html",
+    "file": ".da/workspace/nav.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/redirects.json",
+    "file": ".da/workspace/redirects.json",
+    "kind": "json",
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/route-matrix.html",
+    "file": ".da/workspace/route-matrix.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/sheets.html",
+    "file": ".da/workspace/sheets.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/test-plan.html",
+    "file": ".da/workspace/test-plan.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/waves/1-foundation.html",
+    "file": ".da/workspace/waves/1-foundation.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "file": ".da/workspace/waves/4-durability.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "file": ".da/workspace/waves/5-failure-recovery.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "file": ".da/workspace/waves/6-lifecycle.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  },
+  {
+    "path": "/why.html",
+    "file": ".da/workspace/why.html",
+    "kind": "html",
+    "mimeType": "text/html"
+  }
+]
+[
+  {
+    "path": "/benchmarks/token-efficiency.html",
+    "file": ".da/workspace/benchmarks/token-efficiency.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/adobe-skills.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/adobe-skills.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/da-cli.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/da-cli.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/methodology.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/methodology.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-1.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-1.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2-da-cli.html",
+    "status": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2.html",
+    "file": ".da/workspace/benchmarks/token-efficiency/round-2.html",
+    "status": "ok"
+  },
+  {
+    "path": "/blocks.html",
+    "file": ".da/workspace/blocks.html",
+    "status": "ok"
+  },
+  {
+    "path": "/cli-surface.html",
+    "file": ".da/workspace/cli-surface.html",
+    "status": "ok"
+  },
+  {
+    "path": "/coverage.html",
+    "file": ".da/workspace/coverage.html",
+    "status": "ok"
+  },
+  {
+    "path": "/data/contact-form.json",
+    "file": ".da/workspace/data/contact-form.json",
+    "status": "ok"
+  },
+  {
+    "path": "/data/coverage.json",
+    "file": ".da/workspace/data/coverage.json",
+    "status": "ok"
+  },
+  {
+    "path": "/data/token-efficiency.json",
+    "file": ".da/workspace/data/token-efficiency.json",
+    "status": "ok"
+  },
+  {
+    "path": "/data/wave-2-cli-surface.json",
+    "file": ".da/workspace/data/wave-2-cli-surface.json",
+    "status": "ok"
+  },
+  {
+    "path": "/dogfood-sites.html",
+    "file": ".da/workspace/dogfood-sites.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/b1-drill.html",
+    "file": ".da/workspace/drafts/b1-drill.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/b2-drill.html",
+    "file": ".da/workspace/drafts/b2-drill.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/b3-drill.html",
+    "file": ".da/workspace/drafts/b3-drill.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/c1-drill.html",
+    "file": ".da/workspace/drafts/c1-drill.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/f039-head-metadata-conflict.html",
+    "file": ".da/workspace/drafts/f039-head-metadata-conflict.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-com.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-net.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "file": ".da/workspace/drafts/migrate/batch/example-org.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/alpha.html",
+    "file": ".da/workspace/drafts/migrate/d4/alpha.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/doomed.html",
+    "file": ".da/workspace/drafts/migrate/d4/doomed.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/gamma.html",
+    "file": ".da/workspace/drafts/migrate/d4/gamma.html",
+    "status": "ok"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "file": ".da/workspace/drafts/migrate/example-com.html",
+    "status": "ok"
+  },
+  {
+    "path": "/dualform.html",
+    "file": ".da/workspace/dualform.html",
+    "status": "ok"
+  },
+  {
+    "path": "/footer.html",
+    "file": ".da/workspace/footer.html",
+    "status": "ok"
+  },
+  {
+    "path": "/frontier.html",
+    "file": ".da/workspace/frontier.html",
+    "status": "ok"
+  },
+  {
+    "path": "/index.html",
+    "file": ".da/workspace/index.html",
+    "status": "ok"
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "file": ".da/workspace/kitchen-sink.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings.html",
+    "file": ".da/workspace/learnings.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "file": ".da/workspace/learnings/f001-site-info-target.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "file": ".da/workspace/learnings/f002-design-detect-envelope.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "file": ".da/workspace/learnings/f003-index-build.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "file": ".da/workspace/learnings/f004-index-env-preview.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "file": ".da/workspace/learnings/f005-route-codebus.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "file": ".da/workspace/learnings/f006-stale-contentbus.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "file": ".da/workspace/learnings/f007-route-clean-orphan.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "file": ".da/workspace/learnings/f008-content-merge-path.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "file": ".da/workspace/learnings/f009-content-put-outside-worktree.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "file": ".da/workspace/learnings/f010-media-absolute-url-rewrite.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "file": ".da/workspace/learnings/f011-audit-contracts-autoblock.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f012-da-permission-headers.html",
+    "file": ".da/workspace/learnings/f012-da-permission-headers.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "file": ".da/workspace/learnings/f013-tools-classify-probe-gap.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "file": ".da/workspace/learnings/f014-pipeline-json-stdout.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "file": ".da/workspace/learnings/f015-job-run-commit-bypass.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "file": ".da/workspace/learnings/f016-code-job-broken-route.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f017-envelope-coverage.html",
+    "file": ".da/workspace/learnings/f017-envelope-coverage.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "file": ".da/workspace/learnings/f018-content-diff-traversal.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "file": ".da/workspace/learnings/f019-inverted-safety-tiers.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "file": ".da/workspace/learnings/f020-non-tty-auth-hang.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "file": ".da/workspace/learnings/f021-bulk-silent-noop.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f022-stale-job-lock.html",
+    "file": ".da/workspace/learnings/f022-stale-job-lock.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f023-migrate-path-normalization.html",
+    "file": ".da/workspace/learnings/f023-migrate-path-normalization.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f024-batch-collision-overwrite.html",
+    "file": ".da/workspace/learnings/f024-batch-collision-overwrite.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f025-abort-marker-clobbered.html",
+    "file": ".da/workspace/learnings/f025-abort-marker-clobbered.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f026-deploy-double-envelope.html",
+    "file": ".da/workspace/learnings/f026-deploy-double-envelope.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "file": ".da/workspace/learnings/f027-list-success-bare-array.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f028-config-read-gated-build.html",
+    "file": ".da/workspace/learnings/f028-config-read-gated-build.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f029-index-config-false-migration.html",
+    "file": ".da/workspace/learnings/f029-index-config-false-migration.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f030-silent-global-target.html",
+    "file": ".da/workspace/learnings/f030-silent-global-target.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f031-freshness-blind-to-staleness.html",
+    "file": ".da/workspace/learnings/f031-freshness-blind-to-staleness.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f032-silent-refusals.html",
+    "file": ".da/workspace/learnings/f032-silent-refusals.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f033-version-blind-binary-skew.html",
+    "file": ".da/workspace/learnings/f033-version-blind-binary-skew.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f034-merge-destroys-local-side.html",
+    "file": ".da/workspace/learnings/f034-merge-destroys-local-side.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f035-broken-off-switch.html",
+    "file": ".da/workspace/learnings/f035-broken-off-switch.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f036-approval-gate-zombie.html",
+    "file": ".da/workspace/learnings/f036-approval-gate-zombie.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f037-put-blind-missing-media.html",
+    "file": ".da/workspace/learnings/f037-put-blind-missing-media.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+    "file": ".da/workspace/learnings/f038-fstab-shadowed-effective-config.html",
+    "status": "ok"
+  },
+  {
+    "path": "/learnings/f039-duplicate-metadata-channels.html",
+    "file": ".da/workspace/learnings/f039-duplicate-metadata-channels.html",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/column-a.webp",
+    "file": ".da/workspace/media/dualform/column-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/column-b.webp",
+    "file": ".da/workspace/media/dualform/column-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/compass-a.webp",
+    "file": ".da/workspace/media/dualform/compass-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/compass-b.webp",
+    "file": ".da/workspace/media/dualform/compass-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/form-a.webp",
+    "file": ".da/workspace/media/dualform/form-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/form-b.webp",
+    "file": ".da/workspace/media/dualform/form-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/lock-a.webp",
+    "file": ".da/workspace/media/dualform/lock-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/lock-b.webp",
+    "file": ".da/workspace/media/dualform/lock-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/mic-a.webp",
+    "file": ".da/workspace/media/dualform/mic-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/mic-b.webp",
+    "file": ".da/workspace/media/dualform/mic-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/orrery-a.webp",
+    "file": ".da/workspace/media/dualform/orrery-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/orrery-b.webp",
+    "file": ".da/workspace/media/dualform/orrery-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/vessel-a.webp",
+    "file": ".da/workspace/media/dualform/vessel-a.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/dualform/vessel-b.webp",
+    "file": ".da/workspace/media/dualform/vessel-b.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/cli-surface-ledger.webp",
+    "file": ".da/workspace/media/renderaissance/cli-surface-ledger.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/coverage-catalog.webp",
+    "file": ".da/workspace/media/renderaissance/coverage-catalog.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/findings-flywheel.webp",
+    "file": ".da/workspace/media/renderaissance/findings-flywheel.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-bg.webp",
+    "file": ".da/workspace/media/renderaissance/hero-bg.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-figure.webp",
+    "file": ".da/workspace/media/renderaissance/hero-figure.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-object.webp",
+    "file": ".da/workspace/media/renderaissance/hero-object.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-height.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-height.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-normal.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-normal.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate-roughness.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate-roughness.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/hero-plate.webp",
+    "file": ".da/workspace/media/renderaissance/hero-plate.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/mascot-cupid.webp",
+    "file": ".da/workspace/media/renderaissance/mascot-cupid.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/parthenon-frame-study.jpg",
+    "file": ".da/workspace/media/renderaissance/parthenon-frame-study.jpg",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/sprig.svg",
+    "file": ".da/workspace/media/renderaissance/sprig.svg",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/test-plan-waves.webp",
+    "file": ".da/workspace/media/renderaissance/test-plan-waves.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/media/renderaissance/why-operator.webp",
+    "file": ".da/workspace/media/renderaissance/why-operator.webp",
+    "status": "ok"
+  },
+  {
+    "path": "/modals/sample.html",
+    "file": ".da/workspace/modals/sample.html",
+    "status": "ok"
+  },
+  {
+    "path": "/nav.html",
+    "file": ".da/workspace/nav.html",
+    "status": "ok"
+  },
+  {
+    "path": "/redirects.json",
+    "file": ".da/workspace/redirects.json",
+    "status": "ok"
+  },
+  {
+    "path": "/route-matrix.html",
+    "file": ".da/workspace/route-matrix.html",
+    "status": "ok"
+  },
+  {
+    "path": "/sheets.html",
+    "file": ".da/workspace/sheets.html",
+    "status": "ok"
+  },
+  {
+    "path": "/test-plan.html",
+    "file": ".da/workspace/test-plan.html",
+    "status": "ok"
+  },
+  {
+    "path": "/waves/1-foundation.html",
+    "file": ".da/workspace/waves/1-foundation.html",
+    "status": "ok"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "file": ".da/workspace/waves/4-durability.html",
+    "status": "ok"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "file": ".da/workspace/waves/5-failure-recovery.html",
+    "status": "ok"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "file": ".da/workspace/waves/6-lifecycle.html",
+    "status": "ok"
+  },
+  {
+    "path": "/why.html",
+    "file": ".da/workspace/why.html",
+    "status": "ok"
+  }
+]

@@ -1,0 +1,20 @@
+Previewing 79 page(s) with concurrency 5…
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: proof-v0-6-0-replay
+  Config: org=flag, repo=flag, branch=flag
+  Operation: preview tree /
+  Source: /
+  Paths: 79
+    /blocks.html
+    /cli-surface.html
+    /coverage.html
+    /dogfood-sites.html
+    /dualform.html
+    ... 69 more ...
+    /drafts/migrate/batch/example-net.html
+    /drafts/migrate/batch/example-org.html
+    /drafts/migrate/d4/alpha.html
+    /drafts/migrate/d4/doomed.html
+    /drafts/migrate/d4/gamma.html
+  Note: Preview mutates aem.page/code pipeline state but does not publish to live.

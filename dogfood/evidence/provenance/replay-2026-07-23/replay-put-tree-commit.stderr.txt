@@ -1,0 +1,104 @@
+[warn] /learnings/f010-media-absolute-url-rewrite.html: f010: 1 host-less /media image URL(s) — Helix may rewrite these to about:error after preview.
+[warn] /learnings/f010-media-absolute-url-rewrite.html: Example fix: /media/example.webp → https://content.da.live/somarc/da-cli-wave6-site-create/media/example.webp
+[warn] /learnings/f010-media-absolute-url-rewrite.html: Re-run with --rewrite-media-urls to expand /media img/srcset to content.da.live, or --strict-media-urls to fail the put.
+[warn] /learnings/f010-media-absolute-url-rewrite.html: Prefer absolute content-bus media URLs in fixtures and agent-authored HTML.
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: proof-v0-6-0-replay
+  Config: org=flag, repo=flag, branch=flag
+  Operation: content put-tree .da/workspace
+  Source: .da/workspace
+  Paths: 113
+    /benchmarks/token-efficiency.html
+    /benchmarks/token-efficiency/adobe-skills.html
+    /benchmarks/token-efficiency/da-cli.html
+    /benchmarks/token-efficiency/methodology.html
+    /benchmarks/token-efficiency/round-1.html
+    ... 103 more ...
+    /waves/1-foundation.html
+    /waves/4-durability.html
+    /waves/5-failure-recovery.html
+    /waves/6-lifecycle.html
+    /why.html
+  Note: Content-first bulk upload: local files are mapped to DA source paths before preview.
+  Note: Seed fixture warning: .da/workspace/*.html can drift from authored DA content. Treat these files as temporary seed inputs, not the production source of truth.
+  Note: Before overwriting existing DA documents, run `da content diff <path>` or use the managed content clone/status/push workflow to preserve authored changes.
+  Note: /benchmarks/token-efficiency.html: Render preflight: 5 section(s), 1 block(s).
+  Note: /benchmarks/token-efficiency/adobe-skills.html: Render preflight: 3 section(s), 1 block(s).
+  Note: /benchmarks/token-efficiency/da-cli.html: Render preflight: 3 section(s), 1 block(s).
+  Note: /benchmarks/token-efficiency/methodology.html: Render preflight: 5 section(s), 1 block(s).
+  Note: /benchmarks/token-efficiency/round-1.html: Render preflight: 5 section(s), 2 block(s).
+  Note: /benchmarks/token-efficiency/round-2-adobe-skills.html: Render preflight: 10 section(s), 9 block(s).
+  Note: /benchmarks/token-efficiency/round-2-da-cli.html: Render preflight: 10 section(s), 9 block(s).
+  Note: /benchmarks/token-efficiency/round-2.html: Render preflight: 8 section(s), 2 block(s).
+  Note: /blocks.html: Render preflight: 4 section(s), 3 block(s).
+  Note: /cli-surface.html: Render preflight: 8 section(s), 6 block(s).
+  Note: /coverage.html: Render preflight: 10 section(s), 2 block(s).
+  Note: /dogfood-sites.html: Render preflight: 6 section(s), 4 block(s).
+  Note: /drafts/b1-drill.html: Render preflight: 1 section(s), 0 block(s).
+  Note: /drafts/b2-drill.html: Render preflight: 3 section(s), 1 block(s).
+  Note: /drafts/b3-drill.html: Render preflight: 2 section(s), 0 block(s).
+  Note: /drafts/c1-drill.html: Render preflight: 1 section(s), 0 block(s).
+  Note: /drafts/f039-head-metadata-conflict.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/batch/example-com.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/batch/example-net.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/batch/example-org.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/d4/alpha.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/d4/doomed.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/d4/gamma.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /drafts/migrate/example-com.html: Render preflight: 2 section(s), 1 block(s).
+  Note: /dualform.html: Render preflight: 9 section(s), 7 block(s).
+  Note: /footer.html: Render preflight: 1 section(s), 0 block(s).
+  Note: /frontier.html: Render preflight: 7 section(s), 5 block(s).
+  Note: /index.html: Render preflight: 4 section(s), 2 block(s).
+  Note: /kitchen-sink.html: Render preflight: 19 section(s), 17 block(s).
+  Note: /learnings.html: Render preflight: 5 section(s), 3 block(s).
+  Note: /learnings/f001-site-info-target.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f002-design-detect-envelope.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f003-index-build.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f004-index-env-preview.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f005-route-codebus.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f006-stale-contentbus.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f007-route-clean-orphan.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f008-content-merge-path.html: Render preflight: 7 section(s), 1 block(s).
+  Note: /learnings/f009-content-put-outside-worktree.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f010-media-absolute-url-rewrite.html: Render preflight: 6 section(s), 1 block(s). f010: 1 host-less /media image URL(s) — Helix may rewrite these to about:error after preview. Example fix: /media/example.webp → https://content.da.live/somarc/da-cli-wave6-site-create/media/example.webp Re-run with --rewrite-media-urls to expand /media img/srcset to content.da.live, or --strict-media-urls to fail the put. Prefer absolute content-bus media URLs in fixtures and agent-authored HTML.
+  Note: /learnings/f011-audit-contracts-autoblock.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f012-da-permission-headers.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f013-tools-classify-probe-gap.html: Render preflight: 7 section(s), 1 block(s).
+  Note: /learnings/f014-pipeline-json-stdout.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f015-job-run-commit-bypass.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f016-code-job-broken-route.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f017-envelope-coverage.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f018-content-diff-traversal.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f019-inverted-safety-tiers.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f020-non-tty-auth-hang.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f021-bulk-silent-noop.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f022-stale-job-lock.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f023-migrate-path-normalization.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f024-batch-collision-overwrite.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f025-abort-marker-clobbered.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f026-deploy-double-envelope.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f027-list-success-bare-array.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f028-config-read-gated-build.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f029-index-config-false-migration.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f030-silent-global-target.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f031-freshness-blind-to-staleness.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f032-silent-refusals.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f033-version-blind-binary-skew.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f034-merge-destroys-local-side.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f035-broken-off-switch.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f036-approval-gate-zombie.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f037-put-blind-missing-media.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f038-fstab-shadowed-effective-config.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /learnings/f039-duplicate-metadata-channels.html: Render preflight: 6 section(s), 1 block(s).
+  Note: /modals/sample.html: Render preflight: 1 section(s), 0 block(s).
+  Note: /nav.html: Render preflight: 3 section(s), 0 block(s).
+  Note: /route-matrix.html: Render preflight: 8 section(s), 4 block(s).
+  Note: /sheets.html: Render preflight: 4 section(s), 3 block(s).
+  Note: /test-plan.html: Render preflight: 9 section(s), 4 block(s).
+  Note: /waves/1-foundation.html: Render preflight: 5 section(s), 3 block(s).
+  Note: /waves/4-durability.html: Render preflight: 5 section(s), 3 block(s).
+  Note: /waves/5-failure-recovery.html: Render preflight: 5 section(s), 3 block(s).
+  Note: /waves/6-lifecycle.html: Render preflight: 4 section(s), 1 block(s).
+  Note: /why.html: Render preflight: 5 section(s), 2 block(s).

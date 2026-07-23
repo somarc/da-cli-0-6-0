@@ -23,8 +23,21 @@ Issue: https://github.com/somarc/da-cli/issues/69
   preview and live and passed byte-parity comparison.
 - The retired Riverboat direct media URL remains explicitly classified blocked
   with expected 404, so it cannot be mistaken for current verified media proof.
+- An authenticated inventory fence observed the same **113 DA artifacts** before
+  and after clone and bound their paths, types, byte lengths, and source hashes
+  to snapshot digest
+  `8c5457e562ef1c1a777a150e72ff785e63515a5861fae2402c300cd774c4ea35`.
+- The snapshot was replayed through local da-cli to
+  `somarc/da-cli-wave6-site-create` on isolated code branch
+  `proof-v0-6-0-replay` at `335f488`; source and target inventories match
+  **113/113** with no extras or omissions.
+- Preview-only activation verified **79/79 HTML documents**. All 79 return HTTP
+  200 and are fresh on the isolated preview host. No replay route was published
+  live; 76 remain live 404 and three pre-existing shared routes are live-stale.
 
-Machine evidence: `liveness.json`.
+Machine evidence: `liveness.json` and `replay-2026-07-23/summary.json`, with the
+redacted snapshot, command, inventory, preview, and freshness observations in
+that replay directory. No authored bodies are retained there.
 
 ## Why this is not frozen
 
@@ -34,33 +47,31 @@ exist:
 - `freeze.status` is `candidate`, not `frozen`;
 - CLI tag `v0.6.0` does not exist;
 - proof-site tag `proof-v0.6.0` does not exist;
-- an authenticated DA source snapshot/digest has not been captured;
-- isolated replay has not yet been executed; the Configuration Service grant and registered disposable target are now available, so this step is unblocked and moves next under issue #69.
+- certification and promotion have not yet been rerun with the final `0.6.0`
+  product candidate;
+- final per-source digest/status bindings and immutable tag verification remain
+  release-signoff work.
 
 The exact refusal is retained in `strict-freeze.stderr.txt`. A mutable `main`
 branch or a future expected tag is not described as immutable proof.
 
 ## Final freeze procedure
 
-With the external grant verified and the registered isolated target ready:
+The authenticated snapshot and isolated preview-only replay are complete. The
+remaining final-freeze procedure is:
 
-1. Refresh DA authentication interactively if required.
-2. Through local da-cli only, fence DA inventory before/after an ignored
-   `content clone --all`, retain path/type/version/source SHA-256 observations,
-   and calculate `daSnapshotSha256` without committing authored bodies.
-3. Replay the snapshot through da-cli to the registered isolated site, preview,
-   approve canonical promotion, rebuild the index, and compare normalized
-   artifacts.
-4. Re-run certification and promotion with the final candidate; update run IDs,
+1. Re-run certification and promotion with the final candidate; update run IDs,
    evidence hashes, and candidate CLI SHA.
-5. Create and verify `v0.6.0` and `proof-v0.6.0` against the recorded commits.
-6. Change the manifest to `frozen`, add source digests, and run:
+2. Review and bind final per-source digests/statuses from the authenticated
+   snapshot; retain the replay evidence in the immutable proof commit.
+3. Create and verify `v0.6.0` and `proof-v0.6.0` against the recorded commits.
+4. Change the manifest to `frozen` and run:
 
    ```sh
    npm run audit:provenance:strict
    ```
 
-7. Only then may the release workflow publish npm/GitHub `0.6.0`.
+5. Only then may the release workflow publish npm/GitHub `0.6.0`.
 
 ## Source-authority boundary
 

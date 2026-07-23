@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "da-cli.replay-inventory-comparison.v1",
+  "comparedAt": "2026-07-23T15:40:49.372Z",
+  "sourceCount": 113,
+  "targetCount": 113,
+  "pathsEqual": true,
+  "sourceOnly": [],
+  "targetOnly": []
+}

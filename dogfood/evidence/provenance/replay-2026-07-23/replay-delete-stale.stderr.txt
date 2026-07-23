@@ -1,0 +1,8 @@
+Write preflight:
+  Target: somarc/da-cli-wave6-site-create
+  Branch: proof-v0-6-0-replay
+  Config: org=flag, repo=flag, branch=flag
+  Operation: content delete /wave-6-proof.html
+  Paths: 1
+    /wave-6-proof.html
+Deleted /wave-6-proof.html

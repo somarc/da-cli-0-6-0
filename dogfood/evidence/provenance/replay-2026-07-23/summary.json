@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "da-cli.isolated-replay-evidence.v1",
+  "capturedAt": "2026-07-23T15:25:44.256Z",
+  "source": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main"
+  },
+  "isolatedTarget": {
+    "org": "somarc",
+    "repo": "da-cli-wave6-site-create",
+    "branch": "proof-v0-6-0-replay",
+    "codeCommit": "335f4883a670abbc7d23d2277b7f699bf705504b"
+  },
+  "snapshot": {
+    "count": 113,
+    "daSnapshotSha256": "8c5457e562ef1c1a777a150e72ff785e63515a5861fae2402c300cd774c4ea35",
+    "inventoryFence": {
+      "beforeCount": 113,
+      "afterCount": 113,
+      "pathsEqual": true
+    }
+  },
+  "replay": {
+    "sourceCount": 113,
+    "targetCount": 113,
+    "pathsEqual": true,
+    "sourceOnly": [],
+    "targetOnly": [],
+    "staleTargetOnlyPathDeleted": "/wave-6-proof.html"
+  },
+  "preview": {
+    "count": 79,
+    "statuses": {
+      "ok": 79
+    },
+    "verify": {
+      "ok": 79
+    },
+    "publishedLive": false
+  },
+  "freshness": {
+    "count": 79,
+    "previewStatus": {
+      "200": 79
+    },
+    "previewFreshness": {
+      "fresh": 79
+    },
+    "verdicts": {
+      "preview-only": 76,
+      "live-stale": 3
+    },
+    "liveStatus": {
+      "200": 3,
+      "404": 76
+    },
+    "note": "Live was not published. Three pre-existing shared routes on the isolated site remain live-stale; 76 replay routes remain live 404 by design."
+  },
+  "authoredBodiesRetainedInGit": false
+}
