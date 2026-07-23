@@ -83,7 +83,10 @@ those immutable observations are retained as history, not as current guidance.
 
 ## Cross-cutting
 - DA-native pipelines (`dogfood/certify.yaml`, `dogfood/promote.yaml`) activate, validate, and promote authoritative DA source.
-- Provenance (`dogfood/provenance.json`): artifact → command → verified live URL.
+- Provenance (`dogfood/provenance.json`): all 58 canonical pages plus supporting
+  DA/codebus/derived artifacts map to exact command runs, hashed evidence, and
+  public delivery contracts. Candidate liveness is 125/125; strict freeze still
+  requires final tags, DA snapshot digest, and isolated replay.
 - Flywheel: findings → primitive fix + locking test, each a 0.6.0 code change.
 
 ## Findings log (public history under `/learnings/`)
@@ -129,7 +132,8 @@ command count.**
 
 1. **Waves:** 1–5 green with stored evidence; Wave 6 classified (run or
    precondition-recorded); DA-native certification/promotion verifies the site;
-   provenance verifies.
+   candidate provenance coverage/liveness verifies; strict freeze is required
+   before release publication.
 2. **Frictions:** every Critical/High finding fixed + locked. The Wave 6 haul
    f040–f042 is fixed and locked on product main; the friction column remains
    clear.
@@ -140,6 +144,6 @@ command count.**
 Product fixes land on 0.5.x; the **0.6.0 label is earned by dogfood proof**,
 then version bump + release branch follow.
 
-**Honest cut state:** friction hat earned for this cycle (f001–f012 all fixed
-+ locked on main); **wave hat not** — do not cut 0.6.0 until waves +
-construct/provenance clear.
+**Honest cut state:** friction hat earned for this cycle; **wave/release hat not**
+— candidate provenance covers 58/58 canonical paths and 125/125 public URLs,
+but Wave 6, DA snapshot/replay, and immutable CLI/proof tags remain open.

@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "da-cli.provenance-config.v1",
+  "release": "0.6.0",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main",
+    "codeCommit": "335f4883a670abbc7d23d2277b7f699bf705504b"
+  },
+  "contentAuthority": {
+    "system": "DA",
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "policy": "Authored HTML, sheets/JSON, shared documents, and DA media exist only in DA; Git owns code, pipelines, manifests, schemas, and redacted evidence."
+  },
+  "candidate": {
+    "version": "0.5.1",
+    "cliCommit": "2d7d2fe0dae6650b23f5da70157df32589a48c0b",
+    "installKind": "source-tree"
+  },
+  "freeze": {
+    "status": "candidate",
+    "expectedReleaseTag": "v0.6.0",
+    "releaseTag": null,
+    "expectedProofTag": "proof-v0.6.0",
+    "proofTag": null,
+    "manifestBaseCommit": "335f4883a670abbc7d23d2277b7f699bf705504b",
+    "toleranceProfile": "da-native-canonical-v1",
+    "notes": [
+      "Final CLI/proof tags and DA snapshot digest do not exist yet; strict freeze must fail until final release signoff.",
+      "The retained certification and promotion runs used source-tree CLI f0b0078."
+    ]
+  },
+  "pipelines": {
+    "certification": {
+      "path": "dogfood/certify.yaml",
+      "runId": "1777f604",
+      "cliSha": "f0b00788dab9f4ace76a93af889a717b965ad543",
+      "evidence": [
+        "dogfood/evidence/source-truth-migration/certify-run.json",
+        "dogfood/evidence/source-truth-migration/certify-run.stderr.txt"
+      ]
+    },
+    "promotion": {
+      "path": "dogfood/promote.yaml",
+      "runId": "94802516",
+      "cliSha": "f0b00788dab9f4ace76a93af889a717b965ad543",
+      "evidence": [
+        "dogfood/evidence/source-truth-migration/promote-run.json",
+        "dogfood/evidence/source-truth-migration/promote-run.stderr.txt"
+      ]
+    }
+  },
+  "supportingArtifacts": [
+    {
+      "id": "da-sheet:contact-form",
+      "path": "/data/contact-form.json",
+      "kind": "da-sheet",
+      "ownership": "da-source",
+      "sourceContentType": "application/json",
+      "mode": "liveness",
+      "tiers": [
+        "preview"
+      ],
+      "steps": [
+        "preview-da-tree",
+        "freshness-gate"
+      ],
+      "pipeline": "certification",
+      "status": "candidate"
+    },
+    {
+      "id": "da-sheet:coverage",
+      "path": "/data/coverage.json",
+      "kind": "da-sheet",
+      "ownership": "da-source",
+      "sourceContentType": "application/json",
+      "mode": "liveness",
+      "tiers": [
+        "preview"
+      ],
+      "steps": [
+        "preview-da-tree",
+        "freshness-gate"
+      ],
+      "pipeline": "certification",
+      "status": "candidate"
+    },
+    {
+      "id": "da-sheet:wave-2-cli-surface",
+      "path": "/data/wave-2-cli-surface.json",
+      "kind": "da-sheet",
+      "ownership": "da-source",
+      "sourceContentType": "application/json",
+      "mode": "liveness",
+      "tiers": [
+        "preview"
+      ],
+      "steps": [
+        "preview-da-tree",
+        "freshness-gate"
+      ],
+      "pipeline": "certification",
+      "status": "candidate"
+    },
+    {
+      "id": "codebus:styles",
+      "path": "/styles/styles.css",
+      "kind": "codebus-static",
+      "ownership": "codebus",
+      "sourceContentType": "text/css",
+      "mode": "byte-parity",
+      "requireParity": true,
+      "tiers": [
+        "preview",
+        "live"
+      ],
+      "steps": [
+        "code-proof"
+      ],
+      "pipeline": "certification",
+      "status": "candidate"
+    },
+    {
+      "id": "derived:query-index",
+      "path": "/query-index.json",
+      "kind": "derived-index",
+      "ownership": "derived",
+      "sourceContentType": "application/json",
+      "inputs": [
+        "dogfood/canonical-pages.txt",
+        "Configuration Service index state",
+        "published DA metadata"
+      ],
+      "mode": "liveness",
+      "tiers": [
+        "live"
+      ],
+      "steps": [
+        "rebuild-index",
+        "live-freshness"
+      ],
+      "pipeline": "promotion",
+      "status": "candidate"
+    },
+    {
+      "id": "derived:sitemap",
+      "path": "/sitemap.xml",
+      "kind": "derived-sitemap",
+      "ownership": "derived",
+      "sourceContentType": "application/xml",
+      "inputs": [
+        "canonical live routes",
+        "accepted shared nav/footer sitemap policy"
+      ],
+      "mode": "semantic",
+      "tiers": [
+        "preview",
+        "live"
+      ],
+      "commands": [
+        {
+          "pipeline": "certification",
+          "steps": [
+            "preview-sitemap"
+          ]
+        },
+        {
+          "pipeline": "promotion",
+          "steps": [
+            "live-sitemap"
+          ]
+        }
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "da-media:riverboat-gambler-historical",
+      "path": "/media/renderaissance/riverboat-gambler.jpg",
+      "kind": "da-media",
+      "ownership": "da-source",
+      "sourceContentType": "image/jpeg",
+      "mode": "liveness",
+      "tiers": [
+        "preview"
+      ],
+      "expectedStatus": 404,
+      "steps": [
+        "preview-da-tree"
+      ],
+      "pipeline": "certification",
+      "status": "blocked",
+      "notes": [
+        "Retained to prevent the old 404 URL from being mistaken for current verified media proof.",
+        "The canonical DA \u00d7 Oak report preserves the poster-only Riverboat result separately and does not claim live publication."
+      ]
+    }
+  ],
+  "historicalEvidence": [
+    {
+      "path": "dogfood/evidence/wave-4/riverboat-run.json",
+      "policy": "Historical execution evidence; not current authored-content input and not a live-release proof."
+    },
+    {
+      "path": "dogfood/evidence/source-truth-migration/README.md",
+      "policy": "Documents the retired Git-fixture model and DA-only migration; references to removed fixtures are historical only."
+    }
+  ]
+}

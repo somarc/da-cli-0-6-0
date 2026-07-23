@@ -42,9 +42,17 @@ DA draft and failure-injection paths.
 ```sh
 npm ci
 npm run check:da-source-truth
+npm run check:provenance
 npm run lint
 npm run audit:dependencies
 npm run audit:release
+npm run audit:provenance
 ```
 
 `check:da-source-truth` fails if authored mirror/staging directories or the retired fixture-fed construction pipeline return.
+`check:provenance` requires exact coverage of all 58 canonical promotion paths,
+ownership/run/evidence bindings, and a non-stale generated manifest.
+`audit:provenance` checks every declared public URL with bounded retries.
+`audit:provenance:strict` is intentionally release-only and fails while the
+manifest is still a candidate without final tags, DA snapshot digest, and
+isolated replay.

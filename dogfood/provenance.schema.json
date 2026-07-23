@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/somarc/da-cli/blob/main/docs/schemas/dogfood-provenance.schema.json",
+  "title": "da-cli DA-native release provenance manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "release",
+    "site",
+    "contentAuthority",
+    "candidate",
+    "freeze",
+    "pipelines",
+    "canonicalManifest",
+    "artifacts"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "da-cli.dogfood-provenance.v1" },
+    "release": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["org", "repo", "branch", "codeCommit"],
+      "properties": {
+        "org": { "type": "string", "minLength": 1 },
+        "repo": { "type": "string", "minLength": 1 },
+        "branch": { "type": "string", "minLength": 1 },
+        "codeCommit": { "$ref": "#/$defs/gitSha" }
+      }
+    },
+    "contentAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "org", "repo", "policy"],
+      "properties": {
+        "system": { "const": "DA" },
+        "org": { "type": "string", "minLength": 1 },
+        "repo": { "type": "string", "minLength": 1 },
+        "policy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "cliCommit", "installKind"],
+      "properties": {
+        "version": { "type": "string", "minLength": 1 },
+        "cliCommit": { "$ref": "#/$defs/gitSha" },
+        "installKind": { "enum": ["source-tree", "packed-tarball", "installed-package"] }
+      }
+    },
+    "freeze": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "expectedReleaseTag", "expectedProofTag", "manifestBaseCommit", "toleranceProfile"],
+      "properties": {
+        "status": { "enum": ["candidate", "frozen"] },
+        "expectedReleaseTag": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "releaseTag": { "type": ["string", "null"], "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "expectedProofTag": { "type": "string", "pattern": "^proof-v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "proofTag": { "type": ["string", "null"], "pattern": "^proof-v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "manifestBaseCommit": { "$ref": "#/$defs/gitSha" },
+        "daSnapshotSha256": { "$ref": "#/$defs/sha256" },
+        "toleranceProfile": { "type": "string", "minLength": 1 },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "pipelines": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "certification": { "$ref": "#/$defs/pipeline" },
+        "promotion": { "$ref": "#/$defs/pipeline" }
+      },
+      "required": ["certification", "promotion"]
+    },
+    "canonicalManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "count"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/artifact" }
+    },
+    "historicalEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "policy"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "policy": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "gitSha": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "pipeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "runId", "cliSha", "evidence"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "runId": { "type": "string", "minLength": 1 },
+        "cliSha": { "$ref": "#/$defs/gitSha" },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidenceRef" }
+        }
+      }
+    },
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "path",
+        "kind",
+        "ownership",
+        "releaseScope",
+        "source",
+        "commands",
+        "evidence",
+        "delivery",
+        "status"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._/-]+$" },
+        "path": { "type": "string", "pattern": "^/" },
+        "kind": {
+          "enum": [
+            "da-document",
+            "da-sheet",
+            "da-media",
+            "codebus-static",
+            "derived-index",
+            "derived-sitemap"
+          ]
+        },
+        "ownership": { "enum": ["da-source", "codebus", "derived"] },
+        "releaseScope": { "enum": ["canonical", "supporting"] },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["uri"],
+          "properties": {
+            "uri": { "type": "string", "minLength": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "contentType": { "type": "string" },
+            "inputs": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["pipeline", "steps", "runId", "cliSha"],
+            "properties": {
+              "pipeline": { "enum": ["certification", "promotion"] },
+              "steps": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+              "runId": { "type": "string", "minLength": 1 },
+              "cliSha": { "$ref": "#/$defs/gitSha" }
+            }
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidenceRef" }
+        },
+        "delivery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "urls"],
+          "properties": {
+            "mode": { "enum": ["byte-parity", "semantic", "liveness"] },
+            "requireParity": { "type": "boolean" },
+            "urls": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["tier", "url", "expectedStatus"],
+                "properties": {
+                  "tier": { "enum": ["preview", "live"] },
+                  "url": { "type": "string", "format": "uri" },
+                  "expectedStatus": { "type": "integer", "minimum": 100, "maximum": 599 },
+                  "contentTypePattern": { "type": "string" },
+                  "expectedFinalUrl": { "type": "string", "format": "uri" },
+                  "sha256": { "$ref": "#/$defs/sha256" }
+                }
+              }
+            }
+          }
+        },
+        "status": { "enum": ["candidate", "verified", "blocked", "historical"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
