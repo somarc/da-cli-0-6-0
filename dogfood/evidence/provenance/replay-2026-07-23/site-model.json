@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "da-cli.site-model.v2",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "expectedDa": "https://content.da.live/somarc/da-cli-0-6-0/",
+    "effectiveContent": {
+      "state": "configured",
+      "active": true,
+      "selectedBy": "helix-sidekick",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-0-6-0/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-0-6-0",
+        "pathPrefix": "/",
+        "matchesSite": true
+      },
+      "warnings": []
+    },
+    "codebus": "https://github.com/somarc/da-cli-0-6-0"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
+    "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "/private/tmp/da-cli-0-6-0-freeze-snapshot",
+    "configSources": {
+      "org": "project",
+      "repo": "project",
+      "env": "project",
+      "branch": "project"
+    }
+  },
+  "recommendations": [],
+  "routes": [
+    {
+      "path": "/index.html",
+      "ownership": "contentbus",
+      "sourcePath": "/index.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/",
+      "error": ""
+    },
+    {
+      "path": "/nav.html",
+      "ownership": "contentbus",
+      "sourcePath": "/nav.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/nav",
+      "error": ""
+    },
+    {
+      "path": "/footer.html",
+      "ownership": "contentbus",
+      "sourcePath": "/footer.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/footer",
+      "error": ""
+    }
+  ]
+}

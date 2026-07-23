@@ -1,0 +1,1715 @@
+{
+  "schemaVersion": "da-cli.da-snapshot-observation.v1",
+  "capturedAt": "2026-07-23T15:25:44.256Z",
+  "source": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main"
+  },
+  "fence": {
+    "beforeCount": 113,
+    "afterCount": 113,
+    "pathsEqual": true
+  },
+  "count": 113,
+  "artifacts": [
+    {
+      "path": "/benchmarks/token-efficiency.html",
+      "contentType": "text/html",
+      "bytes": 2928,
+      "sha256": "7f6b56a304206b945d1335d5afe5cb3ed2f3376e47a44d1d37ce0a4bc3d16ff9"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/adobe-skills.html",
+      "contentType": "text/html",
+      "bytes": 1324,
+      "sha256": "ba53cb6b86825cab319df0c36df42de531ab42f2fa5a3711bc2a674d655aea54"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/da-cli.html",
+      "contentType": "text/html",
+      "bytes": 1389,
+      "sha256": "44377359b85f5aa61a5c862b36afab1519a171704d9b0dbd5361d2a304391e96"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/methodology.html",
+      "contentType": "text/html",
+      "bytes": 3474,
+      "sha256": "1953a197cbdb00c493670f90f6c7973095bdcd85f8c4e5c4ea94aa2d79cd2114"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-1.html",
+      "contentType": "text/html",
+      "bytes": 3404,
+      "sha256": "53231157aa9bfae23b77efbc0fb3710552ee2ac7b4e7e3acbb28f88b00dd9659"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+      "contentType": "text/html",
+      "bytes": 4503,
+      "sha256": "ddbd100c5f54d49aed771eed463c823ce854c6fb520c14b3b2a5f578fdbb9904"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+      "contentType": "text/html",
+      "bytes": 4458,
+      "sha256": "2f0bc6e8fb39f217963887fc6336c49a06ad0203ea4fd78da1ed177aa7e05879"
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2.html",
+      "contentType": "text/html",
+      "bytes": 5599,
+      "sha256": "ed91044d176e675cbf1c10b4fbcbd2f26e95dc1ecc186013644abcca7e36510e"
+    },
+    {
+      "path": "/blocks.html",
+      "contentType": "text/html",
+      "bytes": 2576,
+      "sha256": "491e42fd229f455b48875d7c158c1742af2ec970dc2edcde3a2c1378ed1a1e11"
+    },
+    {
+      "path": "/cli-surface.html",
+      "contentType": "text/html",
+      "bytes": 9448,
+      "sha256": "4fde0146633b0d1eab3a7cf90d2e39efc076f611b50027da9f2f21b34f270710"
+    },
+    {
+      "path": "/coverage.html",
+      "contentType": "text/html",
+      "bytes": 10353,
+      "sha256": "7a802b9dfc747a7adf92dfe319b5a941cc69e8e0b0297f8b24a5a92bbe3bfc27"
+    },
+    {
+      "path": "/data/contact-form.json",
+      "contentType": "application/json",
+      "bytes": 663,
+      "sha256": "16b87ab424633df1d8c6a4c9d631b410f389fb8491f8b755d350bc4536b6dd8a"
+    },
+    {
+      "path": "/data/coverage.json",
+      "contentType": "application/json",
+      "bytes": 1209,
+      "sha256": "1b9d4a5234e257260bcb88ad9a933549470fce8f02b26d80d05bccdc56dcbda4"
+    },
+    {
+      "path": "/data/token-efficiency.json",
+      "contentType": "application/json",
+      "bytes": 2267,
+      "sha256": "2e006997fbe20ecbdc95ae206e44f59e1ae0459190cfcd5a57b1c6ec3cafb7fb"
+    },
+    {
+      "path": "/data/wave-2-cli-surface.json",
+      "contentType": "application/json",
+      "bytes": 3740,
+      "sha256": "f4e60356cfef50f8eeec4bfe66aeafc4b3825d53cfe62f89ac0ff717d2444258"
+    },
+    {
+      "path": "/dogfood-sites.html",
+      "contentType": "text/html",
+      "bytes": 7688,
+      "sha256": "aa0ef4e81b6d4924e833307bd57a4dca9ae5d44f59e9bc4162f04ab34d19a22c"
+    },
+    {
+      "path": "/drafts/b1-drill.html",
+      "contentType": "text/html",
+      "bytes": 204,
+      "sha256": "f28859a2367a53231efcb84ef99ab55741ad2d428acece934cb077910174bf17"
+    },
+    {
+      "path": "/drafts/b2-drill.html",
+      "contentType": "text/html",
+      "bytes": 511,
+      "sha256": "245b8e2acccc9778ae5ff6d1746792f1dfa4aa0ac851e79c64c5c517585b8ad8"
+    },
+    {
+      "path": "/drafts/b3-drill.html",
+      "contentType": "text/html",
+      "bytes": 350,
+      "sha256": "62dff0f27fd5e19215104f40821747591c4b938d1b7a5e0200f719b9a81c61fb"
+    },
+    {
+      "path": "/drafts/c1-drill.html",
+      "contentType": "text/html",
+      "bytes": 342,
+      "sha256": "82a83eef6e769b76b0cd299978dd71aab681e0d75fa51d7d7704eba6ca345fcf"
+    },
+    {
+      "path": "/drafts/f039-head-metadata-conflict.html",
+      "contentType": "text/html",
+      "bytes": 309,
+      "sha256": "b2cee2d017e44fccc390d82b702d2a7aaa26453174ba380ac82b2aa5e3d92826"
+    },
+    {
+      "path": "/drafts/migrate/batch/example-com.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "9ab335a4cd7fd73112f09c9649e1759fba3d43a52d7b309c4956307322e8a9e9"
+    },
+    {
+      "path": "/drafts/migrate/batch/example-net.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "bc897b28eaba32f180f9fef24a519400bc115fd11001ad53575456eba94e4f3e"
+    },
+    {
+      "path": "/drafts/migrate/batch/example-org.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "e34fd29e1f438ac59534df7da3f92fcf1114e87cc5dbff81b032da149e95391d"
+    },
+    {
+      "path": "/drafts/migrate/d4/alpha.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "9ab335a4cd7fd73112f09c9649e1759fba3d43a52d7b309c4956307322e8a9e9"
+    },
+    {
+      "path": "/drafts/migrate/d4/doomed.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "e34fd29e1f438ac59534df7da3f92fcf1114e87cc5dbff81b032da149e95391d"
+    },
+    {
+      "path": "/drafts/migrate/d4/gamma.html",
+      "contentType": "text/html",
+      "bytes": 444,
+      "sha256": "bc897b28eaba32f180f9fef24a519400bc115fd11001ad53575456eba94e4f3e"
+    },
+    {
+      "path": "/drafts/migrate/example-com.html",
+      "contentType": "text/html",
+      "bytes": 443,
+      "sha256": "7ca80fee1e1e5e0e3154934aaa16895c8e95930869f004cc490cc965d1a82c20"
+    },
+    {
+      "path": "/dualform.html",
+      "contentType": "text/html",
+      "bytes": 7573,
+      "sha256": "fd35d2746b6208910a85fddd4bf3714b635ffb7b4230feff335a42c52e81ae73"
+    },
+    {
+      "path": "/footer.html",
+      "contentType": "text/html",
+      "bytes": 744,
+      "sha256": "97492b33a850d31a9c01add6ef07d30163ce4b323a173c7dad8bc30c0e1d1a71"
+    },
+    {
+      "path": "/frontier.html",
+      "contentType": "text/html",
+      "bytes": 6621,
+      "sha256": "f917702afc50d44e14e8a93d3a389af08d621af52e9b092be66df5236ca314a1"
+    },
+    {
+      "path": "/index.html",
+      "contentType": "text/html",
+      "bytes": 4118,
+      "sha256": "fac3cb0540a750de1f7fdddd7731528302dd29ff976df2128cd98e7b51c8db21"
+    },
+    {
+      "path": "/kitchen-sink.html",
+      "contentType": "text/html",
+      "bytes": 11693,
+      "sha256": "fe90962c7ade085836bead7b971433c9630b94cd3bf18abb75117cd06976feba"
+    },
+    {
+      "path": "/learnings.html",
+      "contentType": "text/html",
+      "bytes": 17728,
+      "sha256": "ab5e6da5d397192918f7a8b22e06fdbde4db0396a079f99ae4e60ab676b8caad"
+    },
+    {
+      "path": "/learnings/f001-site-info-target.html",
+      "contentType": "text/html",
+      "bytes": 2175,
+      "sha256": "0d0ba4a382e8dfd25f50686b7f1cf2c2bb0dcfcb0173cdbfd6e12cf094bafdce"
+    },
+    {
+      "path": "/learnings/f002-design-detect-envelope.html",
+      "contentType": "text/html",
+      "bytes": 2777,
+      "sha256": "f5e62fb8b9f318a99b5752983d7883669e414e7ee535782241935dc2e9ac344a"
+    },
+    {
+      "path": "/learnings/f003-index-build.html",
+      "contentType": "text/html",
+      "bytes": 2102,
+      "sha256": "5b47507ced40990b12649188b59ca776c1fa1e92b63aff492b520b25d71e4562"
+    },
+    {
+      "path": "/learnings/f004-index-env-preview.html",
+      "contentType": "text/html",
+      "bytes": 2117,
+      "sha256": "b9c3a81456d718e0316ce7497e630180db74ec11a5e956a6c07b15590b0c1eda"
+    },
+    {
+      "path": "/learnings/f005-route-codebus.html",
+      "contentType": "text/html",
+      "bytes": 1914,
+      "sha256": "c4ba5112bf6d0efbc488213be5ae3c165c4b95bca04a40a1153fac494b7f597f"
+    },
+    {
+      "path": "/learnings/f006-stale-contentbus.html",
+      "contentType": "text/html",
+      "bytes": 1961,
+      "sha256": "fbbbd183300d1fa854d78b4a0ad029074845ed862640d0aed6f2d83ef91665fa"
+    },
+    {
+      "path": "/learnings/f007-route-clean-orphan.html",
+      "contentType": "text/html",
+      "bytes": 1869,
+      "sha256": "90351dad672bc7041d1601d68749e0e7ee95eee2e802e4a57a6cfdcd847b8245"
+    },
+    {
+      "path": "/learnings/f008-content-merge-path.html",
+      "contentType": "text/html",
+      "bytes": 3077,
+      "sha256": "b69445080dc0ad16a35c48dec1313ea274a3dc5b8d5e0a2f7f29f603da1391e0"
+    },
+    {
+      "path": "/learnings/f009-content-put-outside-worktree.html",
+      "contentType": "text/html",
+      "bytes": 2730,
+      "sha256": "79bb03c026d2d7e5095c7e9c7d51ad6c25810e32a2d9569e65cc89b50d3d9d48"
+    },
+    {
+      "path": "/learnings/f010-media-absolute-url-rewrite.html",
+      "contentType": "text/html",
+      "bytes": 2929,
+      "sha256": "787128b9330b81543deccfbc80b6617f164973f0f560a6d75672c69d968c7491"
+    },
+    {
+      "path": "/learnings/f011-audit-contracts-autoblock.html",
+      "contentType": "text/html",
+      "bytes": 2640,
+      "sha256": "d67e86f88dd84906309cad044a07888d6d5f24a88d22ebae96e92d0a5af003aa"
+    },
+    {
+      "path": "/learnings/f012-da-permission-headers.html",
+      "contentType": "text/html",
+      "bytes": 4516,
+      "sha256": "f45184b4021d1a3a5e30026b71571afb350255791c47a41a0bb0d1d45e7b59c0"
+    },
+    {
+      "path": "/learnings/f013-tools-classify-probe-gap.html",
+      "contentType": "text/html",
+      "bytes": 4064,
+      "sha256": "59fd76f5862d92a1b3800030e91e4b82387aafc2afa61be3b156cbc92a03d7ee"
+    },
+    {
+      "path": "/learnings/f014-pipeline-json-stdout.html",
+      "contentType": "text/html",
+      "bytes": 3151,
+      "sha256": "b5bc7a23e376efe023f74c03712e9cc016423624d956d6f04e20b4a764d6472d"
+    },
+    {
+      "path": "/learnings/f015-job-run-commit-bypass.html",
+      "contentType": "text/html",
+      "bytes": 2955,
+      "sha256": "0b58ffac69e574325f0924798bd89ed63b6987d57f5d12c9b8c33ab5b6497923"
+    },
+    {
+      "path": "/learnings/f016-code-job-broken-route.html",
+      "contentType": "text/html",
+      "bytes": 2939,
+      "sha256": "6a8f1061c068230bff9f8d673e97defade702aedaffe1500e02c2f9c0cd414ec"
+    },
+    {
+      "path": "/learnings/f017-envelope-coverage.html",
+      "contentType": "text/html",
+      "bytes": 5102,
+      "sha256": "e2b75262f2c21b26772e2a8c91f6d5a4ca390484270f10ab375c24210de34bb4"
+    },
+    {
+      "path": "/learnings/f018-content-diff-traversal.html",
+      "contentType": "text/html",
+      "bytes": 2469,
+      "sha256": "39101713a204127f533ba721a4ebc0c10ceb231d5b95ec290d38400eca3ce6ed"
+    },
+    {
+      "path": "/learnings/f019-inverted-safety-tiers.html",
+      "contentType": "text/html",
+      "bytes": 2944,
+      "sha256": "8327f092ad40ccf349b0ceef636460e13289462ccb4cedf639a6572c8c437bae"
+    },
+    {
+      "path": "/learnings/f020-non-tty-auth-hang.html",
+      "contentType": "text/html",
+      "bytes": 4248,
+      "sha256": "84130aaab48ff1528404a29b6b9675315805741ab02f095c8a075fef60c4f872"
+    },
+    {
+      "path": "/learnings/f021-bulk-silent-noop.html",
+      "contentType": "text/html",
+      "bytes": 3554,
+      "sha256": "24b1d36ec9e9590af2b521b6ececc06dfb0b569eddea76ff14324f00dde55130"
+    },
+    {
+      "path": "/learnings/f022-stale-job-lock.html",
+      "contentType": "text/html",
+      "bytes": 3002,
+      "sha256": "725cf9dc86fa3ee0b2984bd0c0ffbdf840f55b0af9b33b7eb297721c0998883d"
+    },
+    {
+      "path": "/learnings/f023-migrate-path-normalization.html",
+      "contentType": "text/html",
+      "bytes": 3020,
+      "sha256": "29f22be60492fac7bf23717505716bade52f37122cca80030f5213cd94a96bd8"
+    },
+    {
+      "path": "/learnings/f024-batch-collision-overwrite.html",
+      "contentType": "text/html",
+      "bytes": 3055,
+      "sha256": "26104cf8bf2d32f9ea45ba9389f85a51e8101aaafa3955d051f94676f0ca6e07"
+    },
+    {
+      "path": "/learnings/f025-abort-marker-clobbered.html",
+      "contentType": "text/html",
+      "bytes": 3583,
+      "sha256": "20a5c40af0fee58ebe6130702d33cb2a39eea5199d26c2bce4814d26e4f4956d"
+    },
+    {
+      "path": "/learnings/f026-deploy-double-envelope.html",
+      "contentType": "text/html",
+      "bytes": 3189,
+      "sha256": "74395e8b5dea66a79afb723a79528ecd5e1056eb132e77bc83470cdf35bf0799"
+    },
+    {
+      "path": "/learnings/f027-list-success-bare-array.html",
+      "contentType": "text/html",
+      "bytes": 3740,
+      "sha256": "b7c343c8026c0d1b3a4e68fb4d881cbc3cbaf32a83a3fff54ad96aaac97408be"
+    },
+    {
+      "path": "/learnings/f028-config-read-gated-build.html",
+      "contentType": "text/html",
+      "bytes": 3680,
+      "sha256": "193aa937aaf2d75b84395fbc01c25fca26bdd95fe87d2da6104b6912fcfc95d9"
+    },
+    {
+      "path": "/learnings/f029-index-config-false-migration.html",
+      "contentType": "text/html",
+      "bytes": 4604,
+      "sha256": "47a9ba04c1e1b4a285eb03f52dbd57662087e03a985b89bca632edec2af30ca8"
+    },
+    {
+      "path": "/learnings/f030-silent-global-target.html",
+      "contentType": "text/html",
+      "bytes": 3252,
+      "sha256": "a8782c1136344084696d6864b01e999df3db06430d66fa7024f845de04bbf3a5"
+    },
+    {
+      "path": "/learnings/f031-freshness-blind-to-staleness.html",
+      "contentType": "text/html",
+      "bytes": 3545,
+      "sha256": "26317432073814cbf5a1fecd3951ffcee5c2ab43576f10168619840f3e02e863"
+    },
+    {
+      "path": "/learnings/f032-silent-refusals.html",
+      "contentType": "text/html",
+      "bytes": 3430,
+      "sha256": "fa05c67be90de902388c060cfab272f1f5b58e01dae940199bd023a55235c756"
+    },
+    {
+      "path": "/learnings/f033-version-blind-binary-skew.html",
+      "contentType": "text/html",
+      "bytes": 4252,
+      "sha256": "df7fd6f84cce7bfd17433475bdb9379fcf39995b276c2d1b1e419edfa9bcdce7"
+    },
+    {
+      "path": "/learnings/f034-merge-destroys-local-side.html",
+      "contentType": "text/html",
+      "bytes": 4055,
+      "sha256": "4ebc3349f49f3962c9c91bf4b4ec91ede974e23fdfb17c9b6bba3d1e04ef1412"
+    },
+    {
+      "path": "/learnings/f035-broken-off-switch.html",
+      "contentType": "text/html",
+      "bytes": 4261,
+      "sha256": "e7c10b3590032ba5415418824790f2e24cf76ff11ca2ab56e95c10fca1c36230"
+    },
+    {
+      "path": "/learnings/f036-approval-gate-zombie.html",
+      "contentType": "text/html",
+      "bytes": 3936,
+      "sha256": "a21adce5e01e828fbc6430d75065ce5673838d1113186e9e496401b1af334f59"
+    },
+    {
+      "path": "/learnings/f037-put-blind-missing-media.html",
+      "contentType": "text/html",
+      "bytes": 4973,
+      "sha256": "f4ca1931699cf3e1a750d3f7d174e18f767c5d1f191d60c8018d44338eacb100"
+    },
+    {
+      "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+      "contentType": "text/html",
+      "bytes": 6212,
+      "sha256": "38c99ba1366e8dc584d12416acf5677f5d60b6c7d15ea2dce12e1d7de019075b"
+    },
+    {
+      "path": "/learnings/f039-duplicate-metadata-channels.html",
+      "contentType": "text/html",
+      "bytes": 5435,
+      "sha256": "f2e934342836da998f27783c62620f5170782e275279ca180d99ed7124f1d0dc"
+    },
+    {
+      "path": "/media/dualform/column-a.webp",
+      "contentType": "image/webp",
+      "bytes": 59148,
+      "sha256": "82c64ce2c9df4620d50097d5ad008ad197498355d9fa885fe223db34949d2673"
+    },
+    {
+      "path": "/media/dualform/column-b.webp",
+      "contentType": "image/webp",
+      "bytes": 66596,
+      "sha256": "fee2f0c026c13dfd66d9f47f3e7fc62239227afbbcec81312553303e297d9688"
+    },
+    {
+      "path": "/media/dualform/compass-a.webp",
+      "contentType": "image/webp",
+      "bytes": 57458,
+      "sha256": "f275d6e75dfd15fc7ad92680771c888ea7e073872531c2197acb5c20429b4587"
+    },
+    {
+      "path": "/media/dualform/compass-b.webp",
+      "contentType": "image/webp",
+      "bytes": 42324,
+      "sha256": "925a3d7cfabd39e5bdb5e6c87633e09209290611f3f0309ffe447762cbf3208f"
+    },
+    {
+      "path": "/media/dualform/form-a.webp",
+      "contentType": "image/webp",
+      "bytes": 52484,
+      "sha256": "6111f47a47636516379c20f4db53c8b245f7fce78e414294c7e226a19f223005"
+    },
+    {
+      "path": "/media/dualform/form-b.webp",
+      "contentType": "image/webp",
+      "bytes": 99516,
+      "sha256": "cc2d7c860e8e65de24e3f721227af8243c54900aa61fc258c8bda9c3c75ae85d"
+    },
+    {
+      "path": "/media/dualform/lock-a.webp",
+      "contentType": "image/webp",
+      "bytes": 43256,
+      "sha256": "5309bafb99685b38e9a5de7e1330895e29c8fab6e2f0a433096e2acb4d9d25ce"
+    },
+    {
+      "path": "/media/dualform/lock-b.webp",
+      "contentType": "image/webp",
+      "bytes": 46674,
+      "sha256": "c0dbbc5a58a93d5884884f6f136fa283b44d054953f052291860917b66913230"
+    },
+    {
+      "path": "/media/dualform/mic-a.webp",
+      "contentType": "image/webp",
+      "bytes": 53546,
+      "sha256": "94b42ceab0500f3c7e812e37137c37fbd9113c46592e8e0cec112e98b2d0b250"
+    },
+    {
+      "path": "/media/dualform/mic-b.webp",
+      "contentType": "image/webp",
+      "bytes": 57074,
+      "sha256": "5955a511b84bceeb75a8386b9b6dc1c25e6cbaa86a0a88ddc8987bbb9448ec68"
+    },
+    {
+      "path": "/media/dualform/orrery-a.webp",
+      "contentType": "image/webp",
+      "bytes": 69272,
+      "sha256": "de0623f578237e07415dcd95f9d5d59cf84e7dd7a4d32bff053c91f78f880a54"
+    },
+    {
+      "path": "/media/dualform/orrery-b.webp",
+      "contentType": "image/webp",
+      "bytes": 79784,
+      "sha256": "7d23b5c12c610f95a6ea5b8dc0d342d1d1daa2832ce4f5921da6bc017486e7b4"
+    },
+    {
+      "path": "/media/dualform/vessel-a.webp",
+      "contentType": "image/webp",
+      "bytes": 25098,
+      "sha256": "3044ae641e6d6ec9ee7f498dfc5b44832009bb9b4a50e2b973fdafa2d3588457"
+    },
+    {
+      "path": "/media/dualform/vessel-b.webp",
+      "contentType": "image/webp",
+      "bytes": 34640,
+      "sha256": "71506c64d9e3dbbca543592d7e3304b188f30a3497b63b9d0b206dc2bc6c27b9"
+    },
+    {
+      "path": "/media/renderaissance/cli-surface-ledger.webp",
+      "contentType": "image/webp",
+      "bytes": 151930,
+      "sha256": "d16fcb7ca197909718d4519b765135ee67b1e46e4541fe49b116ce867138879e"
+    },
+    {
+      "path": "/media/renderaissance/coverage-catalog.webp",
+      "contentType": "image/webp",
+      "bytes": 112978,
+      "sha256": "c3030ad3f1de5b0e296b5f80afbf9a42c37758e298e31ac1191c0964f40ec6e0"
+    },
+    {
+      "path": "/media/renderaissance/findings-flywheel.webp",
+      "contentType": "image/webp",
+      "bytes": 113068,
+      "sha256": "a02f4c9cbcdb335c2e2f3014e7afcadb81ca943a3f6ed798a84a35fa38e087c6"
+    },
+    {
+      "path": "/media/renderaissance/hero-bg.webp",
+      "contentType": "image/webp",
+      "bytes": 43766,
+      "sha256": "89b474983fb13f7799332efea1d9daf2f3bce1b86cd59e1a4163927982177967"
+    },
+    {
+      "path": "/media/renderaissance/hero-figure.webp",
+      "contentType": "image/webp",
+      "bytes": 99250,
+      "sha256": "20d855544b45ff4a6812e974de7a04402378b284f9be8f3ec8d5e47fe51a011f"
+    },
+    {
+      "path": "/media/renderaissance/hero-object.webp",
+      "contentType": "image/webp",
+      "bytes": 95458,
+      "sha256": "c9ba8e2ca3ff98367ee0a38dc384c47b817c2606fc08125f6bc701fb126bfc53"
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-height.webp",
+      "contentType": "image/webp",
+      "bytes": 58492,
+      "sha256": "746f86288080995c1700a23a835d0959f7270dfc618038bf85265e51e69c0ddb"
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-normal.webp",
+      "contentType": "image/webp",
+      "bytes": 81652,
+      "sha256": "003e5f93de6f6467b88e04d7404931ffe603143c4f3e9ea8c0a2db4349f8a15d"
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-roughness.webp",
+      "contentType": "image/webp",
+      "bytes": 84702,
+      "sha256": "3f8e6107b5bc811f1b4403cbae80ee5788dc1c42c8e8482009456f6bf2b85fe7"
+    },
+    {
+      "path": "/media/renderaissance/hero-plate.webp",
+      "contentType": "image/webp",
+      "bytes": 101454,
+      "sha256": "66694ae423fb6cdeaab5c1d1f78fe5bf3d2399b5b3c9ff41ed8ba5ea61a60373"
+    },
+    {
+      "path": "/media/renderaissance/mascot-cupid.webp",
+      "contentType": "image/webp",
+      "bytes": 64282,
+      "sha256": "bc7e1c17c673c8ebb19661bb7578d2d3267271385b1e125aa19860f03d72aabb"
+    },
+    {
+      "path": "/media/renderaissance/parthenon-frame-study.jpg",
+      "contentType": "image/jpeg",
+      "bytes": 252405,
+      "sha256": "a6243d9a864462537d19268999f58b6b55d13879a28ebe6ea33a7333183122f4"
+    },
+    {
+      "path": "/media/renderaissance/sprig.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 679,
+      "sha256": "73363985c06dfcd0fa956a42f08c8f9ae3e93281fc22260e4d158874d6cb2017"
+    },
+    {
+      "path": "/media/renderaissance/test-plan-waves.webp",
+      "contentType": "image/webp",
+      "bytes": 124288,
+      "sha256": "cd62874cb7d59d8b835fafd0cfd6ec1ead158735e9800b0755489a57420a3fbd"
+    },
+    {
+      "path": "/media/renderaissance/why-operator.webp",
+      "contentType": "image/webp",
+      "bytes": 78276,
+      "sha256": "0934f89ffca748c353b0bdbc5af3690edfd0d3ba1e0f501f8ed9425d2251ac03"
+    },
+    {
+      "path": "/modals/sample.html",
+      "contentType": "text/html",
+      "bytes": 366,
+      "sha256": "4e4361a191463f937e9d89d2aebeb61e55bacdfd6d947c3100d787d68c582fa1"
+    },
+    {
+      "path": "/nav.html",
+      "contentType": "text/html",
+      "bytes": 1932,
+      "sha256": "43669943cd6ae01becff5b203b375905bb69258e96027f871d1779a35b9a2db9"
+    },
+    {
+      "path": "/redirects.json",
+      "contentType": "application/json",
+      "bytes": 619,
+      "sha256": "ec976561b9557739a9f455177a18228ed2ef51e7feb0c11ce4a4ade605360cff"
+    },
+    {
+      "path": "/route-matrix.html",
+      "contentType": "text/html",
+      "bytes": 9318,
+      "sha256": "591a10610cfb924b80bd586958dd16c4aa987edc3ae1348cee15536784c6460f"
+    },
+    {
+      "path": "/sheets.html",
+      "contentType": "text/html",
+      "bytes": 4310,
+      "sha256": "1c4d1f8dd0aa88aa12cc24b91ed186db77befab7ec47053e4813788de7f21a0b"
+    },
+    {
+      "path": "/test-plan.html",
+      "contentType": "text/html",
+      "bytes": 36748,
+      "sha256": "8484c9124869416db5d705c8661b22fc712327c5a0c84dde5ca1848ab5a87cef"
+    },
+    {
+      "path": "/waves/1-foundation.html",
+      "contentType": "text/html",
+      "bytes": 7033,
+      "sha256": "1a9731434a01e501c8d6179083c8fc7abf60218d5a2a8d21a87ba9d94d71e53e"
+    },
+    {
+      "path": "/waves/4-durability.html",
+      "contentType": "text/html",
+      "bytes": 7359,
+      "sha256": "7ff06367f81ae1da332aad83ef207ff81b49e8c58bb418da76aade026286031b"
+    },
+    {
+      "path": "/waves/5-failure-recovery.html",
+      "contentType": "text/html",
+      "bytes": 9029,
+      "sha256": "0647d37c376c9dd9693c36b79f3f104d19cb96206dd7fd68170a2f9b4271e891"
+    },
+    {
+      "path": "/waves/6-lifecycle.html",
+      "contentType": "text/html",
+      "bytes": 3951,
+      "sha256": "efe5d3d746b46ce4f05d8088ed71ea847bf5fd68acf27d6c3a4626c329b7f73b"
+    },
+    {
+      "path": "/why.html",
+      "contentType": "text/html",
+      "bytes": 6576,
+      "sha256": "191157f6b0bf9236e76dacaa0cd6bb5940373492fdd4153b3e715fe3b04154ce"
+    }
+  ],
+  "versionSummary": [
+    {
+      "path": "/blocks.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/blocks.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/cli-surface.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/cli-surface.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/coverage.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/coverage.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/dogfood-sites.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/dogfood-sites.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/dualform.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/dualform.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/footer.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/footer.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/frontier.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/frontier.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/index.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/index.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/kitchen-sink.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/kitchen-sink.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/nav.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/nav.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/redirects.json",
+      "exitCode": 0,
+      "data": {
+        "path": "/redirects.json",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/route-matrix.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/route-matrix.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/sheets.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/sheets.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/test-plan.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/test-plan.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/why.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/why.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/data/contact-form.json",
+      "exitCode": 0,
+      "data": {
+        "path": "/data/contact-form.json",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/data/coverage.json",
+      "exitCode": 0,
+      "data": {
+        "path": "/data/coverage.json",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/data/token-efficiency.json",
+      "exitCode": 0,
+      "data": {
+        "path": "/data/token-efficiency.json",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/data/wave-2-cli-surface.json",
+      "exitCode": 0,
+      "data": {
+        "path": "/data/wave-2-cli-surface.json",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/b1-drill.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/b1-drill.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/b2-drill.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/b2-drill.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/b3-drill.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/b3-drill.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/c1-drill.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/c1-drill.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/f039-head-metadata-conflict.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/f039-head-metadata-conflict.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f001-site-info-target.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f001-site-info-target.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f002-design-detect-envelope.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f002-design-detect-envelope.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f003-index-build.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f003-index-build.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f004-index-env-preview.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f004-index-env-preview.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f005-route-codebus.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f005-route-codebus.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f006-stale-contentbus.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f006-stale-contentbus.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f007-route-clean-orphan.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f007-route-clean-orphan.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f008-content-merge-path.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f008-content-merge-path.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f009-content-put-outside-worktree.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f009-content-put-outside-worktree.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f010-media-absolute-url-rewrite.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f010-media-absolute-url-rewrite.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f011-audit-contracts-autoblock.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f011-audit-contracts-autoblock.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f012-da-permission-headers.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f012-da-permission-headers.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f013-tools-classify-probe-gap.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f013-tools-classify-probe-gap.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f014-pipeline-json-stdout.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f014-pipeline-json-stdout.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f015-job-run-commit-bypass.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f015-job-run-commit-bypass.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f016-code-job-broken-route.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f016-code-job-broken-route.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f017-envelope-coverage.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f017-envelope-coverage.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f018-content-diff-traversal.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f018-content-diff-traversal.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f019-inverted-safety-tiers.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f019-inverted-safety-tiers.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f020-non-tty-auth-hang.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f020-non-tty-auth-hang.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f021-bulk-silent-noop.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f021-bulk-silent-noop.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f022-stale-job-lock.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f022-stale-job-lock.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f023-migrate-path-normalization.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f023-migrate-path-normalization.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f024-batch-collision-overwrite.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f024-batch-collision-overwrite.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f025-abort-marker-clobbered.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f025-abort-marker-clobbered.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f026-deploy-double-envelope.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f026-deploy-double-envelope.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f027-list-success-bare-array.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f027-list-success-bare-array.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f028-config-read-gated-build.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f028-config-read-gated-build.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f029-index-config-false-migration.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f029-index-config-false-migration.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f030-silent-global-target.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f030-silent-global-target.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f031-freshness-blind-to-staleness.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f031-freshness-blind-to-staleness.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f032-silent-refusals.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f032-silent-refusals.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f033-version-blind-binary-skew.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f033-version-blind-binary-skew.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f034-merge-destroys-local-side.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f034-merge-destroys-local-side.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f035-broken-off-switch.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f035-broken-off-switch.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f036-approval-gate-zombie.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f036-approval-gate-zombie.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f037-put-blind-missing-media.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f037-put-blind-missing-media.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/learnings/f039-duplicate-metadata-channels.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/learnings/f039-duplicate-metadata-channels.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/modals/sample.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/modals/sample.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/waves/1-foundation.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/waves/1-foundation.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/waves/4-durability.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/waves/4-durability.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/waves/5-failure-recovery.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/waves/5-failure-recovery.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/waves/6-lifecycle.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/waves/6-lifecycle.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/adobe-skills.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/adobe-skills.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/da-cli.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/da-cli.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/methodology.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/methodology.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-1.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/round-1.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/round-2.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/example-com.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/example-com.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/column-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/column-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/column-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/column-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/compass-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/compass-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/compass-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/compass-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/form-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/form-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/form-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/form-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/lock-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/lock-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/lock-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/lock-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/mic-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/mic-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/mic-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/mic-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/orrery-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/orrery-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/orrery-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/orrery-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/vessel-a.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/vessel-a.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/dualform/vessel-b.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/dualform/vessel-b.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/cli-surface-ledger.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/cli-surface-ledger.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/coverage-catalog.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/coverage-catalog.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/findings-flywheel.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/findings-flywheel.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-bg.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-bg.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-figure.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-figure.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-object.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-object.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-plate.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-plate.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-height.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-plate-height.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-normal.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-plate-normal.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-roughness.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/hero-plate-roughness.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/mascot-cupid.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/mascot-cupid.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/parthenon-frame-study.jpg",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/parthenon-frame-study.jpg",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/sprig.svg",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/sprig.svg",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/test-plan-waves.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/test-plan-waves.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/media/renderaissance/why-operator.webp",
+      "exitCode": 0,
+      "data": {
+        "path": "/media/renderaissance/why-operator.webp",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/batch/example-com.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/batch/example-com.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/batch/example-net.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/batch/example-net.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/batch/example-org.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/batch/example-org.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/d4/alpha.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/d4/alpha.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/d4/doomed.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/d4/doomed.html",
+        "count": 0,
+        "versions": []
+      }
+    },
+    {
+      "path": "/drafts/migrate/d4/gamma.html",
+      "exitCode": 0,
+      "data": {
+        "path": "/drafts/migrate/d4/gamma.html",
+        "count": 0,
+        "versions": []
+      }
+    }
+  ],
+  "daSnapshotSha256": "8c5457e562ef1c1a777a150e72ff785e63515a5861fae2402c300cd774c4ea35"
+}

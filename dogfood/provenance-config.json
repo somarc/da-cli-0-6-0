@@ -27,9 +27,11 @@
     "manifestBaseCommit": "335f4883a670abbc7d23d2277b7f699bf705504b",
     "toleranceProfile": "da-native-canonical-v1",
     "notes": [
-      "Final CLI/proof tags and DA snapshot digest do not exist yet; strict freeze must fail until final release signoff.",
+      "The authenticated 113-artifact DA snapshot and isolated preview-only replay completed on 2026-07-23; redacted evidence is retained under dogfood/evidence/provenance/replay-2026-07-23/.",
+      "Final CLI/proof tags and final-candidate certification/promotion evidence do not exist yet; strict freeze must fail until final release signoff.",
       "The retained certification and promotion runs used source-tree CLI f0b0078."
-    ]
+    ],
+    "daSnapshotSha256": "8c5457e562ef1c1a777a150e72ff785e63515a5861fae2402c300cd774c4ea35"
   },
   "pipelines": {
     "certification": {

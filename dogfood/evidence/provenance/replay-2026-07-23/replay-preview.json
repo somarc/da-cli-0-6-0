@@ -1,0 +1,476 @@
+[
+  {
+    "path": "/blocks.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/blocks",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/cli-surface.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/cli-surface",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/coverage.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/coverage",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/dogfood-sites.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/dogfood-sites",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/dualform.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/dualform",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/footer.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/footer",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/frontier.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/frontier",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/index.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/kitchen-sink",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/nav.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/nav",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/route-matrix.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/route-matrix",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/sheets.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/sheets",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/test-plan.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/test-plan",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/why.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/why",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b1-drill.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/b1-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b2-drill.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/b2-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b3-drill.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/b3-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/c1-drill.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/c1-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/f039-head-metadata-conflict.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/f039-head-metadata-conflict",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f001-site-info-target",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f002-design-detect-envelope",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f003-index-build",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f004-index-env-preview",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f005-route-codebus",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f006-stale-contentbus",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f007-route-clean-orphan",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f008-content-merge-path",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f009-content-put-outside-worktree",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f010-media-absolute-url-rewrite",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f011-audit-contracts-autoblock",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f012-da-permission-headers.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f012-da-permission-headers",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f013-tools-classify-probe-gap",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f014-pipeline-json-stdout",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f015-job-run-commit-bypass",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f016-code-job-broken-route",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f017-envelope-coverage.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f017-envelope-coverage",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f018-content-diff-traversal",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f019-inverted-safety-tiers",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f020-non-tty-auth-hang",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f021-bulk-silent-noop",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f022-stale-job-lock.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f022-stale-job-lock",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f023-migrate-path-normalization.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f023-migrate-path-normalization",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f024-batch-collision-overwrite.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f024-batch-collision-overwrite",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f025-abort-marker-clobbered.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f025-abort-marker-clobbered",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f026-deploy-double-envelope.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f026-deploy-double-envelope",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f027-list-success-bare-array",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f028-config-read-gated-build.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f028-config-read-gated-build",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f029-index-config-false-migration.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f029-index-config-false-migration",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f030-silent-global-target.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f030-silent-global-target",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f031-freshness-blind-to-staleness.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f031-freshness-blind-to-staleness",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f032-silent-refusals.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f032-silent-refusals",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f033-version-blind-binary-skew.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f033-version-blind-binary-skew",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f034-merge-destroys-local-side.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f034-merge-destroys-local-side",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f035-broken-off-switch.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f035-broken-off-switch",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f036-approval-gate-zombie.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f036-approval-gate-zombie",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f037-put-blind-missing-media.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f037-put-blind-missing-media",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f038-fstab-shadowed-effective-config",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f039-duplicate-metadata-channels.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/learnings/f039-duplicate-metadata-channels",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/modals/sample.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/modals/sample",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/1-foundation.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/waves/1-foundation",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/waves/4-durability",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/waves/5-failure-recovery",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/waves/6-lifecycle",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/adobe-skills.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/adobe-skills",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/da-cli.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/da-cli",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/methodology.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/methodology",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-1.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/round-1",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/round-2",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/round-2-adobe-skills",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/benchmarks/token-efficiency/round-2-da-cli",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/example-com",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/batch/example-com",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/batch/example-net",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/batch/example-org",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/alpha.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/d4/alpha",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/doomed.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/d4/doomed",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/gamma.html",
+    "url": "https://proof-v0-6-0-replay--da-cli-wave6-site-create--somarc.aem.page/drafts/migrate/d4/gamma",
+    "status": "ok",
+    "verify": "ok"
+  }
+]

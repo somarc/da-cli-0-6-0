@@ -1,0 +1,1927 @@
+{
+  "capturedAt": "2026-07-23T15:25:42.046Z",
+  "count": 113,
+  "items": [
+    {
+      "path": "/blocks.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/blocks.html",
+        "data": {
+          "path": "/blocks.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/cli-surface.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/cli-surface.html",
+        "data": {
+          "path": "/cli-surface.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/coverage.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/coverage.html",
+        "data": {
+          "path": "/coverage.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/dogfood-sites.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/dogfood-sites.html",
+        "data": {
+          "path": "/dogfood-sites.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/dualform.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/dualform.html",
+        "data": {
+          "path": "/dualform.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/footer.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/footer.html",
+        "data": {
+          "path": "/footer.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/frontier.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/frontier.html",
+        "data": {
+          "path": "/frontier.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/index.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/index.html",
+        "data": {
+          "path": "/index.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/kitchen-sink.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/kitchen-sink.html",
+        "data": {
+          "path": "/kitchen-sink.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings.html",
+        "data": {
+          "path": "/learnings.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/nav.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/nav.html",
+        "data": {
+          "path": "/nav.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/redirects.json",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/redirects.json",
+        "data": {
+          "path": "/redirects.json",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/route-matrix.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/route-matrix.html",
+        "data": {
+          "path": "/route-matrix.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/sheets.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/sheets.html",
+        "data": {
+          "path": "/sheets.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/test-plan.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/test-plan.html",
+        "data": {
+          "path": "/test-plan.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/why.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/why.html",
+        "data": {
+          "path": "/why.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/data/contact-form.json",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/data/contact-form.json",
+        "data": {
+          "path": "/data/contact-form.json",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/data/coverage.json",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/data/coverage.json",
+        "data": {
+          "path": "/data/coverage.json",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/data/token-efficiency.json",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/data/token-efficiency.json",
+        "data": {
+          "path": "/data/token-efficiency.json",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/data/wave-2-cli-surface.json",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/data/wave-2-cli-surface.json",
+        "data": {
+          "path": "/data/wave-2-cli-surface.json",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/b1-drill.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/b1-drill.html",
+        "data": {
+          "path": "/drafts/b1-drill.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/b2-drill.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/b2-drill.html",
+        "data": {
+          "path": "/drafts/b2-drill.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/b3-drill.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/b3-drill.html",
+        "data": {
+          "path": "/drafts/b3-drill.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/c1-drill.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/c1-drill.html",
+        "data": {
+          "path": "/drafts/c1-drill.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/f039-head-metadata-conflict.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/f039-head-metadata-conflict.html",
+        "data": {
+          "path": "/drafts/f039-head-metadata-conflict.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f001-site-info-target.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f001-site-info-target.html",
+        "data": {
+          "path": "/learnings/f001-site-info-target.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f002-design-detect-envelope.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f002-design-detect-envelope.html",
+        "data": {
+          "path": "/learnings/f002-design-detect-envelope.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f003-index-build.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f003-index-build.html",
+        "data": {
+          "path": "/learnings/f003-index-build.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f004-index-env-preview.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f004-index-env-preview.html",
+        "data": {
+          "path": "/learnings/f004-index-env-preview.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f005-route-codebus.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f005-route-codebus.html",
+        "data": {
+          "path": "/learnings/f005-route-codebus.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f006-stale-contentbus.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f006-stale-contentbus.html",
+        "data": {
+          "path": "/learnings/f006-stale-contentbus.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f007-route-clean-orphan.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f007-route-clean-orphan.html",
+        "data": {
+          "path": "/learnings/f007-route-clean-orphan.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f008-content-merge-path.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f008-content-merge-path.html",
+        "data": {
+          "path": "/learnings/f008-content-merge-path.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f009-content-put-outside-worktree.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f009-content-put-outside-worktree.html",
+        "data": {
+          "path": "/learnings/f009-content-put-outside-worktree.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f010-media-absolute-url-rewrite.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f010-media-absolute-url-rewrite.html",
+        "data": {
+          "path": "/learnings/f010-media-absolute-url-rewrite.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f011-audit-contracts-autoblock.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f011-audit-contracts-autoblock.html",
+        "data": {
+          "path": "/learnings/f011-audit-contracts-autoblock.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f012-da-permission-headers.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f012-da-permission-headers.html",
+        "data": {
+          "path": "/learnings/f012-da-permission-headers.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f013-tools-classify-probe-gap.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f013-tools-classify-probe-gap.html",
+        "data": {
+          "path": "/learnings/f013-tools-classify-probe-gap.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f014-pipeline-json-stdout.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f014-pipeline-json-stdout.html",
+        "data": {
+          "path": "/learnings/f014-pipeline-json-stdout.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f015-job-run-commit-bypass.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f015-job-run-commit-bypass.html",
+        "data": {
+          "path": "/learnings/f015-job-run-commit-bypass.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f016-code-job-broken-route.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f016-code-job-broken-route.html",
+        "data": {
+          "path": "/learnings/f016-code-job-broken-route.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f017-envelope-coverage.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f017-envelope-coverage.html",
+        "data": {
+          "path": "/learnings/f017-envelope-coverage.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f018-content-diff-traversal.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f018-content-diff-traversal.html",
+        "data": {
+          "path": "/learnings/f018-content-diff-traversal.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f019-inverted-safety-tiers.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f019-inverted-safety-tiers.html",
+        "data": {
+          "path": "/learnings/f019-inverted-safety-tiers.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f020-non-tty-auth-hang.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f020-non-tty-auth-hang.html",
+        "data": {
+          "path": "/learnings/f020-non-tty-auth-hang.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f021-bulk-silent-noop.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f021-bulk-silent-noop.html",
+        "data": {
+          "path": "/learnings/f021-bulk-silent-noop.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f022-stale-job-lock.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f022-stale-job-lock.html",
+        "data": {
+          "path": "/learnings/f022-stale-job-lock.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f023-migrate-path-normalization.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f023-migrate-path-normalization.html",
+        "data": {
+          "path": "/learnings/f023-migrate-path-normalization.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f024-batch-collision-overwrite.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f024-batch-collision-overwrite.html",
+        "data": {
+          "path": "/learnings/f024-batch-collision-overwrite.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f025-abort-marker-clobbered.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f025-abort-marker-clobbered.html",
+        "data": {
+          "path": "/learnings/f025-abort-marker-clobbered.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f026-deploy-double-envelope.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f026-deploy-double-envelope.html",
+        "data": {
+          "path": "/learnings/f026-deploy-double-envelope.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f027-list-success-bare-array.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f027-list-success-bare-array.html",
+        "data": {
+          "path": "/learnings/f027-list-success-bare-array.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f028-config-read-gated-build.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f028-config-read-gated-build.html",
+        "data": {
+          "path": "/learnings/f028-config-read-gated-build.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f029-index-config-false-migration.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f029-index-config-false-migration.html",
+        "data": {
+          "path": "/learnings/f029-index-config-false-migration.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f030-silent-global-target.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f030-silent-global-target.html",
+        "data": {
+          "path": "/learnings/f030-silent-global-target.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f031-freshness-blind-to-staleness.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f031-freshness-blind-to-staleness.html",
+        "data": {
+          "path": "/learnings/f031-freshness-blind-to-staleness.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f032-silent-refusals.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f032-silent-refusals.html",
+        "data": {
+          "path": "/learnings/f032-silent-refusals.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f033-version-blind-binary-skew.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f033-version-blind-binary-skew.html",
+        "data": {
+          "path": "/learnings/f033-version-blind-binary-skew.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f034-merge-destroys-local-side.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f034-merge-destroys-local-side.html",
+        "data": {
+          "path": "/learnings/f034-merge-destroys-local-side.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f035-broken-off-switch.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f035-broken-off-switch.html",
+        "data": {
+          "path": "/learnings/f035-broken-off-switch.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f036-approval-gate-zombie.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f036-approval-gate-zombie.html",
+        "data": {
+          "path": "/learnings/f036-approval-gate-zombie.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f037-put-blind-missing-media.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f037-put-blind-missing-media.html",
+        "data": {
+          "path": "/learnings/f037-put-blind-missing-media.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f038-fstab-shadowed-effective-config.html",
+        "data": {
+          "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/learnings/f039-duplicate-metadata-channels.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/learnings/f039-duplicate-metadata-channels.html",
+        "data": {
+          "path": "/learnings/f039-duplicate-metadata-channels.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/modals/sample.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/modals/sample.html",
+        "data": {
+          "path": "/modals/sample.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/waves/1-foundation.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/waves/1-foundation.html",
+        "data": {
+          "path": "/waves/1-foundation.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/waves/4-durability.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/waves/4-durability.html",
+        "data": {
+          "path": "/waves/4-durability.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/waves/5-failure-recovery.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/waves/5-failure-recovery.html",
+        "data": {
+          "path": "/waves/5-failure-recovery.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/waves/6-lifecycle.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/waves/6-lifecycle.html",
+        "data": {
+          "path": "/waves/6-lifecycle.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/adobe-skills.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/adobe-skills.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/adobe-skills.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/da-cli.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/da-cli.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/da-cli.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/methodology.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/methodology.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/methodology.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-1.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/round-1.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/round-1.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/round-2.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/round-2.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/round-2-adobe-skills.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/benchmarks/token-efficiency/round-2-da-cli.html",
+        "data": {
+          "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/example-com.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/example-com.html",
+        "data": {
+          "path": "/drafts/migrate/example-com.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/column-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/column-a.webp",
+        "data": {
+          "path": "/media/dualform/column-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/column-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/column-b.webp",
+        "data": {
+          "path": "/media/dualform/column-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/compass-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/compass-a.webp",
+        "data": {
+          "path": "/media/dualform/compass-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/compass-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/compass-b.webp",
+        "data": {
+          "path": "/media/dualform/compass-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/form-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/form-a.webp",
+        "data": {
+          "path": "/media/dualform/form-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/form-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/form-b.webp",
+        "data": {
+          "path": "/media/dualform/form-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/lock-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/lock-a.webp",
+        "data": {
+          "path": "/media/dualform/lock-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/lock-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/lock-b.webp",
+        "data": {
+          "path": "/media/dualform/lock-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/mic-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/mic-a.webp",
+        "data": {
+          "path": "/media/dualform/mic-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/mic-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/mic-b.webp",
+        "data": {
+          "path": "/media/dualform/mic-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/orrery-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/orrery-a.webp",
+        "data": {
+          "path": "/media/dualform/orrery-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/orrery-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/orrery-b.webp",
+        "data": {
+          "path": "/media/dualform/orrery-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/vessel-a.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/vessel-a.webp",
+        "data": {
+          "path": "/media/dualform/vessel-a.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/dualform/vessel-b.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/dualform/vessel-b.webp",
+        "data": {
+          "path": "/media/dualform/vessel-b.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/cli-surface-ledger.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/cli-surface-ledger.webp",
+        "data": {
+          "path": "/media/renderaissance/cli-surface-ledger.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/coverage-catalog.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/coverage-catalog.webp",
+        "data": {
+          "path": "/media/renderaissance/coverage-catalog.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/findings-flywheel.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/findings-flywheel.webp",
+        "data": {
+          "path": "/media/renderaissance/findings-flywheel.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-bg.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-bg.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-bg.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-figure.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-figure.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-figure.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-object.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-object.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-object.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-plate.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-plate.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-plate.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-height.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-plate-height.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-plate-height.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-normal.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-plate-normal.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-plate-normal.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/hero-plate-roughness.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/hero-plate-roughness.webp",
+        "data": {
+          "path": "/media/renderaissance/hero-plate-roughness.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/mascot-cupid.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/mascot-cupid.webp",
+        "data": {
+          "path": "/media/renderaissance/mascot-cupid.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/parthenon-frame-study.jpg",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/parthenon-frame-study.jpg",
+        "data": {
+          "path": "/media/renderaissance/parthenon-frame-study.jpg",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/sprig.svg",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/sprig.svg",
+        "data": {
+          "path": "/media/renderaissance/sprig.svg",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/test-plan-waves.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/test-plan-waves.webp",
+        "data": {
+          "path": "/media/renderaissance/test-plan-waves.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/media/renderaissance/why-operator.webp",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/media/renderaissance/why-operator.webp",
+        "data": {
+          "path": "/media/renderaissance/why-operator.webp",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/batch/example-com.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/batch/example-com.html",
+        "data": {
+          "path": "/drafts/migrate/batch/example-com.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/batch/example-net.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/batch/example-net.html",
+        "data": {
+          "path": "/drafts/migrate/batch/example-net.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/batch/example-org.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/batch/example-org.html",
+        "data": {
+          "path": "/drafts/migrate/batch/example-org.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/d4/alpha.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/d4/alpha.html",
+        "data": {
+          "path": "/drafts/migrate/d4/alpha.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/d4/doomed.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/d4/doomed.html",
+        "data": {
+          "path": "/drafts/migrate/d4/doomed.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    },
+    {
+      "path": "/drafts/migrate/d4/gamma.html",
+      "exitCode": 0,
+      "output": {
+        "ok": true,
+        "operation": "content.versions",
+        "target": "somarc/da-cli-0-6-0/drafts/migrate/d4/gamma.html",
+        "data": {
+          "path": "/drafts/migrate/d4/gamma.html",
+          "count": 0,
+          "versions": []
+        },
+        "warnings": [],
+        "next": []
+      },
+      "stderr": ""
+    }
+  ]
+}
