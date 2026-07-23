@@ -1,0 +1,3391 @@
+Pipeline run a46a6c54 started: da-cli-0-6-0-da-native-certification
+State: /Users/mhess/.da/pipeline-runs/a46a6c54.json
+Result: /Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da/runs/a46a6c54/result.json
+-> status: status --format json
+{
+  "ok": true,
+  "operation": "status",
+  "data": {
+    "cwd": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "cli": {
+      "version": "0.5.1",
+      "packageRoot": "/Users/mhess/aem/aem-code/da/da-cli",
+      "installKind": "source-tree",
+      "git": {
+        "sha": "12c656a",
+        "dirty": false
+      }
+    },
+    "config": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "env": "prod",
+      "branch": "main",
+      "sources": {
+        "org": "flag",
+        "repo": "flag",
+        "env": "default",
+        "branch": "flag"
+      },
+      "projectConfigPath": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0/.da.json",
+      "globalConfigPath": "/Users/mhess/.da/config.json"
+    },
+    "auth": {
+      "valid": true,
+      "reason": null,
+      "expiresAt": 1784836222023,
+      "remainingMs": 9993440
+    },
+    "git": {
+      "available": true,
+      "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+      "branch": "feat-69-strict-freeze-final",
+      "upstream": null,
+      "dirty": false
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --format json content list /"
+  ]
+}
+-> site-model: site model --format json
+{
+  "schemaVersion": "da-cli.site-model.v2",
+  "site": {
+    "org": "somarc",
+    "repo": "da-cli-0-6-0",
+    "branch": "main",
+    "hostBranch": "main"
+  },
+  "sources": {
+    "expectedDa": "https://content.da.live/somarc/da-cli-0-6-0/",
+    "effectiveContent": {
+      "state": "configured",
+      "active": true,
+      "selectedBy": "helix-sidekick",
+      "source": {
+        "kind": "da-markup",
+        "type": "markup",
+        "url": "https://content.da.live/somarc/da-cli-0-6-0/",
+        "daOrg": "somarc",
+        "daRepo": "da-cli-0-6-0",
+        "pathPrefix": "/",
+        "matchesSite": true
+      },
+      "warnings": []
+    },
+    "codebus": "https://github.com/somarc/da-cli-0-6-0"
+  },
+  "delivery": {
+    "previewHost": "https://main--da-cli-0-6-0--somarc.aem.page",
+    "liveHost": "https://main--da-cli-0-6-0--somarc.aem.live",
+    "samplePreviewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "sampleLiveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/",
+    "samplePlainHtmlUrl": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html"
+  },
+  "local": {
+    "cwd": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "configSources": {
+      "org": "flag",
+      "repo": "flag",
+      "env": "default",
+      "branch": "flag"
+    }
+  },
+  "recommendations": [
+    {
+      "severity": "info",
+      "code": "pin-project-target",
+      "detail": "Pin org/repo in project .da.json before repeated writes or durable jobs.",
+      "next": "da --org somarc --repo da-cli-0-6-0 site pin-target --branch main"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/index.html",
+      "ownership": "contentbus",
+      "sourcePath": "/index.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/",
+      "error": ""
+    },
+    {
+      "path": "/nav.html",
+      "ownership": "contentbus",
+      "sourcePath": "/nav.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/nav",
+      "error": ""
+    },
+    {
+      "path": "/footer.html",
+      "ownership": "contentbus",
+      "sourcePath": "/footer.html",
+      "daSource": true,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "sourceLocation": "markup:https://content.da.live/somarc/da-cli-0-6-0/footer",
+      "error": ""
+    }
+  ]
+}
+-> agent-briefing: site doctor --agent --deep --format json
+Running site doctor for somarc/da-cli-0-6-0 (main)…
+{
+  "checks": [
+    {
+      "check": "Sidekick registration",
+      "status": "ok",
+      "detail": "main--da-cli-0-6-0--somarc.aem.page / main--da-cli-0-6-0--somarc.aem.live"
+    },
+    {
+      "check": "Effective DA content source",
+      "status": "ok",
+      "detail": "https://content.da.live/somarc/da-cli-0-6-0/"
+    },
+    {
+      "check": "code-bus styles.css",
+      "status": "ok",
+      "detail": "200 https://raw.githubusercontent.com/somarc/da-cli-0-6-0/main/styles/styles.css"
+    },
+    {
+      "check": "DA shared docs",
+      "status": "ok",
+      "detail": "found: /footer.html, /index.html, /nav.html"
+    },
+    {
+      "check": "route /index",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/"
+    },
+    {
+      "check": "route /nav",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/nav"
+    },
+    {
+      "check": "route /footer",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/footer"
+    },
+    {
+      "check": "deep route sample",
+      "status": "ok",
+      "detail": "50/50 checked; previewMissing=0; liveMissing=4; failed=0"
+    },
+    {
+      "check": "agent block assets",
+      "status": "ok",
+      "detail": "23 block(s); missing=0; errors=0"
+    },
+    {
+      "check": "agent local git",
+      "status": "ok",
+      "detail": "branch=feat-69-strict-freeze-final; upstream=none; ahead=0; unpushedBlockChanges=0; trackedAuthoredContent=0"
+    },
+    {
+      "check": "agent section shape",
+      "status": "ok",
+      "detail": "50 page(s) sampled; no top-level block classes"
+    }
+  ],
+  "recommendations": [
+    "Some deep routes are missing live. Run `da --commit publish tree / --verify-live` when ready."
+  ],
+  "agent": {
+    "ok": true,
+    "operation": "agent.diagnostics",
+    "warnings": [],
+    "next": [
+      "da site doctor --agent --deep --format json",
+      "da audit contracts --prefix / --verify-code --format json",
+      "da preview explain /index --format json",
+      "da pipeline scaffold agent-validate"
+    ],
+    "notes": [
+      "Inspect local git state separately when codebus drift is reported.",
+      "Use git status --short --branch to inspect local changes when needed.",
+      "Use git log --oneline @{u}..HEAD -- blocks to inspect unpushed block commits when needed.",
+      "Use git ls-files -- content to inspect tracked authored content when needed.",
+      "Write scaffold output to .da/agent-validate.yaml only after reviewing it."
+    ],
+    "briefing": "agent",
+    "project": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "branch": "main",
+      "preview": "https://main--da-cli-0-6-0--somarc.aem.page"
+    },
+    "content": {
+      "prefix": "/",
+      "sampledPages": 50,
+      "pagesWithBlocks": [
+        {
+          "path": "/blocks",
+          "blocks": [
+            "cards",
+            "columns"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/cli-surface",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/coverage",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/dogfood-sites",
+          "blocks": [
+            "cards",
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/drafts/b2-drill",
+          "blocks": [
+            "cards"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/dualform",
+          "blocks": [
+            "dualform-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/frontier",
+          "blocks": [
+            "feature-matrix",
+            "frontier-hero",
+            "scroll-rail",
+            "vf-specimen"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/index",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/kitchen-sink",
+          "blocks": [
+            "accordion",
+            "auth-toggle",
+            "cards",
+            "carousel",
+            "columns",
+            "embed",
+            "form",
+            "hero",
+            "n8n-form",
+            "painterly-hero",
+            "quote",
+            "search",
+            "table",
+            "tabs",
+            "teaser"
+          ],
+          "autoblocks": [
+            "modal"
+          ]
+        },
+        {
+          "path": "/learnings",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/nav",
+          "blocks": [],
+          "autoblocks": [
+            "modal"
+          ]
+        },
+        {
+          "path": "/route-matrix",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/sheets",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/test-plan",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/why",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        }
+      ]
+    },
+    "blockAssets": {
+      "blocks": [
+        "accordion",
+        "auth-toggle",
+        "cards",
+        "carousel",
+        "columns",
+        "dualform-hero",
+        "embed",
+        "feature-matrix",
+        "form",
+        "fragment",
+        "frontier-hero",
+        "hero",
+        "modal",
+        "n8n-form",
+        "painterly-hero",
+        "quote",
+        "scroll-rail",
+        "search",
+        "table",
+        "tabs",
+        "teaser",
+        "vf-specimen",
+        "widget"
+      ],
+      "checked": [
+        {
+          "block": "accordion",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "auth-toggle",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "cards",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "carousel",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "columns",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "dualform-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "embed",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "feature-matrix",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "fragment",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "frontier-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "modal",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "n8n-form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "painterly-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "quote",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "scroll-rail",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "search",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "table",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "tabs",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "teaser",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "vf-specimen",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "widget",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "missing": [],
+      "errors": []
+    },
+    "localGit": {
+      "available": true,
+      "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+      "branch": "feat-69-strict-freeze-final",
+      "upstream": null,
+      "ahead": 0,
+      "unpushedBlockChanges": [],
+      "trackedAuthoredContent": [],
+      "detail": "No local unpushed changes found for authored block implementations."
+    },
+    "sectionShape": {
+      "ok": true,
+      "sampled": 50,
+      "violations": []
+    }
+  }
+}
+-> contract-codebus: audit contracts --prefix / --verify-code --format json
+Scanning 79 pages for block contracts…
+{
+  "prefix": "/",
+  "scannedPages": 79,
+  "blocks": [
+    {
+      "block": "accordion",
+      "pages": 3,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "auth-toggle",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "cards",
+      "pages": 6,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "carousel",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "columns",
+      "pages": 4,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "dualform-hero",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "embed",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "feature-matrix",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "form",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "fragment",
+      "pages": 0,
+      "source": "autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "frontier-hero",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "hero",
+      "pages": 3,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "modal",
+      "pages": 2,
+      "source": "page+autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "n8n-form",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "painterly-hero",
+      "pages": 13,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "quote",
+      "pages": 3,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "scroll-rail",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "search",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "table",
+      "pages": 14,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "tabs",
+      "pages": 3,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "teaser",
+      "pages": 3,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "vf-specimen",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "widget",
+      "pages": 0,
+      "source": "autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    }
+  ],
+  "autoblocks": [
+    "fragment",
+    "modal",
+    "widget"
+  ],
+  "missing": [],
+  "errors": [],
+  "localGit": {
+    "available": true,
+    "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+    "branch": "feat-69-strict-freeze-final",
+    "upstream": null,
+    "ahead": 0,
+    "unpushedBlockChanges": [],
+    "trackedAuthoredContent": [],
+    "detail": "No local unpushed changes found for authored block implementations."
+  }
+}
+-> preview-da-tree: preview tree / --verify --yes --format json
+Previewing 79 page(s) with concurrency 5…
+Write preflight:
+  Target: somarc/da-cli-0-6-0
+  Branch: main
+  Config: org=flag, repo=flag, branch=flag
+  Operation: preview tree /
+  Source: /
+  Paths: 79
+    /blocks.html
+    /cli-surface.html
+    /coverage.html
+    /dogfood-sites.html
+    /dualform.html
+    ... 69 more ...
+    /drafts/migrate/batch/example-net.html
+    /drafts/migrate/batch/example-org.html
+    /drafts/migrate/d4/alpha.html
+    /drafts/migrate/d4/doomed.html
+    /drafts/migrate/d4/gamma.html
+  Note: Preview mutates aem.page/code pipeline state but does not publish to live.
+[
+  {
+    "path": "/blocks.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/blocks",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/cli-surface.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/cli-surface",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/coverage.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/coverage",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/dogfood-sites.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/dogfood-sites",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/dualform.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/dualform",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/footer.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/footer",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/frontier.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/frontier",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/index.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/nav.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/nav",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/route-matrix.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/route-matrix",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/sheets.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/sheets",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/test-plan.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/why.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/why",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b1-drill.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b1-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b2-drill.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b2-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/b3-drill.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b3-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/c1-drill.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/c1-drill",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/f039-head-metadata-conflict.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/f039-head-metadata-conflict",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f001-site-info-target",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f002-design-detect-envelope",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f003-index-build",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f004-index-env-preview",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f005-route-codebus",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f006-stale-contentbus",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f007-route-clean-orphan",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f008-content-merge-path",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f009-content-put-outside-worktree",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f010-media-absolute-url-rewrite",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f011-audit-contracts-autoblock",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f012-da-permission-headers.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f012-da-permission-headers",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f013-tools-classify-probe-gap",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f014-pipeline-json-stdout",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f015-job-run-commit-bypass",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f016-code-job-broken-route",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f017-envelope-coverage.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f017-envelope-coverage",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f018-content-diff-traversal",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f019-inverted-safety-tiers",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f020-non-tty-auth-hang",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f021-bulk-silent-noop",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f022-stale-job-lock.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f022-stale-job-lock",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f023-migrate-path-normalization.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f023-migrate-path-normalization",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f024-batch-collision-overwrite.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f024-batch-collision-overwrite",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f025-abort-marker-clobbered.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f025-abort-marker-clobbered",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f026-deploy-double-envelope.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f026-deploy-double-envelope",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f027-list-success-bare-array",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f028-config-read-gated-build.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f028-config-read-gated-build",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f029-index-config-false-migration.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f029-index-config-false-migration",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f030-silent-global-target.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f030-silent-global-target",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f031-freshness-blind-to-staleness.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f031-freshness-blind-to-staleness",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f032-silent-refusals.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f032-silent-refusals",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f033-version-blind-binary-skew.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f033-version-blind-binary-skew",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f034-merge-destroys-local-side.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f034-merge-destroys-local-side",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f035-broken-off-switch.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f035-broken-off-switch",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f036-approval-gate-zombie.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f036-approval-gate-zombie",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f037-put-blind-missing-media.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f037-put-blind-missing-media",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f038-fstab-shadowed-effective-config",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/learnings/f039-duplicate-metadata-channels.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f039-duplicate-metadata-channels",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/modals/sample.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/modals/sample",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/1-foundation.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/waves/1-foundation",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/waves/6-lifecycle",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/adobe-skills.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/adobe-skills",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/da-cli.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/da-cli",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/methodology.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/methodology",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-1.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-1",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-adobe-skills",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-da-cli",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/example-com",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-com",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-net",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-org",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/alpha.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/alpha",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/doomed.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/doomed",
+    "status": "ok",
+    "verify": "ok"
+  },
+  {
+    "path": "/drafts/migrate/d4/gamma.html",
+    "url": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/gamma",
+    "status": "ok",
+    "verify": "ok"
+  }
+]
+-> explain-index: preview explain /index --format json
+{
+  "path": "/index.html",
+  "plainUrl": "https://main--da-cli-0-6-0--somarc.aem.page/index.plain.html",
+  "plainStatus": 200,
+  "classes": {
+    "source": [
+      "metadata",
+      "painterly-hero"
+    ],
+    "plain": [
+      "painterly-hero"
+    ],
+    "removed": [
+      "metadata"
+    ]
+  },
+  "classification": {
+    "expected": [
+      "metadata"
+    ],
+    "problematic": [],
+    "trimmed": []
+  },
+  "hints": [
+    {
+      "block": "metadata",
+      "severity": "info",
+      "message": "metadata blocks should be nested inside a section wrapper and validated with preview explain."
+    }
+  ],
+  "metadata": {
+    "ok": true,
+    "code": null,
+    "channels": 1,
+    "headKeys": [],
+    "bodyBlocks": 1,
+    "visibleProjectedRows": [],
+    "diagnostics": []
+  },
+  "diagnostics": [
+    {
+      "class": "metadata",
+      "severity": "info",
+      "likelyCause": "Metadata block is lifted to <head> meta tags during preview — removal from body is expected.",
+      "remediation": "Nest the metadata block inside a section wrapper; a top-level <div class=\"metadata\"> is flattened and Title/Description leak visibly at page bottom.",
+      "contract": "metadata"
+    }
+  ],
+  "status": "metadata-lifted",
+  "fatal": false
+}
+-> audit-wave-4: audit full /waves/4-durability --format json
+-> audit-test-plan: audit full /test-plan --format json
+-> audit-home: audit full / --format json
+-> audit-route-matrix: audit full /route-matrix --format json
+-> audit-learnings: audit full /learnings --format json
+-> audit-wave-5: audit full /waves/5-failure-recovery --format json
+-> audit-kitchen-sink: audit full /kitchen-sink --format json
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/
+Audit: /
+Audit: /waves/4-durability
+0 error(s), 0 warning(s)
+0 error(s), 0 warning(s)
+{
+  "ok": true,
+  "path": "/",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 4
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "3 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Trust demonstrated. Not asserted.\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "9 link(s): 9 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    }
+  ]
+}
+{
+  "ok": true,
+  "path": "/waves/4-durability",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 5
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "4 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Wave 4 — Coordination, durability, migration (cut \""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "8 link(s): 8 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 9 row(s), 3 col(s)"
+    }
+  ]
+}
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/route-matrix
+Audit: /route-matrix
+0 error(s), 0 warning(s)
+{
+  "ok": true,
+  "path": "/route-matrix",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/route-matrix",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/route-matrix",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 6
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "7 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Route matrix — Wave 3 structured data &#x26; owner\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "9 link(s): 9 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 8 row(s), 3 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 6 row(s), 4 col(s)"
+    }
+  ]
+}
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/learnings
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/test-plan
+Audit: /learnings
+0 error(s), 0 warning(s)
+{
+  "ok": true,
+  "path": "/learnings",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 5
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "4 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Learnings — dogfood flywheel history\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "42 link(s): 41 internal, 1 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 40 row(s), 4 col(s)"
+    }
+  ]
+}
+Audit: /test-plan
+{
+  "ok": true,
+  "path": "/test-plan",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 6
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "8 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"The test plan\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "66 link(s): 65 internal, 1 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 7 row(s), 3 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 34 row(s), 2 col(s)"
+    }
+  ]
+}
+0 error(s), 0 warning(s)
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink
+Audit: /kitchen-sink
+{
+  "ok": true,
+  "path": "/kitchen-sink",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 19
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "28 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Kitchen sink — Wave 2 module spectrum\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "12 link(s): 8 internal, 4 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"cards\": 4 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"columns\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"hero\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"quote\": 2 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"accordion\": 3 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"tabs\": 3 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"carousel\": 3 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 5 row(s), 3 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"embed\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"teaser\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"search\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"form\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"n8n-form\": 2 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"auth-toggle\": 1 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"columns\": 1 row(s), 2 col(s)"
+    }
+  ]
+}
+0 error(s), 0 warning(s)
+Fetched https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery
+Audit: /waves/5-failure-recovery
+0 error(s), 0 warning(s)
+{
+  "ok": true,
+  "path": "/waves/5-failure-recovery",
+  "requestedUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery",
+  "finalUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 5
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "4 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Wave 5 — Failure and recovery injection (live boar\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "14 link(s): 14 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"painterly-hero\": 1 row(s), 2 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"table\": 14 row(s), 3 col(s)"
+    }
+  ]
+}
+-> freshness-gate: site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json
+[
+  {
+    "path": "/benchmarks/token-efficiency.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T17:32:29.187Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:09.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:19.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/adobe-skills.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T18:24:10.084Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:21.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:19.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/adobe-skills",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/adobe-skills"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/da-cli.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T16:04:01.867Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:21.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:19.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/da-cli",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/da-cli"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/methodology.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T17:27:18.462Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:22.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:19.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/methodology",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/methodology"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-1.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T17:32:33.015Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:22.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:20.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-1",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/round-1"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-adobe-skills.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T16:59:44.615Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:22.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:20.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-adobe-skills",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/round-2-adobe-skills"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2-da-cli.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T17:06:43.490Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:23.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:20.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2-da-cli",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/round-2-da-cli"
+  },
+  {
+    "path": "/benchmarks/token-efficiency/round-2.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T18:23:53.886Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:22.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:20.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/benchmarks/token-efficiency/round-2",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/benchmarks/token-efficiency/round-2"
+  },
+  {
+    "path": "/blocks.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:36:57.745Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:04.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/blocks",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/blocks"
+  },
+  {
+    "path": "/cli-surface.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:36:16.249Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:05.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/cli-surface",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/cli-surface"
+  },
+  {
+    "path": "/coverage.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T17:19:30.379Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:05.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T18:42:20.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/coverage",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/coverage"
+  },
+  {
+    "path": "/dogfood-sites.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T12:48:27.566Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:05.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T12:48:57.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/dogfood-sites",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/dogfood-sites"
+  },
+  {
+    "path": "/drafts/b1-drill.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:36:58.598Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:09.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/b1-drill.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b1-drill",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/b1-drill"
+  },
+  {
+    "path": "/drafts/b2-drill.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:20:15.964Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:09.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/b2-drill.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b2-drill",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/b2-drill"
+  },
+  {
+    "path": "/drafts/b3-drill.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:20:14.390Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:09.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/b3-drill.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/b3-drill",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/b3-drill"
+  },
+  {
+    "path": "/drafts/c1-drill.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T00:17:51.788Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:09.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-17T00:17:55.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/c1-drill",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/c1-drill"
+  },
+  {
+    "path": "/drafts/f039-head-metadata-conflict.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-21T17:10:36.287Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:10.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/f039-head-metadata-conflict.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/f039-head-metadata-conflict",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/f039-head-metadata-conflict"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-com.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.818Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:23.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-com.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-com",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-com"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-net.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.892Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:23.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-net.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-net",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-net"
+  },
+  {
+    "path": "/drafts/migrate/batch/example-org.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:09:34.907Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:24.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/batch/example-org.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/batch/example-org",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/batch/example-org"
+  },
+  {
+    "path": "/drafts/migrate/d4/alpha.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:20.611Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:24.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/d4/alpha.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/alpha",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/d4/alpha"
+  },
+  {
+    "path": "/drafts/migrate/d4/doomed.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:24:19.473Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:24.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/d4/doomed.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/doomed",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/d4/doomed"
+  },
+  {
+    "path": "/drafts/migrate/d4/gamma.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:20.278Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:24.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/d4/gamma.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/d4/gamma",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/d4/gamma"
+  },
+  {
+    "path": "/drafts/migrate/example-com.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-16T15:01:14.011Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:23.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /drafts/migrate/example-com.html"
+    ],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/drafts/migrate/example-com",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/drafts/migrate/example-com"
+  },
+  {
+    "path": "/dualform.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:49.134Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:05.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/dualform",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/dualform"
+  },
+  {
+    "path": "/footer.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:36:46.135Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:06.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/footer",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/footer"
+  },
+  {
+    "path": "/frontier.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:53.382Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:06.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/frontier",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/frontier"
+  },
+  {
+    "path": "/index.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:02.743Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:06.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/"
+  },
+  {
+    "path": "/kitchen-sink.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:04.131Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:06.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/kitchen-sink",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/kitchen-sink"
+  },
+  {
+    "path": "/learnings.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-21T17:34:51.629Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:06.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings"
+  },
+  {
+    "path": "/learnings/f001-site-info-target.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:09.416Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:10.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f001-site-info-target",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f001-site-info-target"
+  },
+  {
+    "path": "/learnings/f002-design-detect-envelope.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:12.866Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:10.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f002-design-detect-envelope",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f002-design-detect-envelope"
+  },
+  {
+    "path": "/learnings/f003-index-build.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:16.301Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:10.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f003-index-build",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f003-index-build"
+  },
+  {
+    "path": "/learnings/f004-index-env-preview.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:19.936Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:11.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f004-index-env-preview",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f004-index-env-preview"
+  },
+  {
+    "path": "/learnings/f005-route-codebus.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:23.459Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:11.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f005-route-codebus",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f005-route-codebus"
+  },
+  {
+    "path": "/learnings/f006-stale-contentbus.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:27.097Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:11.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f006-stale-contentbus",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f006-stale-contentbus"
+  },
+  {
+    "path": "/learnings/f007-route-clean-orphan.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:30.894Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:12.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f007-route-clean-orphan",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f007-route-clean-orphan"
+  },
+  {
+    "path": "/learnings/f008-content-merge-path.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:34.358Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:12.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f008-content-merge-path",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f008-content-merge-path"
+  },
+  {
+    "path": "/learnings/f009-content-put-outside-worktree.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:04.564Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:12.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f009-content-put-outside-worktree",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f009-content-put-outside-worktree"
+  },
+  {
+    "path": "/learnings/f010-media-absolute-url-rewrite.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:41.611Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:12.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f010-media-absolute-url-rewrite",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f010-media-absolute-url-rewrite"
+  },
+  {
+    "path": "/learnings/f011-audit-contracts-autoblock.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:37:45.284Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:13.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f011-audit-contracts-autoblock",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f011-audit-contracts-autoblock"
+  },
+  {
+    "path": "/learnings/f012-da-permission-headers.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:22.794Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:13.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f012-da-permission-headers",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f012-da-permission-headers"
+  },
+  {
+    "path": "/learnings/f013-tools-classify-probe-gap.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:26.572Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:13.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f013-tools-classify-probe-gap",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f013-tools-classify-probe-gap"
+  },
+  {
+    "path": "/learnings/f014-pipeline-json-stdout.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:30.030Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:13.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f014-pipeline-json-stdout",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f014-pipeline-json-stdout"
+  },
+  {
+    "path": "/learnings/f015-job-run-commit-bypass.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:33.551Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:13.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f015-job-run-commit-bypass",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f015-job-run-commit-bypass"
+  },
+  {
+    "path": "/learnings/f016-code-job-broken-route.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:37.053Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:14.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f016-code-job-broken-route",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f016-code-job-broken-route"
+  },
+  {
+    "path": "/learnings/f017-envelope-coverage.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-21T23:43:52.229Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:14.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f017-envelope-coverage",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f017-envelope-coverage"
+  },
+  {
+    "path": "/learnings/f018-content-diff-traversal.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:44.151Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:14.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f018-content-diff-traversal",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f018-content-diff-traversal"
+  },
+  {
+    "path": "/learnings/f019-inverted-safety-tiers.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:47.756Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:14.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f019-inverted-safety-tiers",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f019-inverted-safety-tiers"
+  },
+  {
+    "path": "/learnings/f020-non-tty-auth-hang.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:51.302Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:15.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f020-non-tty-auth-hang",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f020-non-tty-auth-hang"
+  },
+  {
+    "path": "/learnings/f021-bulk-silent-noop.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:54.620Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:15.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f021-bulk-silent-noop",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f021-bulk-silent-noop"
+  },
+  {
+    "path": "/learnings/f022-stale-job-lock.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:58.108Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:15.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f022-stale-job-lock",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f022-stale-job-lock"
+  },
+  {
+    "path": "/learnings/f023-migrate-path-normalization.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:01.881Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:15.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f023-migrate-path-normalization",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f023-migrate-path-normalization"
+  },
+  {
+    "path": "/learnings/f024-batch-collision-overwrite.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:05.816Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:16.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f024-batch-collision-overwrite",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f024-batch-collision-overwrite"
+  },
+  {
+    "path": "/learnings/f025-abort-marker-clobbered.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:09.512Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:16.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f025-abort-marker-clobbered",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f025-abort-marker-clobbered"
+  },
+  {
+    "path": "/learnings/f026-deploy-double-envelope.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:13.220Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:16.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f026-deploy-double-envelope",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f026-deploy-double-envelope"
+  },
+  {
+    "path": "/learnings/f027-list-success-bare-array.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:16.664Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:16.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f027-list-success-bare-array",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f027-list-success-bare-array"
+  },
+  {
+    "path": "/learnings/f028-config-read-gated-build.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:20.316Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:17.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f028-config-read-gated-build",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f028-config-read-gated-build"
+  },
+  {
+    "path": "/learnings/f029-index-config-false-migration.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:06.279Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:17.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f029-index-config-false-migration",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f029-index-config-false-migration"
+  },
+  {
+    "path": "/learnings/f030-silent-global-target.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:27.562Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:17.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f030-silent-global-target",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f030-silent-global-target"
+  },
+  {
+    "path": "/learnings/f031-freshness-blind-to-staleness.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:31.088Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:18.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f031-freshness-blind-to-staleness",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f031-freshness-blind-to-staleness"
+  },
+  {
+    "path": "/learnings/f032-silent-refusals.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:34.769Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:18.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f032-silent-refusals",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f032-silent-refusals"
+  },
+  {
+    "path": "/learnings/f033-version-blind-binary-skew.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:38.124Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:18.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f033-version-blind-binary-skew",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f033-version-blind-binary-skew"
+  },
+  {
+    "path": "/learnings/f034-merge-destroys-local-side.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:43:45.335Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:18.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f034-merge-destroys-local-side",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f034-merge-destroys-local-side"
+  },
+  {
+    "path": "/learnings/f035-broken-off-switch.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:44:07.369Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:18.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f035-broken-off-switch",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f035-broken-off-switch"
+  },
+  {
+    "path": "/learnings/f036-approval-gate-zombie.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:44:08.750Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:19.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f036-approval-gate-zombie",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f036-approval-gate-zombie"
+  },
+  {
+    "path": "/learnings/f037-put-blind-missing-media.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T02:09:29.376Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:19.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f037-put-blind-missing-media",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f037-put-blind-missing-media"
+  },
+  {
+    "path": "/learnings/f038-fstab-shadowed-effective-config.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T15:51:59.207Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:19.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f038-fstab-shadowed-effective-config",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f038-fstab-shadowed-effective-config"
+  },
+  {
+    "path": "/learnings/f039-duplicate-metadata-channels.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-21T17:34:50.086Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:19.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/learnings/f039-duplicate-metadata-channels",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/learnings/f039-duplicate-metadata-channels"
+  },
+  {
+    "path": "/modals/sample.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:00.669Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:20.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/modals/sample",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/modals/sample"
+  },
+  {
+    "path": "/nav.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T12:48:28.750Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:07.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T12:48:57.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/nav",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/nav"
+  },
+  {
+    "path": "/route-matrix.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:38:18.946Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:08.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/route-matrix",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/route-matrix"
+  },
+  {
+    "path": "/sheets.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:52.217Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:08.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/sheets",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/sheets"
+  },
+  {
+    "path": "/test-plan.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T16:42:58.398Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:08.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T16:45:36.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/test-plan",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/test-plan"
+  },
+  {
+    "path": "/waves/1-foundation.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:41.260Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:20.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:32.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/1-foundation",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/1-foundation"
+  },
+  {
+    "path": "/waves/4-durability.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:09.745Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:20.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/4-durability",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/4-durability"
+  },
+  {
+    "path": "/waves/5-failure-recovery.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-17T01:39:48.645Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:20.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/5-failure-recovery",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/5-failure-recovery"
+  },
+  {
+    "path": "/waves/6-lifecycle.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-23T13:44:39.681Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:20.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-23T13:45:53.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/waves/6-lifecycle",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/waves/6-lifecycle"
+  },
+  {
+    "path": "/why.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-22T01:37:11.523Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-23T17:04:08.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-22T01:43:31.000Z",
+    "liveFreshness": "fresh",
+    "verdict": "fresh",
+    "next": [],
+    "previewUrl": "https://main--da-cli-0-6-0--somarc.aem.page/why",
+    "liveUrl": "https://main--da-cli-0-6-0--somarc.aem.live/why"
+  }
+]
+-> preview-sitemap: sitemap verify --target preview --allow-content-paths --require-path /test-plan --format json
+{
+  "ok": true,
+  "path": "/sitemap.xml",
+  "target": "preview",
+  "url": "https://main--da-cli-0-6-0--somarc.aem.page/sitemap.xml",
+  "status": 200,
+  "entries": 69,
+  "leakedContentPaths": [
+    "https://main--da-cli-0-6-0--somarc.aem.page/nav",
+    "https://main--da-cli-0-6-0--somarc.aem.page/footer"
+  ],
+  "undefinedHosts": [],
+  "requirePath": "/test-plan",
+  "requirePathFound": true
+}
+-> code-proof: code verify /styles/styles.css --contains body --format json
+{
+  "ok": true,
+  "path": "/styles/styles.css",
+  "target": "preview",
+  "url": "https://main--da-cli-0-6-0--somarc.aem.page/styles/styles.css",
+  "status": 200,
+  "bytes": 11440,
+  "contains": "body",
+  "containsFound": true
+}
+-> final-doctor: site doctor --agent --deep --format json
+Running site doctor for somarc/da-cli-0-6-0 (main)…
+{
+  "checks": [
+    {
+      "check": "Sidekick registration",
+      "status": "ok",
+      "detail": "main--da-cli-0-6-0--somarc.aem.page / main--da-cli-0-6-0--somarc.aem.live"
+    },
+    {
+      "check": "Effective DA content source",
+      "status": "ok",
+      "detail": "https://content.da.live/somarc/da-cli-0-6-0/"
+    },
+    {
+      "check": "code-bus styles.css",
+      "status": "ok",
+      "detail": "200 https://raw.githubusercontent.com/somarc/da-cli-0-6-0/main/styles/styles.css"
+    },
+    {
+      "check": "DA shared docs",
+      "status": "ok",
+      "detail": "found: /footer.html, /index.html, /nav.html"
+    },
+    {
+      "check": "route /index",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/"
+    },
+    {
+      "check": "route /nav",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/nav"
+    },
+    {
+      "check": "route /footer",
+      "status": "ok",
+      "detail": "contentbus; preview=200 live=200 source=markup:https://content.da.live/somarc/da-cli-0-6-0/footer"
+    },
+    {
+      "check": "deep route sample",
+      "status": "ok",
+      "detail": "50/50 checked; previewMissing=0; liveMissing=4; failed=0"
+    },
+    {
+      "check": "agent block assets",
+      "status": "ok",
+      "detail": "23 block(s); missing=0; errors=0"
+    },
+    {
+      "check": "agent local git",
+      "status": "ok",
+      "detail": "branch=feat-69-strict-freeze-final; upstream=none; ahead=0; unpushedBlockChanges=0; trackedAuthoredContent=0"
+    },
+    {
+      "check": "agent section shape",
+      "status": "ok",
+      "detail": "50 page(s) sampled; no top-level block classes"
+    }
+  ],
+  "recommendations": [
+    "Some deep routes are missing live. Run `da --commit publish tree / --verify-live` when ready."
+  ],
+  "agent": {
+    "ok": true,
+    "operation": "agent.diagnostics",
+    "warnings": [],
+    "next": [
+      "da site doctor --agent --deep --format json",
+      "da audit contracts --prefix / --verify-code --format json",
+      "da preview explain /index --format json",
+      "da pipeline scaffold agent-validate"
+    ],
+    "notes": [
+      "Inspect local git state separately when codebus drift is reported.",
+      "Use git status --short --branch to inspect local changes when needed.",
+      "Use git log --oneline @{u}..HEAD -- blocks to inspect unpushed block commits when needed.",
+      "Use git ls-files -- content to inspect tracked authored content when needed.",
+      "Write scaffold output to .da/agent-validate.yaml only after reviewing it."
+    ],
+    "briefing": "agent",
+    "project": {
+      "org": "somarc",
+      "repo": "da-cli-0-6-0",
+      "branch": "main",
+      "preview": "https://main--da-cli-0-6-0--somarc.aem.page"
+    },
+    "content": {
+      "prefix": "/",
+      "sampledPages": 50,
+      "pagesWithBlocks": [
+        {
+          "path": "/blocks",
+          "blocks": [
+            "cards",
+            "columns"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/cli-surface",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/coverage",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/dogfood-sites",
+          "blocks": [
+            "cards",
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/drafts/b2-drill",
+          "blocks": [
+            "cards"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/dualform",
+          "blocks": [
+            "dualform-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/frontier",
+          "blocks": [
+            "feature-matrix",
+            "frontier-hero",
+            "scroll-rail",
+            "vf-specimen"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/index",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/kitchen-sink",
+          "blocks": [
+            "accordion",
+            "auth-toggle",
+            "cards",
+            "carousel",
+            "columns",
+            "embed",
+            "form",
+            "hero",
+            "n8n-form",
+            "painterly-hero",
+            "quote",
+            "search",
+            "table",
+            "tabs",
+            "teaser"
+          ],
+          "autoblocks": [
+            "modal"
+          ]
+        },
+        {
+          "path": "/learnings",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/nav",
+          "blocks": [],
+          "autoblocks": [
+            "modal"
+          ]
+        },
+        {
+          "path": "/route-matrix",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/sheets",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/test-plan",
+          "blocks": [
+            "painterly-hero",
+            "table"
+          ],
+          "autoblocks": []
+        },
+        {
+          "path": "/why",
+          "blocks": [
+            "painterly-hero"
+          ],
+          "autoblocks": []
+        }
+      ]
+    },
+    "blockAssets": {
+      "blocks": [
+        "accordion",
+        "auth-toggle",
+        "cards",
+        "carousel",
+        "columns",
+        "dualform-hero",
+        "embed",
+        "feature-matrix",
+        "form",
+        "fragment",
+        "frontier-hero",
+        "hero",
+        "modal",
+        "n8n-form",
+        "painterly-hero",
+        "quote",
+        "scroll-rail",
+        "search",
+        "table",
+        "tabs",
+        "teaser",
+        "vf-specimen",
+        "widget"
+      ],
+      "checked": [
+        {
+          "block": "accordion",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "auth-toggle",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "cards",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "carousel",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "columns",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "dualform-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "embed",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "feature-matrix",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "fragment",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "frontier-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "modal",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "n8n-form",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "painterly-hero",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "quote",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "scroll-rail",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "search",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "table",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "tabs",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "teaser",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "vf-specimen",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "block": "widget",
+          "js": 200,
+          "css": 200,
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "missing": [],
+      "errors": []
+    },
+    "localGit": {
+      "available": true,
+      "root": "/Users/mhess/aem/aem-code/da/da-cli-0-6-0",
+      "branch": "feat-69-strict-freeze-final",
+      "upstream": null,
+      "ahead": 0,
+      "unpushedBlockChanges": [],
+      "trackedAuthoredContent": [],
+      "detail": "No local unpushed changes found for authored block implementations."
+    },
+    "sectionShape": {
+      "ok": true,
+      "sampled": 50,
+      "violations": []
+    }
+  }
+}

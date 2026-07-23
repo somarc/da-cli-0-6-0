@@ -1,0 +1,173 @@
+{
+  "ok": true,
+  "operation": "pipeline.plan",
+  "target": "dogfood/promote.yaml",
+  "data": {
+    "name": "da-cli-0-6-0-da-native-promotion",
+    "context": {},
+    "steps": [
+      {
+        "id": "preview-readiness",
+        "command": "site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "contract-codebus",
+        "command": "audit contracts --prefix / --verify-code --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-readiness"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "publish-canonical-pages",
+        "command": "publish pages dogfood/canonical-pages.txt --bulk --yes --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "contract-codebus"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "rebuild-index",
+        "command": "index build --wait --yes --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "publish-canonical-pages"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "live-freshness",
+        "command": "site freshness / --include-shared --fail-on preview-stale,live-stale,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "rebuild-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "live-test-plan",
+        "command": "site freshness /test-plan --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "live-freshness"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "live-kitchen-sink",
+        "command": "site freshness /kitchen-sink --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "live-freshness"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "live-route-matrix",
+        "command": "site freshness /route-matrix --fail-on preview-stale,live-stale,preview-only,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "live-freshness"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "live-sitemap",
+        "command": "sitemap verify --target live --allow-content-paths --require-path /test-plan --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "live-test-plan",
+          "live-kitchen-sink",
+          "live-route-matrix"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "final-doctor",
+        "command": "site doctor --agent --deep --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "live-sitemap"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      }
+    ],
+    "batches": [
+      [
+        "preview-readiness"
+      ],
+      [
+        "contract-codebus"
+      ],
+      [
+        "publish-canonical-pages"
+      ],
+      [
+        "rebuild-index"
+      ],
+      [
+        "live-freshness"
+      ],
+      [
+        "live-test-plan",
+        "live-kitchen-sink",
+        "live-route-matrix"
+      ],
+      [
+        "live-sitemap"
+      ],
+      [
+        "final-doctor"
+      ]
+    ]
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --branch main --format json pipeline run dogfood/promote.yaml"
+  ]
+}

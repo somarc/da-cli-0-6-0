@@ -1,0 +1,281 @@
+{
+  "ok": true,
+  "operation": "pipeline.plan",
+  "target": "dogfood/certify.yaml",
+  "data": {
+    "name": "da-cli-0-6-0-da-native-certification",
+    "context": {},
+    "steps": [
+      {
+        "id": "status",
+        "command": "status --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "site-model",
+        "command": "site model --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "status"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "agent-briefing",
+        "command": "site doctor --agent --deep --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "site-model"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "contract-codebus",
+        "command": "audit contracts --prefix / --verify-code --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "agent-briefing"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-da-tree",
+        "command": "preview tree / --verify --yes --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "contract-codebus"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "explain-index",
+        "command": "preview explain /index --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-da-tree"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-home",
+        "command": "audit full / --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-test-plan",
+        "command": "audit full /test-plan --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-kitchen-sink",
+        "command": "audit full /kitchen-sink --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-route-matrix",
+        "command": "audit full /route-matrix --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-wave-4",
+        "command": "audit full /waves/4-durability --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-wave-5",
+        "command": "audit full /waves/5-failure-recovery --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "audit-learnings",
+        "command": "audit full /learnings --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "explain-index"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "freshness-gate",
+        "command": "site freshness / --include-shared --fail-on preview-stale,preview-missing,source-missing,probe-failed,unknown --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "audit-home",
+          "audit-test-plan",
+          "audit-kitchen-sink",
+          "audit-route-matrix",
+          "audit-wave-4",
+          "audit-wave-5",
+          "audit-learnings"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "preview-sitemap",
+        "command": "sitemap verify --target preview --allow-content-paths --require-path /test-plan --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "freshness-gate"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "code-proof",
+        "command": "code verify /styles/styles.css --contains body --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "preview-sitemap"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      },
+      {
+        "id": "final-doctor",
+        "command": "site doctor --agent --deep --format json",
+        "if": null,
+        "retry": null,
+        "depends_on": [
+          "code-proof"
+        ],
+        "requires_approval": false,
+        "timeout": null,
+        "continue_on_error": false,
+        "reconcile": null
+      }
+    ],
+    "batches": [
+      [
+        "status"
+      ],
+      [
+        "site-model"
+      ],
+      [
+        "agent-briefing"
+      ],
+      [
+        "contract-codebus"
+      ],
+      [
+        "preview-da-tree"
+      ],
+      [
+        "explain-index"
+      ],
+      [
+        "audit-home",
+        "audit-test-plan",
+        "audit-kitchen-sink",
+        "audit-route-matrix",
+        "audit-wave-4",
+        "audit-wave-5",
+        "audit-learnings"
+      ],
+      [
+        "freshness-gate"
+      ],
+      [
+        "preview-sitemap"
+      ],
+      [
+        "code-proof"
+      ],
+      [
+        "final-doctor"
+      ]
+    ]
+  },
+  "warnings": [],
+  "next": [
+    "da --org somarc --repo da-cli-0-6-0 --branch main --format json pipeline run dogfood/certify.yaml"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "da-cli.pre-freeze-run-checkpoint.v1",
+  "capturedAt": "2026-07-23T17:11:36.873Z",
+  "disposition": "pre-freeze-design-review-only",
+  "candidate": {
+    "cliCommit": "12c656a5fd83d75cc8f3ab18724cd04279e94c0c",
+    "packageVersion": "0.5.1",
+    "installKind": "source-tree"
+  },
+  "certification": {
+    "runId": "a46a6c54",
+    "status": "completed",
+    "steps": 17,
+    "warnings": []
+  },
+  "promotion": {
+    "runId": "78a6891e",
+    "status": "completed",
+    "steps": 10,
+    "warnings": [],
+    "approval": "explicit maintainer approval for exact 58-path canonical manifest"
+  },
+  "blockers": [
+    "Product candidate is still package version 0.5.1; immutable 0.6.0 release commit does not exist.",
+    "The retained DA snapshot predates the Wave 5 C2 public test-plan update and must be refreshed before freeze.",
+    "Current strict validators do not resolve tags, reject candidate artifacts in frozen state, or strongly bind snapshot/replay/liveness evidence.",
+    "One-shot semantic-release creates v0.6.0 after the point ADR 0003 requires strict tag verification, producing a circular gate."
+  ],
+  "finalFreezeClaimed": false,
+  "authoredBodiesRetainedInGit": false,
+  "tagsCreated": false,
+  "releaseWorkflowChanged": false
+}
